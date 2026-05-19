@@ -1,0 +1,16 @@
+.detailDiv {
+  padding: 0.75em 0.75em;
+  border: 1px solid var(--primary);
+  border-radius: 0.5em;
+
+  width: fit-content;
+}
+
+.detailDiv h3 {
+  font-size: 12px;
+  font-weight: 300 !important;
+}
+
+.detailDiv img {
+  width: 1.25em;
+}

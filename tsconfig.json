@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-  ],
+    "**/*.mts",
+    "app/page.js"
+, "shared/ui/card/CardImage.js", "shared/ui/card/CardText.js", "shared/ui/card/CardSection.js"  ],
   "exclude": ["node_modules"]
 }

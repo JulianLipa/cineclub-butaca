@@ -3,11 +3,9 @@ import CalendarioClubSection from "@/app/home/CalendarioClubSection/CalendarioCl
 
 export default function Home() {
   return (
-    <div>
-      <main className="flex flex-col gap-10">
-        <ProxFuncionesSection />
-        <CalendarioClubSection />
-      </main>
+    <div className="flex flex-col gap-10">
+      <ProxFuncionesSection />
+      <CalendarioClubSection />
     </div>
   );
 }

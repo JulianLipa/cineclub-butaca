@@ -1,0 +1,12 @@
+.header {
+  border-bottom: 1px solid var(--primary);
+  padding: 32px var(--padding-body-desktop-w);
+  background-color: var(--white);
+}
+
+@media screen and (max-width: 600px) {
+.header {
+  padding: 24px var(--padding-body-mobile);
+  border: none;
+}
+}

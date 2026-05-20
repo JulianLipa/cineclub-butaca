@@ -19,8 +19,8 @@ const CardText = (props) => {
 
       {/* DETAILS */}
       <div className={`flex flex-wrap ${style.detailsContainer}`}>
-        <CardDetails type="date" value={props.hour} />
-        <CardDetails value={props.date} />
+        <CardDetails type="date" value={props.date} />
+        <CardDetails value={props.hour} />
         <CardDetails type="place" value={props.place} />
         <CardDetails type="cycle" value={props.cycle} />
       </div>

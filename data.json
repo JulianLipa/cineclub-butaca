@@ -1,0 +1,171 @@
+{
+  "funciones": [
+    {
+      "title": "Carrie",
+      "year": "1976",
+      "date": "Vie. 23/12",
+      "hour": "19:45hs",
+      "subtitle": "Brian de Palma",
+      "place": "Sala Malba",
+      "cycle": "Culto"
+    },
+    {
+      "title": "Suspiria",
+      "year": "1977",
+      "date": "Sab. 24/12",
+      "hour": "20:00hs",
+      "subtitle": "Dario Argento",
+      "place": "Sala Lugones",
+      "cycle": "Terror Italiano"
+    },
+    {
+      "title": "Possession",
+      "year": "1981",
+      "date": "Sab. 24/12",
+      "hour": "22:10hs",
+      "subtitle": "Andrzej Żuławski",
+      "place": "MALBA",
+      "cycle": "Culto"
+    },
+    {
+      "title": "The Thing",
+      "year": "1982",
+      "date": "Mar. 27/12",
+      "hour": "21:30hs",
+      "subtitle": "John Carpenter",
+      "place": "Sala Cosmos",
+      "cycle": "Sci-Fi Horror"
+    },
+    {
+      "title": "Alien",
+      "year": "1979",
+      "date": "Jue. 28/12",
+      "hour": "20:15hs",
+      "subtitle": "Ridley Scott",
+      "place": "Sala Lugones",
+      "cycle": "Sci-Fi Horror"
+    },
+    {
+      "title": "Halloween",
+      "year": "1978",
+      "date": "Vie. 29/12",
+      "hour": "23:00hs",
+      "subtitle": "John Carpenter",
+      "place": "Sala Malba",
+      "cycle": "Slasher Clásico"
+    },
+    {
+      "title": "The Shining",
+      "year": "1980",
+      "date": "Sab. 30/12",
+      "hour": "21:00hs",
+      "subtitle": "Stanley Kubrick",
+      "place": "Sala Cosmos",
+      "cycle": "Culto"
+    },
+    {
+      "title": "Rosemary's Baby",
+      "year": "1968",
+      "date": "Dom. 31/12",
+      "hour": "19:30hs",
+      "subtitle": "Roman Polanski",
+      "place": "Sala Lugones",
+      "cycle": "Clásicos del Horror"
+    }
+  ],
+  "eventos": {
+    "2026-01-03": { "title": "Carrie, 1976", "type": "funcion" },
+    "2026-01-10": { "title": "Suspiria, 1977", "type": "funcion" },
+    "2026-01-16": { "title": "Ciclo Voces del Sur", "type": "cycle" },
+    "2026-01-18": { "title": "The Thing, 1982", "type": "funcion" },
+    "2026-01-24": { "title": "Alien, 1979", "type": "funcion" },
+    "2026-01-30": { "title": "Ciclo Noches de Terror", "type": "cycle" },
+
+    "2026-02-01": { "title": "Possession, 1981", "type": "funcion" },
+    "2026-02-07": { "title": "Halloween, 1978", "type": "funcion" },
+    "2026-02-13": { "title": "Ciclo Cine Maldito", "type": "cycle" },
+    "2026-02-15": { "title": "The Shining, 1980", "type": "funcion" },
+    "2026-02-21": { "title": "Rosemary's Baby, 1968", "type": "funcion" },
+    "2026-02-25": { "title": "Ciclo Giallo Italiano", "type": "cycle" },
+
+    "2026-03-01": { "title": "Nosferatu, 1922", "type": "funcion" },
+    "2026-03-07": { "title": "Hereditary, 2018", "type": "funcion" },
+    "2026-03-11": { "title": "Ciclo Sombras del Este", "type": "cycle" },
+    "2026-03-14": { "title": "Midsommar, 2019", "type": "funcion" },
+    "2026-03-22": { "title": "The Witch, 2015", "type": "funcion" },
+    "2026-03-27": { "title": "Ciclo Horror Experimental", "type": "cycle" },
+
+    "2026-04-04": { "title": "Psycho, 1960", "type": "funcion" },
+    "2026-04-10": { "title": "Ciclo Voces del Sur", "type": "cycle" },
+    "2026-04-12": { "title": "The Exorcist, 1973", "type": "funcion" },
+    "2026-04-18": { "title": "Videodrome, 1983", "type": "funcion" },
+    "2026-04-24": { "title": "Ciclo Distopías", "type": "cycle" },
+    "2026-04-26": { "title": "Eraserhead, 1977", "type": "funcion" },
+
+    "2026-05-02": { "title": "Perfect Blue, 1997", "type": "funcion" },
+    "2026-05-08": { "title": "Ciclo Nuevos Autores", "type": "cycle" },
+    "2026-05-09": { "title": "Oldboy, 2003", "type": "funcion" },
+    "2026-05-17": { "title": "Inferno, 1980", "type": "funcion" },
+    "2026-05-22": { "title": "Ciclo Voces del Sur", "type": "cycle" },
+    "2026-05-30": { "title": "Deep Red, 1975", "type": "funcion" },
+
+    "2026-06-05": { "title": "Ciclo Cine Noir", "type": "cycle" },
+    "2026-06-06": { "title": "Blade Runner, 1982", "type": "funcion" },
+    "2026-06-13": { "title": "The Fly, 1986", "type": "funcion" },
+    "2026-06-17": { "title": "Ciclo Horror Corporal", "type": "cycle" },
+    "2026-06-21": { "title": "Akira, 1988", "type": "funcion" },
+    "2026-06-27": { "title": "Crash, 1996", "type": "funcion" },
+
+    "2026-07-03": { "title": "Ciclo Medianoche", "type": "cycle" },
+    "2026-07-04": {
+      "title": "Twin Peaks: Fire Walk with Me, 1992",
+      "type": "funcion"
+    },
+    "2026-07-12": { "title": "Donnie Darko, 2001", "type": "funcion" },
+    "2026-07-18": { "title": "Climax, 2018", "type": "funcion" },
+    "2026-07-24": { "title": "Ciclo Cine Fantástico", "type": "cycle" },
+    "2026-07-26": { "title": "Raw, 2016", "type": "funcion" },
+
+    "2026-08-01": { "title": "Scream, 1996", "type": "funcion" },
+    "2026-08-07": { "title": "Ciclo Slasher Classics", "type": "cycle" },
+    "2026-08-09": { "title": "Black Swan, 2010", "type": "funcion" },
+    "2026-08-15": { "title": "The Lighthouse, 2019", "type": "funcion" },
+    "2026-08-21": { "title": "Ciclo Directoras del Horror", "type": "cycle" },
+    "2026-08-29": { "title": "It Follows, 2014", "type": "funcion" },
+
+    "2026-09-04": { "title": "Ciclo Retro Futuro", "type": "cycle" },
+    "2026-09-05": { "title": "Brazil, 1985", "type": "funcion" },
+    "2026-09-13": { "title": "Train to Busan, 2016", "type": "funcion" },
+    "2026-09-19": { "title": "The Wailing, 2016", "type": "funcion" },
+    "2026-09-25": { "title": "Ciclo Asia Extrema", "type": "cycle" },
+    "2026-09-27": { "title": "Cure, 1997", "type": "funcion" },
+
+    "2026-10-03": {
+      "title": "Night of the Living Dead, 1968",
+      "type": "funcion"
+    },
+    "2026-10-09": { "title": "Ciclo Octubre Oscuro", "type": "cycle" },
+    "2026-10-11": { "title": "Re-Animator, 1985", "type": "funcion" },
+    "2026-10-17": { "title": "Hellraiser, 1987", "type": "funcion" },
+    "2026-10-23": { "title": "Ciclo Terror Cósmico", "type": "cycle" },
+    "2026-10-31": {
+      "title": "The Texas Chain Saw Massacre, 1974",
+      "type": "funcion"
+    },
+
+    "2026-11-06": { "title": "Ciclo Fin del Mundo", "type": "cycle" },
+    "2026-11-07": { "title": "Children of Men, 2006", "type": "funcion" },
+    "2026-11-15": { "title": "Stalker, 1979", "type": "funcion" },
+    "2026-11-20": { "title": "Ciclo Cine de Autor", "type": "cycle" },
+    "2026-11-22": { "title": "Possessor, 2020", "type": "funcion" },
+    "2026-11-28": { "title": "Enemy, 2013", "type": "funcion" },
+
+    "2026-12-04": { "title": "Ciclo Fin de Año", "type": "cycle" },
+    "2026-12-05": { "title": "Eyes Wide Shut, 1999", "type": "funcion" },
+    "2026-12-12": { "title": "Mulholland Drive, 2001", "type": "funcion" },
+    "2026-12-18": { "title": "Ciclo Culto de Medianoche", "type": "cycle" },
+    "2026-12-20": { "title": "Blue Velvet, 1986", "type": "funcion" },
+    "2026-12-27": { "title": "Lost Highway, 1997", "type": "funcion" }
+  },
+  "diasSemana": ["L", "M", "X", "J", "V", "S", "D"]
+}

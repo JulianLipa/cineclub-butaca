@@ -1,10 +1,22 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 
-export const useCarousel = ({ itemsLength }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+// useLayoutEffect en cliente, useEffect en server (evita warnings en SSR)
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+export const useCarousel = ({ itemsLength, initialIndex = 0 }) => {
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
   const cardsRef = useRef([]);
+  const containerRef = useRef(null);
+  const isMounted = useRef(false);
 
   const handlePrev = useCallback(() => {
     setActiveIndex((prev) => (prev === 0 ? itemsLength - 1 : prev - 1));
@@ -18,19 +30,23 @@ export const useCarousel = ({ itemsLength }) => {
     setActiveIndex(index);
   }, []);
 
-  const containerRef = useRef(null);
-
-  useEffect(() => {
+  // Corre antes del paint → el scroll inicial ya está aplicado cuando el browser dibuja
+  useIsomorphicLayoutEffect(() => {
     const activeCard = cardsRef.current[activeIndex];
     const container = containerRef.current;
     if (!activeCard || !container) return;
 
-    const cardLeft = activeCard.getBoundingClientRect().left - container.getBoundingClientRect().left + container.scrollLeft;
+    const cardLeft =
+      activeCard.getBoundingClientRect().left -
+      container.getBoundingClientRect().left +
+      container.scrollLeft;
 
     container.scrollTo({
       left: cardLeft,
-      behavior: "smooth",
+      behavior: isMounted.current ? "smooth" : "instant",
     });
+
+    isMounted.current = true;
   }, [activeIndex]);
 
   return {

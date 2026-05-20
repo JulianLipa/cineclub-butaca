@@ -6,15 +6,24 @@ import style from "@/shared/ui/card/card.module.css";
 
 import DetailIcon from "@/shared/components/detailIcon/DetailIcon";
 
-const Card = ({ isActive, ...props }) => {
+const Card = ({ isActive, hideDate, ...props }) => {
   return (
-    <section className="flex flex-col gap-5">
-      <div className="flex items-center">
-        <DetailIcon>{props.date}</DetailIcon>
+    <section className={`flex flex-col ${!isActive ? "gap-5" : ""}`}>
+      <div className={`${!isActive ? "min-h-[3em]" : ""} flex items-center ${style.dateDetailSection}`}>
+        {!isActive && !hideDate ? (
+          <div className="flex items-center">
+            <DetailIcon icon="calendario">{props.date}</DetailIcon>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
-
-      <div className={isActive ? style.card : ""}>
-        <div className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}>
+      <div
+        className={`${style.cardBox} ${isActive ? style.card : ""} rounded-xl`}
+      >
+        <div
+          className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}
+        >
           <CardImage />
 
           <CardText
@@ -26,7 +35,9 @@ const Card = ({ isActive, ...props }) => {
           />
         </div>
 
-        <div className={`relative ${!isActive ? style.visible : style.hidden}`}>
+        <div
+          className={`${style.contractedView} rounded-xl overflow-hidden ${!isActive ? style.visible : style.hidden}`}
+        >
           <div className={style.cardImgContracted}>
             <Image
               src={"/imgs/frame.jpg"}

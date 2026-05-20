@@ -3,6 +3,7 @@
   border-radius: 1em;
   padding: 0.75em 1em;
   font-weight: 500;
+  cursor: pointer;
 
   display: flex;
   justify-content: center;
@@ -26,21 +27,18 @@
   color: var(--white);
 }
 
-.secondary {
-  background-color: none;
-  color: var(--touchable);
-  border: 1px solid var(--touchable);
-}
-
 .primary:hover {
   background-color: var(--white);
-  border: 1px solid var(--touchable);
   color: var(--touchable);
-  cursor: pointer;
 }
 
-.secondary:hover{
+.secondary {
+  background-color: transparent;
+  color: var(--touchable);
+  border: 1px solid var(--touchable);
+}
+
+.secondary:hover {
   background-color: var(--touchable);
   color: var(--white);
-  cursor: pointer;
 }

@@ -5,26 +5,16 @@ import CardText from "@/shared/ui/card/CardText";
 import style from "@/shared/ui/card/card.module.css";
 
 import DetailIcon from "@/shared/components/detailIcon/DetailIcon";
-import { useMediaQuery } from "@/shared/hooks/useMediaQuery";
 
 const Card = ({ isActive, ...props }) => {
-  const isMobile = useMediaQuery("(max-width: 600px)");
-
-  console.log(isMobile);
   return (
-    <section>
-      <div className={style.divDetailIcon}>
+    <section className="flex flex-col gap-5">
+      <div className="flex items-center">
         <DetailIcon>{props.date}</DetailIcon>
       </div>
 
-      <div
-        className={`${isActive ? style.card : ""} ${isActive ? style.active : ""}`}
-      >
-        <div
-          className={`${style.cardContent} ${
-            isActive ? style.visible : style.hidden
-          }`}
-        >
+      <div className={isActive ? style.card : ""}>
+        <div className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}>
           <CardImage />
 
           <CardText
@@ -36,12 +26,8 @@ const Card = ({ isActive, ...props }) => {
           />
         </div>
 
-        <div
-          className={`${style.cardImgContractedDiv} ${
-            !isActive ? style.visible : style.hidden
-          }`}
-        >
-          <div className={`${style.cardImgContracted}`}>
+        <div className={`relative ${!isActive ? style.visible : style.hidden}`}>
+          <div className={style.cardImgContracted}>
             <Image
               src={"/imgs/frame.jpg"}
               alt=""
@@ -51,7 +37,7 @@ const Card = ({ isActive, ...props }) => {
             />
           </div>
 
-          <div className={`${style.cardImgContractedText}`}>
+          <div className={style.cardImgContractedText}>
             <h4>
               {props.title}, {props.year}
             </h4>

@@ -9,12 +9,12 @@ const CardText = (props) => {
   return (
     <div className={style.cardDiv}>
       {/* HEADER */}
-      <div>
-        <h4 className="title">
+      <div className="w-fit">
+        <h4 className="text-[1.5em] font-semibold">
           {props.title}, {props.year}
         </h4>
 
-        <h5 className="title">Dir. {props.subtitle}</h5>
+        <h5 className="text-[1.25em] font-light">Dir. {props.subtitle}</h5>
       </div>
 
       {/* DETAILS */}
@@ -26,7 +26,7 @@ const CardText = (props) => {
       </div>
 
       {/* ACTIONS */}
-      <div className={`flex w-full gap-2 ${style.buttonCardDiv}`}>
+      <div className={`flex w-full gap-2 ${style.buttonDiv}`}>
         <Button variant="primary" href={props.hrefMain}>
           {props.textButtonMain}
         </Button>

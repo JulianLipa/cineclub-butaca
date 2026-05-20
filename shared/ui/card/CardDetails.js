@@ -1,6 +1,7 @@
 import Icon from "@/shared/components/icon/Icon";
 import style from "@/shared/ui/card/card.module.css";
 
+
 const DETAIL_ICONS = {
   date: "calendario",
   place: "ubicacion",
@@ -20,7 +21,7 @@ const CardDetail = ({ type, value }) => {
       `}
     >
       {iconName && (
-        <div className="h-4">
+        <div className="h-4 max-sm:hidden">
           <Icon name={iconName} variant="default" />
         </div>
       )}

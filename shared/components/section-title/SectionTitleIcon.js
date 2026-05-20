@@ -9,7 +9,7 @@ const SectionTitle = ({ children, ...props }) => {
     <div className="flex items-center gap-2">
       <Icon name={icon} variant={iconVariant} />
 
-      <h3 className="title">{children}</h3>
+      <h3 className="text-[1.5em] font-semibold">{children}</h3>
     </div>
   );
 };

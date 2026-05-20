@@ -11,7 +11,7 @@ const CarrouselHandler = ({
   isPaginatorActive,
 }) => {
   return (
-    <div className="flex items-center gap-4">
+    <div className={`flex items-center gap-4 ${style.carouselDiv}`}>
       <Button variant="secondary" onClick={onPrev}>
         &lt;
       </Button>

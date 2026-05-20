@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 
-import CardSection from "@/shared/ui/card/Card";
+import Card from "@/shared/ui/card/Card";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
 import CarrouselHandler from "@/shared/components/carrouselHandler/CarrouselHandler";
+
+import { useCarousel } from "@/shared/hooks/useCarousel";
 
 import style from "@/shared/ui/card/card.module.css";
 
@@ -84,33 +86,30 @@ const cards = [
 ];
 
 const ProxFuncionesSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(true);
 
-  const cardsRef = useRef([]);
+  const {
+    activeIndex,
+    cardsRef,
+    containerRef,
+    handlePrev,
+    handleNext,
+    handleCardClick,
+  } = useCarousel({ itemsLength: cards.length });
 
-  const handlePrev = useCallback(() => {
-    setActiveIndex((prev) => (prev === 0 ? cards.length - 1 : prev - 1));
-  }, []);
-
-  const handleNext = useCallback(() => {
-    setActiveIndex((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
-  }, []);
-
-  const handleCardClick = useCallback((index) => {
-    setActiveIndex(index);
-  }, []);
-
+  // Detectar si es mobile (SE MANTIENE IGUAL)
   useEffect(() => {
-    const activeCard = cardsRef.current[activeIndex];
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
 
-    if (!activeCard) return;
+    const handleChange = (e) => {
+      setIsMobile(e.matches);
+    };
 
-    activeCard.scrollIntoView({
-      behavior: "smooth",
-      inline: "start",
-      block: "nearest",
-    });
-  }, [activeIndex]);
+    setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   return (
     <section className="flex w-full flex-col gap-5">
@@ -126,18 +125,25 @@ const ProxFuncionesSection = () => {
         />
       </div>
 
-      <div className="w-full overflow-hidden">
-        <section className={`flex gap-5`}>
+      <div
+        ref={containerRef}
+        className={`w-full snap-x snap-mandatory ${style.sectionWrapperCard}`}
+      >
+        <section
+          className="flex gap-5"
+          style={isMobile ? { paddingLeft: "var(--padding-body-mobile)", paddingRight: "var(--padding-body-mobile)" } : undefined}
+        >
           {cards.map((card, index) => (
             <div
               key={`${card.title}-${index}`}
               ref={(element) => {
                 cardsRef.current[index] = element;
               }}
+              className={`snap-center ${isMobile ? "w-full shrink-0" : ""}`}
             >
-              <CardSection
+              <Card
                 {...card}
-                isActive={index === activeIndex}
+                isActive={isMobile ? true : index === activeIndex}
                 onClick={() => handleCardClick(index)}
               />
             </div>

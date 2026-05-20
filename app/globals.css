@@ -7,12 +7,8 @@
   --touchable: #0445af;
 
   --font-body: var(--font-inter);
-}
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  --padding-body-mobile: 40px;
 }
 
 html,
@@ -30,35 +26,21 @@ body {
   padding: 80px 100px;
 }
 
-main {
-  gap: 40px;
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
-  font-size: 1.5em;
-  font-weight: 700;
-
-  width: fit-content;
-}
-
 h3 {
-  font-weight: 600 !important;
+  font-weight: 600;
 }
 
 h4 {
-  font-weight: 600 !important;
+  font-weight: 600;
 }
 
 h5 {
-  font-weight: 300 !important;
-  font-size: 1.25em !important;
+  font-weight: 300;
+  font-size: 1.25em;
 }
 
 @media screen and (max-width: 600px) {
   body {
-    padding: 40px 40px;
-    gap: 20px;
+    padding: var(--padding-body-mobile);
   }
 }

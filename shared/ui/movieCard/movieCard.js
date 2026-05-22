@@ -5,10 +5,12 @@ import MovieText from "@/shared/ui/movieCard/movieText";
 
 import style from "@/shared/ui/movieCard/movieCard.module.css";
 
-const MovieCard = ({ title = "default" }) => {
+const MovieCard = ({ data, text, actionsIcons }) => {
   return (
     <div
-      className={`flex w-[160px] flex-col overflow-hidden rounded-xl gap-2 ${style.movieCard}`}
+      className={`flex w-fit sm:w-full flex-col overflow-hidden rounded-xl ${style.movieCard} ${
+        !text ? style.noHover : ""
+      }`}
     >
       <Image
         src="/imgs/carrie-img.jpg"
@@ -18,7 +20,8 @@ const MovieCard = ({ title = "default" }) => {
         sizes="100vw"
         className="h-auto w-full rounded-xl"
       />
-      <MovieText title={title}></MovieText>
+
+      {text && <MovieText data={data} actionsIcons={actionsIcons} />}
     </div>
   );
 };

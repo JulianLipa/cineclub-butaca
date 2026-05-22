@@ -1,0 +1,8 @@
+.reviewCard{
+    border: 1px solid var(--primary);
+}
+
+.reviewCard:hover{
+    background-color: var(--primary-opacidad);
+    cursor: pointer;
+}

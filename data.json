@@ -5,7 +5,7 @@
       "year": "1976",
       "date": "Vie. 23/12",
       "hour": "19:45hs",
-      "subtitle": "Brian de Palma",
+      "director": "Brian de Palma",
       "place": "Sala Malba",
       "cycle": "Culto"
     },
@@ -14,7 +14,7 @@
       "year": "1977",
       "date": "Sab. 24/12",
       "hour": "20:00hs",
-      "subtitle": "Dario Argento",
+      "director": "Dario Argento",
       "place": "Sala Lugones",
       "cycle": "Terror Italiano"
     },
@@ -23,7 +23,7 @@
       "year": "1981",
       "date": "Sab. 24/12",
       "hour": "22:10hs",
-      "subtitle": "Andrzej Żuławski",
+      "director": "Andrzej Żuławski",
       "place": "MALBA",
       "cycle": "Culto"
     },
@@ -32,7 +32,7 @@
       "year": "1982",
       "date": "Mar. 27/12",
       "hour": "21:30hs",
-      "subtitle": "John Carpenter",
+      "director": "John Carpenter",
       "place": "Sala Cosmos",
       "cycle": "Sci-Fi Horror"
     },
@@ -41,7 +41,7 @@
       "year": "1979",
       "date": "Jue. 28/12",
       "hour": "20:15hs",
-      "subtitle": "Ridley Scott",
+      "director": "Ridley Scott",
       "place": "Sala Lugones",
       "cycle": "Sci-Fi Horror"
     },
@@ -50,7 +50,7 @@
       "year": "1978",
       "date": "Vie. 29/12",
       "hour": "23:00hs",
-      "subtitle": "John Carpenter",
+      "director": "John Carpenter",
       "place": "Sala Malba",
       "cycle": "Slasher Clásico"
     },
@@ -59,7 +59,7 @@
       "year": "1980",
       "date": "Sab. 30/12",
       "hour": "21:00hs",
-      "subtitle": "Stanley Kubrick",
+      "director": "Stanley Kubrick",
       "place": "Sala Cosmos",
       "cycle": "Culto"
     },
@@ -68,7 +68,7 @@
       "year": "1968",
       "date": "Dom. 31/12",
       "hour": "19:30hs",
-      "subtitle": "Roman Polanski",
+      "director": "Roman Polanski",
       "place": "Sala Lugones",
       "cycle": "Clásicos del Horror"
     }

@@ -1,31 +1,17 @@
 import React from "react";
 import Button from "@/shared/ui/button/Button";
+import Actions from "@/shared/ui/actions/Actions.js";
 
-const MovieText = (props) => {
-  const actions = [
-    { icon: "eye", value: 28 },
-    { icon: "like", value: 28 },
-    { icon: "comentarios", value: 28 },
-  ];
+import style from "@/shared/ui/movieCard/movieCard.module.css";
 
+const MovieText = ({ data, actionsIcons }) => {
   return (
-    <div className="flex flex-col gap-1">
-      <Button variant="buttonText" className="font-semibold text-xl">
-        {props.title}
+    <div className={`flex flex-col rounded-b-xl gap-2 ${style.content}`}>
+      <Button variant="buttonText" className="font-medium text-xl">
+        {data.title}, {data.year}
       </Button>
 
-      <div className="flex gap-2">
-        {actions.map((item, index) => (
-          <Button
-            key={index}
-            variant="buttonText"
-            className="font-normal"
-            icon={item.icon}
-          >
-            {item.value}
-          </Button>
-        ))}
-      </div>
+      <Actions icons={actionsIcons} />
     </div>
   );
 };

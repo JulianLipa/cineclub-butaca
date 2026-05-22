@@ -41,7 +41,7 @@ const Button = ({
         </div>
       )}
 
-      <span className={className}>{children}</span>
+      <span className={`${className}`}>{children}</span>
     </button>
   );
 };

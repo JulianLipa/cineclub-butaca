@@ -19,6 +19,12 @@ const Header = () => {
         </div>
 
         <div className="hidden gap-10 sm:flex">
+          <Button
+            variant="buttonText"
+            className="font-normal text-base"
+          >
+            Funciones
+          </Button>
           <p>Funciones</p>
           <p>Comunidad</p>
           <p>Archivo</p>

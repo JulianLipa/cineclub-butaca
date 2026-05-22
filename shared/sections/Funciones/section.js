@@ -34,7 +34,7 @@ const Funciones = () => {
         />
       </div>
 
-      <div ref={containerRef} className="w-full snap-x snap-mandatory carousel">
+      <div ref={containerRef} className="w-full snap-x snap-mandatory carousel rounded-xl">
         <section className="flex gap-4 max-sm:mr-[var(--padding-body-mobile)] max-sm:pr-[var(--padding-body-mobile)]">
           {cards.map((card, index) => {
             const previousCard = cards[index - 1];

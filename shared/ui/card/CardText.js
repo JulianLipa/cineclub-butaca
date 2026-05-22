@@ -17,11 +17,11 @@ const CardText = (props) => {
     <div className={style.cardDiv}>
       {/* HEADER */}
       <div className="w-fit">
-        <h4 className="text-[1.5em] font-semibold">
+        <Button variant="buttonText" className="text-left text-[1.5em] font-semibold">
           {props.title}, {props.year}
-        </h4>
+        </Button>
 
-        <h5 className="text-[1.25em] font-light">Dir. {props.subtitle}</h5>
+        <h5 className="text-[1.25em] font-light">Dir. {props.director}</h5>
       </div>
 
       {/* DETAILS */}

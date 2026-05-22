@@ -59,6 +59,13 @@ h5 {
   overflow-y: hidden;
 }
 
+.profileImg {
+  width: 1.5em;
+  aspect-ratio: 1/1;
+  background-color: blue;
+  border-radius: 100%;
+}
+
 @media screen and (max-width: 600px) {
   .sectionMain {
     padding: var(--padding-body-mobile) var(--padding-body-mobile-w);
@@ -78,18 +85,4 @@ h5 {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
-}
-
-.embla__viewport {
-  overflow: hidden;
-}
-
-.embla__container {
-  display: flex;
-  touch-action: pan-y pinch-zoom;
-}
-
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
 }

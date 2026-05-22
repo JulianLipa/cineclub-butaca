@@ -1,13 +1,15 @@
 import MonthCard from "./MonthCard";
-import EventRow from "./EventRow";
 
 const MonthSlide = ({ year, monthIndex, today, events, slideRef }) => {
+  // Parsear fechas de forma segura (asumiendo formato YYYY-MM-DD)
   const monthEvents = Object.entries(events).filter(([date]) => {
-    const eventDate = new Date(date);
-
-    return (
-      eventDate.getMonth() === monthIndex && eventDate.getFullYear() === year
-    );
+    try {
+      const [y, m, d] = date.split("-").map(Number);
+      return m - 1 === monthIndex && y === year;
+    } catch {
+      console.warn(`Fecha inválida: ${date}`);
+      return false;
+    }
   });
 
   const isPastMonth =
@@ -24,18 +26,6 @@ const MonthSlide = ({ year, monthIndex, today, events, slideRef }) => {
           events={events}
           isPastMonth={isPastMonth}
         />
-        <div
-          className={`flex flex-col gap-2 ${isPastMonth ? "opacity-20" : "opacity-100"} h-[150px] overflow-auto scrollbar-thumb-transparent`}
-        >
-          {monthEvents.map(([date, event]) => (
-            <EventRow
-              key={date}
-              date={date}
-              event={event}
-              isPastMonth={isPastMonth}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );

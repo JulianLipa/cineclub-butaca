@@ -1,11 +1,43 @@
-.movieCard:hover {
-  border-radius: 1.5em 1.5em 0 0 ;
+.movieCard {
+  transition: transform 0.15s ease;
 }
 
-@media screen and (max-width: 600px) {
-  .movieCard:hover {
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-  }
+/* HOVER SOLO PARA CARDS INTERACTIVAS */
+.movieCard:hover {
+  cursor: pointer;
+  transform: translateY(-.5em);
+}
+
+/* contenido interno hover */
+.movieCard:hover .content {
+  border-color: var(--primary);
+  background-color: var(--primary-opacidad);
+}
+
+/* borde base del contenido */
+.movieCard .content {
+  border: 1px solid transparent;
+  border-top: 0;
+  padding: 0.5em;
+}
+
+/* texto alineado siempre */
+.movieCard span {
+  text-align: start !important;
+}
+
+/* ❌ VARIANTE SIN HOVER */
+.noHover {
+  pointer-events: none; /* opcional si querés bloqueo total */
+}
+
+.noHover:hover {
+  transform: none;
+  cursor: default;
+}
+
+/* asegura que no haya cambios visuales */
+.noHover:hover .content {
+  border-color: transparent;
+  background-color: transparent;
 }

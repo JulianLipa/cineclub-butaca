@@ -22,10 +22,10 @@
 const easing = [0.22, 1, 0.36, 1]; // ease-out suave
 
 export const fadeIn = {
-  initial: { opacity: 0 },
-  whileInView: { opacity: 1 },
-  viewport: { once: true, amount: 0.15 },
-  transition: { duration: 0.4, ease: easing },
+  initial: { opacity: 0, y:30 },
+  whileInView: { opacity: 1, y:0 },
+  viewport: { once: true, amount: 0.3 },
+  transition: { duration: 1, ease: easing },
 };
 
 export const fadeInUp = ({ delay = 0, root, amount = 0.3 } = {}) => ({

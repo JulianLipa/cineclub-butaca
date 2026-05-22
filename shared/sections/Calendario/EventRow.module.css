@@ -1,0 +1,50 @@
+.dayBox {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 1.75rem;
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border: 1.5px solid var(--primary);
+  border-radius: 0.5rem;
+
+  color: var(--primary);
+  background-color: var(--white);
+
+  font-size: 11px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.eventIndicator {
+  position: absolute;
+
+  bottom: 6px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 1em;
+  height: 1px;
+
+  border-radius: 999px;
+
+  background: var(--primary);
+}
+
+@media (min-width: 640px) {
+  .dayBox {
+    width: 2rem;
+  }
+}

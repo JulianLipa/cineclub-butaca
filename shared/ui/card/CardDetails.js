@@ -1,7 +1,6 @@
 import Icon from "@/shared/components/icon/Icon";
 import style from "@/shared/ui/card/card.module.css";
 
-
 const DETAIL_ICONS = {
   date: "calendario",
   place: "ubicacion",

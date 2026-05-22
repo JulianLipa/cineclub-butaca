@@ -6,12 +6,19 @@
   --white: #fff8f2;
   --touchable: #0445af;
 
+  --primary-opacidad: rgba(72, 37, 11, 0.2);
+
   --font-body: var(--font-inter);
 
   --padding-body-mobile: 40px;
   --padding-body-desktop: 40px;
 
-  --padding-body-desktop-w: 100px;
+  --padding-body-desktop-w: 80px;
+  --padding-body-mobile-w: 24px;
+}
+
+* {
+  transition: 0.2s all ease;
 }
 
 html,
@@ -54,7 +61,7 @@ h5 {
 
 @media screen and (max-width: 600px) {
   .sectionMain {
-    padding: var(--padding-body-mobile);
+    padding: var(--padding-body-mobile) var(--padding-body-mobile-w);
   }
 
   .carousel {
@@ -71,4 +78,18 @@ h5 {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
 }

@@ -105,15 +105,18 @@
   display: none;
 }
 
-/* Wrapper sin estilos en desktop. En mobile fuerza la apariencia de card activa. */
-.cardBox {
-  /* desktop: nada — el `style.card` condicional hace el trabajo cuando isActive */
-}
-
 /* Contenedor de la vista contraída (thumbnail + título) */
 .contractedView {
   border: 1px solid var(--primary);
   position: relative;
+  transition: 0.2s all ease;
+}
+
+.contractedView:hover {
+  background-color: var(--touchable);
+  border: 1px solid var(--touchable);
+  color: var(--white);
+  transform: scale(1);
 }
 
 @media screen and (max-width: 600px) {

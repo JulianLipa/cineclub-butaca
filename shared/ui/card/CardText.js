@@ -6,6 +6,13 @@ import Button from "@/shared/ui/button/Button";
 import style from "@/shared/ui/card/card.module.css";
 
 const CardText = (props) => {
+  const details = [
+    { type: "date", value: props.date },
+    { value: props.hour },
+    { type: "place", value: props.place },
+    { type: "cycle", value: props.cycle },
+  ];
+
   return (
     <div className={style.cardDiv}>
       {/* HEADER */}
@@ -19,10 +26,11 @@ const CardText = (props) => {
 
       {/* DETAILS */}
       <div className={`flex flex-wrap ${style.detailsContainer}`}>
-        <CardDetails type="date" value={props.date} />
-        <CardDetails value={props.hour} />
-        <CardDetails type="place" value={props.place} />
-        <CardDetails type="cycle" value={props.cycle} />
+        {details.map((detail, index) => (
+          <div key={index} className={index >= 2 ? "hidden sm:flex" : "flex"}>
+            <CardDetails {...detail} />
+          </div>
+        ))}
       </div>
 
       {/* ACTIONS */}

@@ -10,7 +10,7 @@ import { useCarousel } from "@/shared/hooks/useCarousel";
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 import { funciones as cards } from "@/data.json";
 
-const ProxFuncionesSection = () => {
+const Funciones = () => {
   const {
     activeIndex,
     cardsRef,
@@ -21,7 +21,7 @@ const ProxFuncionesSection = () => {
   } = useCarousel({ itemsLength: cards.length });
 
   return (
-    <motion.section {...fadeIn} className="flex w-full flex-col gap-5">
+    <motion.section {...fadeIn} className="flex w-full flex-col gap-4">
       <div className="flex w-full items-center justify-between">
         <SectionTitleIcon icon="circle">Próximas funciones</SectionTitleIcon>
 
@@ -35,18 +35,21 @@ const ProxFuncionesSection = () => {
       </div>
 
       <div ref={containerRef} className="w-full snap-x snap-mandatory carousel">
-        <section className="flex gap-5 max-sm:mr-[var(--padding-body-mobile)] max-sm:pr-[var(--padding-body-mobile)]">
+        <section className="flex gap-4 max-sm:mr-[var(--padding-body-mobile)] max-sm:pr-[var(--padding-body-mobile)]">
           {cards.map((card, index) => {
             const previousCard = cards[index - 1];
             const hideDate = previousCard?.date === card.date;
 
             return (
-              <div
+              <motion.div
                 key={`${card.title}-${index}`}
                 ref={(element) => {
                   cardsRef.current[index] = element;
                 }}
                 className="snap-center max-sm:w-full max-sm:shrink-0"
+                initial={{ opacity: 0, scale: 1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2 }}
               >
                 <Card
                   {...card}
@@ -54,7 +57,7 @@ const ProxFuncionesSection = () => {
                   isActive={index === activeIndex}
                   onClick={() => handleCardClick(index)}
                 />
-              </div>
+              </motion.div>
             );
           })}
         </section>
@@ -63,4 +66,4 @@ const ProxFuncionesSection = () => {
   );
 };
 
-export default ProxFuncionesSection;
+export default Funciones;

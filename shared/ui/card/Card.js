@@ -6,10 +6,12 @@ import style from "@/shared/ui/card/card.module.css";
 
 import DetailIcon from "@/shared/components/detailIcon/DetailIcon";
 
-const Card = ({ isActive, hideDate, ...props }) => {
+const Card = ({ isActive, hideDate, onClick, ...props }) => {
   return (
-    <section className={`flex flex-col ${!isActive ? "gap-5" : ""}`}>
-      <div className={`${!isActive ? "min-h-[3em]" : ""} flex items-center ${style.dateDetailSection}`}>
+    <section className={`flex flex-col ${!isActive ? "gap-4" : ""}`}>
+      <div
+        className={`${!isActive ? "min-h-[3em]" : ""} flex items-center ${style.dateDetailSection}`}
+      >
         {!isActive && !hideDate ? (
           <div className="flex items-center">
             <DetailIcon icon="calendario">{props.date}</DetailIcon>
@@ -37,6 +39,8 @@ const Card = ({ isActive, hideDate, ...props }) => {
 
         <div
           className={`${style.contractedView} rounded-xl overflow-hidden ${!isActive ? style.visible : style.hidden}`}
+          onClick={onClick}
+          style={{ cursor: !isActive ? "pointer" : "default" }}
         >
           <div className={style.cardImgContracted}>
             <Image

@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/shared/ui/button/Button";
-import style from "@/shared/components/carrouselHandler/carrousel.module.css";
+import style from "@/shared/components/carouselSection/carouselSection.module.css";
 
 const CarrouselHandler = ({
   totalItems,

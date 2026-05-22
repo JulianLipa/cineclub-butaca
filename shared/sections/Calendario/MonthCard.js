@@ -19,7 +19,7 @@ const getMonthDays = (year, month) => {
   return days;
 };
 
-const MonthCard = ({ year, monthIndex, today, events }) => {
+const MonthCard = ({ year, monthIndex, today, events, isPastMonth }) => {
   const days = getMonthDays(year, monthIndex);
 
   const monthName = new Date(year, monthIndex).toLocaleString("es-AR", {
@@ -27,20 +27,28 @@ const MonthCard = ({ year, monthIndex, today, events }) => {
   });
 
   return (
-    <div className="flex w-[20em] flex-col gap-5 rounded-xl border border-(--primary) bg-(--white) p-5">
-      <h3 className="flex w-full justify-center text-sm font-semibold uppercase">
+    <div
+      className={`
+        flex w-full flex-col gap-4 rounded-xl
+        border border-(--primary) bg-(--white) p-8
+        transition-opacity duration-300
+        ${isPastMonth ? "opacity-20" : "opacity-100"}
+      `}
+    >
+      {/* Título */}
+      <h3 className="text-center text-[16px] sm:text-[14px] font-semibold uppercase sm:text-sm">
         {monthName}
       </h3>
 
-      {/* Cabecera */}
-      <div className="grid grid-cols-7 text-center text-[10px]">
+      {/* Header */}
+      <div className="grid grid-cols-7 gap-[2px] text-center text-[12px] sm:text-[10px] sm:gap-1 sm:text-xs">
         {WEEK_DAYS.map((day) => (
           <span key={day}>{day}</span>
         ))}
       </div>
 
       {/* Días */}
-      <div className="grid grid-cols-7 gap-1">
+      <div className="grid min-w-0 grid-cols-7 gap-[2px] sm:gap-2">
         {days.map((day, index) => {
           if (!day) {
             return <div key={index} className={style.dayBox} />;
@@ -69,7 +77,7 @@ const MonthCard = ({ year, monthIndex, today, events }) => {
             >
               {day}
 
-              {event && <span className={style.eventIndicator} />}
+              {isToday && <span className={style.dayIndicator} />}
             </button>
           );
         })}

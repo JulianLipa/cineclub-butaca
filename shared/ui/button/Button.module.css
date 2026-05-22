@@ -42,3 +42,16 @@
   background-color: var(--touchable);
   color: var(--white);
 }
+
+.buttonText {
+  gap: 0.5em;
+  font-weight: 400;
+  transition: 0.2s all ease;
+  padding: 0 !important;
+  border-radius: 0px !important;
+}
+
+.buttonText:hover {
+  text-decoration: underline;
+  color: var(--touchable);
+}

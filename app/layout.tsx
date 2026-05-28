@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/shared/components/header/Header";
-import MainWrapper from "@/shared/components/MainWrapper/MainWrapper";
+import MainWrapper from "@/shared/components/mainWrapper/MainWrapper";
 import { LayoutProvider } from "@/contexts/LayoutContext";
 
 const inter = Inter({

@@ -26,7 +26,7 @@ export default function Carousel({
   };
 
   return (
-    <div className={`flex flex-col gap-4 ${className}`}>
+    <div className={`colSection ${className}`}>
       <div
         className={`flex gap-2 justify-end items-center ${style.carouselDiv}`}
       >

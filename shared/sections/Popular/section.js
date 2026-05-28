@@ -10,6 +10,7 @@ import MovieCard from "@/shared/ui/movieCard/movieCard";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
 import CarrouselHandler from "@/shared/components/carrouselHandler/CarrouselHandler";
 import { funciones as movies } from "@/data.json";
+import Button from "@/shared/ui/button/Button";
 
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 
@@ -40,18 +41,20 @@ const Popular = () => {
         onSwiper={setSwiperInstance}
         onSlideChange={handleSlideChange}
         className="w-full rounded-xl"
-        spaceBetween={16}
         breakpoints={{
           0: {
-            slidesPerView: 1.5,
+            slidesPerView: 3,
+            spaceBetween: 16,
           },
 
           640: {
             slidesPerView: 2.2,
+            spaceBetween: 16,
           },
 
           1024: {
             slidesPerView: 6,
+            spaceBetween: 16,
           },
         }}
       >
@@ -59,12 +62,18 @@ const Popular = () => {
           <SwiperSlide key={index}>
             <MovieCard
               text={true}
-              actionsIcons={["like", "eye", "comentarios"]}
               data={movie}
+              actionsIcons={"like,comentarios"}
             />
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="flex justify-center w-full">
+        <Button variant="primary" className="w-full! sm:w-fit!">
+          Ver Comunidad
+        </Button>
+      </div>
     </motion.section>
   );
 };

@@ -7,7 +7,8 @@
 
   flex-shrink: 0;
 
-  width: 1.75rem;
+  width: fit-content;
+  padding: .9em .5em;
   aspect-ratio: 1 / 1;
 
   overflow: hidden;
@@ -41,10 +42,4 @@
   border-radius: 999px;
 
   background: var(--primary);
-}
-
-@media (min-width: 640px) {
-  .dayBox {
-    width: 2rem;
-  }
 }

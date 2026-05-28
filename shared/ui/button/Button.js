@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Icon from "@/shared/components/icon/Icon";
+import Image from "next/image";
 
 import style from "@/shared/ui/button/Button.module.css";
 
@@ -12,36 +13,64 @@ const Button = ({
   type = "button",
   icon,
   className = "",
+  color,
+  img,
 }) => {
-  /* si tiene href => Link */
+  const iconVariant = variant === "secondary" ? "negative" : "default";
+
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  // Color dinámico del ícono
+  const getIconColor = () => {
+    if (variant === "buttonText") return "var(--primary)";
+    if (variant === "secondary") {
+      return isHovered ? "var(--white)" : "var(--touchable)";
+    }
+    if (variant === "primary") {
+      return isHovered ? "var(--touchable)" : "var(--white)";
+    }
+    return "var(--white)";
+  };
+
+  const iconComponent = icon && (
+    <div className="h-4 w-4 shrink-0">
+      <Icon name={icon} variant={iconVariant} color={color || getIconColor()} />
+    </div>
+  );
+
   if (href) {
     return (
-      <Link href={href} className={`${style.button} ${style[variant]}`}>
-        {icon && (
-          <div className="w-[15px] shrink-0">
-            <Icon name={icon} variant="default" />
-          </div>
-        )}
-
+      <Link
+        href={href}
+        className={`${style.button} ${style[variant]} gap-2`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {iconComponent}
         <span className={className}>{children}</span>
       </Link>
     );
   }
 
-  /* si no => button normal */
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${style.button} ${style[variant]}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`${style.button} ${style[variant]} ${className} gap-2`}
     >
-      {icon && (
-        <div className="w-[13px] shrink-0">
-          <Icon name={icon} variant="default" />
-        </div>
+      {iconComponent}
+      {img && (
+        <Image
+          src={`/imgs/${img}.png`}
+          alt=""
+          width={100}
+          height={100}
+          className="h-auto w-full object-contain"
+        />
       )}
-
-      <span className={`${className}`}>{children}</span>
+      {children && <span>{children}</span>}
     </button>
   );
 };

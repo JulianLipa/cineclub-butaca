@@ -14,7 +14,8 @@
   transition:
     background-color 0.2s ease,
     transform 0.2s ease,
-    opacity 0.2s ease;
+    opacity 0.2s ease,
+    color 0.2s ease;
 }
 
 .button:hover {
@@ -46,7 +47,6 @@
 .buttonText {
   gap: 0.5em;
   font-weight: 400;
-  transition: 0.2s all ease;
   padding: 0 !important;
   border-radius: 0px !important;
 }
@@ -54,4 +54,16 @@
 .buttonText:hover {
   text-decoration: underline;
   color: var(--touchable);
+}
+
+.terciary {
+  background-color: var(--secondary);
+  border: 1px solid transparent;
+  color: var(--primary);
+}
+
+.terciary:hover {
+  border: 1px solid var(--secondary);
+  background-color: transparent;
+  color: var(--primary);
 }

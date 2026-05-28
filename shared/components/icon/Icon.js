@@ -1,21 +1,31 @@
-import Image from "next/image";
-
-const Icon = ({ name, variant, alt }) => {
-  const src = variant
-    ? `/icons/i-${name}-${variant}.svg`
-    : `/icons/i-${name}.svg`;
+const Icon = ({
+  name,
+  variant,
+  alt,
+  className,
+  size = "h-4",
+  color = "var(--primary)",
+}) => {
+  const iconName = variant ? `i-${name}-${variant}` : `i-${name}`;
+  const iconPath = `/icons/${iconName}.svg`;
 
   return (
-    <Image
-      src={src}
-      alt={alt || name}
-      width={100}
-      height={100}
-      className={`
-        h-full
-        w-auto
-        object-contain
-      `}
+    <div
+      className={`${size} w-full shrink-0`}
+      style={{
+        WebkitMaskImage: `url(${iconPath})`,
+        WebkitMaskSize: "contain",
+        WebkitMaskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        maskImage: `url(${iconPath})`,
+        maskSize: "contain",
+        maskRepeat: "no-repeat",
+        maskPosition: "center",
+        backgroundColor: color,
+        display: "block",
+      }}
+      role="img"
+      aria-label={alt || name}
     />
   );
 };

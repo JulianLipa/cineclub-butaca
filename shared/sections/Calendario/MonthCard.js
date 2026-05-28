@@ -110,7 +110,7 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth }) => {
             />
           ))
         ) : (
-          <p className="text-gray-400 text-sm p-2">Sin eventos</p>
+          <p className="bodyText text-gray-400 text-sm p-2">Sin eventos</p>
         )}
       </div>
     </div>

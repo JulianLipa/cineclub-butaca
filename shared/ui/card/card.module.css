@@ -9,11 +9,15 @@
   overflow: hidden;
 }
 
+.card:hover {
+}
+
 .cardImgDiv {
   width: 100%;
-  height: 15em;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   flex-shrink: 0;
+  object-fit: cover;
 }
 
 .cardImgDiv img {
@@ -41,7 +45,7 @@
   padding: 1em;
 }
 
-.cardDiv {
+.cardDivText {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -113,9 +117,8 @@
 }
 
 .contractedView:hover {
-  background-color: var(--touchable);
+  background-color: var(--primary-opacidad);
   border: 1px solid var(--touchable);
-  color: var(--white);
   transform: scale(1);
 }
 

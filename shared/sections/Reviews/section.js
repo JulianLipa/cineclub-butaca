@@ -42,7 +42,7 @@ const Popular = () => {
         loop
         onSwiper={setSwiperInstance}
         onSlideChange={handleSlideChange}
-        className="w-full rounded-xl"
+        className="w-full rounded-xl overflow-x-hidden overflow-y-visible!"
         spaceBetween={16}
         breakpoints={{
           0: {
@@ -60,11 +60,6 @@ const Popular = () => {
       >
         {movies.map((movie, index) => (
           <SwiperSlide key={index} className="w-auto flex! gap-4">
-            <div className="">
-              <MovieCard
-                data={movie}
-              />
-            </div>
             <ReviewCard data={movie} />
           </SwiperSlide>
         ))}

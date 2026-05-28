@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Header from "@/shared/components/header/Header";
+import MainWrapper from "@/shared/components/MainWrapper/MainWrapper";
+import { LayoutProvider } from "@/contexts/LayoutContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <body>
-        <header className="sticky top-0 z-1000">
-          <Header />
-        </header>
+        <LayoutProvider>
+          <header className="sticky top-0 z-1000">
+            <Header />
+          </header>
 
-        <main className="sectionMain">{children}</main>
+          <MainWrapper>{children}</MainWrapper>
+        </LayoutProvider>
       </body>
     </html>
   );

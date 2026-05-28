@@ -1,8 +1,15 @@
-.reviewCard{
-    border: 1px solid var(--primary);
+.reviewCard {
+  border: 1px solid var(--primary);
 }
 
-.reviewCard:hover{
-    background-color: var(--primary-opacidad);
+.reviewCard:hover {
+  background-color: var(--primary-opacidad);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .reviewCard:hover {
+    background-color: transparent;
     cursor: pointer;
+  }
 }

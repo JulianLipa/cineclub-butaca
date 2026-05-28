@@ -1,33 +1,46 @@
-import Icon from "@/shared/components/icon/Icon";
+import CardDetail from "./CardDetail";
 import style from "@/shared/ui/card/card.module.css";
 
-const DETAIL_ICONS = {
-  date: "calendario",
-  place: "ubicacion",
-  cycle: "",
-};
+const CardDetails = ({
+  isCard = false,
+  date,
+  hour,
+  place,
+  cycle,
+  className,
+  fontCassName,
+  ...otherProps
+}) => {
+  let details = [];
 
-const CardDetail = ({ type, value }) => {
-  const iconName = DETAIL_ICONS[type];
+  if (isCard) {
+    details = [
+      { type: "date", value: date },
+      { value: hour },
+      { type: "place", value: place },
+      { type: "cycle", value: cycle },
+    ];
+  } else {
+    // Convierte todas las props en detalles simples
+    details = Object.entries(otherProps).map(([key, value]) => ({
+      value: value,
+    }));
+  }
 
   return (
     <div
-      className={`
-        flex
-        items-center
-        gap-2
-        ${style.textDetail}
-      `}
+      className={`flex flex-wrap h-fit ${style.detailsContainer} ${!isCard ? "border-0!" : ""}`}
     >
-      {iconName && (
-        <div className="h-4 max-sm:hidden">
-          <Icon name={iconName} variant="default" />
+      {details.map((detail, index) => (
+        <div
+          key={index}
+          className={index >= 3 && isCard ? "hidden sm:flex" : "flex"}
+        >
+          <CardDetail detail={detail} isCard={isCard} className={className} />
         </div>
-      )}
-
-      <p>{value}</p>
+      ))}
     </div>
   );
 };
 
-export default CardDetail;
+export default CardDetails;

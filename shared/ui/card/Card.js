@@ -3,6 +3,7 @@ import Image from "next/image";
 import CardImage from "@/shared/ui/card/CardImage";
 import CardText from "@/shared/ui/card/CardText";
 import style from "@/shared/ui/card/card.module.css";
+import Button from "@/shared/ui/button/Button";
 
 import DetailIcon from "@/shared/components/detailIcon/DetailIcon";
 
@@ -53,9 +54,12 @@ const Card = ({ isActive, hideDate, onClick, ...props }) => {
           </div>
 
           <div className={style.cardImgContractedText}>
-            <h4>
+            <Button
+              variant="buttonText"
+              className="text-left text-[1em] font-[600]!"
+            >
               {props.title}, {props.year}
-            </h4>
+            </Button>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ const Funciones = () => {
   return (
     <motion.section {...fadeIn} className="flex w-full flex-col gap-4">
       <div className="flex w-full items-center justify-between">
-        <SectionTitleIcon icon="circle">Próximas funciones</SectionTitleIcon>
+        <SectionTitleIcon icon="triangle">Próximas funciones</SectionTitleIcon>
 
         <CarrouselHandler
           totalItems={cards.length}

@@ -1,16 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import style from "@/shared/ui/card/card.module.css";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 
 const CardImage = ({ poster, loading }) => {
   const [imgReady, setImgReady] = useState(false);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     setImgReady(false);
   }, [poster]);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) setImgReady(true);
+  }, [poster, loading]);
 
   return (
     <div className={`${style.cardImgDiv} relative`}>
@@ -19,6 +24,7 @@ const CardImage = ({ poster, loading }) => {
       )}
       {!loading && (
         <Image
+          ref={imgRef}
           src={poster || "/imgs/frame.jpg"}
           alt=""
           width={400}

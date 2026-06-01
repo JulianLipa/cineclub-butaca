@@ -32,7 +32,7 @@ const MovieCarouselSection = ({
       <div className="flex justify-between items-center">
         <SectionTitle>{title}</SectionTitle>
 
-        {showControls && (
+        {showControls &&  totalItems > 3 && (
           <CarrouselHandler
             totalItems={totalItems || childrenArray.length}
             activeIndex={activeIndex}
@@ -47,7 +47,7 @@ const MovieCarouselSection = ({
         <Swiper
           spaceBetween={spaceBetween}
           loop={false}
-          className="rounded-2xl"
+          className="rounded-r-2xl"
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
@@ -55,10 +55,7 @@ const MovieCarouselSection = ({
           breakpoints={breakpoints}
         >
           {childrenArray.map((child, index) => (
-            <SwiperSlide
-              key={index}
-              className="overflow-hidden border-1 rounded-2xl border-(--secondary)"
-            >
+            <SwiperSlide key={index} className="">
               {child}
             </SwiperSlide>
           ))}

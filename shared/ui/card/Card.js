@@ -1,13 +1,27 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import CardImage from "@/shared/ui/card/CardImage";
 import CardText from "@/shared/ui/card/CardText";
 import style from "@/shared/ui/card/card.module.css";
 import Button from "@/shared/ui/button/Button";
-
 import DetailIcon from "@/shared/components/detailIcon/DetailIcon";
+import Skeleton from "@/shared/components/skeleton/Skeleton";
 
-const Card = ({ isActive, hideDate, onClick, ...props }) => {
+const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
+  const [tmdbData, setTmdbData] = useState(null);
+  const loading = !tmdbData;
+
+  useEffect(() => {
+    if (!tmdbId) return;
+    fetch(`/api/movies?id=${tmdbId}&preview=true`)
+      .then((r) => r.json())
+      .then(setTmdbData)
+      .catch(() => {});
+  }, [tmdbId]);
+
   return (
     <section className={`flex flex-col ${!isActive ? "gap-4" : ""}`}>
       <div
@@ -27,10 +41,14 @@ const Card = ({ isActive, hideDate, onClick, ...props }) => {
         <div
           className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}
         >
-          <CardImage />
+          <CardImage poster={tmdbData?.frame} loading={loading} />
 
           <CardText
             {...props}
+            titulo={tmdbData?.titulo}
+            anio={tmdbData?.anio}
+            loading={loading}
+            tmdbId={tmdbId}
             hrefMain=""
             hrefSecondary=""
             textButtonMain="Comprar entradas"
@@ -44,22 +62,30 @@ const Card = ({ isActive, hideDate, onClick, ...props }) => {
           style={{ cursor: !isActive ? "pointer" : "default" }}
         >
           <div className={style.cardImgContracted}>
-            <Image
-              src={"/imgs/frame.jpg"}
-              alt=""
-              width={100}
-              height={100}
-              className="h-auto w-full object-contain"
-            />
+            {loading ? (
+              <Skeleton className="w-full h-full rounded-none" />
+            ) : (
+              <Image
+                src={tmdbData?.frame || "/imgs/frame.jpg"}
+                alt={tmdbData?.titulo || ""}
+                width={100}
+                height={100}
+                className="h-auto w-full object-contain"
+              />
+            )}
           </div>
 
           <div className={style.cardImgContractedText}>
-            <Button
-              variant="buttonText"
-              className="text-left text-[1em] font-[600]!"
-            >
-              {props.title}, {props.year}
-            </Button>
+            {loading ? (
+              <Skeleton className="h-5 w-3/4" />
+            ) : (
+              <Button
+                variant="buttonText"
+                className="text-left text-[1em] font-[600]!"
+              >
+                {tmdbData?.titulo}, {tmdbData?.anio}
+              </Button>
+            )}
           </div>
         </div>
       </div>

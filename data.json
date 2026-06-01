@@ -1,6 +1,24 @@
 {
   "funciones": [
     {
+      "title": "Invasión",
+      "year": "1969",
+      "date": "Vie. 23/12",
+      "hour": "19:45hs",
+      "director": "Hugo Santiago",
+      "place": "Sala Malba",
+      "cycle": "Vanguardias Argentinas",
+      "country": "Argentina",
+      "duration": "2h 03min",
+      "resumenButaca": {
+        "Contexto Nacional": "Filmada y estrenada en una Argentina atravesada por la dictadura de Onganía y el estallido del Cordobazo. La película se convierte en una profecía muda del asedio militante y la resistencia política, sufriendo la censura y el posterior secuestro de sus negativos durante el gobierno militar de 1976.",
+        "Contexto Global": "Coincide con el auge de los movimientos de liberación del Tercer Mundo, la resaca estética del Mayo Francés y la politización radical del cine a nivel internacional, donde las estructuras clásicas del cine de género (en este caso, el policial y la ciencia ficción) se desarman para albergar alegorías políticas.",
+        "Guión": "Una colaboración histórica e intelectual única entre Hugo Santiago, Jorge Luis Borges y Adolfo Bioy Casares. El libreto construye un mito fundacional sobre la ciudad de Aquilea (Buenos Aires asediada), combinando la precisión geométrica de la literatura borgeana con una épica de la derrota y el estoicismo.",
+        "Rodaje": "Destaca por una fotografía impecable en blanco y negro a cargo de Ricardo Aronovich, que retrata una Buenos Aires desierta, espectral y laberíntica. El uso del montaje elíptico y las milongas compuestas por Aníbal Troilo configuran una puesta en escena abstracta y de vanguardia, alejada del realismo costumbrista de la época."
+      },
+      "tmdbId": "163924"
+    },
+    {
       "title": "Carrie",
       "year": "1976",
       "date": "Vie. 23/12",
@@ -15,7 +33,68 @@
         "Contexto Global": "Mediados de los años 70 representa el auge del 'Nuevo Hollywood', donde directores jóvenes rompen los códigos clásicos de los estudios. Coincide con la visibilización de las secuelas psicológicas de la Guerra de Vietnam, la crisis de Watergate y el surgimiento de una contracultura que explora las tensiones familiares, el puritanismo religioso y el despertar de la juventud a través de géneros disruptivos.",
         "Guión": "Adaptación precisa realizada por Lawrence D. Cohen sobre la primera novela publicada de Stephen King. El libreto destaca por estructurar el terror no desde un monstruo externo, sino desde el drama humano: el acoso escolar (bullying) institucionalizado y el fanatismo religioso materno como catalizadores de la tragedia, utilizando la telequinesis como una metáfora física de la represión.",
         "Rodaje": "Filmada principalmente en locaciones de California entre mayo y julio de 1976 con un presupuesto acotado. Destaca la maestría técnica de Brian De Palma mediante el uso expresivo de la pantalla dividida (split-screen), secuencias en cámara lenta, una iluminación difusa de ensueño que transiciona hacia la pesadilla y la icónica partitura de Pino Donaggio para acentuar el horror psicológico."
-      }
+      },
+      "tmdbId": "7340"
+    },
+    {
+      "title": "La Ciénaga",
+      "year": "2001",
+      "date": "Sab. 24/12",
+      "hour": "20:00hs",
+      "director": "Lucrecia Martel",
+      "place": "Sala Lugones",
+      "cycle": "Nuevo Cine Argentino",
+      "country": "Argentina",
+      "duration": "1h 43min",
+      "tmdbId": "58429"
+    },
+    {
+      "title": "París, Texas",
+      "year": "1984",
+      "date": "Sab. 24/12",
+      "hour": "22:10hs",
+      "director": "Wim Wenders",
+      "place": "MALBA",
+      "cycle": "Joyas del Cine Independiente",
+      "country": "Alemania Occidental / Estados Unidos",
+      "duration": "2h 27min",
+      "tmdbId": "655"
+    },
+    {
+      "title": "Nueve Reinas",
+      "year": "2000",
+      "date": "Mar. 27/12",
+      "hour": "21:30hs",
+      "director": "Fabián Bielinsky",
+      "place": "Sala Cosmos",
+      "cycle": "Clásicos Modernos",
+      "country": "Argentina",
+      "duration": "1h 54min",
+      "tmdbId": "18079"
+    },
+    {
+      "title": "Cléo de 5 à 7",
+      "year": "1962",
+      "date": "Jue. 28/12",
+      "hour": "20:15hs",
+      "director": "Agnès Varda",
+      "place": "Sala Lugones",
+      "cycle": "Miradas Feministas",
+      "country": "Francia",
+      "duration": "1h 30min",
+      "tmdbId": "499"
+    },
+    {
+      "title": "Memorias del subdesarrollo",
+      "year": "1968",
+      "date": "Jue. 28/12",
+      "hour": "20:15hs",
+      "director": "Tomás Gutiérrez Alea",
+      "place": "Sala Lugones",
+      "cycle": "Cine Revolucionario Latinoamericano",
+      "country": "Cuba",
+      "duration": "1h 37min",
+      "tmdbId": "47576"
     },
     {
       "title": "Suspiria",
@@ -26,157 +105,175 @@
       "place": "Sala Lugones",
       "cycle": "Terror Italiano",
       "country": "Italia",
-      "duration": "1h 38min"
+      "duration": "1h 38min",
+      "tmdbId": "11906"
     },
     {
-      "title": "Possession",
-      "year": "1981",
-      "date": "Sab. 24/12",
-      "hour": "22:10hs",
-      "director": "Andrzej Żuławski",
-      "place": "MALBA",
-      "cycle": "Culto",
-      "country": "Francia / Alemania Occidental",
-      "duration": "2h 04min"
-    },
-    {
-      "title": "The Thing",
-      "year": "1982",
-      "date": "Mar. 27/12",
-      "hour": "21:30hs",
-      "director": "John Carpenter",
-      "place": "Sala Cosmos",
-      "cycle": "Sci-Fi Horror",
-      "country": "Estados Unidos",
-      "duration": "1h 49min"
-    },
-    {
-      "title": "Alien",
-      "year": "1979",
-      "date": "Jue. 28/12",
-      "hour": "20:15hs",
-      "director": "Ridley Scott",
-      "place": "Sala Lugones",
-      "cycle": "Sci-Fi Horror",
-      "country": "Reino Unido / Estados Unidos",
-      "duration": "1h 57min"
-    },
-    {
-      "title": "Halloween",
-      "year": "1978",
+      "title": "Los Traidores",
+      "year": "1973",
       "date": "Vie. 29/12",
       "hour": "23:00hs",
-      "director": "John Carpenter",
+      "director": "Raymundo Gleyzer",
       "place": "Sala Malba",
-      "cycle": "Slasher Clásico",
-      "country": "Estados Unidos",
-      "duration": "1h 31min"
+      "cycle": "Cine y Militancia",
+      "country": "Argentina",
+      "duration": "1h 45min",
+      "tmdbId": "226216"
     },
     {
-      "title": "The Shining",
-      "year": "1980",
+      "title": "Chungking Express",
+      "year": "1994",
       "date": "Sab. 30/12",
       "hour": "21:00hs",
-      "director": "Stanley Kubrick",
+      "director": "Wong Kar-wai",
       "place": "Sala Cosmos",
-      "cycle": "Culto",
-      "country": "Reino Unido / Estados Unidos",
-      "duration": "2h 26min"
+      "cycle": "Autores de Culto",
+      "country": "Hong Kong",
+      "duration": "1h 42min",
+      "tmdbId": "11104"
     },
     {
-      "title": "Rosemary's Baby",
+      "title": "La Hora de los Hornos",
       "year": "1968",
       "date": "Dom. 31/12",
       "hour": "19:30hs",
-      "director": "Roman Polanski",
+      "director": "Fernando Solanas y Octavio Getino",
       "place": "Sala Lugones",
-      "cycle": "Clásicos del Horror",
-      "country": "Estados Unidos",
-      "duration": "2h 17min"
+      "cycle": "Cine Liberación",
+      "country": "Argentina",
+      "duration": "4h 20min",
+      "tmdbId": "89681"
     }
   ],
   "eventos": {
-    "2026-01-03": { "title": "Carrie, 1976", "type": "funcion" },
-    "2026-01-10": { "title": "Suspiria, 1977", "type": "funcion" },
-    "2026-01-16": { "title": "Ciclo Voces del Sur", "type": "cycle" },
-    "2026-01-18": { "title": "The Thing, 1982", "type": "funcion" },
-    "2026-01-24": { "title": "Alien, 1979", "type": "funcion" },
-    "2026-01-30": { "title": "Ciclo Noches de Terror", "type": "cycle" },
-    "2026-02-01": { "title": "Possession, 1981", "type": "funcion" },
-    "2026-02-07": { "title": "Halloween, 1978", "type": "funcion" },
-    "2026-02-13": { "title": "Ciclo Cine Maldito", "type": "cycle" },
-    "2026-02-15": { "title": "The Shining, 1980", "type": "funcion" },
-    "2026-02-21": { "title": "Rosemary's Baby, 1968", "type": "funcion" },
-    "2026-02-25": { "title": "Ciclo Giallo Italiano", "type": "cycle" },
-    "2026-03-01": { "title": "Nosferatu, 1922", "type": "funcion" },
-    "2026-03-07": { "title": "Hereditary, 2018", "type": "funcion" },
-    "2026-03-11": { "title": "Ciclo Sombras del Este", "type": "cycle" },
-    "2026-03-14": { "title": "Midsommar, 2019", "type": "funcion" },
-    "2026-03-22": { "title": "The Witch, 2015", "type": "funcion" },
-    "2026-03-27": { "title": "Ciclo Horror Experimental", "type": "cycle" },
-    "2026-04-04": { "title": "Psycho, 1960", "type": "funcion" },
-    "2026-04-10": { "title": "Ciclo Voces del Sur", "type": "cycle" },
-    "2026-04-12": { "title": "The Exorcist, 1973", "type": "funcion" },
-    "2026-04-18": { "title": "Videodrome, 1983", "type": "funcion" },
-    "2026-04-24": { "title": "Ciclo Distopías", "type": "cycle" },
-    "2026-04-26": { "title": "Eraserhead, 1977", "type": "funcion" },
-    "2026-05-02": { "title": "Perfect Blue, 1997", "type": "funcion" },
-    "2026-05-08": { "title": "Ciclo Nuevos Autores", "type": "cycle" },
-    "2026-05-09": { "title": "Oldboy, 2003", "type": "funcion" },
-    "2026-05-17": { "title": "Inferno, 1980", "type": "funcion" },
-    "2026-05-22": { "title": "Ciclo Voces del Sur", "type": "cycle" },
-    "2026-05-30": { "title": "Deep Red, 1975", "type": "funcion" },
-    "2026-06-05": { "title": "Ciclo Cine Noir", "type": "cycle" },
-    "2026-06-06": { "title": "Blade Runner, 1982", "type": "funcion" },
-    "2026-06-13": { "title": "The Fly, 1986", "type": "funcion" },
-    "2026-06-17": { "title": "Ciclo Horror Corporal", "type": "cycle" },
-    "2026-06-21": { "title": "Akira, 1988", "type": "funcion" },
-    "2026-06-27": { "title": "Crash, 1996", "type": "funcion" },
-    "2026-07-03": { "title": "Ciclo Medianoche", "type": "cycle" },
+    "2026-01-03": { "title": "Invasión, 1969", "type": "funcion" },
+    "2026-01-10": { "title": "La Ciénaga, 2001", "type": "funcion" },
+    "2026-01-16": { "title": "Ciclo Nuevo Cine Argentino", "type": "cycle" },
+    "2026-01-18": { "title": "Nueve Reinas, 2000", "type": "funcion" },
+    "2026-01-24": { "title": "Cléo de 5 à 7, 1962", "type": "funcion" },
+    "2026-01-30": { "title": "Ciclo Vanguardias Europeas", "type": "cycle" },
+    "2026-02-01": { "title": "París, Texas, 1984", "type": "funcion" },
+    "2026-02-07": { "title": "Los Traidores, 1973", "type": "funcion" },
+    "2026-02-13": {
+      "title": "Ciclo Cine Político Latinoamericano",
+      "type": "cycle"
+    },
+    "2026-02-15": { "title": "Chungking Express, 1994", "type": "funcion" },
+    "2026-02-21": { "title": "La Hora de los Hornos, 1968", "type": "funcion" },
+    "2026-02-25": { "title": "Ciclo Cine de la Resistencia", "type": "cycle" },
+    "2026-03-01": { "title": "El Dependiente, 1969", "type": "funcion" },
+    "2026-03-07": { "title": "Mala Época, 1998", "type": "funcion" },
+    "2026-03-11": { "title": "Ciclo Retratos de la Crisis", "type": "cycle" },
+    "2026-03-14": { "title": "Pizza, birra, faso, 1998", "type": "funcion" },
+    "2026-03-22": {
+      "title": "Historias Extraordinarias, 2008",
+      "type": "funcion"
+    },
+    "2026-03-27": {
+      "title": "Ciclo Cine Independiente Contemporáneo",
+      "type": "cycle"
+    },
+    "2026-04-04": { "title": "Los Rubios, 2003", "type": "funcion" },
+    "2026-04-10": { "title": "Ciclo Memoria e Identidad", "type": "cycle" },
+    "2026-04-12": { "title": "Santiago, 2007", "type": "funcion" },
+    "2026-04-18": { "title": "La Libertad, 2001", "type": "funcion" },
+    "2026-04-24": {
+      "title": "Ciclo El Hombre y el Territorio",
+      "type": "cycle"
+    },
+    "2026-04-26": { "title": "Zama, 2017", "type": "funcion" },
+    "2026-05-02": { "title": "Stalker, 1979", "type": "funcion" },
+    "2026-05-08": {
+      "title": "Ciclo Maestros de la Ciencia Ficción",
+      "type": "cycle"
+    },
+    "2026-05-09": { "title": "Metrópolis, 1927", "type": "funcion" },
+    "2026-05-17": { "title": "Breve Encuentro, 1945", "type": "funcion" },
+    "2026-05-22": {
+      "title": "Ciclo Melodrama y Sensibilidad",
+      "type": "cycle"
+    },
+    "2026-05-30": { "title": "In the Mood for Love, 2000", "type": "funcion" },
+    "2026-06-05": {
+      "title": "Ciclo Estéticas de la Nostalgia",
+      "type": "cycle"
+    },
+    "2026-06-06": { "title": "Blow-Up, 1966", "type": "funcion" },
+    "2026-06-13": { "title": "Juan Moreira, 1973", "type": "funcion" },
+    "2026-06-17": {
+      "title": "Ciclo Mitos Populares Argentinos",
+      "type": "cycle"
+    },
+    "2026-06-21": {
+      "title": "Nazareno Cruz y el lobo, 1975",
+      "type": "funcion"
+    },
+    "2026-07-03": {
+      "title": "Ciclo Realismo Mágico y Poesía",
+      "type": "cycle"
+    },
     "2026-07-04": {
-      "title": "Twin Peaks: Fire Walk with Me, 1992",
+      "title": "El lado oscuro del corazón, 1992",
       "type": "funcion"
     },
-    "2026-07-12": { "title": "Donnie Darko, 2001", "type": "funcion" },
-    "2026-07-18": { "title": "Climax, 2018", "type": "funcion" },
-    "2026-07-24": { "title": "Ciclo Cine Fantástico", "type": "cycle" },
-    "2026-07-26": { "title": "Raw, 2016", "type": "funcion" },
-    "2026-08-01": { "title": "Scream, 1996", "type": "funcion" },
-    "2026-08-07": { "title": "Ciclo Slasher Classics", "type": "cycle" },
-    "2026-08-09": { "title": "Black Swan, 2010", "type": "funcion" },
-    "2026-08-15": { "title": "The Lighthouse, 2019", "type": "funcion" },
-    "2026-08-21": { "title": "Ciclo Directoras del Horror", "type": "cycle" },
-    "2026-08-29": { "title": "It Follows, 2014", "type": "funcion" },
-    "2026-09-04": { "title": "Ciclo Retro Futuro", "type": "cycle" },
-    "2026-09-05": { "title": "Brazil, 1985", "type": "funcion" },
-    "2026-09-13": { "title": "Train to Busan, 2016", "type": "funcion" },
-    "2026-09-19": { "title": "The Wailing, 2016", "type": "funcion" },
-    "2026-09-25": { "title": "Ciclo Asia Extrema", "type": "cycle" },
-    "2026-09-27": { "title": "Cure, 1997", "type": "funcion" },
+    "2026-07-12": { "title": "La ley de la frontera, 1995", "type": "funcion" },
+    "2026-07-18": { "title": "Ayer fue primavera, 1955", "type": "funcion" },
+    "2026-07-24": {
+      "title": "Ciclo Clásicos en Blanco y Negro",
+      "type": "cycle"
+    },
+    "2026-07-26": {
+      "title": "Prisioneros de la tierra, 1939",
+      "type": "funcion"
+    },
+    "2026-08-01": { "title": "El bonaerense, 2002", "type": "funcion" },
+    "2026-08-07": {
+      "title": "Ciclo Violencia Institucional y Cine",
+      "type": "cycle"
+    },
+    "2026-08-09": {
+      "title": "M, el vampiro de Düsseldorf, 1931",
+      "type": "funcion"
+    },
+    "2026-08-15": { "title": "La Patagonia rebelde, 1974", "type": "funcion" },
+    "2026-08-21": {
+      "title": "Ciclo Historia y Memoria Colectiva",
+      "type": "cycle"
+    },
+    "2026-08-29": { "title": "La historia oficial, 1985", "type": "funcion" },
+    "2026-09-04": {
+      "title": "Ciclo Cine y Transición Democrática",
+      "type": "cycle"
+    },
+    "2026-09-05": { "title": "Sur, 1988", "type": "funcion" },
+    "2026-09-13": { "title": "Do the Right Thing, 1989", "type": "funcion" },
+    "2026-09-19": { "title": "Roma, ciudad abierta, 1945", "type": "funcion" },
+    "2026-09-25": {
+      "title": "Ciclo Neorrealismo y Compromiso",
+      "type": "cycle"
+    },
+    "2026-09-27": { "title": "Los olvidados, 1950", "type": "funcion" },
     "2026-10-03": {
-      "title": "Night of the Living Dead, 1968",
+      "title": "El espíritu de la colmena, 1973",
       "type": "funcion"
     },
-    "2026-10-09": { "title": "Ciclo Octubre Oscuro", "type": "cycle" },
-    "2026-10-11": { "title": "Re-Animator, 1985", "type": "funcion" },
-    "2026-10-17": { "title": "Hellraiser, 1987", "type": "funcion" },
-    "2026-10-23": { "title": "Ciclo Terror Cósmico", "type": "cycle" },
-    "2026-10-31": {
-      "title": "The Texas Chain Saw Massacre, 1974",
-      "type": "funcion"
-    },
-    "2026-11-06": { "title": "Ciclo Fin del Mundo", "type": "cycle" },
-    "2026-11-07": { "title": "Children of Men, 2006", "type": "funcion" },
-    "2026-11-15": { "title": "Stalker, 1979", "type": "funcion" },
-    "2026-11-20": { "title": "Ciclo Cine de Autor", "type": "cycle" },
-    "2026-11-22": { "title": "Possessor, 2020", "type": "funcion" },
-    "2026-11-28": { "title": "Enemy, 2013", "type": "funcion" },
-    "2026-12-04": { "title": "Ciclo Fin de Año", "type": "cycle" },
-    "2026-12-05": { "title": "Eyes Wide Shut, 1999", "type": "funcion" },
-    "2026-12-12": { "title": "Mulholland Drive, 2001", "type": "funcion" },
-    "2026-12-18": { "title": "Ciclo Culto de Medianoche", "type": "cycle" },
-    "2026-12-20": { "title": "Blue Velvet, 1986", "type": "funcion" },
-    "2026-12-27": { "title": "Lost Highway, 1997", "type": "funcion" }
+    "2026-10-09": { "title": "Ciclo Infancias Bajo la Lupa", "type": "cycle" },
+    "2026-10-11": { "title": "Cría cuervos, 1976", "type": "funcion" },
+    "2026-10-17": { "title": "Los 400 golpes, 1959", "type": "funcion" },
+    "2026-10-23": { "title": "Ciclo Retratos de Juventud", "type": "cycle" },
+    "2026-10-31": { "title": "Silvia Prieto, 1999", "type": "funcion" },
+    "2026-11-06": { "title": "Ciclo Absurdo y Cotidianeidad", "type": "cycle" },
+    "2026-11-07": { "title": "Esperando la carroza, 1985", "type": "funcion" },
+    "2026-11-15": { "title": "Tiempo de revancha, 1981", "type": "funcion" },
+    "2026-11-20": { "title": "Ciclo Cine Bajo la Censura", "type": "cycle" },
+    "2026-11-22": { "title": "Plata dulce, 1982", "type": "funcion" },
+    "2026-11-28": { "title": "Un oso rojo, 2002", "type": "funcion" },
+    "2026-12-04": { "title": "Ciclo El Nuevo Noir Argentino", "type": "cycle" },
+    "2026-12-05": { "title": "El aura, 2005", "type": "funcion" },
+    "2026-12-12": { "title": "Medianeras, 2011", "type": "funcion" },
+    "2026-12-18": { "title": "Ciclo Urbanismo y Soledad", "type": "cycle" },
+    "2026-12-20": { "title": "Relatos salvajes, 2014", "type": "funcion" },
+    "2026-12-27": { "title": "Muere, monstruo, muere, 2018", "type": "funcion" }
   },
   "diasSemana": ["L", "M", "X", "J", "V", "S", "D"]
 }

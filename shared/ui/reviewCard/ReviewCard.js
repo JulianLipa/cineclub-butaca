@@ -37,7 +37,7 @@ const ReviewCard = ({ data, singleMovie }) => {
         </p>
 
         <Actions
-          icons={["eye", "like", "comentarios"]}
+          icons={["like", "comentarios"]}
           className="text-[.9em]"
           variant="buttonText"
         />

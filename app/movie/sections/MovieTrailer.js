@@ -1,17 +1,27 @@
 import React from "react";
-import Image from "next/image";
+import Skeleton from "@/shared/components/skeleton/Skeleton.js";
+import FadeIn from "@/shared/components/skeleton/FadeIn.js";
 
-const MovieTrailer = () => {
+const MovieTrailer = ({ trailer, loading }) => {
+  const videoId = trailer?.split("v=")[1];
+
   return (
     <div className="colSection">
-    
-      <Image
-        src="/imgs/frame.jpg"
-        alt=""
-        width={300}
-        height={300}
-        className="h-auto w-full object-cover rounded-xl"
-      />
+      <FadeIn
+        loading={loading}
+        ready={!!trailer}
+        skeleton={<Skeleton className="w-full aspect-video rounded-xl" />}
+      >
+        {trailer && (
+          <iframe
+            className="w-full aspect-video rounded-xl"
+            src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+            allowFullScreen
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          />
+        )}
+      </FadeIn>
     </div>
   );
 };

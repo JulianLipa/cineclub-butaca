@@ -3,12 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   devIndicators: false,
   allowedDevOrigins: ["*.ngrok-free.app"],
-
-  // Agregar esta línea para usar Turbopack en lugar de Webpack
   turbopack: {
-    resolveAlias: {
-      // Aquí van tus aliases si los necesitas
-    },
+    resolveAlias: {},
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+      },
+    ],
   },
 };
 

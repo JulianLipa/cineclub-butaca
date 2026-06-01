@@ -1,18 +1,23 @@
 import React from "react";
+import Skeleton from "@/shared/components/skeleton/Skeleton.js";
+import FadeIn from "@/shared/components/skeleton/FadeIn.js";
 
-const MovieSinopsis = () => {
+const MovieSinopsis = ({ text, loading }) => {
   return (
     <div>
-      <p className="bodyText">
-        Remo Manfredini es una leyenda del turf, pero su conducta excéntrica y
-        autodestructiva comienza a eclipsar su talento. Abril, jocketa y pareja
-        de Remo, espera un hijo suyo y debe decidir entre continuar con su
-        embarazo o seguir corriendo. Ambos corren caballos para Sirena, un
-        empresario obsesionado con el jockey. Un día Remo sufre un accidente,
-        desaparece del hospital y deambula sin identidad por las calles de la
-        ciudad. Sirena lo quiere vivo o muerto mientras Abril intenta
-        encontrarlo antes de que sea demasiado tarde.
-      </p>
+      <FadeIn
+        loading={loading}
+        ready={!!text}
+        skeleton={
+          <div className="flex flex-col gap-2">
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-3/4" />
+          </div>
+        }
+      >
+        {text && <p className="bodyText">{text}</p>}
+      </FadeIn>
     </div>
   );
 };

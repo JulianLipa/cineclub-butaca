@@ -1,29 +1,62 @@
-import React from "react";
-import Image from "next/image";
+"use client";
 
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import MovieText from "@/shared/ui/movieCard/movieText";
 import Link from "next/link";
-
 import style from "@/shared/ui/movieCard/movieCard.module.css";
+import Skeleton from "@/shared/components/skeleton/Skeleton";
+import FadeIn from "@/shared/components/skeleton/FadeIn";
 
-const MovieCard = ({ data, text, actionsIcons }) => {
+const MovieCard = ({ tmdbId, text, actionsIcons }) => {
+  const [data, setData] = useState(null);
+  const [imgReady, setImgReady] = useState(false);
+
+  useEffect(() => {
+    if (!tmdbId) return;
+    fetch(`/api/movies?id=${tmdbId}&preview=true`)
+      .then((r) => r.json())
+      .then(setData)
+      .catch(() => {});
+  }, [tmdbId]);
+
+  const showSkeleton = !data || (!!data.poster && !imgReady);
+
   return (
     <Link
       className={`flex w-full flex-col overflow-hidden rounded-xl ${style.movieCard} ${
         !text ? style.noHover : ""
       }`}
-      href={"/movie"}
+      href={`/movie/${tmdbId}`}
     >
-      <Image
-        src="/imgs/carrie-img.jpg"
-        alt="Carrie"
-        width={0}
-        height={0}
-        sizes="100vw"
-        className="h-auto w-full rounded-[.5em] sm:rounded-[1em]"
-      />
+      <FadeIn
+        loading={showSkeleton}
+        skeleton={
+          <Skeleton className="w-full aspect-[2/3] rounded-[.5em] sm:rounded-[1em]" />
+        }
+      >
+        {data?.poster ? (
+          <Image
+            src={data.poster}
+            alt={data.titulo || ""}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="h-auto w-full rounded-[.5em] sm:rounded-[1em]"
+            loading="eager"
+            onLoad={() => setImgReady(true)}
+          />
+        ) : data ? (
+          <div className="w-full aspect-[2/3] rounded-[.5em] sm:rounded-[1em] bg-(--secondary)" />
+        ) : null}
+      </FadeIn>
 
-      {text && <MovieText data={data} actionsIcons={actionsIcons} />}
+      {text &&
+        (showSkeleton ? (
+          <Skeleton className="h-6 w-3/4 mx-1 mt-2" />
+        ) : (
+          <MovieText data={data} actionsIcons={actionsIcons} />
+        ))}
     </Link>
   );
 };

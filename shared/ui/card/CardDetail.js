@@ -11,6 +11,9 @@ const CardDetail = ({ detail, isCard, className, fontCassName }) => {
   const { type, value } = detail;
   const iconName = type ? DETAIL_ICONS[type] : null;
 
+  // ✅ No renderiza si no hay valor
+  if (value === undefined || value === null) return null;
+
   return (
     <div
       className={`
@@ -26,7 +29,6 @@ const CardDetail = ({ detail, isCard, className, fontCassName }) => {
           <Icon name={iconName} variant="default" />
         </div>
       )}
-
       <p className={`bodyText`}>{value}</p>
     </div>
   );

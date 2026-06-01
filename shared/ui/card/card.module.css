@@ -31,8 +31,6 @@
   height: 10em;
   overflow: hidden;
   flex-shrink: 0;
-
-  border: 1px solid var(--primary);
 }
 
 .cardImgContracted img {

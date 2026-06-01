@@ -47,7 +47,7 @@ const VoteBanner = () => {
         >
           {movies.slice(0, 3).map((movie, index) => (
             <SwiperSlide key={index}>
-              <MovieCard text={true} data={movie} />
+              <MovieCard text={true} tmdbId={movie.tmdbId} />
             </SwiperSlide>
           ))}
         </Swiper>

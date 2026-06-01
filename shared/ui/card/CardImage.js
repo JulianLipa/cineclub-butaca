@@ -1,21 +1,33 @@
-import React from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import style from "@/shared/ui/card/card.module.css";
+import Skeleton from "@/shared/components/skeleton/Skeleton";
 
-const CardImage = () => {
+const CardImage = ({ poster, loading }) => {
+  const [imgReady, setImgReady] = useState(false);
+
+  useEffect(() => {
+    setImgReady(false);
+  }, [poster]);
+
   return (
-    <div className={`${style.cardImgDiv}`}>
-      <Image
-        src={"/imgs/frame.jpg"}
-        alt={"alt"}
-        width={100}
-        height={100}
-        className={`
-              h-auto
-              w-full
-              object-contain
-            `}
-      />
+    <div className={`${style.cardImgDiv} relative`}>
+      {(loading || !imgReady) && (
+        <Skeleton className="absolute inset-0 rounded-none" />
+      )}
+      {!loading && (
+        <Image
+          src={poster || "/imgs/frame.jpg"}
+          alt=""
+          width={400}
+          height={200}
+          className="h-auto w-full object-contain"
+          loading="eager"
+          onLoad={() => setImgReady(true)}
+        />
+      )}
     </div>
   );
 };

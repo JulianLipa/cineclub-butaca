@@ -62,7 +62,7 @@ const Popular = () => {
           <SwiperSlide key={index}>
             <MovieCard
               text={true}
-              data={movie}
+              tmdbId={movie.tmdbId}
               actionsIcons={"like,comentarios"}
             />
           </SwiperSlide>

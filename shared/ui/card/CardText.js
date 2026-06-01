@@ -1,21 +1,27 @@
 import CardDetails from "@/shared/ui/card/CardDetails";
 import Button from "@/shared/ui/button/Button";
+import Skeleton from "@/shared/components/skeleton/Skeleton";
 
 import style from "@/shared/ui/card/card.module.css";
 
-const CardText = (props) => {
+const CardText = ({ titulo, anio, director, loading, ...props }) => {
   return (
     <div className={style.cardDivText}>
       {/* HEADER */}
       <div className="w-fit">
-        <Button
-          variant="buttonText"
-          className="text-left text-[24px] font-[600]!"
-        >
-          {props.title}, {props.year}
-        </Button>
+        {loading ? (
+          <Skeleton className="h-8 w-48 mb-2" />
+        ) : (
+          <Button
+            variant="buttonText"
+            href={`/movie/${props.tmdbId}`}
+            className="text-left text-[24px] font-[600]!"
+          >
+            {titulo}, {anio}
+          </Button>
+        )}
 
-        <h5 className="text-[1.25em] bodyText font-[400]!">Dir. {props.director}</h5>
+        <h5 className="text-[1.25em] bodyText font-[400]!">Dir. {director}</h5>
       </div>
 
       <CardDetails {...props} isCard={true} />

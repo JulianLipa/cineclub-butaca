@@ -2,7 +2,7 @@ import React from "react";
 
 const CardMovieResumen = ({ title, text }) => {
   return (
-    <div>
+    <div className="rounded-2xl overflow-hidden border-1 border-(--secondary)">
       <div className="bg-(--secondary) p-8">
         <h3 className="font-[500]! text-(--primary)">{title}</h3>
       </div>

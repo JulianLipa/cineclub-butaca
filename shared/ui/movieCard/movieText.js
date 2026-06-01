@@ -8,7 +8,7 @@ const MovieText = ({ data, actionsIcons }) => {
   return (
     <div className={`flex flex-col rounded-b-xl gap-2 ${style.content}`}>
       <Button variant="buttonText" className="text-[.9em] sm:text-[1em]">
-        {data.title}, {data.year}
+        {data.titulo}, {data.anio}
       </Button>
       {actionsIcons && <Actions icons={actionsIcons} variant="buttonText" />}
     </div>

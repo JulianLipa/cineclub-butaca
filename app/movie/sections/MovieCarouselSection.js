@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SectionTitle from "@/shared/components/section-title/SectionTitle";
-import CarrouselHandler from "@/shared/components/carrouselHandler/CarrouselHandler";
+import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
 import "swiper/css";
 
 const MovieCarouselSection = ({
@@ -33,7 +33,7 @@ const MovieCarouselSection = ({
         <SectionTitle>{title}</SectionTitle>
 
         {showControls &&  totalItems > 3 && (
-          <CarrouselHandler
+          <CarouselHandler
             totalItems={totalItems || childrenArray.length}
             activeIndex={activeIndex}
             onPrev={() => swiperRef.current?.slidePrev()}

@@ -9,10 +9,13 @@ import style from "@/shared/ui/card/card.module.css";
 import Button from "@/shared/ui/button/Button";
 import DetailIcon from "@/shared/components/detailIcon/DetailIcon";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
+import { formatScreeningDisplay } from "@/lib/dates";
 
 const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
   const [tmdbData, setTmdbData] = useState(null);
   const loading = !tmdbData;
+
+  const displayDate = formatScreeningDisplay(props.date);
 
   useEffect(() => {
     if (!tmdbId) return;
@@ -29,7 +32,7 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
       >
         {!isActive && !hideDate ? (
           <div className="flex items-center">
-            <DetailIcon icon="calendario">{props.date}</DetailIcon>
+            <DetailIcon icon="calendario">{displayDate}</DetailIcon>
           </div>
         ) : (
           ""
@@ -45,6 +48,7 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
 
           <CardText
             {...props}
+            date={displayDate}
             titulo={tmdbData?.titulo}
             anio={tmdbData?.anio}
             loading={loading}
@@ -68,7 +72,7 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
               <Image
                 src={tmdbData?.frame || "/imgs/frame.jpg"}
                 alt={tmdbData?.titulo || ""}
-                width={100}
+                width={200}
                 height={100}
                 className="h-auto w-full object-contain"
               />

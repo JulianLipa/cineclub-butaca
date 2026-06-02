@@ -1,6 +1,6 @@
 import style from "./MonthCard.module.css";
 import { diasSemana as WEEK_DAYS } from "@/data.json";
-
+import { parseISODate } from "@/lib/dates";
 import EventRow from "./EventRow";
 
 const getMonthDays = (year, month) => {
@@ -26,8 +26,8 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth }) => {
 
   const monthEvents = Object.entries(events).filter(([date]) => {
     try {
-      const [y, m, d] = date.split("-").map(Number);
-      return m - 1 === monthIndex && y === year;
+      const d = parseISODate(date);
+      return d.getMonth() === monthIndex && d.getFullYear() === year;
     } catch {
       console.warn(`Fecha inválida: ${date}`);
       return false;

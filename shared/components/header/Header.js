@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import style from "./Header.module.css";
 import Image from "next/image";
 

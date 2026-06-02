@@ -1,11 +1,11 @@
 import MonthCard from "./MonthCard";
+import { parseISODate } from "@/lib/dates";
 
-const MonthSlide = ({ year, monthIndex, today, events, slideRef }) => {
-  // Parsear fechas de forma segura (asumiendo formato YYYY-MM-DD)
+const MonthSlide = ({ year, monthIndex, today, events }) => {
   const monthEvents = Object.entries(events).filter(([date]) => {
     try {
-      const [y, m, d] = date.split("-").map(Number);
-      return m - 1 === monthIndex && y === year;
+      const d = parseISODate(date);
+      return d.getMonth() === monthIndex && d.getFullYear() === year;
     } catch {
       console.warn(`Fecha inválida: ${date}`);
       return false;
@@ -17,7 +17,7 @@ const MonthSlide = ({ year, monthIndex, today, events, slideRef }) => {
     (year === today.getFullYear() && monthIndex < today.getMonth());
 
   return (
-    <div ref={slideRef} className="flex snap-start shrink-0 flex-col gap-3">
+    <div className="flex snap-start shrink-0 flex-col gap-3">
       <div className="flex flex-col gap-2 w-full justify-center">
         <MonthCard
           year={year}

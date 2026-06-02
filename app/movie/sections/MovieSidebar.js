@@ -1,4 +1,4 @@
-import MovieCard from "@/shared/ui/movieCard/movieCard";
+import MovieCard from "@/shared/ui/movieCard/MovieCard";
 import CardDetails from "@/shared/ui/card/CardDetails";
 import Button from "@/shared/ui/button/Button";
 import Skeleton from "@/shared/components/skeleton/Skeleton.js";

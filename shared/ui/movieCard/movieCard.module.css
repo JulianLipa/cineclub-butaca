@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.movieCard:hover > img {
+.movieCard:hover{
   border-radius: 0px !important;
 }
 
@@ -51,7 +51,7 @@
 }
 
 /* Mobile - sin hover */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .movieCard:hover {
     transform: none;
     cursor: default;

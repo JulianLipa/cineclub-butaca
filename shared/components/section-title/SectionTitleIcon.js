@@ -1,6 +1,12 @@
 import Icon from "@/shared/components/icon/Icon";
 
-const SectionTitle = ({ children, icon, iconVariant = "negative" }) => {
+const SectionTitleIcon = ({
+  children,
+  icon,
+  iconVariant = "negative",
+  className,
+  size = "h-[1.2em]",
+}) => {
   return (
     <div className="flex items-center gap-2">
       {icon && (
@@ -9,14 +15,16 @@ const SectionTitle = ({ children, icon, iconVariant = "negative" }) => {
             name={icon}
             color={"var(--primary)"}
             variant={iconVariant}
-            size="h-[1.2em]"
+            size={size}
           />
         </div>
       )}
 
-      <h3 className="text-[1.2em] sm:text-[1.5em] font-semibold">{children}</h3>
+      <h3 className={`text-[1.2em] sm:text-[1.5em] font-semibold ${className}`}>
+        {children}
+      </h3>
     </div>
   );
 };
 
-export default SectionTitle;
+export default SectionTitleIcon;

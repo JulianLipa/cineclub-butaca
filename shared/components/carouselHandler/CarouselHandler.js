@@ -1,9 +1,9 @@
 "use client";
 
 import Button from "@/shared/ui/button/Button";
-import style from "@/shared/components/carouselSection/carouselSection.module.css";
+import style from "@/shared/components/carouselHandler/CarouselHandler.module.css";
 
-const CarrouselHandler = ({
+const CarouselHandler = ({
   totalItems,
   activeIndex,
   onPrev,
@@ -36,4 +36,4 @@ const CarrouselHandler = ({
   );
 };
 
-export default CarrouselHandler;
+export default CarouselHandler;

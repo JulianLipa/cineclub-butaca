@@ -12,7 +12,7 @@ export default function MainWrapper({
 
   return (
     <main
-      className={`sectionMain ${hasPaddingTop ? "pt-(--padding-body-desktop-mobile)! sm:pt-(--padding-body-desktop)!" : "p-0!"}`}
+      className={`sectionMain ${hasPaddingTop ? "pt-(--padding-body-mobile)! sm:pt-(--padding-body-desktop)!" : "p-0!"}`}
     >
       {children}
     </main>

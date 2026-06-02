@@ -5,6 +5,8 @@
   --secondary: #cad7e8;
   --white: #fff8f2;
   --touchable: #0445af;
+  --greenBorder: #7da269;
+  --greenFill: #e1edcf;
 
   --primary-opacidad: rgba(72, 37, 11, 0.2);
 
@@ -15,20 +17,38 @@
 
   --padding-body-desktop-w: 80px;
   --padding-body-mobile-w: 24px;
+
+  /* Definida en JS por Header.js según altura real del header */
+  --header-height: 80px;
 }
 
 * {
-  transition: 0.2s all ease;
+  transition: all 0.3s ease;
+}
+
+/* Solo transiciones en elementos interactivos */
+a,
+button,
+input,
+select,
+textarea,
+[role="button"] {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 h1,
 h2,
 h3,
 h4,
-h5{
+h5 {
   width: fit-content;
-  margin: 0; /* elimina margen externo */
-  padding: 0; /* elimina relleno interno */
+  margin: 0;
+  padding: 0;
   line-height: 1;
 }
 
@@ -83,38 +103,43 @@ h5 {
   gap: 1rem;
 }
 
+/* Avatar de usuario — placeholder hasta integrar auth */
 .profileImg {
   width: 1.5em;
   aspect-ratio: 1/1;
-  background-color: blue;
+  background-color: var(--secondary);
   border-radius: 100%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .bodyText {
-    font-size: .9em;
+    font-size: 0.9em;
   }
-  
+
   .sectionMain {
     padding: var(--padding-body-mobile) var(--padding-body-mobile-w);
   }
 
   .carousel {
-    overflow-x: auto; /* Enables horizontal scrolling */
-    white-space: nowrap; /* Prevents content from wrapping */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
 
-    /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
       display: none;
     }
 
     .colSection {
-      gap: 4em !important;
+      gap: 4em;
     }
 
-    /* Hide scrollbar for IE, Edge and Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (hover: none) {
+  * {
+    -webkit-tap-highlight-color: transparent;
   }
 }

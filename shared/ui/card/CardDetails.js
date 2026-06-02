@@ -8,7 +8,6 @@ const CardDetails = ({
   place,
   cycle,
   className,
-  fontCassName,
   ...otherProps
 }) => {
   let details = [];

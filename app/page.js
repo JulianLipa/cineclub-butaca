@@ -1,17 +1,21 @@
-import Funciones from "@/shared/sections/Funciones/section.js";
-import Calendario from "@/shared/sections/Calendario/section.js";
-import Popular from "@/shared/sections/Popular/section.js";
-import Reviews from "@/shared/sections/Reviews/section.js";
+import FuncionesSection from "@/shared/sections/Funciones/FuncionesSection";
+import CalendarioSection from "@/shared/sections/Calendario/CalendarioSection";
+import PopularSection from "@/shared/sections/Popular/PopularSection";
+import ReviewsSection from "@/shared/sections/Reviews/ReviewsSection";
 import VoteBanner from "@/shared/sections/VoteBanner/VoteBanner";
+import ListasSection from "@/shared/sections/Listas/ListasSection";
+import Pricing from "@/shared/sections/Pricing/Pricing";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-10">
-      <Funciones />
-      <Calendario />
+      <FuncionesSection />
+      <CalendarioSection />
       <VoteBanner />
-      <Reviews />
-      <Popular />
+      <ReviewsSection />
+      <ListasSection />
+      <PopularSection />
+      <Pricing />
     </div>
   );
 }

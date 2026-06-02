@@ -1,7 +1,6 @@
 import React from "react";
 
 import Button from "@/shared/ui/button/Button";
-import style from "@/shared/ui/user/userBadge/userBadge.module.css";
 
 const UserBadge = () => {
   return (

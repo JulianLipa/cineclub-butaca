@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,8 +8,8 @@ import "swiper/css";
 
 import Button from "@/shared/ui/button/Button";
 import { funciones as movies } from "@/data.json";
-import MovieCard from "@/shared/ui/movieCard/movieCard";
-import CarrouselHandler from "@/shared/components/carrouselHandler/CarrouselHandler";
+import MovieCard from "@/shared/ui/movieCard/MovieCard";
+import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
 
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 

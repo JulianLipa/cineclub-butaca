@@ -6,15 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 
-import MovieCard from "@/shared/ui/movieCard/movieCard";
+import List from "@/shared/ui/list/List";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
-import CarrouselHandler from "@/shared/components/carrouselHandler/CarrouselHandler";
-import { funciones as movies } from "@/data.json";
-import Button from "@/shared/ui/button/Button";
+import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
 
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 
-const Popular = () => {
+const LISTS = [{}, {}, {}, {}, {}, {}];
+
+const ListasSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState(null);
 
@@ -25,10 +25,10 @@ const Popular = () => {
   return (
     <motion.section {...fadeIn} className="flex w-full flex-col gap-4">
       <div className="flex w-full items-center justify-between">
-        <SectionTitleIcon icon="like">Popular entre miembros</SectionTitleIcon>
+        <SectionTitleIcon>Listas de la comunidad</SectionTitleIcon>
 
-        <CarrouselHandler
-          totalItems={movies.length}
+        <CarouselHandler
+          totalItems={LISTS.length}
           activeIndex={activeIndex}
           onPrev={() => swiperInstance?.slidePrev()}
           onNext={() => swiperInstance?.slideNext()}
@@ -42,40 +42,19 @@ const Popular = () => {
         onSlideChange={handleSlideChange}
         className="w-full rounded-xl"
         breakpoints={{
-          0: {
-            slidesPerView: 3,
-            spaceBetween: 16,
-          },
-
-          640: {
-            slidesPerView: 2.2,
-            spaceBetween: 16,
-          },
-
-          1024: {
-            slidesPerView: 6,
-            spaceBetween: 16,
-          },
+          0: { slidesPerView: 1.2, spaceBetween: 16 },
+          640: { slidesPerView: 2.2, spaceBetween: 16 },
+          1024: { slidesPerView: 3, spaceBetween: 16 },
         }}
       >
-        {movies.map((movie, index) => (
+        {LISTS.map((list, index) => (
           <SwiperSlide key={index}>
-            <MovieCard
-              text={true}
-              tmdbId={movie.tmdbId}
-              actionsIcons={"like,comentarios"}
-            />
+            <List {...list} />
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <div className="flex justify-center w-full">
-        <Button variant="primary" className="w-full! sm:w-fit!">
-          Ver Comunidad
-        </Button>
-      </div>
     </motion.section>
   );
 };
 
-export default Popular;
+export default ListasSection;

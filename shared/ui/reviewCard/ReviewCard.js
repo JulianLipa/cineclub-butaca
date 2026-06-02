@@ -1,6 +1,4 @@
-import React from "react";
-
-import UserBadge from "@/shared/ui/user/userBadge/userBadge";
+import UserBadge from "@/shared/ui/user/userBadge/UserBadge";
 import Actions from "@/shared/ui/userActions/Actions.js";
 import Image from "next/image";
 import StarSection from "@/shared/components/starSection/StarSection";

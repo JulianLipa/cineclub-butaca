@@ -7,7 +7,7 @@ const DETAIL_ICONS = {
   cycle: "",
 };
 
-const CardDetail = ({ detail, isCard, className, fontCassName }) => {
+const CardDetail = ({ detail, isCard, className }) => {
   const { type, value } = detail;
   const iconName = type ? DETAIL_ICONS[type] : null;
 

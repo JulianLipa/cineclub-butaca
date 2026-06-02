@@ -6,11 +6,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 
+import MovieCard from "@/shared/ui/movieCard/MovieCard";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
-import CarrouselHandler from "@/shared/components/carrouselHandler/CarrouselHandler";
-import ReviewCard from "@/shared/ui/reviewCard/ReviewCard.js";
-import MovieCard from "@/shared/ui/movieCard/movieCard";
+import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
 import { funciones as movies } from "@/data.json";
+import Button from "@/shared/ui/button/Button";
 
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 
@@ -25,11 +25,9 @@ const Popular = () => {
   return (
     <motion.section {...fadeIn} className="flex w-full flex-col gap-4">
       <div className="flex w-full items-center justify-between">
-        <SectionTitleIcon icon="comentarios">
-          Reseñas populares
-        </SectionTitleIcon>
+        <SectionTitleIcon icon="like">Popular entre miembros</SectionTitleIcon>
 
-        <CarrouselHandler
+        <CarouselHandler
           totalItems={movies.length}
           activeIndex={activeIndex}
           onPrev={() => swiperInstance?.slidePrev()}
@@ -42,28 +40,40 @@ const Popular = () => {
         loop
         onSwiper={setSwiperInstance}
         onSlideChange={handleSlideChange}
-        className="w-full rounded-xl overflow-x-hidden overflow-y-visible!"
-        spaceBetween={16}
+        className="w-full rounded-xl"
         breakpoints={{
           0: {
-            slidesPerView: 1.1,
+            slidesPerView: 3,
+            spaceBetween: 16,
           },
 
           640: {
             slidesPerView: 2.2,
+            spaceBetween: 16,
           },
 
           1024: {
-            slidesPerView: 2.5,
+            slidesPerView: 6,
+            spaceBetween: 16,
           },
         }}
       >
         {movies.map((movie, index) => (
-          <SwiperSlide key={index} className="w-auto flex! gap-4">
-            <ReviewCard data={movie} />
+          <SwiperSlide key={index}>
+            <MovieCard
+              text={true}
+              tmdbId={movie.tmdbId}
+              actionsIcons={["like", "comentarios"]}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <div className="flex justify-center w-full">
+        <Button variant="primary" className="w-full! sm:w-fit!">
+          Ver Comunidad
+        </Button>
+      </div>
     </motion.section>
   );
 };

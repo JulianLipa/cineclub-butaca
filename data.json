@@ -1,148 +1,104 @@
 {
   "funciones": [
     {
-      "title": "Invasión",
-      "year": "1969",
-      "date": "Vie. 23/12",
+      "title": "El Dependiente",
+      "date": "23/12/26",
       "hour": "19:45hs",
-      "director": "Hugo Santiago",
       "place": "Sala Malba",
-      "cycle": "Vanguardias Argentinas",
-      "country": "Argentina",
-      "duration": "2h 03min",
+      "cycle": "Vanguardias y Resistencia",
+      "tmdbId": "36785",
       "resumenButaca": {
-        "Contexto Nacional": "Filmada y estrenada en una Argentina atravesada por la dictadura de Onganía y el estallido del Cordobazo. La película se convierte en una profecía muda del asedio militante y la resistencia política, sufriendo la censura y el posterior secuestro de sus negativos durante el gobierno militar de 1976.",
-        "Contexto Global": "Coincide con el auge de los movimientos de liberación del Tercer Mundo, la resaca estética del Mayo Francés y la politización radical del cine a nivel internacional, donde las estructuras clásicas del cine de género (en este caso, el policial y la ciencia ficción) se desarman para albergar alegorías políticas.",
-        "Guión": "Una colaboración histórica e intelectual única entre Hugo Santiago, Jorge Luis Borges y Adolfo Bioy Casares. El libreto construye un mito fundacional sobre la ciudad de Aquilea (Buenos Aires asediada), combinando la precisión geométrica de la literatura borgeana con una épica de la derrota y el estoicismo.",
-        "Rodaje": "Destaca por una fotografía impecable en blanco y negro a cargo de Ricardo Aronovich, que retrata una Buenos Aires desierta, espectral y laberíntica. El uso del montaje elíptico y las milongas compuestas por Aníbal Troilo configuran una puesta en escena abstracta y de vanguardia, alejada del realismo costumbrista de la época."
-      },
-      "tmdbId": "163924"
+        "Contexto Nacional": "Estrenada en un clima de asfixia política bajo la dictadura de Onganía, la película captura magistralmente la parálisis y el estancamiento de la vida provinciana argentina. Funciona como una alegoría sombría de una sociedad domesticada por el autoritarismo, donde el deseo de progreso individual está severamente mutilado por estructuras jerárquicas inamovibles.",
+        "Contexto Global": "Se alinea temporalmente con el surgimiento de los nuevos cines modernos de los años 60 a nivel global (como la Nouvelle Vague o el Cinema Novo), que rompían con el modelo clásico industrial. Favio se distancia del cine político puramente militante o discursivo de la época para explorar una revolución formal y estética centrada en la alienación humana y existencial.",
+        "Guión": "Escrito por Leonardo Favio junto a su hermano Jorge Zuhair Jury, basándose en un cuento de este último. El libreto es un prodigio de minimalismo y tensión psicológica: despoja la trama de grandes hitos narrativos para concentrarse en la lenta degradación moral de Fernández, construyendo el horror no desde lo fantástico, sino desde la rutina, la codicia contenida y la demencia senil familiar.",
+        "Rodaje": "Filmada con una austereza técnica que Favio convierte en pura poesía visual. Destaca el uso expresivo de los primeros planos fijos, los silencios prolongados interrumpidos por ruidos cotidianos amplificados y una fotografía en blanco y negro de alto contraste que transforma los espacios domésticos en una prisión expresionista, complementada por el uso disruptivo de piezas musicales clásicas."
+      }
     },
     {
       "title": "Carrie",
-      "year": "1976",
-      "date": "Vie. 23/12",
+      "tmdbId": "7340",
+      "date": "23/12/26",
       "hour": "19:45hs",
-      "director": "Brian de Palma",
       "place": "Sala Malba",
       "cycle": "Culto",
-      "country": "Estados Unidos",
-      "duration": "1h 38min",
       "resumenButaca": {
         "Contexto Nacional": "En una Argentina marcada por el inicio de la dictadura militar de 1976 y una estricta censura cultural, el cine de terror internacional de vanguardia quedaba relegado a circuitos de exhibición muy controlados o llegaba de forma tardía, contrastando la violencia explícita de las pantallas con la violenta realidad política local.",
         "Contexto Global": "Mediados de los años 70 representa el auge del 'Nuevo Hollywood', donde directores jóvenes rompen los códigos clásicos de los estudios. Coincide con la visibilización de las secuelas psicológicas de la Guerra de Vietnam, la crisis de Watergate y el surgimiento de una contracultura que explora las tensiones familiares, el puritanismo religioso y el despertar de la juventud a través de géneros disruptivos.",
         "Guión": "Adaptación precisa realizada por Lawrence D. Cohen sobre la primera novela publicada de Stephen King. El libreto destaca por estructurar el terror no desde un monstruo externo, sino desde el drama humano: el acoso escolar (bullying) institucionalizado y el fanatismo religioso materno como catalizadores de la tragedia, utilizando la telequinesis como una metáfora física de la represión.",
         "Rodaje": "Filmada principalmente en locaciones de California entre mayo y julio de 1976 con un presupuesto acotado. Destaca la maestría técnica de Brian De Palma mediante el uso expresivo de la pantalla dividida (split-screen), secuencias en cámara lenta, una iluminación difusa de ensueño que transiciona hacia la pesadilla y la icónica partitura de Pino Donaggio para acentuar el horror psicológico."
-      },
-      "tmdbId": "7340"
+      }
     },
     {
       "title": "La Ciénaga",
-      "year": "2001",
-      "date": "Sab. 24/12",
+      "tmdbId": "58429",
+      "date": "24/12/26",
       "hour": "20:00hs",
-      "director": "Lucrecia Martel",
       "place": "Sala Lugones",
-      "cycle": "Nuevo Cine Argentino",
-      "country": "Argentina",
-      "duration": "1h 43min",
-      "tmdbId": "58429"
-    },
-    {
-      "title": "París, Texas",
-      "year": "1984",
-      "date": "Sab. 24/12",
-      "hour": "22:10hs",
-      "director": "Wim Wenders",
-      "place": "MALBA",
-      "cycle": "Joyas del Cine Independiente",
-      "country": "Alemania Occidental / Estados Unidos",
-      "duration": "2h 27min",
-      "tmdbId": "655"
-    },
-    {
-      "title": "Nueve Reinas",
-      "year": "2000",
-      "date": "Mar. 27/12",
-      "hour": "21:30hs",
-      "director": "Fabián Bielinsky",
-      "place": "Sala Cosmos",
-      "cycle": "Clásicos Modernos",
-      "country": "Argentina",
-      "duration": "1h 54min",
-      "tmdbId": "18079"
+      "cycle": "Nuevo Cine Argentino"
     },
     {
       "title": "Cléo de 5 à 7",
-      "year": "1962",
-      "date": "Jue. 28/12",
+      "tmdbId": "499",
+      "date": "25/12/26",
       "hour": "20:15hs",
-      "director": "Agnès Varda",
       "place": "Sala Lugones",
-      "cycle": "Miradas Feministas",
-      "country": "Francia",
-      "duration": "1h 30min",
-      "tmdbId": "499"
+      "cycle": "Miradas Feministas"
+    },
+    {
+      "title": "París, Texas",
+      "tmdbId": "655",
+      "date": "28/12/26",
+      "hour": "22:10hs",
+      "place": "MALBA",
+      "cycle": "Joyas del Cine Independiente"
+    },
+    {
+      "title": "Nueve Reinas",
+      "tmdbId": "18079",
+      "date": "28/12/26",
+      "hour": "21:30hs",
+      "place": "Sala Cosmos",
+      "cycle": "Clásicos Modernos"
     },
     {
       "title": "Memorias del subdesarrollo",
-      "year": "1968",
-      "date": "Jue. 28/12",
+      "tmdbId": "47576",
+      "date": "29/12/26",
       "hour": "20:15hs",
-      "director": "Tomás Gutiérrez Alea",
       "place": "Sala Lugones",
-      "cycle": "Cine Revolucionario Latinoamericano",
-      "country": "Cuba",
-      "duration": "1h 37min",
-      "tmdbId": "47576"
+      "cycle": "Cine Revolucionario Latinoamericano"
     },
     {
       "title": "Suspiria",
-      "year": "1977",
-      "date": "Sab. 24/12",
+      "tmdbId": "11906",
+      "date": "29/12/26",
       "hour": "20:00hs",
-      "director": "Dario Argento",
       "place": "Sala Lugones",
-      "cycle": "Terror Italiano",
-      "country": "Italia",
-      "duration": "1h 38min",
-      "tmdbId": "11906"
+      "cycle": "Terror Italiano"
     },
     {
-      "title": "Los Traidores",
-      "year": "1973",
-      "date": "Vie. 29/12",
+      "title": "Los traidores",
+      "tmdbId": "226216",
+      "date": "29/12/26",
       "hour": "23:00hs",
-      "director": "Raymundo Gleyzer",
       "place": "Sala Malba",
-      "cycle": "Cine y Militancia",
-      "country": "Argentina",
-      "duration": "1h 45min",
-      "tmdbId": "226216"
+      "cycle": "Cine y Militancia"
     },
     {
       "title": "Chungking Express",
-      "year": "1994",
-      "date": "Sab. 30/12",
+      "tmdbId": "11104",
+      "date": "30/12/26",
       "hour": "21:00hs",
-      "director": "Wong Kar-wai",
       "place": "Sala Cosmos",
-      "cycle": "Autores de Culto",
-      "country": "Hong Kong",
-      "duration": "1h 42min",
-      "tmdbId": "11104"
+      "cycle": "Autores de Culto"
     },
     {
-      "title": "La Hora de los Hornos",
-      "year": "1968",
-      "date": "Dom. 31/12",
+      "title": "La hora de los hornos",
+      "tmdbId": "89681",
+      "date": "31/12/26",
       "hour": "19:30hs",
-      "director": "Fernando Solanas y Octavio Getino",
       "place": "Sala Lugones",
-      "cycle": "Cine Liberación",
-      "country": "Argentina",
-      "duration": "4h 20min",
-      "tmdbId": "89681"
+      "cycle": "Cine Liberación"
     }
   ],
   "eventos": {
@@ -275,5 +231,72 @@
     "2026-12-20": { "title": "Relatos salvajes, 2014", "type": "funcion" },
     "2026-12-27": { "title": "Muere, monstruo, muere, 2018", "type": "funcion" }
   },
-  "diasSemana": ["L", "M", "X", "J", "V", "S", "D"]
+  "diasSemana": ["L", "M", "X", "J", "V", "S", "D"],
+  "pricing": [
+    {
+      "title": "Invitado",
+      "icon": "rectangle",
+      "price": "Gratis",
+      "cta": "Empezar gratis",
+      "features": [
+        {
+          "category": "Funciones",
+          "description": "Compra de entradas individuales por evento."
+        },
+        {
+          "category": "Comunidad",
+          "description": "Acceso de lectura a debates y reseñas."
+        },
+        {
+          "category": "Perfil",
+          "description": "Registro de las películas que ves."
+        }
+      ]
+    },
+    {
+      "title": "Socio Butaca",
+      "icon": "triangle",
+      "badge": "Más elegido",
+      "price": "$20.000",
+      "cta": "Unirme al Club",
+      "features": [
+        {
+          "category": "Pase Libre",
+          "description": "Acceso libre a todas las funciones del mes."
+        },
+        {
+          "category": "Voto",
+          "description": "Participá en la elección de ciclos y películas."
+        },
+        {
+          "category": "Perfil",
+          "description": "Insignia de Socio y estadísticas de visionado."
+        }
+      ]
+    },
+    {
+      "title": "Socio Fundador",
+      "icon": "circle",
+      "price": "$35.000",
+      "cta": "Ser Fundador",
+      "features": [
+        {
+          "category": "Pase Libre",
+          "description": "Acceso libre a todas las funciones del mes."
+        },
+        {
+          "category": "Invitado",
+          "description": "Una entrada extra de regalo por mes."
+        },
+        {
+          "category": "Kit de Bienvenida",
+          "description": "Tote bag, carnet físico y cuaderno."
+        },
+        {
+          "category": "Perfil",
+          "description": "Insignia de Fundador, créditos en sala y estadísticas."
+        }
+      ]
+    }
+  ]
 }

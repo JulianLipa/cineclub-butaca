@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import MovieText from "@/shared/ui/movieCard/movieText";
+import MovieText from "@/shared/ui/movieCard/MovieText";
 import Link from "next/link";
 import style from "@/shared/ui/movieCard/movieCard.module.css";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
@@ -42,7 +42,7 @@ const MovieCard = ({ tmdbId, text, actionsIcons }) => {
             width={0}
             height={0}
             sizes="100vw"
-            className="h-auto w-full rounded-[.5em] sm:rounded-[1em]"
+            className="h-auto w-full rounded-[.5em] sm:rounded-[1em] sm:hover:rounded-b-[0]"
             loading="eager"
             onLoad={() => setImgReady(true)}
           />

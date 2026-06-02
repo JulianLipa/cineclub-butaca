@@ -4,11 +4,12 @@ import { motion } from "framer-motion";
 
 import Card from "@/shared/ui/card/Card";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
-import CarrouselHandler from "@/shared/components/carrouselHandler/CarrouselHandler";
+import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
 
 import { useCarousel } from "@/shared/hooks/useCarousel";
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 import { funciones as cards } from "@/data.json";
+import { isSameScreeningDay } from "@/lib/dates";
 
 const Funciones = () => {
   const {
@@ -25,7 +26,7 @@ const Funciones = () => {
       <div className="flex w-full items-center justify-between">
         <SectionTitleIcon icon="triangle">Próximas funciones</SectionTitleIcon>
 
-        <CarrouselHandler
+        <CarouselHandler
           totalItems={cards.length}
           activeIndex={activeIndex}
           onPrev={handlePrev}
@@ -35,14 +36,14 @@ const Funciones = () => {
       </div>
 
       <div ref={containerRef} className="w-full snap-x snap-mandatory carousel rounded-xl">
-        <section className="flex gap-4 max-sm:mr-[var(--padding-body-mobile)] max-sm:pr-[var(--padding-body-mobile)]">
+        <section className="flex gap-4 max-sm:pr-[var(--padding-body-mobile)]">
           {cards.map((card, index) => {
             const previousCard = cards[index - 1];
-            const hideDate = previousCard?.date === card.date;
+            const hideDate = isSameScreeningDay(previousCard?.date, card.date);
 
             return (
               <motion.div
-                key={`${card.title}-${index}`}
+                key={`${card.tmdbId}-${index}`}
                 ref={(element) => {
                   cardsRef.current[index] = element;
                 }}

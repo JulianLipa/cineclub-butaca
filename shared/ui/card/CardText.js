@@ -21,7 +21,9 @@ const CardText = ({ titulo, anio, director, loading, ...props }) => {
           </Button>
         )}
 
-        <h5 className="text-[1.25em] bodyText font-[400]!">Dir. {director}</h5>
+        {director && (
+          <h5 className="text-[1.25em] bodyText font-[400]!">Dir. {director}</h5>
+        )}
       </div>
 
       <CardDetails {...props} isCard={true} />

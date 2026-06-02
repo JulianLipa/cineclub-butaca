@@ -5,12 +5,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
-import CarrouselHandler from "@/shared/components/carrouselHandler/CarrouselHandler";
+import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
 import MonthSlide from "./MonthSlide";
 
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 import { eventos as events } from "@/data.json";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const MONTHS = Array.from({ length: 12 }, (_, i) => i);
 
@@ -19,18 +19,6 @@ const CalendarioClubSection = () => {
   const year = today.getFullYear();
   const [activeIndex, setActiveIndex] = useState(today.getMonth());
   const [swiperInstance, setSwiperInstance] = useState(null);
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 640); // 640px es el breakpoint de Tailwind para sm
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   const handleSlideChange = (swiper) => {
     setActiveIndex(swiper.activeIndex % MONTHS.length);
@@ -43,7 +31,7 @@ const CalendarioClubSection = () => {
           Calendario del club
         </SectionTitleIcon>
 
-        <CarrouselHandler
+        <CarouselHandler
           totalItems={MONTHS.length}
           activeIndex={activeIndex}
           onPrev={() => swiperInstance?.slidePrev()}

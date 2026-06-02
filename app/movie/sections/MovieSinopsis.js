@@ -2,11 +2,11 @@ import React from "react";
 import Skeleton from "@/shared/components/skeleton/Skeleton.js";
 import FadeIn from "@/shared/components/skeleton/FadeIn.js";
 
-const MovieSinopsis = ({ text, loading }) => {
+const MovieSinopsis = ({ text }) => {
   return (
     <div>
       <FadeIn
-        loading={loading}
+        loading={false}
         ready={!!text}
         skeleton={
           <div className="flex flex-col gap-2">

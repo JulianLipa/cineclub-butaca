@@ -12,7 +12,7 @@ const MovieHero = ({ img }) => {
     <div className="sm:block hidden relative overflow-hidden">
       <FadeIn
         loading={!img || !imgReady}
-        skeleton={<Skeleton className="w-full h-[45svh]" />}
+        skeleton={<Skeleton className="w-full h-[40svh]" />}
       >
         {img && (
           <div className="relative w-full h-[50svh]">

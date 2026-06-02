@@ -2,8 +2,10 @@ import Actions from "@/shared/ui/userActions/Actions";
 
 import EventRow from "@/shared/sections/Calendario/EventRow.js";
 import style from "../movie.module.css";
+import { parseScreeningDate, dateToISO } from "@/lib/dates";
 
-const MovieActions = () => {
+const MovieActions = ({ date }) => {
+  const d = dateToISO(parseScreeningDate(date)); // "23/12/26" → "2026-12-23"
   return (
     <div className="w-full flex flex-col sm:flex-row gap-4">
       <Actions
@@ -15,7 +17,7 @@ const MovieActions = () => {
 
       <div className={`${style.eventActionDiv} sm:block hidden`}>
         <EventRow
-          date={"2026-05-02"}
+          date={d}
           event={"En cartelera"}
           isPastMonth={false}
           isMovieAction={true}

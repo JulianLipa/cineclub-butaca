@@ -1,5 +1,3 @@
-import React from "react";
-
 import Button from "@/shared/ui/button/Button";
 
 const Actions = ({ icons, className, variant, divClassname }) => {

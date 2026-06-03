@@ -13,10 +13,11 @@ export default function Home() {
       <FuncionesSection />
       <CalendarioSection />
       <VoteBanner />
-      <ReviewsSection />
+      <ReviewsSection variant="review" title={"Reseñas destacadas"} />
+      <ReviewsSection variant="tema" title={"Temas recientes"} />
       <ListasSection title={"Listas de la comunidad"} />
-      <PopularSection title={"Popular entre miembros"}/>
-      
+      <PopularSection title={"Popular entre miembros"} />
+
       <div className="flex justify-center w-full">
         <Button variant="primary" className="w-full! sm:w-fit!">
           Ver Comunidad

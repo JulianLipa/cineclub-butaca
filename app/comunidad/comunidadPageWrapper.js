@@ -40,7 +40,7 @@ const ComunidadPageWrapper = () => {
           }}
         />
 
-        <ReviewsSection variant="review" title={"Reseñas populares"}/>
+        <ReviewsSection variant="review" title={"Reseñas destacadas"}/>
 
         <ReviewsSection variant="tema" title={"Temas recientes"}/>
 

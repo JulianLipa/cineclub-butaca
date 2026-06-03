@@ -8,10 +8,12 @@ import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler
 
 import { useCarousel } from "@/shared/hooks/useCarousel";
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
-import { funciones as cards } from "@/data.json";
-import { isSameScreeningDay } from "@/lib/dates";
+import { funciones } from "@/data.json";
+import { isSameScreeningDay, sortByDateDesc } from "@/lib/dates";
 
 const Funciones = () => {
+  const cards = sortByDateDesc(funciones);
+
   const {
     activeIndex,
     cardsRef,
@@ -35,7 +37,10 @@ const Funciones = () => {
         />
       </div>
 
-      <div ref={containerRef} className="w-full snap-x snap-mandatory carousel rounded-xl">
+      <div
+        ref={containerRef}
+        className="w-full snap-x snap-mandatory carousel rounded-xl"
+      >
         <section className="flex gap-4 max-sm:pr-[var(--padding-body-mobile)]">
           {cards.map((card, index) => {
             const previousCard = cards[index - 1];
@@ -47,7 +52,7 @@ const Funciones = () => {
                 ref={(element) => {
                   cardsRef.current[index] = element;
                 }}
-                className="snap-center max-sm:w-full max-sm:shrink-0"
+                className="snap-start max-sm:w-full max-sm:shrink-0"
                 initial={{ opacity: 0, scale: 1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.2 }}

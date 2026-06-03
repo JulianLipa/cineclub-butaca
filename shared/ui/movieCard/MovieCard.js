@@ -24,7 +24,7 @@ const MovieCard = ({ tmdbId, text, actionsIcons }) => {
 
   return (
     <Link
-      className={`flex w-full flex-col overflow-hidden rounded-xl ${style.movieCard} ${
+      className={`flex w-full flex-col overflow-hidden rounded-xl borderButton ${style.movieCard} ${
         !text ? style.noHover : ""
       }`}
       href={`/movie/${tmdbId}`}
@@ -42,7 +42,7 @@ const MovieCard = ({ tmdbId, text, actionsIcons }) => {
             width={0}
             height={0}
             sizes="100vw"
-            className="h-auto w-full rounded-[.5em] sm:rounded-[1em] sm:hover:rounded-b-[0]"
+            className="h-auto w-full"
             loading="eager"
             onLoad={() => setImgReady(true)}
           />

@@ -1,71 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
-
-import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
-import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
+import CarouselSection from "@/shared/components/carouselSection/CarouselSection";
 import ReviewCard from "@/shared/ui/reviewCard/ReviewCard.js";
-import MovieCard from "@/shared/ui/movieCard/MovieCard";
 import { funciones as movies } from "@/data.json";
 
-import { fadeIn } from "@/shared/ui/animations/motionPresets";
-
-const Reviews = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [swiperInstance, setSwiperInstance] = useState(null);
-
-  const handleSlideChange = (swiper) => {
-    setActiveIndex(swiper.realIndex);
-  };
-
-  return (
-    <motion.section {...fadeIn} className="flex w-full flex-col gap-4">
-      <div className="flex w-full items-center justify-between">
-        <SectionTitleIcon icon="comillas">
-          Reseñas populares
-        </SectionTitleIcon>
-
-        <CarouselHandler
-          totalItems={movies.length}
-          activeIndex={activeIndex}
-          onPrev={() => swiperInstance?.slidePrev()}
-          onNext={() => swiperInstance?.slideNext()}
-          isPaginatorActive={false}
-        />
-      </div>
-
-      <Swiper
-        loop
-        onSwiper={setSwiperInstance}
-        onSlideChange={handleSlideChange}
-        className="w-full rounded-xl overflow-x-hidden overflow-y-visible!"
-        spaceBetween={16}
-        breakpoints={{
-          0: {
-            slidesPerView: 1.1,
-          },
-
-          640: {
-            slidesPerView: 2.2,
-          },
-
-          1024: {
-            slidesPerView: 3,
-          },
-        }}
-      >
-        {movies.map((movie, index) => (
-          <SwiperSlide key={index} className="w-auto flex! gap-4">
-            <ReviewCard data={movie} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </motion.section>
-  );
-};
+const Reviews = ({ variant, title }) => (
+  <CarouselSection
+    title={title}
+    icon={`${variant !== "tema" ? "comillas" : "triangle"}`}
+    items={movies}
+    renderItem={(movie) => <ReviewCard data={movie} variant={variant} />}
+    className="overflow-x-hidden overflow-y-visible!"
+    slideClassName="w-auto flex! gap-4"
+    breakpoints={{
+      0: { slidesPerView: 1.1, spaceBetween: 16 },
+      640: { slidesPerView: 2.2, spaceBetween: 16 },
+      1024: { slidesPerView: 3, spaceBetween: 16 },
+    }}
+  />
+);
 
 export default Reviews;

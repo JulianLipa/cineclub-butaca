@@ -1,15 +1,1 @@
-.reviewCard {
-  border: 1px solid var(--primary);
-}
-
-.reviewCard:hover {
-  background-color: var(--primary-opacidad);
-  cursor: pointer;
-}
-
-@media screen and (max-width: 640px) {
-  .reviewCard:hover {
-    background-color: transparent;
-    cursor: pointer;
-  }
-}
+/* estilos de borde y hover unificados en .borderButton (globals.css) */

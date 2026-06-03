@@ -61,7 +61,7 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
         </div>
 
         <div
-          className={`${style.contractedView} rounded-xl overflow-hidden ${!isActive ? style.visible : style.hidden}`}
+          className={`${style.contractedView} rounded-xl overflow-hidden borderButton ${!isActive ? style.visible : style.hidden}`}
           onClick={onClick}
           style={{ cursor: !isActive ? "pointer" : "default" }}
         >

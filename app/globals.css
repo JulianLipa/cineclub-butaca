@@ -138,6 +138,22 @@ h5 {
   }
 }
 
+.borderButton {
+  border: 1px solid var(--primary);;
+}
+
+.borderButton:hover {
+  background-color: var(--primary-opacidad);
+  cursor: pointer;
+  transform: scale(0.98);
+}
+
+@media screen and (max-width: 640px) {
+  .borderButton:hover {
+    background-color: transparent;
+  }
+}
+
 @media (hover: none) {
   * {
     -webkit-tap-highlight-color: transparent;

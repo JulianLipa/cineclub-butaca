@@ -5,6 +5,7 @@ import ReviewsSection from "@/shared/sections/Reviews/ReviewsSection";
 import VoteBanner from "@/shared/sections/VoteBanner/VoteBanner";
 import ListasSection from "@/shared/sections/Listas/ListasSection";
 import Pricing from "@/shared/sections/Pricing/Pricing";
+import Button from "@/shared/ui/button/Button";
 
 export default function Home() {
   return (
@@ -13,8 +14,15 @@ export default function Home() {
       <CalendarioSection />
       <VoteBanner />
       <ReviewsSection />
-      <ListasSection />
-      <PopularSection />
+      <ListasSection title={"Listas de la comunidad"} />
+      <PopularSection title={"Popular entre miembros"}/>
+      
+      <div className="flex justify-center w-full">
+        <Button variant="primary" className="w-full! sm:w-fit!">
+          Ver Comunidad
+        </Button>
+      </div>
+
       <Pricing />
     </div>
   );

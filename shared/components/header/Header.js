@@ -25,21 +25,23 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={`${style.header} flex gap-10 items-center justify-between`}>
-      <div className="flex w-full sm:w-auto gap-10 items-center">
-        <div className="w-full flex justify-center">
+    <div
+      className={`${style.header} flex gap-10 items-center md:justify-between justify-center w-full`}
+    >
+      <div className="flex md:w-auto gap-10 items-center">
+        <div className="w-[50px] flex justify-center">
           <Link href={"/"}>
             <Image
               src={"/logo/logo-black.svg"}
               alt=""
               width={100}
               height={100}
-              className="h-auto w-12 sm:w-15 object-contain"
+              className="h-auto w-[50px] object-contain"
             />
           </Link>
         </div>
 
-        <div className="hidden gap-10 sm:flex">
+        <div className="hidden gap-10 md:flex">
           <Button
             variant="buttonText"
             className="bodyText text-(--primary) text-[1em]!"
@@ -50,6 +52,7 @@ const Header = () => {
           <Button
             variant="buttonText"
             className="bodyText text-(--primary) text-[1em]!"
+            href={"/comunidad"}
           >
             Comunidad
           </Button>
@@ -70,7 +73,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="hidden gap-10 sm:flex">
+      <div className="hidden gap-10 md:flex">
         <Button variant="primary">Quiero mi Butaca</Button>
       </div>
     </div>

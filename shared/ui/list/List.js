@@ -5,12 +5,12 @@ import Actions from "@/shared/ui/userActions/Actions.js";
 
 const List = () => {
   return (
-    <div className="rounded-2xl border-1 border-(--primary) gap-4 p-4 sm:p-8 flex sm:hover:bg-(--primary-opacidad) cursor-pointer w-full">
-      <div className="w-1/3">
+    <div className="rounded-2xl gap-4 p-4 sm:p-8 flex cursor-pointer w-full borderButton">
+      <div className="w-[30%]">
         <MovieCard tmdbId={7340} text={false}></MovieCard>
       </div>
 
-      <div className="w-2/3 flex gap-2 flex-col">
+      <div className="w-2/3 flex gap-4 flex-col">
         <Button variant="buttonText" className="font-[600]!">
           Lista
         </Button>

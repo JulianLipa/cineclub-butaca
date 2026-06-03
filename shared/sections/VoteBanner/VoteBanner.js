@@ -24,10 +24,10 @@ const VoteBanner = () => {
   return (
     <motion.div
       {...fadeIn}
-      className="flex flex-col sm:flex-row w-full h-full border border-solid border-(--primary) rounded-xl sm:p-15 p-8 gap-4"
+      className="flex flex-col lg:flex-row w-full h-full border border-solid border-(--primary) rounded-xl lg:p-15 p-8 gap-4"
     >
       {/* CAROUSEL - Appears first on mobile, second on desktop */}
-      <div className="colSection w-full sm:w-1/2 order-2 sm:order-2">
+      <div className="colSection w-full lg:w-1/2 order-2 lg:order-2">
         <Swiper
           onSwiper={setSwiperInstance}
           onSlideChange={handleSlideChange}
@@ -35,10 +35,10 @@ const VoteBanner = () => {
           spaceBetween={16}
           breakpoints={{
             0: {
-              slidesPerView: 2.5,
+              slidesPerView: 2.4,
             },
             640: {
-              slidesPerView: 2,
+              slidesPerView: 3,
             },
             1024: {
               slidesPerView: 3,
@@ -54,23 +54,29 @@ const VoteBanner = () => {
       </div>
 
       {/* TITLE AND BUTTONS - Reorganized for mobile/desktop */}
-      <div className="colSection w-full sm:w-1/2 order-1 sm:order-1">
+      <div className="colSection w-full lg:w-1/2 order-1 lg:order-1">
         {/* Title section */}
         <div className="flex flex-col h-fit">
-          <p className="font-[600] text-[40px] sm:text-[80px] leading-none tracking-tight">
+          <p className="font-[600] text-[40px] lg:text-[80px] leading-none tracking-tight">
             Votá que película
           </p>
-          <p className="font-[300] text-[40px] sm:text-[80px] leading-none tracking-tight">
+          <p className="font-[300] text-[40px] lg:text-[80px] leading-none tracking-tight">
             vamos a ver
           </p>
         </div>
 
         {/* Buttons section */}
         <div className="flex gap-2 w-full">
-          <Button variant="primary" className="w-[-webkit-fill-available]! sm:w-fit!">
+          <Button
+            variant="primary"
+            className="w-[-webkit-fill-available]! lg:w-fit!"
+          >
             Ver más
           </Button>
-          <Button variant="secondary" className="w-[-webkit-fill-available]! sm:w-fit!">
+          <Button
+            variant="secondary"
+            className="w-[-webkit-fill-available]! lg:w-fit!"
+          >
             Comunidad
           </Button>
         </div>

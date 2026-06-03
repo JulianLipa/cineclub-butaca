@@ -3,14 +3,10 @@ import Actions from "@/shared/ui/userActions/Actions.js";
 import Image from "next/image";
 import StarSection from "@/shared/components/starSection/StarSection";
 
-import style from "@/shared/ui/reviewCard/reviewCard.module.css";
-
-const ReviewCard = ({ data, singleMovie }) => {
+const ReviewCard = ({ data, singleMovie, variant }) => {
   return (
-    <div
-      className={`flex w-full rounded-2xl p-4 sm:p-8 gap-4 ${style.reviewCard}`}
-    >
-      {!singleMovie && (
+    <div className="flex w-full rounded-2xl p-4 sm:p-8 gap-4 borderButton">
+      {variant !== "tema" && !singleMovie && (
         <div className="h-full w-[30%]">
           <Image
             src="/imgs/carrie-img.jpg"
@@ -27,7 +23,7 @@ const ReviewCard = ({ data, singleMovie }) => {
       <div className="gap-4 flex flex-col flex-1">
         <UserBadge />
 
-        <StarSection />
+        {variant !== "tema" && <StarSection />}
 
         <p className="bodyText">
           Es un clásico del terror psicológico con un final muy fuerte. No es

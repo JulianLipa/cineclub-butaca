@@ -9,8 +9,6 @@
   overflow: hidden;
 }
 
-.card:hover {
-}
 
 .cardImgDiv {
   width: 100%;
@@ -109,15 +107,7 @@
 
 /* Contenedor de la vista contraída (thumbnail + título) */
 .contractedView {
-  border: 1px solid var(--primary);
   position: relative;
-  transition: 0.2s all ease;
-}
-
-.contractedView:hover {
-  background-color: var(--primary-opacidad);
-  border: 1px solid var(--touchable);
-  transform: scale(1);
 }
 
 @media screen and (max-width: 640px) {

@@ -2,10 +2,11 @@
 
 import { useEffect } from "react";
 import { useLayout } from "@/contexts/LayoutContext";
+
 import SectionTitle from "@/shared/components/section-title/SectionTitle";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
 import Button from "@/shared/ui/button/Button";
-import MovieCarouselSection from "./sections/MovieCarouselSection";
+import CarouselSection from "@/shared/components/carouselSection/CarouselSection";
 import MovieHero from "./sections/MovieHero";
 import MovieSidebar from "./sections/MovieSidebar";
 import MovieActions from "./sections/MovieActions";
@@ -14,6 +15,9 @@ import MovieTrailer from "./sections/MovieTrailer";
 import MovieSinopsis from "./sections/MovieSinopsis";
 import CardMovieResumen from "./sections/MovieResumen/CardMovieResumen";
 import PersonCard from "@/shared/ui/personCard/PersonCard";
+import ListasSection from "@/shared/sections/Listas/ListasSection";
+import PopularSection from "@/shared/sections/Popular/PopularSection";
+
 import { funciones } from "@/data.json";
 
 const MoviePageWrapper = ({ movie }) => {
@@ -29,13 +33,10 @@ const MoviePageWrapper = ({ movie }) => {
     return () => setHasPaddingTop(true);
   }, [setHasPaddingTop]);
 
-  console.log(movie)
-
   return (
     <div>
       <MovieHero img={movie?.frame} />
-
-      <div className="relative flex flex-col sm:flex-row sectionMain gap-10! top-0">
+      <div className="sectionMain relative flex flex-col sm:flex-row gap-10! top-0">
         <MovieSidebar data={movie} />
 
         <div className="w-full sm:w-[70%] flex flex-col gap-10 sm:py-(--padding-body-desktop)">
@@ -50,20 +51,17 @@ const MoviePageWrapper = ({ movie }) => {
             )}
 
             {resumenButaca && (
-              <MovieCarouselSection
+              <CarouselSection
                 title="Resumen Butaca"
-                totalItems={Object.keys(resumenButaca).length}
-                showControls={true}
-                spaceBetween={16}
+                items={Object.entries(resumenButaca)}
+                renderItem={([key, value]) => (
+                  <CardMovieResumen title={key} text={value} />
+                )}
                 breakpoints={{
-                  0: { slidesPerView: 1.2 },
-                  1024: { slidesPerView: 2.2 },
+                  0: { slidesPerView: 1.2, spaceBetween: 16 },
+                  1024: { slidesPerView: 2.2, spaceBetween: 16 },
                 }}
-              >
-                {Object.entries(resumenButaca).map(([key, value]) => (
-                  <CardMovieResumen key={key} title={key} text={value} />
-                ))}
-              </MovieCarouselSection>
+              />
             )}
           </div>
 
@@ -84,38 +82,33 @@ const MoviePageWrapper = ({ movie }) => {
 
           <div className="colSection">
             {movie.equipo.length > 1 && (
-              <MovieCarouselSection
+              <CarouselSection
                 title="Equipo"
-                totalItems={movie?.equipo?.length}
-                showControls={true}
-                spaceBetween={16}
+                items={movie.equipo}
+                renderItem={(persona) => <PersonCard data={persona} />}
                 breakpoints={{
-                  0: { slidesPerView: 2.5 },
-                  1024: { slidesPerView: 4.2 },
+                  0: { slidesPerView: 2.5, spaceBetween: 16 },
+                  1024: { slidesPerView: 4.2, spaceBetween: 16 },
                 }}
-              >
-                {movie?.equipo?.map((persona, i) => (
-                  <PersonCard key={i} data={persona} />
-                ))}
-              </MovieCarouselSection>
+              />
             )}
 
-            <MovieCarouselSection
+            <CarouselSection
               title="Elenco"
-              totalItems={movie?.actores?.length}
-              showControls={true}
-              spaceBetween={16}
+              items={movie.actores}
+              renderItem={(actor) => <PersonCard data={actor} />}
               breakpoints={{
-                0: { slidesPerView: 2.5 },
-                1024: { slidesPerView: 4.2 },
+                0: { slidesPerView: 2.5, spaceBetween: 16 },
+                1024: { slidesPerView: 4.2, spaceBetween: 16 },
               }}
-            >
-              {movie?.actores?.map((actor, i) => (
-                <PersonCard key={i} data={actor} />
-              ))}
-            </MovieCarouselSection>
+            />
           </div>
         </div>
+      </div>
+
+      <div className="sectionMain flex flex-col gap-8!">
+        <ListasSection title="Aparece en" />
+        <PopularSection title={`Similar a ${movie.titulo}`} />
       </div>
     </div>
   );

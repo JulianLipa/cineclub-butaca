@@ -10,7 +10,9 @@ const MovieText = ({ data, actionsIcons }) => {
       <Button variant="buttonText" className="text-[.9em] sm:text-[1em]">
         {data.titulo}, {data.anio}
       </Button>
-      {actionsIcons && <Actions icons={actionsIcons} variant="buttonText" />}
+      <div className="md:block hidden">
+        {actionsIcons && <Actions icons={actionsIcons} variant="buttonText" />}
+      </div>
     </div>
   );
 };

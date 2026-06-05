@@ -5,9 +5,11 @@ import List from "@/shared/ui/list/List";
 
 const LISTS = [{}, {}, {}, {}, {}, {}];
 
-const ListasSection = ({ title }) => (
+const ListasSection = ({ title, moreButton = false }) => (
   <CarouselSection
     title={title}
+    moreButton={moreButton}
+    icon={"list"}
     items={LISTS}
     renderItem={(list) => <List {...list} />}
     breakpoints={{

@@ -8,11 +8,17 @@ import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler
 
 import { useCarousel } from "@/shared/hooks/useCarousel";
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
-import { funciones } from "@/data.json";
 import { isSameScreeningDay, sortByDateDesc } from "@/lib/dates";
+import CicloCard from "@/shared/ui/cicloCard/CicloCard";
 
-const Funciones = () => {
-  const cards = sortByDateDesc(funciones);
+const FuncionesSection = ({
+  items = [],
+  title = "Próximas funciones",
+  icon = "triangle",
+  iconVariant,
+  type = "funciones",
+}) => {
+  const cards = type === "funciones" ? sortByDateDesc(items) : items;
 
   const {
     activeIndex,
@@ -26,7 +32,9 @@ const Funciones = () => {
   return (
     <motion.section {...fadeIn} className="flex w-full flex-col gap-4">
       <div className="flex w-full items-center justify-between">
-        <SectionTitleIcon icon="triangle">Próximas funciones</SectionTitleIcon>
+        <SectionTitleIcon icon={icon} iconVariant={iconVariant}>
+          {title}
+        </SectionTitleIcon>
 
         <CarouselHandler
           totalItems={cards.length}
@@ -43,6 +51,9 @@ const Funciones = () => {
       >
         <section className="flex gap-4 max-sm:pr-[var(--padding-body-mobile)]">
           {cards.map((card, index) => {
+            const isActive = index === activeIndex;
+            const onClick = () => handleCardClick(index);
+
             const previousCard = cards[index - 1];
             const hideDate = isSameScreeningDay(previousCard?.date, card.date);
 
@@ -57,12 +68,11 @@ const Funciones = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.2 }}
               >
-                <Card
-                  {...card}
-                  hideDate={hideDate}
-                  isActive={index === activeIndex}
-                  onClick={() => handleCardClick(index)}
-                />
+                {type === "ciclos" ? (
+                  <CicloCard {...card} isActive={isActive} onClick={onClick} />
+                ) : (
+                  <Card {...card} hideDate={hideDate} isActive={isActive} onClick={onClick} />
+                )}
               </motion.div>
             );
           })}
@@ -72,4 +82,4 @@ const Funciones = () => {
   );
 };
 
-export default Funciones;
+export default FuncionesSection;

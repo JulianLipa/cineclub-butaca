@@ -4,9 +4,10 @@ import CarouselSection from "@/shared/components/carouselSection/CarouselSection
 import ReviewCard from "@/shared/ui/reviewCard/ReviewCard.js";
 import { funciones as movies } from "@/data.json";
 
-const Reviews = ({ variant, title }) => (
+const Reviews = ({ variant, title, moreButton = false }) => (
   <CarouselSection
     title={title}
+    moreButton={moreButton}
     icon={`${variant !== "tema" ? "comillas" : "triangle"}`}
     items={movies}
     renderItem={(movie) => <ReviewCard data={movie} variant={variant} />}

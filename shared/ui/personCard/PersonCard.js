@@ -1,8 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import Skeleton from "@/shared/components/skeleton/Skeleton.js";
 import FadeIn from "@/shared/components/skeleton/FadeIn.js";
+import style from "@/shared/ui/movieCard/movieCard.module.css";
 
 const PersonCard = ({ data, loading }) => {
+  const Wrapper = data?.id ? Link : "div";
+  const wrapperProps = data?.id
+    ? { href: `/persona/${data.id}` }
+    : {};
+
   return (
     <FadeIn
       loading={loading}
@@ -16,7 +23,10 @@ const PersonCard = ({ data, loading }) => {
       }
     >
       {data && (
-        <div className="flex w-full flex-col">
+        <Wrapper
+          {...wrapperProps}
+          className={`flex w-full flex-col ${style.movieCard}`}
+        >
           {data.foto ? (
             <Image
               src={data.foto}
@@ -30,13 +40,13 @@ const PersonCard = ({ data, loading }) => {
             <div className="w-full aspect-square rounded-2xl bg-(--secondary)" />
           )}
 
-          <div className="flex flex-col gap-1 pt-2">
+          <div className={`flex flex-col gap-1 pt-2 ${style.content}`}>
             <p className="text-[.9em] font-[500]">{data.nombre}</p>
             <p className="text-[.8em] font-[300] opacity-70">
               {data.personaje || data.rol}
             </p>
           </div>
-        </div>
+        </Wrapper>
       )}
     </FadeIn>
   );

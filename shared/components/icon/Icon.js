@@ -5,9 +5,12 @@ const Icon = ({
   className,
   size = "h-4",
   color = "var(--primary)",
+  header,
 }) => {
   const iconName = variant ? `i-${name}-${variant}` : `i-${name}`;
-  const iconPath = `/icons/${iconName}.svg`;
+  const iconPath = header
+    ? `/icons/ui/${iconName}.svg`
+    : `/icons/${iconName}.svg`;
 
   return (
     <div

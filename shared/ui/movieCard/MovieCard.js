@@ -8,7 +8,7 @@ import style from "@/shared/ui/movieCard/movieCard.module.css";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 import FadeIn from "@/shared/components/skeleton/FadeIn";
 
-const MovieCard = ({ tmdbId, text, actionsIcons }) => {
+const MovieCard = ({ tmdbId, text, actionsIcons, className }) => {
   const [data, setData] = useState(null);
   const [imgReady, setImgReady] = useState(false);
 
@@ -24,7 +24,7 @@ const MovieCard = ({ tmdbId, text, actionsIcons }) => {
 
   return (
     <Link
-      className={`flex w-full flex-col overflow-hidden rounded-xl borderButton ${style.movieCard} ${
+      className={`flex w-full flex-col overflow-hidden rounded-xl borderButton ${className} ${style.movieCard} ${
         !text ? style.noHover : ""
       }`}
       href={`/movie/${tmdbId}`}

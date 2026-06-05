@@ -7,6 +7,7 @@ import "swiper/css";
 
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
 import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
+import Button from "@/shared/ui/button/Button";
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 
 const CarouselSection = ({
@@ -17,7 +18,10 @@ const CarouselSection = ({
   renderItem,
   breakpoints,
   className,
-  slideClassName,
+  sectionClassName,
+  loop = true,
+  setHandlers = true,
+  moreButton = false,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -29,26 +33,35 @@ const CarouselSection = ({
   };
 
   return (
-    <motion.section {...fadeIn} className="flex w-full flex-col gap-4">
+    <motion.section
+      {...fadeIn}
+      className={`flex w-full flex-col gap-4 ${sectionClassName}`}
+    >
       <div className="flex w-full items-center justify-between">
-        <SectionTitleIcon icon={icon} iconVariant={iconVariant}>
-          {title}
-        </SectionTitleIcon>
+        <div className="flex gap-5">
+          <SectionTitleIcon icon={icon} iconVariant={iconVariant}>
+            {title}
+          </SectionTitleIcon>
 
-        <CarouselHandler
-          totalItems={items.length}
-          activeIndex={activeIndex}
-          onPrev={() => swiperInstance?.slidePrev()}
-          onNext={() => swiperInstance?.slideNext()}
-          isPaginatorActive={false}
-        />
+          {moreButton && <Button variant="primary" icon="arrow" />}
+        </div>
+
+        {setHandlers && (
+          <CarouselHandler
+            totalItems={items.length}
+            activeIndex={activeIndex}
+            onPrev={() => swiperInstance?.slidePrev()}
+            onNext={() => swiperInstance?.slideNext()}
+            isPaginatorActive={false}
+          />
+        )}
       </div>
 
       <Swiper
-        loop
+        loop={loop}
         onSwiper={setSwiperInstance}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className={`w-full rounded-xl ${className ?? ""}`}
+        className={`w-full rounded-xl ${className}`}
         breakpoints={breakpoints ?? defaultBreakpoints}
       >
         {items.map((item, index) => (

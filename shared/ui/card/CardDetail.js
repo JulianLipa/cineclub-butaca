@@ -1,5 +1,6 @@
 import Icon from "@/shared/components/icon/Icon";
 import style from "@/shared/ui/card/card.module.css";
+import Button from "@/shared/ui/button/Button";
 
 const DETAIL_ICONS = {
   date: "calendario",
@@ -7,11 +8,10 @@ const DETAIL_ICONS = {
   cycle: "",
 };
 
-const CardDetail = ({ detail, isCard, className }) => {
+const CardDetail = ({ detail, isCard, isProfile, className }) => {
   const { type, value } = detail;
   const iconName = type ? DETAIL_ICONS[type] : null;
 
-  // ✅ No renderiza si no hay valor
   if (value === undefined || value === null) return null;
 
   return (
@@ -29,7 +29,12 @@ const CardDetail = ({ detail, isCard, className }) => {
           <Icon name={iconName} variant="default" />
         </div>
       )}
-      <p className={`bodyText`}>{value}</p>
+      <Button
+        className={`${isProfile && "text-(--touchable)!"} bodyText`}
+        variant={"buttonText"}
+      >
+        {value}
+      </Button>
     </div>
   );
 };

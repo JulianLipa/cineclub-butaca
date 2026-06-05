@@ -4,8 +4,119 @@
   background-color: var(--white);
 }
 
-@media screen and (max-width: 640px) {
-.header {
-  padding: 24px var(--padding-body-mobile);
+.mobileMenu {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--primary);
+  padding: 32px var(--padding-body-mobile);
 }
+
+@media screen and (max-width: 640px) {
+  .header {
+    padding: 24px var(--padding-body-mobile);
+  }
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  border: 1px solid var(--primary);
+  border-radius: 1em;
+  padding: 0.5em 0.75em;
+  background-color: transparent;
+  cursor: text;
+}
+
+.searchWrapper:focus-within {
+  border-color: var(--touchable);
+}
+
+@media (hover: hover) {
+  .searchWrapper:hover {
+    background-color: var(--primary-opacidad);
+  }
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-weight: 350;
+  font-size: 0.8rem;
+  min-width: 0;
+  cursor: text;
+}
+
+.searchInput::placeholder {
+  color: var(--primary-opacidad);
+}
+
+.searchDropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  border: 1px solid var(--primary);
+  border-radius: 1em;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.searchResult {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  padding: 0.5em 0.75em;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 350;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .searchResult:hover {
+    background-color: var(--primary-opacidad);
+  }
+}
+
+.searchResultPoster {
+  border-radius: 0.25em;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.searchResultPosterFallback {
+  width: 28px;
+  height: 42px;
+  border-radius: 0.25em;
+  background-color: var(--secondary);
+  flex-shrink: 0;
+}
+
+.searchResultMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.searchResultTipo {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.2em 0.45em;
+  border-radius: 0.35em;
+  background-color: var(--secondary);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.searchResultSubtitulo {
+  opacity: 0.5;
+  font-size: 0.8rem;
 }

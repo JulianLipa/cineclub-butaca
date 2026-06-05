@@ -6,6 +6,8 @@ import "./globals.css";
 import Header from "@/shared/components/header/Header";
 import MainWrapper from "@/shared/components/mainWrapper/MainWrapper";
 import { LayoutProvider } from "@/contexts/LayoutContext";
+import NextTopLoader from "nextjs-toploader";
+import NavigationOverlay from "@/shared/components/NavigationOverlay";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +27,8 @@ export default function RootLayout({
   return (
     <html lang="es" className={inter.variable}>
       <body>
+        <NextTopLoader color="#0445af" shadow={false} showSpinner={false} />
+        <NavigationOverlay />
         <LayoutProvider>
           <header className="sticky top-0 z-1000">
             <Header />

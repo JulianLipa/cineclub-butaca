@@ -5,7 +5,7 @@ import style from "../movie.module.css";
 import { parseScreeningDate, dateToISO } from "@/lib/dates";
 
 const MovieActions = ({ date }) => {
-  const d = dateToISO(parseScreeningDate(date)); // "23/12/26" → "2026-12-23"
+  const d = date ? dateToISO(parseScreeningDate(date)) : null;
   return (
     <div className="w-full flex flex-col sm:flex-row gap-4">
       <Actions
@@ -15,14 +15,16 @@ const MovieActions = ({ date }) => {
         variant="secondary"
       />
 
-      <div className={`${style.eventActionDiv} sm:block hidden`}>
-        <EventRow
-          date={d}
-          event={"En cartelera"}
-          isPastMonth={false}
-          isMovieAction={true}
-        />
-      </div>
+      {d && (
+        <div className={`${style.eventActionDiv} sm:block hidden`}>
+          <EventRow
+            date={d}
+            event={"En cartelera"}
+            isPastMonth={false}
+            isMovieAction={true}
+          />
+        </div>
+      )}
     </div>
   );
 };

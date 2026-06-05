@@ -1,17 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 import CardImage from "@/shared/ui/card/CardImage";
 import CardText from "@/shared/ui/card/CardText";
 import style from "@/shared/ui/card/card.module.css";
-import Button from "@/shared/ui/button/Button";
 import DetailIcon from "@/shared/components/detailIcon/DetailIcon";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 import { formatScreeningDisplay } from "@/lib/dates";
 
 const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
+  const router = useRouter();
   const [tmdbData, setTmdbData] = useState(null);
   const loading = !tmdbData;
 
@@ -40,6 +41,7 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
       </div>
       <div
         className={`${style.cardBox} ${isActive ? style.card : ""} rounded-xl`}
+        onClick={isActive ? () => router.push(`/movie/${tmdbId}`) : undefined}
       >
         <div
           className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}
@@ -83,12 +85,11 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
             {loading ? (
               <Skeleton className="h-5 w-3/4" />
             ) : (
-              <Button
-                variant="buttonText"
-                className="text-left text-[1em] font-[600]!"
+              <p
+                className="text-left bodyText text-[1em]! font-[600]!"
               >
                 {tmdbData?.titulo}, {tmdbData?.anio}
-              </Button>
+              </p>
             )}
           </div>
         </div>

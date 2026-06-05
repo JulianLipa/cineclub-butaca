@@ -10,16 +10,12 @@
   align-items: center;
 
   overflow: hidden;
-
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease,
-    opacity 0.2s ease,
-    color 0.2s ease;
 }
 
-.button:hover {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .button:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .primary {
@@ -28,9 +24,11 @@
   color: var(--white);
 }
 
-.primary:hover {
-  background-color: var(--white);
-  color: var(--touchable);
+@media (hover: hover) {
+  .primary:hover {
+    background-color: var(--white);
+    color: var(--touchable);
+  }
 }
 
 .secondary {
@@ -39,9 +37,11 @@
   border: 1px solid var(--touchable);
 }
 
-.secondary:hover {
-  background-color: var(--touchable);
-  color: var(--white);
+@media (hover: hover) {
+  .secondary:hover {
+    background-color: var(--touchable);
+    color: var(--white);
+  }
 }
 
 .buttonText {
@@ -51,9 +51,11 @@
   border-radius: 0px !important;
 }
 
-.buttonText:hover {
-  text-decoration: underline;
-  color: var(--touchable);
+@media (hover: hover) {
+  .buttonText:hover {
+    text-decoration: underline;
+    color: var(--touchable);
+  }
 }
 
 .terciary {
@@ -62,8 +64,10 @@
   color: var(--primary);
 }
 
-.terciary:hover {
-  border: 1px solid var(--secondary);
-  background-color: transparent;
-  color: var(--primary);
+@media (hover: hover) {
+  .terciary:hover {
+    border: 1px solid var(--secondary);
+    background-color: transparent;
+    color: var(--primary);
+  }
 }

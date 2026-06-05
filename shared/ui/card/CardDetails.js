@@ -3,6 +3,7 @@ import style from "@/shared/ui/card/card.module.css";
 
 const CardDetails = ({
   isCard = false,
+  isProfile = false,
   date,
   hour,
   place,
@@ -28,14 +29,19 @@ const CardDetails = ({
 
   return (
     <div
-      className={`flex flex-wrap h-fit ${style.detailsContainer} ${!isCard ? "border-0!" : ""}`}
+      className={`flex flex-wrap h-fit ${style.detailsContainer} ${className} ${!isCard ? "border-0!" : ""}`}
     >
       {details.map((detail, index) => (
         <div
           key={index}
           className={index >= 3 && isCard ? "hidden sm:flex" : "flex"}
         >
-          <CardDetail detail={detail} isCard={isCard} className={className} />
+          <CardDetail
+            isProfile={isProfile}
+            detail={detail}
+            isCard={isCard}
+            className={className}
+          />
         </div>
       ))}
     </div>

@@ -7,10 +7,12 @@ import ListasSection from "@/shared/sections/Listas/ListasSection";
 import Pricing from "@/shared/sections/Pricing/Pricing";
 import Button from "@/shared/ui/button/Button";
 
+import { funciones } from "@/data.json";
+
 export default function Home() {
   return (
     <div className="flex flex-col gap-10">
-      <FuncionesSection />
+      <FuncionesSection items={funciones} />
       <CalendarioSection />
       <VoteBanner />
       <ReviewsSection variant="review" title={"Reseñas destacadas"} />

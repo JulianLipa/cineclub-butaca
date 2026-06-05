@@ -9,6 +9,7 @@
   --greenFill: #e1edcf;
 
   --primary-opacidad: rgba(72, 37, 11, 0.2);
+  --white-opacidad: rgba(255, 248, 242, 0.8);
 
   --font-body: var(--font-inter);
 
@@ -139,18 +140,14 @@ h5 {
 }
 
 .borderButton {
-  border: 1px solid var(--primary);;
+  box-shadow: inset 0 0 0 1px var(--primary);
 }
 
-.borderButton:hover {
-  background-color: var(--primary-opacidad);
-  cursor: pointer;
-  transform: scale(0.98);
-}
-
-@media screen and (max-width: 640px) {
+@media (hover: hover) {
   .borderButton:hover {
-    background-color: transparent;
+    background-color: var(--primary-opacidad);
+    cursor: pointer;
+    transform: scale(0.98);
   }
 }
 

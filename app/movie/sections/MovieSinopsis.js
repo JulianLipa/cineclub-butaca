@@ -4,7 +4,7 @@ import FadeIn from "@/shared/components/skeleton/FadeIn.js";
 
 const MovieSinopsis = ({ text }) => {
   return (
-    <div>
+    <div className="sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
       <FadeIn
         loading={false}
         ready={!!text}

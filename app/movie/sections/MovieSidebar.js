@@ -6,7 +6,7 @@ import FadeIn from "@/shared/components/skeleton/FadeIn.js";
 
 const MovieSidebar = ({ data, loading }) => {
   return (
-    <div className="w-full sm:w-[30%] sm:sticky top-(--header-height) sm:max-h-svh rounded-3xl sm:-mt-40 flex sm:flex-col gap-4 sm:px-4 sm:overflow-y-auto">
+    <div className="w-full sm:w-[30%] sm:sticky top-(--header-height) sm:max-h-svh rounded-3xl sm:-mt-40 flex sm:flex-col gap-4 sm:px-4 sm:overflow-y-auto sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
       {/* Poster */}
       <div className="w-50 sm:w-[80%] bg-(--white) rounded-3xl sm:p-4 sm:-ml-4">
         <FadeIn

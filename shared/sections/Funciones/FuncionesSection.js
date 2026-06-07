@@ -45,10 +45,7 @@ const FuncionesSection = ({
         />
       </div>
 
-      <div
-        ref={containerRef}
-        className="w-full snap-x snap-mandatory carousel rounded-xl"
-      >
+      <div ref={containerRef} className="w-full snap-x snap-mandatory carousel">
         <section className="flex gap-4 max-sm:pr-[var(--padding-body-mobile)]">
           {cards.map((card, index) => {
             const isActive = index === activeIndex;
@@ -71,7 +68,12 @@ const FuncionesSection = ({
                 {type === "ciclos" ? (
                   <CicloCard {...card} isActive={isActive} onClick={onClick} />
                 ) : (
-                  <Card {...card} hideDate={hideDate} isActive={isActive} onClick={onClick} />
+                  <Card
+                    {...card}
+                    hideDate={hideDate}
+                    isActive={isActive}
+                    onClick={onClick}
+                  />
                 )}
               </motion.div>
             );

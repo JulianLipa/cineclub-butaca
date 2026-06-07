@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function NavigationOverlay() {
   const [isNavigating, setIsNavigating] = useState(false);
@@ -10,7 +11,8 @@ export default function NavigationOverlay() {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const anchor = (e.target as HTMLElement).closest("a");
-      if (!anchor || e.metaKey || e.ctrlKey || e.shiftKey || anchor.target) return;
+      if (!anchor || e.metaKey || e.ctrlKey || e.shiftKey || anchor.target)
+        return;
 
       try {
         const url = new URL(anchor.href);
@@ -23,8 +25,14 @@ export default function NavigationOverlay() {
       } catch {}
     };
 
+    const handlePush = () => setIsNavigating(true);
+
     document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+    window.addEventListener("navigation-start", handlePush);
+    return () => {
+      document.removeEventListener("click", handleClick);
+      window.removeEventListener("navigation-start", handlePush);
+    };
   }, []);
 
   useEffect(() => {
@@ -32,16 +40,22 @@ export default function NavigationOverlay() {
   }, [pathname]);
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        backgroundColor: "var(--white-opacidad)",
-        zIndex: 900,
-        pointerEvents: "none",
-        opacity: isNavigating ? 1 : 0,
-        transition: "opacity 0.2s ease",
-      }}
-    />
+    <AnimatePresence>
+      {isNavigating && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          style={{
+            position: "fixed",
+            inset: 0,
+            backgroundColor: "var(--white)",
+            zIndex: 900,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+    </AnimatePresence>
   );
 }

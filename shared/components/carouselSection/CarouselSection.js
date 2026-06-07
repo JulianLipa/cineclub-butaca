@@ -38,7 +38,7 @@ const CarouselSection = ({
       className={`flex w-full flex-col gap-4 ${sectionClassName}`}
     >
       <div className="flex w-full items-center justify-between">
-        <div className="flex gap-5">
+        <div className="flex sm:gap-5 sm:w-fit w-full justify-between sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
           <SectionTitleIcon icon={icon} iconVariant={iconVariant}>
             {title}
           </SectionTitleIcon>
@@ -61,7 +61,7 @@ const CarouselSection = ({
         loop={loop}
         onSwiper={setSwiperInstance}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className={`w-full rounded-xl ${className}`}
+        className={`w-full ${className}`}
         breakpoints={breakpoints ?? defaultBreakpoints}
       >
         {items.map((item, index) => (

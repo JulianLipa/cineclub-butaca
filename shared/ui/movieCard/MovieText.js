@@ -6,7 +6,7 @@ import style from "@/shared/ui/movieCard/movieCard.module.css";
 
 const MovieText = ({ data, actionsIcons }) => {
   return (
-    <div className={`flex flex-col rounded-b-xl gap-2 ${style.content}`}>
+    <div className={`hidden sm:flex flex-col rounded-b-xl gap-2 ${style.content}`}>
       <Button variant="buttonText" className="text-[.9em] sm:text-[1em]">
         {data.titulo}, {data.anio}
       </Button>

@@ -20,7 +20,7 @@ export default function Home() {
       <ListasSection title={"Listas de la comunidad"} />
       <PopularSection title={"Popular entre miembros"} />
 
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center w-full sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
         <Button variant="primary" className="w-full! sm:w-fit!">
           Ver Comunidad
         </Button>

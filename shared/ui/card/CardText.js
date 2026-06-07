@@ -8,7 +8,7 @@ const CardText = ({ titulo, anio, director, loading, ...props }) => {
   return (
     <div className={style.cardDivText}>
       {/* HEADER */}
-      <div className="w-fit">
+      <div className="w-fit max-sm:w-full">
         {loading ? (
           <Skeleton className="h-8 w-48 mb-2" />
         ) : (

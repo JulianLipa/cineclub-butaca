@@ -9,6 +9,7 @@ import CarouselSection from "@/shared/components/carouselSection/CarouselSection
 import PopularSection from "@/shared/sections/Popular/PopularSection";
 import VoteBanner from "@/shared/sections/VoteBanner/VoteBanner";
 import ReviewsSection from "@/shared/sections/Reviews/ReviewsSection";
+import ListasSection from "@/shared/sections/Listas/ListasSection";
 
 const miembros = Array.from({ length: 12 });
 
@@ -22,7 +23,7 @@ const ComunidadPageWrapper = () => {
 
   return (
     <div>
-      <div className="w-full p-20 bg-(--secondary)">
+      <div className="w-full sectionMain bg-(--secondary)">
         <SectionTitleIcon icon="comunidad" iconVariant="default" size="h-[5em]">
           Comunidad
         </SectionTitleIcon>
@@ -34,7 +35,7 @@ const ComunidadPageWrapper = () => {
           items={miembros}
           renderItem={() => <UserBadge variant="vertical" />}
           breakpoints={{
-            0: { slidesPerView: 4.5, spaceBetween: 8 },
+            0: { slidesPerView: 3.5, spaceBetween: 8 },
             640: { slidesPerView: 5.5, spaceBetween: 8 },
             1024: { slidesPerView: 10, spaceBetween: 8 },
           }}
@@ -45,6 +46,8 @@ const ComunidadPageWrapper = () => {
         <ReviewsSection variant="tema" title={"Temas recientes"} />
 
         <VoteBanner />
+
+        <ListasSection title={"Nuestra selección"} />
 
         <PopularSection title={"Popular entre miembros"} />
       </div>

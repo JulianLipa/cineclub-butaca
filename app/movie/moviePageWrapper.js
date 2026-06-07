@@ -71,7 +71,7 @@ const MoviePageWrapper = ({ movie }) => {
               <MovieSinopsis text={movie?.sinopsis} />
             </div>
 
-            <div className="w-full sm:w-[50%] colSection">
+            <div className="w-full sm:w-[50%] colSection sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
               <div className="flex w-full items-center justify-between">
                 <SectionTitleIcon icon="comentarios">Reseñas</SectionTitleIcon>
                 <Button variant="primary" icon="arrow" />
@@ -106,7 +106,7 @@ const MoviePageWrapper = ({ movie }) => {
         </div>
       </div>
 
-      <div className="sectionMain flex flex-col gap-8!">
+      <div className="sectionMain flex flex-col gap-8! pt-0!">
         <ListasSection title="Aparece en" />
         <PopularSection title={`Similar a ${movie.titulo}`} />
       </div>

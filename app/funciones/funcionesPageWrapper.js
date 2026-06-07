@@ -21,7 +21,7 @@ const FuncionesPageWrapper = () => {
   }, [setHasPaddingTop]);
   return (
     <div>
-      <div className="w-full p-20 bg-(--secondary)">
+      <div className="w-full sectionMain bg-(--secondary)">
         <SectionTitleIcon
           icon="calendario"
           iconVariant="default"
@@ -38,11 +38,10 @@ const FuncionesPageWrapper = () => {
           title="Ciclos en cartelera"
           icon="circle"
         />
-        
+
         <CalendarioSection />
 
         <FuncionesSection items={funciones} />
-
       </div>
     </div>
   );

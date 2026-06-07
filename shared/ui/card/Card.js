@@ -41,7 +41,7 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
       </div>
       <div
         className={`${style.cardBox} ${isActive ? style.card : ""} rounded-xl`}
-        onClick={isActive ? () => router.push(`/movie/${tmdbId}`) : undefined}
+        onClick={isActive ? () => { window.dispatchEvent(new CustomEvent("navigation-start")); router.push(`/movie/${tmdbId}`); } : undefined}
       >
         <div
           className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}

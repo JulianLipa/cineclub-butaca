@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 640px) {
   .header {
-    padding: 24px var(--padding-body-mobile);
+    padding: 24px var(--padding-body-mobile-w);
   }
 }
 
@@ -119,4 +119,11 @@
 .searchResultSubtitulo {
   opacity: 0.5;
   font-size: 0.8rem;
+}
+
+.mobileSearchResults {
+  border: 1px solid var(--primary);
+  border-radius: 1em;
+  overflow: hidden;
+  background-color: var(--white);
 }

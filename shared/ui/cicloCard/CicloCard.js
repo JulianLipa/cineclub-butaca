@@ -28,18 +28,18 @@ const CicloCard = ({ id, title, description, portada, tmdbId, isActive, onClick 
     <section className="flex flex-col">
       <div
         className={`${style.cardBox} ${isActive ? style.card : ""} rounded-xl`}
-        onClick={isActive ? () => router.push(`/ciclo/${id}`) : undefined}
+        onClick={isActive ? () => { window.dispatchEvent(new CustomEvent("navigation-start")); router.push(`/ciclo/${id}`); } : undefined}
       >
         {/* Vista expandida */}
         <div className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}>
           <CardImage poster={imgSrc} loading={loading} />
 
           <div className={style.cardDivText}>
-            <div className="w-fit">
+            <div className="w-fit max-sm:w-full">
               {loading ? (
                 <Skeleton className="h-8 w-48 mb-2" />
               ) : (
-                <Button variant="buttonText" className="text-left text-[24px]! font-[600]!">
+                <Button variant="buttonText" className="text-left text-[24px]! font-[600]! max-sm:whitespace-normal max-sm:w-full!">
                   {title}
                 </Button>
               )}

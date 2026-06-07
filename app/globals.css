@@ -72,7 +72,6 @@ html {
 
   padding-bottom: var(--padding-body-desktop);
   padding-left: var(--padding-body-desktop-w);
-  padding-right: var(--padding-body-desktop-w);
 }
 
 h3 {
@@ -119,6 +118,7 @@ h5 {
 
   .sectionMain {
     padding: var(--padding-body-mobile) var(--padding-body-mobile-w);
+    padding-right: 0 !important;
   }
 
   .carousel {

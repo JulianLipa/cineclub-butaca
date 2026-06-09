@@ -1,0 +1,10 @@
+.header {
+  margin-left: calc(-1 * var(--padding-body-desktop-w));
+  width: 100vw;
+}
+
+@media (max-width: 640px) {
+  .header {
+    margin-left: calc(-1 * var(--padding-body-mobile-w));
+  }
+}

@@ -3,9 +3,8 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 
-import Header from "@/shared/components/header/Header";
-import MainWrapper from "@/shared/components/mainWrapper/MainWrapper";
 import { LayoutProvider } from "@/contexts/LayoutContext";
+import { AuthProvider } from "@/contexts/AuthContext";
 import NextTopLoader from "nextjs-toploader";
 import NavigationOverlay from "@/shared/components/NavigationOverlay";
 
@@ -29,13 +28,9 @@ export default function RootLayout({
       <body>
         <NextTopLoader color="#0445af" shadow={false} showSpinner={false} />
         <NavigationOverlay />
-        <LayoutProvider>
-          <header className="sticky top-0 z-1000">
-            <Header />
-          </header>
-
-          <MainWrapper>{children}</MainWrapper>
-        </LayoutProvider>
+        <AuthProvider>
+          <LayoutProvider>{children}</LayoutProvider>
+        </AuthProvider>
       </body>
     </html>
   );

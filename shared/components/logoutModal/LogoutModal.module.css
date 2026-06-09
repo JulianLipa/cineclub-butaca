@@ -1,0 +1,43 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--primary-opacidad);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal {
+  background-color: var(--white);
+  border-radius: 1.5em;
+  padding: 2em;
+  max-width: 340px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  box-shadow: 0 8px 32px rgba(72, 37, 11, 0.12);
+}
+
+.title {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  color: var(--primary);
+}
+
+.body {
+  color: var(--primary);
+  font-size: 0.9rem;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-top: 0.25em;
+}

@@ -25,7 +25,11 @@ const VoteBanner = () => {
     <div className="sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
       <motion.div
         {...fadeIn}
-        className="flex flex-col lg:flex-row w-full h-full border border-solid border-(--primary) rounded-xl lg:p-15 p-8 gap-4"
+        style={{
+          background:
+            "linear-gradient(-25deg, var(--secondary) 0%, transparent 35%)",
+        }}
+        className="flex flex-col lg:flex-row w-full h-full border border-solid border-(--primary) rounded-2xl lg:p-15 p-8 gap-4"
       >
         {/* CAROUSEL - Appears first on mobile, second on desktop */}
         <div className="colSection w-full lg:w-1/2 order-2 lg:order-2">
@@ -36,13 +40,16 @@ const VoteBanner = () => {
             spaceBetween={16}
             breakpoints={{
               0: {
-                slidesPerView: 2.4,
+                slidesPerView: 1.6,
+                spaceBetween: 4,
               },
               640: {
                 slidesPerView: 3,
+                spaceBetween: 16,
               },
               1024: {
                 slidesPerView: 3,
+                spaceBetween: 16,
               },
             }}
           >

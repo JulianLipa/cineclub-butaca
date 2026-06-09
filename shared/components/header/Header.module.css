@@ -7,7 +7,7 @@
 .mobileMenu {
   background-color: var(--white);
   border-bottom: 1px solid var(--primary);
-  padding: 32px var(--padding-body-mobile);
+  padding: var(--padding-body-mobile) var(--padding-body-mobile-w);
 }
 
 @media screen and (max-width: 640px) {

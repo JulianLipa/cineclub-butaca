@@ -2,13 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
+
 import style from "./Header.module.css";
 import Image from "next/image";
 import Button from "@/shared/ui/button/Button";
 import Icon from "@/shared/components/icon/Icon";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
+import LogoutModal from "@/shared/components/logoutModal/LogoutModal";
 
 const TIPO_LABEL = { movie: "Película", tv: "Serie", person: "Persona" };
 const TIPO_HREF = { movie: "movie", tv: "serie", person: "persona" };
@@ -17,7 +20,6 @@ const NAV_LINKS = [
   { label: "Funciones", href: "/funciones" },
   { label: "Comunidad", href: "/comunidad" },
   { label: "Archivo" },
-  { label: "Perfil", href: "/perfil" },
 ];
 
 const NavLinks = ({ mobile = false }) =>
@@ -31,6 +33,53 @@ const NavLinks = ({ mobile = false }) =>
       {label}
     </Button>
   ));
+
+const UserCTA = ({ onAction }) => {
+  const { user, logout } = useAuth();
+  const router = useRouter();
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    onAction?.();
+    setShowLogoutModal(false);
+    router.push("/");
+  };
+
+  if (user)
+    return (
+      <>
+        <div className="flex items-center gap-3">
+          <Button
+            variant="buttonText"
+            onClick={onAction}
+            href={"/perfil"}
+            icon="user"
+            className="bodyText flex-row-reverse"
+          ></Button>
+
+          <Button
+            variant="buttonText"
+            onClick={() => setShowLogoutModal(true)}
+            icon="logout"
+            className="bodyText flex-row-reverse"
+          ></Button>
+        </div>
+
+        <LogoutModal
+          isOpen={showLogoutModal}
+          onConfirm={handleLogout}
+          onCancel={() => setShowLogoutModal(false)}
+        />
+      </>
+    );
+
+  return (
+    <Button href="/login" variant="primary" onClick={onAction}>
+      Quiero mi Butaca
+    </Button>
+  );
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -201,7 +250,12 @@ const Header = () => {
           >
             {isMenuOpen ? (
               <div className="p-3 rounded-xl flex justify-center items-center bg-(--primary)">
-                <Icon name="close" color="var(--white)" header={true} />
+                <Icon
+                  name="close"
+                  color="var(--white)"
+                  header={true}
+                  size="h-4 w-4!"
+                />
               </div>
             ) : (
               <Icon name="menu" color="var(--primary)" header={true} />
@@ -231,17 +285,6 @@ const Header = () => {
         <div className="flex items-center gap-4">
           {/* Search area */}
           <div ref={containerRef} className="relative flex items-center gap-3">
-            <button
-              onClick={toggleSearch}
-              className="h-5 w-5 cursor-pointer shrink-0"
-              aria-label={isSearchOpen ? "Cerrar búsqueda" : "Abrir búsqueda"}
-            >
-              <Icon
-                name="lupa"
-                variant={isSearchOpen ? "default" : undefined}
-              />
-            </button>
-
             {/* Desktop search input */}
             <AnimatePresence>
               {isSearchOpen && (
@@ -252,10 +295,7 @@ const Header = () => {
                   transition={{ duration: 0.2, ease: "easeOut" }}
                   className="hidden md:block"
                 >
-                  <div className={style.searchWrapper}>
-                    <div className="h-4 w-4 shrink-0 pointer-events-none">
-                      <Icon name="circle" color="var(--primary)" />
-                    </div>
+                  <div>
                     <input
                       ref={desktopInputRef}
                       type="text"
@@ -268,6 +308,17 @@ const Header = () => {
                 </motion.div>
               )}
             </AnimatePresence>
+
+            <button
+              onClick={toggleSearch}
+              className="h-5 w-5 cursor-pointer shrink-0"
+              aria-label={isSearchOpen ? "Cerrar búsqueda" : "Abrir búsqueda"}
+            >
+              <Icon
+                name="lupa"
+                variant={isSearchOpen ? "default" : undefined}
+              />
+            </button>
 
             {/* Desktop dropdown */}
             <AnimatePresence>
@@ -287,7 +338,7 @@ const Header = () => {
 
           {/* CTA */}
           <div className="hidden md:flex">
-            <Button variant="primary">Quiero mi Butaca</Button>
+            <UserCTA />
           </div>
         </div>
       </div>
@@ -301,11 +352,10 @@ const Header = () => {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="md:hidden fixed left-0 w-full z-[999]"
-            style={{ top: "var(--header-height)" }}
           >
             <div className={`${style.mobileMenu} flex flex-col gap-6`}>
               <NavLinks mobile />
-              <Button variant="primary">Quiero mi Butaca</Button>
+              <UserCTA onAction={() => setIsMenuOpen(false)} />
             </div>
           </motion.div>
         )}
@@ -321,19 +371,15 @@ const Header = () => {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="md:hidden fixed left-0 w-full z-[999]"
-            style={{ top: "var(--header-height)" }}
           >
             <div className={`${style.mobileMenu} flex flex-col gap-4`}>
-              <div className={style.searchWrapper}>
-                <div className="h-4 w-4 shrink-0 pointer-events-none">
-                  <Icon name="circle" color="var(--primary)" />
-                </div>
+              <div>
                 <input
                   ref={mobileInputRef}
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className={`${style.searchInput} flex-1`}
+                  className={`${style.searchInput} flex-1 w-full`}
                   placeholder="Buscá peliculas, amigxs, actorxs, directorxs, etc"
                 />
               </div>

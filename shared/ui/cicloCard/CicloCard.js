@@ -9,7 +9,15 @@ import Button from "@/shared/ui/button/Button";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 import style from "@/shared/ui/card/card.module.css";
 
-const CicloCard = ({ id, title, description, portada, tmdbId, isActive, onClick }) => {
+const CicloCard = ({
+  id,
+  title,
+  description,
+  portada,
+  tmdbId,
+  isActive,
+  onClick,
+}) => {
   const router = useRouter();
   const [tmdbData, setTmdbData] = useState(null);
   const loading = !portada && !tmdbData;
@@ -28,10 +36,15 @@ const CicloCard = ({ id, title, description, portada, tmdbId, isActive, onClick 
     <section className="flex flex-col">
       <div
         className={`${style.cardBox} ${isActive ? style.card : ""} rounded-xl`}
-        onClick={isActive ? () => { window.dispatchEvent(new CustomEvent("navigation-start")); router.push(`/ciclo/${id}`); } : undefined}
+        onClick={() => {
+          window.dispatchEvent(new CustomEvent("navigation-start"));
+          router.push(`/ciclo/${id}`);
+        }}
       >
         {/* Vista expandida */}
-        <div className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}>
+        <div
+          className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}
+        >
           <CardImage poster={imgSrc} loading={loading} />
 
           <div className={style.cardDivText}>
@@ -39,23 +52,26 @@ const CicloCard = ({ id, title, description, portada, tmdbId, isActive, onClick 
               {loading ? (
                 <Skeleton className="h-8 w-48 mb-2" />
               ) : (
-                <Button variant="buttonText" className="text-left text-[24px]! font-[600]! max-sm:whitespace-normal max-sm:w-full!">
+                <Button
+                  variant="buttonText"
+                  className="text-left text-[24px]! font-[600]! max-sm:whitespace-normal max-sm:w-full!"
+                >
                   {title}
                 </Button>
               )}
             </div>
 
-            {description && (
-              loading ? (
+            {description &&
+              (loading ? (
                 <Skeleton className="h-12 w-full" />
               ) : (
-                <p className="bodyText text-[0.9em] opacity-80">{description}</p>
-              )
-            )}
+                <p className="bodyText text-[0.9em] opacity-80">
+                  {description}
+                </p>
+              ))}
 
             <div className={`flex w-full gap-2 ${style.buttonDiv}`}>
               <Button variant="primary">Ver ciclo</Button>
-              <Button variant="secondary">Ver programa</Button>
             </div>
           </div>
         </div>
@@ -63,7 +79,10 @@ const CicloCard = ({ id, title, description, portada, tmdbId, isActive, onClick 
         {/* Vista contraída */}
         <div
           className={`${style.contractedView} rounded-xl overflow-hidden borderButton ${!isActive ? style.visible : style.hidden}`}
-          onClick={onClick}
+          onClick={(e) => {
+            e.stopPropagation();
+            onClick();
+          }}
           style={{ cursor: !isActive ? "pointer" : "default" }}
         >
           <div className={style.cardImgContracted}>
@@ -84,7 +103,9 @@ const CicloCard = ({ id, title, description, portada, tmdbId, isActive, onClick 
             {loading ? (
               <Skeleton className="h-5 w-3/4" />
             ) : (
-              <p className="text-left bodyText text-[1em]! font-[600]!">{title}</p>
+              <p className="text-left bodyText text-[1em]! font-[600]!">
+                {title}
+              </p>
             )}
           </div>
         </div>

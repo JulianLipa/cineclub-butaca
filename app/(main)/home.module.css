@@ -1,0 +1,21 @@
+.heroWrapper {
+  margin-left: calc(-1 * var(--padding-body-desktop-w));
+  margin-top: calc(-1 * var(--padding-body-desktop));
+  width: 100vw;
+}
+
+.headerFullBleed {
+  margin-left: calc(-1 * var(--padding-body-desktop-w));
+  width: 100vw;
+}
+
+@media (max-width: 640px) {
+  .heroWrapper {
+    margin-left: calc(-1 * var(--padding-body-mobile-w));
+    margin-top: calc(-1 * var(--padding-body-mobile));
+  }
+
+  .headerFullBleed {
+    margin-left: calc(-1 * var(--padding-body-mobile-w));
+  }
+}

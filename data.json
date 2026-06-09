@@ -1,46 +1,31 @@
 {
-  "usuario": {
-    "username": "julianlipari",
-    "bio": "Cinéfilo del cine. Aguante Buenos Aires",
-    "peliculasVistas": [
-      {
-        "tmdbId": "803",
-        "watchedDate": "01/06/26"
-      },
-      {
-        "tmdbId": "1159206",
-        "watchedDate": "28/05/26"
-      },
-      {
-        "tmdbId": "55847",
-        "watchedDate": "20/05/26"
-      },
-      {
-        "tmdbId": "638",
-        "watchedDate": "14/05/26"
-      },
-      {
-        "tmdbId": "57981",
-        "watchedDate": "05/05/26"
-      },
-      {
-        "tmdbId": "406",
-        "watchedDate": "05/05/26"
-      },
-      {
-        "tmdbId": "121986",
-        "watchedDate": "05/05/26"
-      },
-      {
-        "tmdbId": "391713",
-        "watchedDate": "28/04/26"
-      }
-    ]
-  },
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Julian",
+      "apellido": "Lipari",
+      "username": "julianMotorizado",
+      "mail": "lipajulianp@gmail.com",
+      "password": "Boca campeon2018",
+      "peliculasVistas": [],
+      "bio": "holaaaa"
+    },
+    {
+      "id": 2,
+      "nombre": "Agustina",
+      "apellido": "Pacciarelli",
+      "username": "anitsugga",
+      "mail": "aguspacha@pacha.com",
+      "password": "123jaja",
+      "bio": "te amo juli <3",
+      "peliculasVistas": []
+    }
+  ],
+  "usuario": {},
   "funciones": [
     {
       "title": "El Dependiente",
-      "date": "23/12/26",
+      "date": "04/07/26",
       "hour": "19:45hs",
       "place": "Sala Malba",
       "cycle": "Vanguardias y Resistencia",
@@ -55,7 +40,7 @@
     {
       "title": "Carrie",
       "tmdbId": "7340",
-      "date": "23/12/26",
+      "date": "11/06/26",
       "hour": "19:45hs",
       "place": "Sala Malba",
       "cycle": "Culto",
@@ -69,7 +54,7 @@
     {
       "title": "La Ciénaga",
       "tmdbId": "58429",
-      "date": "24/12/26",
+      "date": "18/06/26",
       "hour": "20:00hs",
       "place": "Sala Lugones",
       "cycle": "Nuevo Cine Argentino"
@@ -77,7 +62,7 @@
     {
       "title": "Cléo de 5 à 7",
       "tmdbId": "499",
-      "date": "25/12/26",
+      "date": "25/06/26",
       "hour": "20:15hs",
       "place": "Sala Lugones",
       "cycle": "Miradas Feministas"
@@ -85,7 +70,7 @@
     {
       "title": "París, Texas",
       "tmdbId": "655",
-      "date": "28/12/26",
+      "date": "09/07/26",
       "hour": "22:10hs",
       "place": "MALBA",
       "cycle": "Joyas del Cine Independiente"
@@ -93,7 +78,7 @@
     {
       "title": "Nueve Reinas",
       "tmdbId": "18079",
-      "date": "28/12/26",
+      "date": "23/07/26",
       "hour": "21:30hs",
       "place": "Sala Cosmos",
       "cycle": "Clásicos Modernos"
@@ -101,7 +86,7 @@
     {
       "title": "Memorias del subdesarrollo",
       "tmdbId": "47576",
-      "date": "29/12/26",
+      "date": "06/08/26",
       "hour": "20:15hs",
       "place": "Sala Lugones",
       "cycle": "Cine Revolucionario Latinoamericano"
@@ -109,7 +94,7 @@
     {
       "title": "Suspiria",
       "tmdbId": "11906",
-      "date": "29/12/26",
+      "date": "20/08/26",
       "hour": "20:00hs",
       "place": "Sala Lugones",
       "cycle": "Terror Italiano"
@@ -117,7 +102,7 @@
     {
       "title": "Los traidores",
       "tmdbId": "226216",
-      "date": "29/12/26",
+      "date": "03/09/26",
       "hour": "23:00hs",
       "place": "Sala Malba",
       "cycle": "Cine y Militancia"
@@ -125,7 +110,7 @@
     {
       "title": "Chungking Express",
       "tmdbId": "11104",
-      "date": "30/12/26",
+      "date": "17/09/26",
       "hour": "21:00hs",
       "place": "Sala Cosmos",
       "cycle": "Autores de Culto"
@@ -133,7 +118,7 @@
     {
       "title": "La hora de los hornos",
       "tmdbId": "89681",
-      "date": "31/12/26",
+      "date": "24/09/26",
       "hour": "19:30hs",
       "place": "Sala Lugones",
       "cycle": "Cine Liberación"
@@ -219,289 +204,115 @@
     }
   ],
   "eventos": {
-    "2026-01-03": {
-      "title": "Invasión, 1969",
-      "type": "funcion"
-    },
-    "2026-01-10": {
-      "title": "La Ciénaga, 2001",
-      "type": "funcion"
-    },
-    "2026-01-16": {
-      "title": "Ciclo Nuevo Cine Argentino",
-      "type": "cycle"
-    },
-    "2026-01-18": {
-      "title": "Nueve Reinas, 2000",
-      "type": "funcion"
-    },
-    "2026-01-24": {
-      "title": "Cléo de 5 à 7, 1962",
-      "type": "funcion"
-    },
-    "2026-01-30": {
-      "title": "Ciclo Vanguardias Europeas",
-      "type": "cycle"
-    },
-    "2026-02-01": {
-      "title": "París, Texas, 1984",
-      "type": "funcion"
-    },
-    "2026-02-07": {
-      "title": "Los Traidores, 1973",
-      "type": "funcion"
-    },
-    "2026-02-13": {
-      "title": "Ciclo Cine Político Latinoamericano",
-      "type": "cycle"
-    },
-    "2026-02-15": {
-      "title": "Chungking Express, 1994",
-      "type": "funcion"
-    },
-    "2026-02-21": {
-      "title": "La Hora de los Hornos, 1968",
-      "type": "funcion"
-    },
-    "2026-02-25": {
-      "title": "Ciclo Cine de la Resistencia",
-      "type": "cycle"
-    },
-    "2026-03-01": {
-      "title": "El Dependiente, 1969",
-      "type": "funcion"
-    },
-    "2026-03-07": {
-      "title": "Mala Época, 1998",
-      "type": "funcion"
-    },
-    "2026-03-11": {
-      "title": "Ciclo Retratos de la Crisis",
-      "type": "cycle"
-    },
-    "2026-03-14": {
-      "title": "Pizza, birra, faso, 1998",
-      "type": "funcion"
-    },
-    "2026-03-22": {
-      "title": "Historias Extraordinarias, 2008",
-      "type": "funcion"
-    },
-    "2026-03-27": {
-      "title": "Ciclo Cine Independiente Contemporáneo",
-      "type": "cycle"
-    },
-    "2026-04-04": {
-      "title": "Los Rubios, 2003",
-      "type": "funcion"
-    },
-    "2026-04-10": {
-      "title": "Ciclo Memoria e Identidad",
-      "type": "cycle"
-    },
-    "2026-04-12": {
-      "title": "Santiago, 2007",
-      "type": "funcion"
-    },
-    "2026-04-18": {
-      "title": "La Libertad, 2001",
-      "type": "funcion"
-    },
-    "2026-04-24": {
-      "title": "Ciclo El Hombre y el Territorio",
-      "type": "cycle"
-    },
-    "2026-04-26": {
-      "title": "Zama, 2017",
-      "type": "funcion"
-    },
-    "2026-05-02": {
-      "title": "Stalker, 1979",
-      "type": "funcion"
-    },
-    "2026-05-08": {
-      "title": "Ciclo Maestros de la Ciencia Ficción",
-      "type": "cycle"
-    },
-    "2026-05-09": {
-      "title": "Metrópolis, 1927",
-      "type": "funcion"
-    },
-    "2026-05-17": {
-      "title": "Breve Encuentro, 1945",
-      "type": "funcion"
-    },
-    "2026-05-22": {
-      "title": "Ciclo Melodrama y Sensibilidad",
-      "type": "cycle"
-    },
-    "2026-05-30": {
-      "title": "In the Mood for Love, 2000",
-      "type": "funcion"
-    },
-    "2026-06-05": {
-      "title": "Ciclo Estéticas de la Nostalgia",
-      "type": "cycle"
-    },
-    "2026-06-06": {
-      "title": "Blow-Up, 1966",
-      "type": "funcion"
+    "2026-06-11": {
+      "title": "Carrie",
+      "type": "funcion",
+      "tmdbId": "7340"
     },
     "2026-06-13": {
-      "title": "Juan Moreira, 1973",
-      "type": "funcion"
+      "title": "Cine, Vanguardia y Ruptura Formal",
+      "type": "ciclo",
+      "id": "cine-vanguardia-y-ruptura-formal"
     },
-    "2026-06-17": {
-      "title": "Ciclo Mitos Populares Argentinos",
-      "type": "cycle"
+    "2026-06-18": {
+      "title": "La Ciénaga",
+      "type": "funcion",
+      "tmdbId": "58429"
     },
-    "2026-06-21": {
-      "title": "Nazareno Cruz y el lobo, 1975",
-      "type": "funcion"
+    "2026-06-20": {
+      "title": "Soledades Urbanas y Mitos de Culto",
+      "type": "ciclo",
+      "id": "soledades-urbanas-y-mitos-de-culto"
     },
-    "2026-07-03": {
-      "title": "Ciclo Realismo Mágico y Poesía",
-      "type": "cycle"
+    "2026-06-25": {
+      "title": "Cléo de 5 à 7",
+      "type": "funcion",
+      "tmdbId": "499"
+    },
+    "2026-06-27": {
+      "title": "La Argentina del Desengaño y el Fin de Siglo",
+      "type": "ciclo",
+      "id": "la-argentina-del-desengano-y-el-fin-de-siglo"
     },
     "2026-07-04": {
-      "title": "El lado oscuro del corazón, 1992",
-      "type": "funcion"
+      "title": "El Dependiente",
+      "type": "funcion",
+      "tmdbId": "36785"
     },
-    "2026-07-12": {
-      "title": "La ley de la frontera, 1995",
-      "type": "funcion"
+    "2026-07-09": {
+      "title": "París, Texas",
+      "type": "funcion",
+      "tmdbId": "655"
+    },
+    "2026-07-11": {
+      "title": "Estéticas Feministas y Deseo Subversivo",
+      "type": "ciclo",
+      "id": "esteticas-feministas-y-deseo-subversivo"
     },
     "2026-07-18": {
-      "title": "Ayer fue primavera, 1955",
-      "type": "funcion"
+      "title": "Indie Global: Márgenes del Mainstream",
+      "type": "ciclo",
+      "id": "indie-global-margenes-del-mainstream"
     },
-    "2026-07-24": {
-      "title": "Ciclo Clásicos en Blanco y Negro",
-      "type": "cycle"
+    "2026-07-23": {
+      "title": "Nueve Reinas",
+      "type": "funcion",
+      "tmdbId": "18079"
     },
-    "2026-07-26": {
-      "title": "Prisioneros de la tierra, 1939",
-      "type": "funcion"
+    "2026-07-25": {
+      "title": "América Latina en Llamas",
+      "type": "ciclo",
+      "id": "america-latina-en-llamas"
     },
     "2026-08-01": {
-      "title": "El bonaerense, 2002",
-      "type": "funcion"
+      "title": "Obsesiones y Universos de Autor",
+      "type": "ciclo",
+      "id": "obsesiones-y-universos-de-autor"
     },
-    "2026-08-07": {
-      "title": "Ciclo Violencia Institucional y Cine",
-      "type": "cycle"
-    },
-    "2026-08-09": {
-      "title": "M, el vampiro de Düsseldorf, 1931",
-      "type": "funcion"
+    "2026-08-06": {
+      "title": "Memorias del subdesarrollo",
+      "type": "funcion",
+      "tmdbId": "47576"
     },
     "2026-08-15": {
-      "title": "La Patagonia rebelde, 1974",
-      "type": "funcion"
+      "title": "Maestros del Terror Europeo",
+      "type": "ciclo",
+      "id": "maestros-del-terror-europeo"
     },
-    "2026-08-21": {
-      "title": "Ciclo Historia y Memoria Colectiva",
-      "type": "cycle"
+    "2026-08-20": {
+      "title": "Suspiria",
+      "type": "funcion",
+      "tmdbId": "11906"
     },
     "2026-08-29": {
-      "title": "La historia oficial, 1985",
-      "type": "funcion"
+      "title": "El Trabajador en el Cine y la Crisis Social",
+      "type": "ciclo",
+      "id": "el-trabajador-en-el-cine-y-la-crisis-social"
     },
-    "2026-09-04": {
-      "title": "Ciclo Cine y Transición Democrática",
-      "type": "cycle"
+    "2026-09-03": {
+      "title": "Los traidores",
+      "type": "funcion",
+      "tmdbId": "226216"
     },
-    "2026-09-05": {
-      "title": "Sur, 1988",
-      "type": "funcion"
+    "2026-09-12": {
+      "title": "Conflictos de Clase y Memoria Histórica",
+      "type": "ciclo",
+      "id": "conflictos-de-clase-y-memoria-historica"
     },
-    "2026-09-13": {
-      "title": "Do the Right Thing, 1989",
-      "type": "funcion"
+    "2026-09-17": {
+      "title": "Chungking Express",
+      "type": "funcion",
+      "tmdbId": "11104"
     },
     "2026-09-19": {
-      "title": "Roma, ciudad abierta, 1945",
-      "type": "funcion"
+      "title": "Tercer Cine y Descolonización Cultural",
+      "type": "ciclo",
+      "id": "tercer-cine-y-descolonizacion-cultural"
     },
-    "2026-09-25": {
-      "title": "Ciclo Neorrealismo y Compromiso",
-      "type": "cycle"
-    },
-    "2026-09-27": {
-      "title": "Los olvidados, 1950",
-      "type": "funcion"
-    },
-    "2026-10-03": {
-      "title": "El espíritu de la colmena, 1973",
-      "type": "funcion"
-    },
-    "2026-10-09": {
-      "title": "Ciclo Infancias Bajo la Lupa",
-      "type": "cycle"
-    },
-    "2026-10-11": {
-      "title": "Cría cuervos, 1976",
-      "type": "funcion"
-    },
-    "2026-10-17": {
-      "title": "Los 400 golpes, 1959",
-      "type": "funcion"
-    },
-    "2026-10-23": {
-      "title": "Ciclo Retratos de Juventud",
-      "type": "cycle"
-    },
-    "2026-10-31": {
-      "title": "Silvia Prieto, 1999",
-      "type": "funcion"
-    },
-    "2026-11-06": {
-      "title": "Ciclo Absurdo y Cotidianeidad",
-      "type": "cycle"
-    },
-    "2026-11-07": {
-      "title": "Esperando la carroza, 1985",
-      "type": "funcion"
-    },
-    "2026-11-15": {
-      "title": "Tiempo de revancha, 1981",
-      "type": "funcion"
-    },
-    "2026-11-20": {
-      "title": "Ciclo Cine Bajo la Censura",
-      "type": "cycle"
-    },
-    "2026-11-22": {
-      "title": "Plata dulce, 1982",
-      "type": "funcion"
-    },
-    "2026-11-28": {
-      "title": "Un oso rojo, 2002",
-      "type": "funcion"
-    },
-    "2026-12-04": {
-      "title": "Ciclo El Nuevo Noir Argentino",
-      "type": "cycle"
-    },
-    "2026-12-05": {
-      "title": "El aura, 2005",
-      "type": "funcion"
-    },
-    "2026-12-12": {
-      "title": "Medianeras, 2011",
-      "type": "funcion"
-    },
-    "2026-12-18": {
-      "title": "Ciclo Urbanismo y Soledad",
-      "type": "cycle"
-    },
-    "2026-12-20": {
-      "title": "Relatos salvajes, 2014",
-      "type": "funcion"
-    },
-    "2026-12-27": {
-      "title": "Muere, monstruo, muere, 2018",
-      "type": "funcion"
+    "2026-09-24": {
+      "title": "La hora de los hornos",
+      "type": "funcion",
+      "tmdbId": "89681"
     }
   },
   "diasSemana": ["L", "M", "X", "J", "V", "S", "D"],

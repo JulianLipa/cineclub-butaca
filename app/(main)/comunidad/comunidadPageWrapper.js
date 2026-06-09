@@ -23,7 +23,7 @@ const ComunidadPageWrapper = () => {
 
   return (
     <div>
-      <div className="w-full sectionMain bg-(--secondary)">
+      <div className="w-full sectionMain bg-(--secondary) sm:pt-(--padding-body-desktop) pt-(--padding-body-mobile)">
         <SectionTitleIcon icon="comunidad" iconVariant="default" size="h-[5em]">
           Comunidad
         </SectionTitleIcon>

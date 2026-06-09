@@ -7,14 +7,7 @@ import { parseScreeningDate, dateToISO } from "@/lib/dates";
 const MovieActions = ({ date }) => {
   const d = date ? dateToISO(parseScreeningDate(date)) : null;
   return (
-    <div className="w-full flex flex-col sm:flex-row gap-4 sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
-      <Actions
-        icons={["eye", "like", "comentarios", "star"]}
-        className="text-[.9em]! sm:w-fit px-[2.5em]! gap-2 sm:px-[1em]!"
-        divClassname="w-full sm:w-fit flex justify-between"
-        variant="secondary"
-      />
-
+    <div className="w-full flex flex-col sm:flex-row gap-4 items-center sm:items-start pr-(--padding-body-mobile-w)">
       {d && (
         <div className={`${style.eventActionDiv} sm:block hidden`}>
           <EventRow
@@ -25,6 +18,13 @@ const MovieActions = ({ date }) => {
           />
         </div>
       )}
+
+      <Actions
+        icons={["eye", "like", "comentarios", "star"]}
+        className="text-[.9em]! sm:w-fit gap-2"
+        divClassname="sm:w-fit h-full"
+        variant="secondary"
+      />
     </div>
   );
 };

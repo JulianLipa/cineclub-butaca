@@ -21,7 +21,7 @@ const FuncionesPageWrapper = () => {
   }, [setHasPaddingTop]);
   return (
     <div>
-      <div className="w-full sectionMain bg-(--secondary)">
+      <div className="w-full sectionMain bg-(--secondary) sm:pt-(--padding-body-desktop) pt-(--padding-body-mobile)">
         <SectionTitleIcon
           icon="calendario"
           iconVariant="default"

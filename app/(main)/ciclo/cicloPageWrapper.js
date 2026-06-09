@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useLayout } from "@/contexts/LayoutContext";
 
-import MovieHero from "@/app/movie/sections/MovieHero";
+import MovieHero from "@/app/(main)/movie/sections/MovieHero";
 import Icon from "@/shared/components/icon/Icon";
 import Button from "@/shared/ui/button/Button";
 

@@ -34,7 +34,7 @@ const CardDetails = ({
       {details.map((detail, index) => (
         <div
           key={index}
-          className={index >= 3 && isCard ? "hidden sm:flex" : "flex"}
+          className={index >= 2 && isCard ? "hidden sm:flex" : "flex"}
         >
           <CardDetail
             isProfile={isProfile}

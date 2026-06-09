@@ -16,7 +16,7 @@ const Reviews = ({ variant, title, moreButton = false }) => (
     breakpoints={{
       0: { slidesPerView: 1.1, spaceBetween: 16 },
       640: { slidesPerView: 2.2, spaceBetween: 16 },
-      1024: { slidesPerView: 3, spaceBetween: 16 },
+      1024: { slidesPerView: 3.3, spaceBetween: 16 },
     }}
   />
 );

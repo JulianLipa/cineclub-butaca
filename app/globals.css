@@ -42,6 +42,20 @@ textarea,
     transform 0.2s ease;
 }
 
+input,
+textarea {
+  padding: 1em !important;
+  border-radius: 1em !important;
+  border: 1px solid var(--primary) !important;
+}
+
+textarea {
+  resize: none;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
 h1,
 h2,
 h3,
@@ -90,6 +104,9 @@ h5 {
 .bodyText {
   font-weight: 350;
   font-size: 0.8rem;
+
+  white-space: normal;
+  text-align: left;
 }
 
 .carousel {

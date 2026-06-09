@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "@/shared/ui/button/Button";
 import CardDetails from "@/shared/ui/card/CardDetails";
@@ -10,7 +10,8 @@ import DetailIcon from "@/shared/components/detailIcon/DetailIcon";
 import ReviewsSection from "@/shared/sections/Reviews/ReviewsSection";
 import ListasSection from "@/shared/sections/Listas/ListasSection";
 
-import { funciones as movies, usuario } from "@/data.json";
+import { funciones as movies } from "@/data.json";
+import { useAuth } from "@/contexts/AuthContext";
 
 const STATS = [
   { key: "seguidores", label: "Seguidores", value: 11 },
@@ -23,6 +24,30 @@ const STATS = [
 ];
 
 const page = () => {
+  const { user, updateUser } = useAuth();
+  const [isEditingBio, setIsEditingBio] = useState(false);
+  const [bioValue, setBioValue] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  if (!user) return null;
+
+  const handleSaveBio = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch("/api/users/update", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: user.id, bio: bioValue }),
+      });
+      if (res.ok) {
+        updateUser({ bio: bioValue });
+        setIsEditingBio(false);
+      }
+    } finally {
+      setSaving(false);
+    }
+  };
+
   const statsProps = Object.fromEntries(
     STATS.map(({ key, label, value }) => [
       key,
@@ -39,7 +64,7 @@ const page = () => {
 
         <div className="flex gap-5">
           <Button variant="buttonText" className="font-[600]! text-[.9em]">
-            @{usuario.username}
+            @{user.username}
           </Button>
 
           <Button variant="primary" className="font-[600]! text-[.9em]">
@@ -47,7 +72,43 @@ const page = () => {
           </Button>
         </div>
 
-        <p className="bodyText">{usuario.bio}</p>
+        {isEditingBio ? (
+          <div className="flex flex-col gap-2 w-full max-w-xs bodyText">
+            <textarea
+              rows={3}
+              placeholder="Contá algo sobre vos…"
+              value={bioValue}
+              onChange={(e) => setBioValue(e.target.value)}
+              autoFocus
+            />
+            <div className="flex gap-2">
+              <Button variant="primary" onClick={handleSaveBio}>
+                {saving ? "Guardando…" : "Guardar"}
+              </Button>
+              <Button
+                variant="buttonText"
+                onClick={() => setIsEditingBio(false)}
+              >
+                Cancelar
+              </Button>
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center gap-1">
+            {user.bio && <p className="bodyText">{user.bio}</p>}
+            <Button
+              variant="buttonText"
+              icon="pen"
+              className="flex-row-reverse bodyText"
+              onClick={() => {
+                setBioValue(user.bio ?? "");
+                setIsEditingBio(true);
+              }}
+            >
+              {user.bio ? "Editar descripción" : "Descripción"}
+            </Button>
+          </div>
+        )}
 
         <CardDetails
           isProfile={true}
@@ -84,12 +145,16 @@ const page = () => {
           moreButton={true}
           title={"Vistas recientemente"}
           icon="calendario"
-          items={usuario.peliculasVistas}
+          items={user.peliculasVistas}
           className={"rounded-l-[0px]!"}
           renderItem={(movie) => (
             <div className="flex flex-col gap-2">
               <DetailIcon icon="calendario">{movie.watchedDate}</DetailIcon>
-              <MovieCard tmdbId={movie.tmdbId} text={true} className={"md:p-[0]"} />
+              <MovieCard
+                tmdbId={movie.tmdbId}
+                text={true}
+                className={"md:p-[0]"}
+              />
             </div>
           )}
           setHandlers={true}

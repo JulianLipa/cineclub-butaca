@@ -58,7 +58,7 @@ const MoviePageWrapper = ({ movie }) => {
                   <CardMovieResumen title={key} text={value} />
                 )}
                 breakpoints={{
-                  0: { slidesPerView: 1.2, spaceBetween: 16 },
+                  0: { slidesPerView: 1.1, spaceBetween: 16 },
                   1024: { slidesPerView: 2.2, spaceBetween: 16 },
                 }}
               />
@@ -66,10 +66,12 @@ const MoviePageWrapper = ({ movie }) => {
           </div>
 
           <div className="sm:flex sm:flex-row flex flex-col gap-8">
-            <div className="w-full sm:w-[50%] colSection">
-              <SectionTitle>Sinopsis</SectionTitle>
-              <MovieSinopsis text={movie?.sinopsis} />
-            </div>
+            {movie?.sinopsis && (
+              <div className="w-full sm:w-[50%] colSection">
+                <SectionTitle>Sinopsis</SectionTitle>
+                <MovieSinopsis text={movie.sinopsis} />
+              </div>
+            )}
 
             <div className="w-full sm:w-[50%] colSection sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
               <div className="flex w-full items-center justify-between">

@@ -42,7 +42,7 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth }) => {
     <div
       className={`
         flex w-full flex-col gap-4 rounded-xl
-        border border-(--primary) bg-(--white) p-8
+        border border-(--primary) bg-(--white) p-6 sm:p-8
         transition-opacity duration-300
         ${isPastMonth ? "opacity-20" : "opacity-100"}
       `}
@@ -60,10 +60,10 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth }) => {
       </div>
 
       {/* Días */}
-      <div className="grid min-w-0 grid-cols-7 gap-[2px] sm:gap-2 border-t-1 pt-4">
+      <div className="grid min-w-0 grid-cols-7 gap-[2px] sm:gap-2 border-t-1 pt-4 bodyText">
         {days.map((day, index) => {
           if (!day) {
-            return <div key={index} className={style.dayBox} />;
+            return <div key={index} className={`${style.dayBox} bodyText`} />;
           }
 
           const dateKey = `${year}-${String(monthIndex + 1).padStart(
@@ -85,11 +85,12 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth }) => {
                 ${style.dayBox}
                 ${event ? style.event : ""}
                 ${isToday ? style.today : ""}
+                bodyText
               `}
             >
               {day}
 
-              {isToday && <span className={style.dayIndicator} />}
+              {isToday && <span className={`${style.dayIndicator} bodyText`} />}
             </button>
           );
         })}

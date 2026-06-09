@@ -1,46 +1,68 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Button from "@/shared/ui/button/Button";
+import { useRef, useState } from "react";
+import HeroVideo from "./HeroVideo";
+import HeroControls from "./HeroControls";
+import HeroProgressBar from "./HeroProgressBar";
+import HeroContent from "./HeroContent";
 
 const HeroSection = () => {
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(true);
+  const [muted, setMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setPlaying(true);
+    } else {
+      video.pause();
+      setPlaying(false);
+    }
+  };
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  };
+
+  const handleTimeUpdate = () => {
+    const video = videoRef.current;
+    if (!video || !video.duration) return;
+    setProgress((video.currentTime / video.duration) * 100);
+  };
+
+  const handleSeek = (e) => {
+    const video = videoRef.current;
+    if (!video) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    video.currentTime = ratio * video.duration;
+  };
+
   return (
     <section
       className="relative flex flex-col justify-end overflow-hidden"
-      style={{ height: "100dvh" }}
+      style={{ height: "100svh" }}
     >
-      <div className="relative z-10 flex flex-col gap-6 px-(--padding-body-mobile-w) sm:px-(--padding-body-desktop-w) pb-16 sm:pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col gap-2"
-        >
-          <p className="font-[300] text-[clamp(40px,8vw,100px)] leading-none tracking-tight text-(--primary)">
-            El cine
-          </p>
-          <p className="font-[600] text-[clamp(40px,8vw,100px)] leading-none tracking-tight text-(--primary)">
-            como experiencia
-          </p>
-          <p className="font-[300] text-[clamp(40px,8vw,100px)] leading-none tracking-tight text-(--primary)">
-            compartida.
-          </p>
-        </motion.div>
+      <HeroVideo videoRef={videoRef} onTimeUpdate={handleTimeUpdate} />
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="flex gap-3 flex-wrap"
-        >
-          <Button variant="primary" href="/funciones">
-            Próximas funciones
-          </Button>
-          <Button variant="secondary" href="/comunidad">
-            El Jockey, 2024 (Dir. Luis Ortega)
-          </Button>
-        </motion.div>
-      </div>
+
+      <HeroContent />
+      
+      <HeroControls
+        playing={playing}
+        muted={muted}
+        onTogglePlay={togglePlay}
+        onToggleMute={toggleMute}
+      />
+
+      <HeroProgressBar progress={progress} onSeek={handleSeek} />
     </section>
   );
 };

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-md: 1000px;
+}
+
 :root {
   --primary: #48250b;
   --secondary: #cad7e8;
@@ -171,5 +175,61 @@ h5 {
 @media (hover: none) {
   * {
     -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Páginas con video de fondo — colores adaptados a mobile */
+@media screen and (max-width: 640px) {
+  .videoPage {
+    --primary: var(--white);
+    color: var(--white);
+  }
+
+  /* Sobrescribe inline styles (SectionTitle) y herencias */
+  .videoPage h1,
+  .videoPage h2,
+  .videoPage h3,
+  .videoPage h4,
+  .videoPage h5,
+  .videoPage p,
+  .videoPage span,
+  .videoPage .sectionMain {
+    color: var(--white) !important;
+  }
+
+  .videoPage .glassInput {
+    border-radius: 1em;
+    border: 1px solid rgba(255, 248, 242, 0.4);
+    background-color: var(--white-opacidad);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
+
+  .videoPage .glassInput input,
+  .videoPage .glassInput textarea {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: var(--white) !important;
+    width: 100%;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  .videoPage .glassInput input::placeholder,
+  .videoPage .glassInput textarea::placeholder {
+    color: rgba(255, 248, 242, 0.55) !important;
+  }
+
+  .videoPage .glassBtn {
+    background-color: var(--white-opacidad) !important;
+    border-color: rgba(255, 248, 242, 0.4) !important;
+    color: var(--white) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+
+  .videoPage .logoImg {
+    filter: brightness(0) invert(1);
   }
 }

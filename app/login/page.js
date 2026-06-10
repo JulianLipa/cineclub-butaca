@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 import Image from "next/image";
@@ -8,6 +8,7 @@ import SectionTitle from "@/shared/components/section-title/SectionTitle";
 import Button from "@/shared/ui/button/Button";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
+import HeroControls from "@/shared/sections/Hero/HeroControls";
 
 const ERROR_COLOR = "#c0392b";
 
@@ -27,6 +28,24 @@ const Page = () => {
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(true);
+  const [muted, setMuted] = useState(true);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) { v.play(); setPlaying(true); }
+    else { v.pause(); setPlaying(false); }
+  };
+
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+  };
 
   const handleChange = (field) => (e) => {
     setValues((v) => ({ ...v, [field]: e.target.value }));
@@ -77,7 +96,29 @@ const Page = () => {
     errors[field] ? { borderColor: `${ERROR_COLOR} !important` } : {};
 
   return (
-    <div className="flex md:pr-[0] pr-(--padding-body-mobile-w)">
+    <div className="videoPage relative flex min-h-svh md:min-h-0 md:pr-[0] pr-(--padding-body-mobile-w)">
+      {/* Video de fondo — solo mobile */}
+      <div className="md:hidden absolute inset-0 overflow-hidden">
+        <video
+          ref={videoRef}
+          src="/imgs/jockey-trailer.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+      <div className="md:hidden absolute inset-0 bg-black/40" />
+
+      <HeroControls
+        playing={playing}
+        muted={muted}
+        onTogglePlay={togglePlay}
+        onToggleMute={toggleMute}
+        className="md:hidden absolute top-0 left-0 z-20 p-(--padding-body-mobile-w)"
+      />
+
       <div className="relative w-1/2 h-svh overflow-hidden hidden md:block">
         <Image
           src={"/imgs/frame-godfather-HQ.webp"}
@@ -88,14 +129,14 @@ const Page = () => {
         />
       </div>
 
-      <div className="sectionMain md:mt-10 w-full md:w-1/2! flex flex-col gap-10! justify-center md:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+      <div className="relative sectionMain md:mt-10 w-full md:w-1/2! flex flex-col gap-10! justify-center md:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
         <Link href="/" className="w-fit">
           <Image
             src="/logo/logo-black.svg"
             alt=""
             width={100}
             height={100}
-            className="h-auto w-[70px] object-contain"
+            className="logoImg h-auto w-[70px] object-contain"
           />
         </Link>
 
@@ -112,26 +153,29 @@ const Page = () => {
           className="flex flex-col gap-4"
         >
           <div className="flex flex-col gap-1">
-            <input
-              type="text"
-              placeholder="Mail o Nombre de Usuario"
-              value={values.identifier}
-              onChange={handleChange("identifier")}
-              style={inputStyle("identifier")}
-              autoComplete="username"
-            />
+            <div className="glassInput" style={inputStyle("identifier")}>
+              <input
+                type="text"
+                placeholder="Mail o Nombre de Usuario"
+                value={values.identifier}
+                onChange={handleChange("identifier")}
+                autoComplete="username"
+              />
+            </div>
             <FieldError msg={errors.identifier} />
           </div>
 
           <div className="flex flex-col gap-1">
-            <input
-              type="password"
-              placeholder="Contraseña"
-              value={values.password}
-              onChange={handleChange("password")}
-              style={inputStyle("password")}
-              autoComplete="current-password"
-            />
+            <div className="glassInput" style={inputStyle("password")}>
+              <input
+                type="password"
+                placeholder="Contraseña"
+                value={values.password}
+                onChange={handleChange("password")}
+                autoComplete="current-password"
+                className="glassInput"
+              />
+            </div>
             <FieldError msg={errors.password} />
           </div>
 

@@ -65,15 +65,15 @@ const MoviePageWrapper = ({ movie }) => {
             )}
           </div>
 
-          <div className="sm:flex sm:flex-row flex flex-col gap-6">
+          <div className="flex flex-col min-[1000px]:flex-row gap-6">
             {movie?.sinopsis && (
-              <div className="w-full sm:w-[50%] colSection">
+              <div className="w-full min-[1000px]:w-[50%] colSection">
                 <SectionTitle>Sinopsis</SectionTitle>
                 <MovieSinopsis text={movie.sinopsis} />
               </div>
             )}
 
-            <div className="w-full sm:w-[50%] colSection sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+            <div className="w-full min-[1000px]:w-[50%] colSection pr-(--padding-body-mobile-w) min-[1000px]:pr-(--padding-body-desktop-w)">
               <div className="flex w-full items-center justify-between">
                 <SectionTitleIcon icon="comentarios">Reseñas</SectionTitleIcon>
                 <Button variant="primary" icon="arrow" />

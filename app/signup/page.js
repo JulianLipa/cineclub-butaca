@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import SectionTitle from "@/shared/components/section-title/SectionTitle";
 import Button from "@/shared/ui/button/Button";
 import Link from "next/link";
+import HeroControls from "@/shared/sections/Hero/HeroControls";
 
 const ERROR_COLOR = "#c0392b";
 
@@ -33,6 +34,29 @@ const Page = () => {
   const [errors, setErrors] = useState({});
   const [serverError, setServerError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const videoRef = useRef(null);
+  const [playing, setPlaying] = useState(true);
+  const [muted, setMuted] = useState(true);
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setPlaying(true);
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
+  };
+
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+  };
 
   const handleChange = (field) => (e) => {
     setValues((v) => ({ ...v, [field]: e.target.value }));
@@ -111,7 +135,29 @@ const Page = () => {
     errors[field] ? { borderColor: `${ERROR_COLOR} !important` } : {};
 
   return (
-    <div className="flex sm:pr-[0] pr-(--padding-body-mobile-w)">
+    <div className="videoPage relative flex min-h-svh sm:min-h-0 sm:pr-[0] pr-(--padding-body-mobile-w)">
+      {/* Video de fondo — solo mobile */}
+      <div className="sm:hidden absolute inset-0 overflow-hidden">
+        <video
+          ref={videoRef}
+          src="/imgs/jockey-trailer.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+      <div className="sm:hidden absolute inset-0 bg-black/40" />
+
+      <HeroControls
+        playing={playing}
+        muted={muted}
+        onTogglePlay={togglePlay}
+        onToggleMute={toggleMute}
+        className="sm:hidden absolute top-0 left-0 z-20 p-(--padding-body-mobile-w)"
+      />
+
       <div className="relative w-1/2 h-svh overflow-hidden hidden sm:block">
         <Image
           src={"/imgs/frame-godfather-HQ.webp"}
@@ -122,14 +168,14 @@ const Page = () => {
         />
       </div>
 
-      <div className="sectionMain sm:mt-10 w-full sm:w-1/2! flex flex-col gap-10! justify-center sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+      <div className="relative sectionMain sm:mt-10 w-full sm:w-1/2! flex flex-col gap-10! justify-center sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
         <Link href="/" className="w-fit">
           <Image
             src="/logo/logo-black.svg"
             alt=""
             width={100}
             height={100}
-            className="h-auto w-[70px] object-contain"
+            className="logoImg h-auto w-[70px] object-contain"
           />
         </Link>
 
@@ -145,75 +191,83 @@ const Page = () => {
         >
           <div className="flex gap-2">
             <div className="flex flex-col gap-2 flex-1">
-              <input
-                type="text"
-                placeholder="Nombre"
-                value={values.nombre}
-                onChange={handleChange("nombre")}
-                style={inputStyle("nombre")}
-                autoComplete="given-name"
-              />
+              <div className="glassInput" style={inputStyle("nombre")}>
+                <input
+                  type="text"
+                  placeholder="Nombre"
+                  value={values.nombre}
+                  onChange={handleChange("nombre")}
+                  autoComplete="given-name"
+                />
+              </div>
               <FieldError msg={errors.nombre} />
             </div>
 
             <div className="flex flex-col gap-2 flex-1">
-              <input
-                type="text"
-                placeholder="Apellido"
-                value={values.apellido}
-                onChange={handleChange("apellido")}
-                style={inputStyle("apellido")}
-                autoComplete="family-name"
-              />
+              <div className="glassInput" style={inputStyle("apellido")}>
+                <input
+                  type="text"
+                  placeholder="Apellido"
+                  value={values.apellido}
+                  onChange={handleChange("apellido")}
+                  autoComplete="family-name"
+                />
+              </div>
               <FieldError msg={errors.apellido} />
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
-            <input
-              type="text"
-              placeholder="Nombre de usuario"
-              value={values.username}
-              onChange={handleChange("username")}
-              style={inputStyle("username")}
-              autoComplete="username"
-            />
+            <div className="glassInput" style={inputStyle("username")}>
+              <input
+                type="text"
+                placeholder="Nombre de usuario"
+                value={values.username}
+                onChange={handleChange("username")}
+                autoComplete="username"
+              />
+            </div>
             <FieldError msg={errors.username} />
           </div>
 
           <div className="flex flex-col gap-2">
-            <input
-              type="email"
-              placeholder="Mail"
-              value={values.mail}
-              onChange={handleChange("mail")}
-              style={inputStyle("mail")}
-              autoComplete="email"
-            />
+            <div className="glassInput" style={inputStyle("mail")}>
+              <input
+                type="email"
+                placeholder="Mail"
+                value={values.mail}
+                onChange={handleChange("mail")}
+                autoComplete="email"
+              />
+            </div>
             <FieldError msg={errors.mail} />
           </div>
 
           <div className="flex flex-col gap-2">
-            <input
-              type="password"
-              placeholder="Contraseña"
-              value={values.password}
-              onChange={handleChange("password")}
-              style={inputStyle("password")}
-              autoComplete="new-password"
-            />
+            <div className="" style={inputStyle("password")}>
+              <input
+                type="password"
+                placeholder="Contraseña"
+                value={values.password}
+                onChange={handleChange("password")}
+                autoComplete="new-password"
+                className="glassInput"
+              />
+            </div>
             <FieldError msg={errors.password} />
           </div>
 
           <div className="flex flex-col gap-2">
-            <input
-              type="password"
-              placeholder="Repetir Contraseña"
-              value={values.repeatPassword}
-              onChange={handleChange("repeatPassword")}
-              style={inputStyle("repeatPassword")}
-              autoComplete="new-password"
-            />
+            <div className="glassInput" style={inputStyle("repeatPassword")}>
+              <input
+                type="password"
+                placeholder="Repetir Contraseña"
+                value={values.repeatPassword}
+                onChange={handleChange("repeatPassword")}
+                autoComplete="new-password"
+                className="glassInput"
+              />
+            </div>
             <FieldError msg={errors.repeatPassword} />
           </div>
 

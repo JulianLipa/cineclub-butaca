@@ -26,7 +26,7 @@ const CicloPageWrapper = ({ ciclo }) => {
       </div>
 
       <div className="sectionMain flex flex-col gap-10! md:mt-10">
-        <h1 className="text-[2rem]! font-[700]!">{ciclo?.title}</h1>
+        <h1 className="text-[1.5rem]! sm:text-[2rem]! font-[700]!">{ciclo?.title}</h1>
         <p className="bodyText">{ciclo?.description}</p>
       </div>
     </div>

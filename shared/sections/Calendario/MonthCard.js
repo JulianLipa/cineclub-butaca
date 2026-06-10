@@ -53,14 +53,14 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth }) => {
       </h3>
 
       {/* Header */}
-      <div className="grid grid-cols-7 gap-[2px] text-center text-[12px] sm:text-[10px] sm:gap-1 sm:text-xs">
+      <div className="grid grid-cols-7 gap-1 text-center text-[12px] sm:text-[10px] sm:gap-1 sm:text-xs">
         {WEEK_DAYS.map((day) => (
           <span key={day}>{day}</span>
         ))}
       </div>
 
       {/* Días */}
-      <div className="grid min-w-0 grid-cols-7 gap-[2px] sm:gap-2 border-t-1 pt-4 bodyText">
+      <div className="grid min-w-0 grid-cols-7 gap-1 sm:gap-2 border-t-1 pt-4 bodyText">
         {days.map((day, index) => {
           if (!day) {
             return <div key={index} className={`${style.dayBox} bodyText`} />;

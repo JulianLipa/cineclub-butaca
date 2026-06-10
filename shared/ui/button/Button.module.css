@@ -2,7 +2,7 @@
   width: fit-content;
   border-radius: 1em;
   padding: 0.75em 1em;
-  font-weight: 500;
+  font-weight: 500 !important;
   cursor: pointer;
 
   display: flex;
@@ -46,7 +46,7 @@
 
 .buttonText {
   gap: 0.5em;
-  font-weight: 400;
+  font-weight: 400 !important;
   padding: 0 !important;
   border-radius: 0px !important;
 }
@@ -69,5 +69,22 @@
   .terciary:hover {
     background-color: var(--white);
     color: var(--primary);
+  }
+}
+
+.socialMovieIcon{
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+
+@media (hover: hover) {
+  .socialMovieIcon:hover {
+    background-color: var(--white);
+  }
+}
+
+@media (max-width: 640px) {
+  .button {
+    font-size: .8em;
   }
 }

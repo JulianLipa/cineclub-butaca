@@ -65,10 +65,10 @@ const VoteBanner = () => {
         <div className="colSection w-full lg:w-1/2 order-1 lg:order-1">
           {/* Title section */}
           <div className="flex flex-col h-fit">
-            <p className="font-[600] text-[40px] lg:text-[80px] leading-none tracking-tight">
+            <p className="font-[600] text-[26px] sm:text-[40px] lg:text-[80px] leading-none tracking-tight">
               Votá que película
             </p>
-            <p className="font-[300] text-[40px] lg:text-[80px] leading-none tracking-tight">
+            <p className="font-[300] text-[26px] sm:text-[40px] lg:text-[80px] leading-none tracking-tight">
               vamos a ver
             </p>
           </div>

@@ -19,7 +19,7 @@ const TIPO_HREF = { movie: "movie", tv: "serie", person: "persona" };
 const NAV_LINKS = [
   { label: "Funciones", href: "/funciones" },
   { label: "Comunidad", href: "/comunidad" },
-  { label: "Archivo" },
+  { label: "Archivo", href: "/archivo" },
 ];
 
 const NavLinks = ({ mobile = false }) =>
@@ -49,7 +49,7 @@ const UserCTA = ({ onAction }) => {
   if (user)
     return (
       <>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Button
             variant="buttonText"
             onClick={onAction}
@@ -242,7 +242,7 @@ const Header = () => {
         className={`${style.header} flex items-center justify-between w-full z-[1000]`}
       >
         {/* Left: hamburger + logo + nav */}
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-2 items-center">
           <button
             className="w-10 h-10 md:hidden cursor-pointer shrink-0 flex items-center justify-center"
             onClick={toggleMenu}
@@ -284,7 +284,7 @@ const Header = () => {
         {/* Right: search + CTA */}
         <div className="flex items-center gap-4">
           {/* Search area */}
-          <div ref={containerRef} className="relative flex items-center gap-3">
+          <div ref={containerRef} className="relative flex items-center gap-2">
             {/* Desktop search input */}
             <AnimatePresence>
               {isSearchOpen && (
@@ -351,7 +351,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden fixed left-0 w-full z-[999]"
+            className="md:hidden absolute top-full left-0 w-full z-[999]"
           >
             <div className={`${style.mobileMenu} flex flex-col gap-6`}>
               <NavLinks mobile />
@@ -370,7 +370,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="md:hidden fixed left-0 w-full z-[999]"
+            className="md:hidden absolute top-full left-0 w-full z-[999]"
           >
             <div className={`${style.mobileMenu} flex flex-col gap-4`}>
               <div>

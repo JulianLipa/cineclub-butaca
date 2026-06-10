@@ -26,10 +26,10 @@ const Pricing = () => {
     <div className="sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
       <motion.section
         {...fadeIn}
-        className="bg-(--secondary) py-8 sm:px-10 flex flex-col gap-8 border-2 border-(--secondary) rounded-4xl"
+        className="bg-(--secondary) py-8 sm:px-10 flex flex-col gap-6 border-2 border-(--secondary) rounded-4xl"
       >
-        <div className="w-full px-4 flex flex-col gap-16 sm:gap-12">
-          <div className="flex flex-col gap-6 sm:gap-8 items-center text-center w-full">
+        <div className="w-full px-4 flex flex-col gap-10 sm:gap-10">
+          <div className="flex flex-col gap-6 sm:gap-6 items-center text-center w-full">
             <Icon
               name={"logo"}
               color={"var(--primary)"}

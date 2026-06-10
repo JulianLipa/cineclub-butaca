@@ -42,7 +42,7 @@ const PricingDiv = ({ data, className }) => {
         )}
       </div>
 
-      <ul className="flex flex-col gap-3 text-start">
+      <ul className="flex flex-col gap-4 text-start">
         {data.features.map((feature) => (
           <li key={feature.category} className="">
             <span className="font-semibold! bodyText">

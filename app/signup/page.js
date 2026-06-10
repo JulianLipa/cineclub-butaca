@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import SectionTitle from "@/shared/components/section-title/SectionTitle";
 import Button from "@/shared/ui/button/Button";
+import Link from "next/link";
 
 const ERROR_COLOR = "#c0392b";
 
@@ -122,13 +123,15 @@ const Page = () => {
       </div>
 
       <div className="sectionMain sm:mt-10 w-full sm:w-1/2! flex flex-col gap-10! justify-center sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
-        <Image
-          src="/logo/logo-black.svg"
-          alt=""
-          width={100}
-          height={100}
-          className="h-auto w-[70px] object-contain"
-        />
+        <Link href="/" className="w-fit">
+          <Image
+            src="/logo/logo-black.svg"
+            alt=""
+            width={100}
+            height={100}
+            className="h-auto w-[70px] object-contain"
+          />
+        </Link>
 
         <div className="flex flex-col gap-4">
           <SectionTitle>Creá tu cuenta</SectionTitle>
@@ -140,7 +143,7 @@ const Page = () => {
           noValidate
           className="flex flex-col gap-4"
         >
-          <div className="flex gap-3">
+          <div className="flex gap-2">
             <div className="flex flex-col gap-2 flex-1">
               <input
                 type="text"

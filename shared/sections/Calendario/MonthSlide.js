@@ -17,7 +17,7 @@ const MonthSlide = ({ year, monthIndex, today, events }) => {
     (year === today.getFullYear() && monthIndex < today.getMonth());
 
   return (
-    <div className="flex snap-start shrink-0 flex-col gap-3">
+    <div className="flex snap-start shrink-0 flex-col gap-2">
       <div className="flex flex-col gap-2 w-full justify-center">
         <MonthCard
           year={year}

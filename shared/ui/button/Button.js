@@ -64,13 +64,15 @@ const Button = ({
     >
       {iconComponent}
       {img && (
-        <Image
-          src={`/imgs/${img}.png`}
-          alt=""
-          width={100}
-          height={100}
-          className="h-auto w-full object-contain"
-        />
+        <div className="h-6 w-6 shrink-0">
+          <Image
+            src={`/imgs/${img}.png`}
+            alt=""
+            width={100}
+            height={100}
+            className="h-full w-full object-contain"
+          />
+        </div>
       )}
       {children && <span>{children}</span>}
     </button>

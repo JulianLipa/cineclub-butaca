@@ -2,6 +2,7 @@
   border-color: var(--primary) !important;
   background-color: var(--primary) !important;
   color: var(--white) !important;
+  width: 100% !important;
 }
 
 @media (hover: hover) {

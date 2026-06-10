@@ -41,12 +41,12 @@ const HeroContent = () => {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-        className="flex gap-3 flex-wrap"
+        className="flex gap-2 flex-wrap"
       >
         <Button variant="primary" href="/funciones">
           Próximas funciones
         </Button>
-        <Button variant="terciary" href="/comunidad">
+        <Button variant="terciary" href="/movie/1104937">
           El Jockey, 2024 (Dir. Luis Ortega)
         </Button>
       </motion.div>

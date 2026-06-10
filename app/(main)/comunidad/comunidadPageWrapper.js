@@ -29,7 +29,7 @@ const ComunidadPageWrapper = () => {
         </SectionTitleIcon>
       </div>
 
-      <div className="sectionMain pt-20 gap-15! flex flex-col">
+      <div className="sectionMain pt-20 gap-10! flex flex-col">
         <CarouselSection
           title="Miembros destacados"
           items={miembros}

@@ -15,7 +15,7 @@ const CardText = ({ titulo, anio, director, loading, ...props }) => {
           <Button
             variant="buttonText"
             href={`/movie/${props.tmdbId}`}
-            className="text-left text-[24px] font-[600]! whitespace-normal block"
+            className="text-left text-[20px] sm:text-[24px] font-[600]! whitespace-normal block"
           >
             {titulo}, {anio}
           </Button>

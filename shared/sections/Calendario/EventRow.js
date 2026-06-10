@@ -9,7 +9,7 @@ const getHref = (event) => {
   return null;
 };
 
-const EventRow = ({ date, event, isPastMonth }) => {
+const EventRow = ({ date, event, isPastMonth, className: extraClass = "" }) => {
   const href = isPastMonth ? null : getHref(event);
 
   const inner = (
@@ -25,7 +25,7 @@ const EventRow = ({ date, event, isPastMonth }) => {
 
   if (href) {
     return (
-      <div className="flex min-w-0 gap-2 text-xs items-center">
+      <div className={`flex min-w-0 gap-2 text-xs items-center ${extraClass}`}>
         <Link href={href} className={className}>
           {inner}
         </Link>
@@ -34,7 +34,7 @@ const EventRow = ({ date, event, isPastMonth }) => {
   }
 
   return (
-    <div className="flex min-w-0 gap-2 text-xs items-center">
+    <div className={`flex min-w-0 gap-2 text-xs items-center ${extraClass}`}>
       <button className={className} disabled={isPastMonth}>
         {inner}
       </button>

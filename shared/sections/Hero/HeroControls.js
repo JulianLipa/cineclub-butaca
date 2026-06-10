@@ -1,27 +1,4 @@
-const btnStyle = {
-  backgroundColor: "var(--white-opacidad)",
-  border: "1px solid var(--primary)",
-  color: "var(--primary)",
-  borderRadius: "1em",
-  padding: "0.5em 0.75em",
-  backdropFilter: "blur(10px)",
-  cursor: "pointer",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-};
-
-const onEnter = (e) => {
-  e.currentTarget.style.backgroundColor = "var(--primary)";
-  e.currentTarget.style.color = "var(--white)";
-  e.currentTarget.style.transform = "translateY(-2px)";
-};
-
-const onLeave = (e) => {
-  e.currentTarget.style.backgroundColor = "var(--white-opacidad)";
-  e.currentTarget.style.color = "var(--primary)";
-  e.currentTarget.style.transform = "translateY(0)";
-};
+import Button from "@/shared/ui/button/Button";
 
 const PlayIcon = () => (
   <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
@@ -53,27 +30,49 @@ const UnmutedIcon = () => (
   </svg>
 );
 
-const HeroControls = ({ playing, muted, onTogglePlay, onToggleMute }) => (
-  <div className="pt-0! z-20 flex gap-2 sectionMain gap-2!">
-    <button
+const EyeIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+  </svg>
+);
+
+const EyeSlashIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+    <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z"/>
+    <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z"/>
+    <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709z"/>
+    <path d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z"/>
+  </svg>
+);
+
+const HeroControls = ({ playing, muted, onTogglePlay, onToggleMute, contentHidden, onToggleContent, className = "" }) => (
+  <div className={`z-20 flex gap-2 ${className}`}>
+    <Button
+      variant="terciary"
       onClick={onTogglePlay}
       aria-label={playing ? "Pausar video" : "Reproducir video"}
-      style={btnStyle}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
     >
       {playing ? <PauseIcon /> : <PlayIcon />}
-    </button>
+    </Button>
 
-    <button
+    <Button
+      variant="terciary"
       onClick={onToggleMute}
       aria-label={muted ? "Activar sonido" : "Silenciar"}
-      style={btnStyle}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
     >
       {muted ? <MutedIcon /> : <UnmutedIcon />}
-    </button>
+    </Button>
+
+    {onToggleContent && (
+      <Button
+        variant="terciary"
+        onClick={onToggleContent}
+        aria-label={contentHidden ? "Mostrar contenido" : "Ocultar contenido"}
+      >
+        {contentHidden ? <EyeIcon /> : <EyeSlashIcon />}
+      </Button>
+    )}
   </div>
 );
 

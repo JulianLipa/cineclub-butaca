@@ -59,10 +59,10 @@ const page = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="w-full flex flex-col items-center justify-center gap-5 sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+      <div className="w-full flex flex-col items-center justify-center gap-4 sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
         <div className={`profileImg w-30! md:w-45`}></div>
 
-        <div className="flex gap-5">
+        <div className="flex gap-4">
           <Button variant="buttonText" className="font-[600]! text-[.9em]">
             @{user.username}
           </Button>

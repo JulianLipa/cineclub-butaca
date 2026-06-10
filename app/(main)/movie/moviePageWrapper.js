@@ -37,7 +37,7 @@ const MoviePageWrapper = ({ movie }) => {
     <div>
       <MovieHero img={movie?.frame} />
       <div className="sectionMain relative flex flex-col sm:flex-row gap-10! top-0">
-        <MovieSidebar data={movie} />
+        <MovieSidebar data={movie} date={date} />
 
         <div className="w-full sm:w-[70%] flex flex-col gap-10 sm:py-(--padding-body-desktop)">
           <MovieActions date={date} />
@@ -65,7 +65,7 @@ const MoviePageWrapper = ({ movie }) => {
             )}
           </div>
 
-          <div className="sm:flex sm:flex-row flex flex-col gap-8">
+          <div className="sm:flex sm:flex-row flex flex-col gap-6">
             {movie?.sinopsis && (
               <div className="w-full sm:w-[50%] colSection">
                 <SectionTitle>Sinopsis</SectionTitle>
@@ -108,7 +108,7 @@ const MoviePageWrapper = ({ movie }) => {
         </div>
       </div>
 
-      <div className="sectionMain flex flex-col gap-8! pt-0!">
+      <div className="sectionMain flex flex-col gap-6! pt-0!">
         <ListasSection title="Aparece en" />
         <PopularSection title={`Similar a ${movie.titulo}`} />
       </div>

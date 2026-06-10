@@ -32,7 +32,7 @@ const PersonaSidebar = ({ data }) => (
         loading={!data}
         skeleton={<Skeleton className="h-8 w-3/4" />}
       >
-        {data && <h1 className="font-[600] text-[24px]">{data.nombre}</h1>}
+        {data && <h1 className="font-[600] text-[20px] sm:text-[24px]">{data.nombre}</h1>}
       </FadeIn>
 
       {/* Departamento */}

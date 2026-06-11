@@ -148,7 +148,7 @@ const HeroSection = () => {
 
       <div
         ref={bottomDivRef}
-        className="bg-(--white) heroBottomDiv flex flex-row z-100 gap-4 sm:pl-(--padding-body-desktop-w) p-(--padding-body-mobile-w)"
+        className="bg-(--white) heroBottomDiv flex sm:flex-row flex-col z-100 gap-4 sm:pl-(--padding-body-desktop-w) p-(--padding-body-mobile-w)"
         style={{
           opacity: !bottomVisible || contentHidden ? 0 : 1 - scrollProgress,
           transform: `translateY(${scrollProgress * 24}px)`,
@@ -170,8 +170,8 @@ const HeroSection = () => {
         />
 
         <div>
-          <p className="font-[600] text-2xl">Cineclub Butaca</p>
-          <p className="sm:text-[1em] text-[.8em]">
+          <p className="font-[600] text-2xl leading-tight">Cineclub Butaca</p>
+          <p className="sm:text-[1em] text-[.8em] leading-tight">
             Proyecto cinematográfico, social y colaborativo
           </p>
         </div>

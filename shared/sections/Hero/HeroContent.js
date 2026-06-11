@@ -33,17 +33,12 @@ const HeroContent = () => {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="flex flex-col gap-2"
+        style={{ fontSize, transition: "font-size .5s ease", lineHeight: 1.15 }}
+        className="tracking-tight text-(--white)"
       >
-        {["El cine", "como experiencia", "compartida."].map((line, i) => (
-          <p
-            key={line}
-            style={{ fontSize, transition: "font-size .5s ease" }}
-            className={`leading-none tracking-tight text-(--white) ${i === 1 ? "font-[600]" : "font-[300]"}`}
-          >
-            {line}
-          </p>
-        ))}
+        <span className="block font-[300]">El cine</span>
+        <span className="block font-[600]">como experiencia</span>
+        <span className="block font-[300]">compartida.</span>
       </motion.div>
 
       <motion.div

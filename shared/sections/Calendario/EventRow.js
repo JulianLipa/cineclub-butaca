@@ -34,7 +34,7 @@ const EventRow = ({ date, event, isPastMonth, className: extraClass = "" }) => {
   }
 
   return (
-    <div className={`flex min-w-0 gap-2 text-xs items-center ${extraClass}`}>
+    <div className={`flex min-w-0 gap-2 text-xs items-center w-fit ${extraClass}`}>
       <button className={className} disabled={isPastMonth}>
         {inner}
       </button>

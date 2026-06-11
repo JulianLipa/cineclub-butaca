@@ -5,6 +5,7 @@ import Skeleton from "@/shared/components/skeleton/Skeleton.js";
 import FadeIn from "@/shared/components/skeleton/FadeIn.js";
 import EventRow from "@/shared/sections/Calendario/EventRow.js";
 import { parseScreeningDate, dateToISO } from "@/lib/dates";
+import Image from "next/image";
 import style from "../movie.module.css";
 
 const MovieSidebar = ({ data, loading, date }) => {
@@ -104,6 +105,20 @@ const MovieSidebar = ({ data, loading, date }) => {
                     isPastMonth={false}
                     className="text-[.9em]!"
                   />
+                </div>
+              )}
+              {data?.streaming && (
+                <div className="flex flex-col gap-2">
+                  <p className="text-[.75em] font-[500] opacity-60 uppercase tracking-wide">Disponible en</p>
+                  <div className="flex flex-wrap gap-2">
+                    {data.streaming.map((p) => (
+                      <div key={p.id} title={p.nombre} className="w-8 h-8 rounded-lg overflow-hidden shrink-0">
+                        {p.logo && (
+                          <Image src={p.logo} alt={p.nombre} width={32} height={32} className="w-full h-full object-cover" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

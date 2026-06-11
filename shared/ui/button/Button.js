@@ -25,12 +25,9 @@ const Button = ({
   // Color dinámico del ícono
   const getIconColor = () => {
     if (variant === "buttonText") return "var(--primary)";
-    if (variant === "secondary") {
-      return isHovered ? "var(--white)" : "var(--touchable)";
-    }
-    if (variant === "primary") {
-      return isHovered ? "var(--touchable)" : "var(--white)";
-    }
+    if (variant === "secondary") return isHovered ? "var(--white)" : "var(--touchable)";
+    if (variant === "primary") return isHovered ? "var(--touchable)" : "var(--white)";
+    if (variant === "success") return "var(--greenBorder)";
     return "var(--white)";
   };
 
@@ -40,12 +37,14 @@ const Button = ({
     </div>
   );
 
+  const canHover = () => window.matchMedia("(hover: hover)").matches;
+
   if (href) {
     return (
       <Link
         href={href}
         className={`${style.button} ${style[variant]} gap-2 ${className}`}
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => canHover() && setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {iconComponent}
@@ -58,7 +57,7 @@ const Button = ({
     <button
       type={type}
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => canHover() && setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={`${style.button} ${style[variant]} ${className} gap-2`}
     >

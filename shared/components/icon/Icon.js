@@ -26,6 +26,7 @@ const Icon = ({
         maskPosition: "center",
         backgroundColor: color,
         display: "block",
+        transition: "none",
       }}
       role="img"
       aria-label={alt || name}

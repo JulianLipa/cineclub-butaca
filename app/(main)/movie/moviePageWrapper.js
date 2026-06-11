@@ -36,7 +36,7 @@ const MoviePageWrapper = ({ movie }) => {
   return (
     <div>
       <MovieHero img={movie?.frame} />
-      <div className="sectionMain relative flex flex-col sm:flex-row gap-10! top-0">
+      <div className="sectionMain relative flex flex-col sm:flex-row gap-4! top-0">
         <MovieSidebar data={movie} date={date} />
 
         <div className="w-full sm:w-[70%] flex flex-col gap-10 sm:py-(--padding-body-desktop)">

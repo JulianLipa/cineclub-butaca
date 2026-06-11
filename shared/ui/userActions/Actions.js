@@ -1,22 +1,42 @@
+"use client";
+
+import { useState, useRef, useCallback } from "react";
 import Button from "@/shared/ui/button/Button";
 
-const Actions = ({ icons, className, variant, divClassname }) => {
-  const actions = [
-    { icon: "eye", value: 28 },
-    { icon: "like", value: 28 },
-    { icon: "comentarios", value: 28 },
-    { icon: "star", value: 28 },
-  ];
+const ACTIONS = [
+  { icon: "eye", value: 28 },
+  { icon: "like", value: 28 },
+  { icon: "comentarios", value: 28 },
+  { icon: "star", value: 28 },
+];
 
-  const filteredActions = actions.filter((item) => icons?.includes(item.icon));
+const Actions = ({ icons, className, variant, divClassname }) => {
+  const [activeIcons, setActiveIcons] = useState(new Set());
+  const timers = useRef({});
+
+  const handleClick = useCallback((icon) => {
+    clearTimeout(timers.current[icon]);
+    setActiveIcons((prev) => new Set([...prev, icon]));
+    timers.current[icon] = setTimeout(() => {
+      setActiveIcons((prev) => {
+        const next = new Set(prev);
+        next.delete(icon);
+        return next;
+      });
+    }, 800);
+  }, []);
+
+  const filtered = ACTIONS.filter((a) => icons?.includes(a.icon));
+
   return (
     <div className={`flex gap-2 sm:gap-4 ${divClassname}`}>
-      {filteredActions.map((item, index) => (
+      {filtered.map((item) => (
         <Button
-          key={index}
-          variant={variant}
+          key={item.icon}
+          variant={activeIcons.has(item.icon) ? "success" : variant}
           className={`bodyText ${className}`}
           icon={item.icon}
+          onClick={() => handleClick(item.icon)}
         >
           {item.value}
         </Button>

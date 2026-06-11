@@ -6,6 +6,15 @@ import Button from "@/shared/ui/button/Button";
 
 const HeroContent = () => {
   const [small, setSmall] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 600px)");
+    setIsMobile(mq.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     const t1 = setTimeout(() => setSmall(true), 5000);
@@ -14,11 +23,12 @@ const HeroContent = () => {
     };
   }, []);
 
-  const fontSize = small ? "40px" : "clamp(40px, 8vw, 100px)";
-  const fontTransition = { duration: 1.5, ease: "easeInOut" };
+  const fontSize = small
+    ? isMobile ? "1.5rem" : "40px"
+    : isMobile ? "40px" : "clamp(40px, 8vw, 100px)";
 
   return (
-    <div className="relative z-10 flex flex-col gap-6 px-(--padding-body-mobile-w) sm:px-(--padding-body-desktop-w) pb-8">
+    <div className="relative z-10 flex flex-col gap-6 px-(--padding-body-mobile-w) sm:px-(--padding-body-desktop-w) py-(--padding-body-mobile) sm:py-(--padding-body-desktop)">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -26,14 +36,13 @@ const HeroContent = () => {
         className="flex flex-col gap-2"
       >
         {["El cine", "como experiencia", "compartida."].map((line, i) => (
-          <motion.p
+          <p
             key={line}
-            animate={{ fontSize }}
-            transition={fontTransition}
+            style={{ fontSize, transition: "font-size .5s ease" }}
             className={`leading-none tracking-tight text-(--white) ${i === 1 ? "font-[600]" : "font-[300]"}`}
           >
             {line}
-          </motion.p>
+          </p>
         ))}
       </motion.div>
 

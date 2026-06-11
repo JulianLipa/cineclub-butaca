@@ -55,8 +55,8 @@ const PricingDiv = ({ data, className }) => {
         ))}
       </ul>
 
-      <div className="w-full flex justify-center">
-        <Button variant="primary" className="w-full!">
+      <div className="w-full! flex justify-center">
+        <Button variant="primary" className="w-full!" href="/login">
           {data.cta}
         </Button>
       </div>

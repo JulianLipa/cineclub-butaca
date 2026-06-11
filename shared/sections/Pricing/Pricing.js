@@ -38,22 +38,28 @@ const Pricing = () => {
             />
             <SectionTitle>Nuestra comunidad depende de vos</SectionTitle>
             <div className="w-[80%] md:w-[50%]">
-              <p className={"bodyText text-[.9em]!"}>
+              <p className={"bodyText text-[.9em]! text-center!"}>
                 Convertite en Socio Butaca. Tu suscripción es el motor colectivo
                 que financia un espacio libre para el cine de autor nacional e
                 internacional.
               </p>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <p className="bodyText text-[.9em]!">Aporte</p>
+            <div className="flex flex-col gap-2 justify-center! items-center">
+              <p className="bodyText text-[.9em]! text-center w-fit">Aporte</p>
 
               <div className="flex">
-                <Button variant="primary" className="">
+                <Button
+                  variant="primary"
+                  className="rounded-r-[0]! hover:rounded-2xl!"
+                >
                   Mensual
                 </Button>
 
-                <Button variant="secondary" className="">
+                <Button
+                  variant="secondary"
+                  className="rounded-l-[0]! hover:rounded-2xl!"
+                >
                   Anual
                 </Button>
               </div>

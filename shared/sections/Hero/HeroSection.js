@@ -111,7 +111,7 @@ const HeroSection = () => {
           setContentHidden((v) => !v);
           setTimeout(() => setAnimateOffset(false), 420);
         }}
-        className="absolute top-0 left-0 p-(--padding-body-mobile-w) sm:p-(--padding-body-desktop-w)"
+        className="absolute top-0 left-0 py-(--padding-body-mobile) px-(--padding-body-mobile-w) sm:py-(--padding-body-desktop) sm:px-(--padding-body-desktop-w)"
       />
 
       {/* HeroContent: se desplaza con scroll y con contentHidden */}
@@ -148,7 +148,7 @@ const HeroSection = () => {
 
       <div
         ref={bottomDivRef}
-        className="bg-(--white) heroBottomDiv flex sm:flex-row flex-col z-100 gap-4 sm:pl-(--padding-body-desktop-w) p-(--padding-body-mobile-w)"
+        className="bg-(--white) heroBottomDiv flex flex-row z-100 gap-4 sm:pl-(--padding-body-desktop-w) p-(--padding-body-mobile-w)"
         style={{
           opacity: !bottomVisible || contentHidden ? 0 : 1 - scrollProgress,
           transform: `translateY(${scrollProgress * 24}px)`,

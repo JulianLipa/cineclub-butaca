@@ -35,7 +35,7 @@ const ComunidadPageWrapper = () => {
           items={miembros}
           renderItem={() => <UserBadge variant="vertical" />}
           breakpoints={{
-            0: { slidesPerView: 3.5, spaceBetween: 8 },
+            0: { slidesPerView: 4.3, spaceBetween: 8 },
             640: { slidesPerView: 5.5, spaceBetween: 8 },
             1024: { slidesPerView: 10, spaceBetween: 8 },
           }}

@@ -10,8 +10,8 @@ const List = () => {
         <MovieCard tmdbId={7340} text={false}></MovieCard>
       </div>
 
-      <div className="w-2/3 flex gap-4 flex-col">
-        <Button variant="buttonText" className="font-[600]!">
+      <div className="sm:w-2/3 flex gap-4 flex-col">
+        <Button variant="buttonText" className="bodyText font-[800]!">
           Lista
         </Button>
 

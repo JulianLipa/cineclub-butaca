@@ -244,28 +244,28 @@ const Page = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <div className="" style={inputStyle("password")}>
+            <div className="glassInput" style={inputStyle("password")}>
               <input
                 type="password"
                 placeholder="Contraseña"
                 value={values.password}
                 onChange={handleChange("password")}
                 autoComplete="new-password"
-                className="glassInput"
+                className=""
               />
             </div>
             <FieldError msg={errors.password} />
           </div>
 
           <div className="flex flex-col gap-2">
-            <div className="glassInput" style={inputStyle("repeatPassword")}>
+            <div style={inputStyle("repeatPassword")} className="glassInput">
               <input
                 type="password"
                 placeholder="Repetir Contraseña"
                 value={values.repeatPassword}
                 onChange={handleChange("repeatPassword")}
                 autoComplete="new-password"
-                className="glassInput"
+                className=""
               />
             </div>
             <FieldError msg={errors.repeatPassword} />

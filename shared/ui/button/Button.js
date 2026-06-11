@@ -44,12 +44,12 @@ const Button = ({
     return (
       <Link
         href={href}
-        className={`${style.button} ${style[variant]} gap-2`}
+        className={`${style.button} ${style[variant]} gap-2 ${className}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {iconComponent}
-        <span className={className}>{children}</span>
+        <span>{children}</span>
       </Link>
     );
   }

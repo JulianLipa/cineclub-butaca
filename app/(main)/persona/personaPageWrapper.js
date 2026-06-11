@@ -6,6 +6,7 @@ import { useLayout } from "@/contexts/LayoutContext";
 import SectionTitle from "@/shared/components/section-title/SectionTitle";
 import CarouselSection from "@/shared/components/carouselSection/CarouselSection";
 import MovieCard from "@/shared/ui/movieCard/MovieCard";
+import BackButton from "@/shared/components/backButton/BackButton";
 import PersonaSidebar from "./sections/PersonaSidebar";
 import PersonaBiografia from "./sections/PersonaBiografia";
 
@@ -19,6 +20,9 @@ const PersonaPageWrapper = ({ persona }) => {
 
   return (
     <div>
+      <div className="sectionMain flex justify-start pb-0!">
+        <BackButton />
+      </div>
       <div className="sectionMain relative flex flex-col sm:flex-row gap-10! top-0">
         <PersonaSidebar data={persona} />
 

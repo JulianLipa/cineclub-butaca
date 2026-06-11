@@ -65,7 +65,7 @@ const WatchlistAuthModal = ({ isOpen, onCancel }) =>
     document.body,
   );
 
-const WatchlistButton = ({ initialAdded = false, className }) => {
+const WatchlistButton = ({ initialAdded = false, value = 28, className }) => {
   const { user } = useAuth();
   const [wlState, setWlState] = useState(initialAdded ? "added" : "idle");
   const [isHovered, setIsHovered] = useState(false);
@@ -105,6 +105,7 @@ const WatchlistButton = ({ initialAdded = false, className }) => {
           ? <div className="h-4 w-4 shrink-0"><Icon name={icon} variant="negative" color={iconColor} /></div>
           : <Spinner color={iconColor} />
         }
+        <span>{value}</span>
       </button>
       <WatchlistAuthModal isOpen={showModal} onCancel={() => setShowModal(false)} />
     </>
@@ -114,7 +115,7 @@ const WatchlistButton = ({ initialAdded = false, className }) => {
 const MovieActions = ({ date }) => {
   const d = date ? dateToISO(parseScreeningDate(date)) : null;
   return (
-    <div className="w-full flex flex-col sm:gap-4 sm:flex-row items-center sm:items-start pr-(--padding-body-mobile-w)">
+    <div className="w-full flex flex-col sm:gap-4 sm:flex-row items-center sm:items-start">
       {d && (
         <div className={`${style.eventActionDiv} hidden sm:block sm:w-auto`}>
           <EventRow
@@ -126,15 +127,13 @@ const MovieActions = ({ date }) => {
         </div>
       )}
 
-      <div className="flex gap-2 sm:gap-4 w-full sm:w-fit sm:flex-wrap h-full">
-        <Actions
-          icons={["eye", "like", "comentarios", "star"]}
-          className="text-[.9em]! sm:w-fit flex-1 sm:flex-none justify-center flex-col sm:flex-row gap-1! sm:gap-2!"
-          divClassname="contents"
-          variant="secondary"
-        />
-        <WatchlistButton className="text-[.9em]! sm:w-fit flex-1 sm:flex-none justify-center flex-col sm:flex-row gap-1! sm:gap-2!" />
-      </div>
+      <Actions
+        icons={["eye", "like", "comentarios", "star"]}
+        className="text-[.9em]! flex-1! sm:flex-none sm:w-fit! justify-center flex-col sm:flex-row gap-1! sm:gap-2!"
+        divClassname="w-full sm:w-fit flex-wrap sm:flex-nowrap"
+        variant="secondary"
+        extra={<WatchlistButton className="text-[.9em]! flex-1! sm:flex-none sm:w-fit! justify-center flex-col sm:flex-row gap-1! sm:gap-2!" />}
+      />
     </div>
   );
 };

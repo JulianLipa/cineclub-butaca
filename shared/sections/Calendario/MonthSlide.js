@@ -1,7 +1,7 @@
 import MonthCard from "./MonthCard";
 import { parseISODate } from "@/lib/dates";
 
-const MonthSlide = ({ year, monthIndex, today, events }) => {
+const MonthSlide = ({ year, monthIndex, today, events, filter }) => {
   const monthEvents = Object.entries(events).filter(([date]) => {
     try {
       const d = parseISODate(date);
@@ -25,6 +25,7 @@ const MonthSlide = ({ year, monthIndex, today, events }) => {
           today={today}
           events={events}
           isPastMonth={isPastMonth}
+          filter={filter}
         />
       </div>
     </div>

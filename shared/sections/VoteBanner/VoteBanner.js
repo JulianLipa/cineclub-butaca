@@ -11,6 +11,8 @@ import { funciones as movies } from "@/data.json";
 import MovieCard from "@/shared/ui/movieCard/MovieCard";
 import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler";
 
+const VOTOS = [62, 25, 13];
+
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 
 const VoteBanner = () => {
@@ -22,7 +24,7 @@ const VoteBanner = () => {
   };
 
   return (
-    <div className="sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+    <div className="">
       <motion.div
         {...fadeIn}
         style={{
@@ -55,7 +57,18 @@ const VoteBanner = () => {
           >
             {movies.slice(0, 3).map((movie, index) => (
               <SwiperSlide key={index}>
-                <MovieCard text={true} tmdbId={movie.tmdbId} />
+                <div className="flex flex-col gap-2">
+                  <MovieCard text={true} tmdbId={movie.tmdbId} />
+                  <div className="flex flex-col gap-1">
+                    <div className="w-full h-1.5 rounded-full bg-(--secondary) overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-(--primary) transition-all duration-500"
+                        style={{ width: `${VOTOS[index]}%` }}
+                      />
+                    </div>
+                    <span className="bodyText text-xs">{VOTOS[index]}%</span>
+                  </div>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -65,10 +78,10 @@ const VoteBanner = () => {
         <div className="colSection w-full lg:w-1/2 order-1 lg:order-1">
           {/* Title section */}
           <div className="flex flex-col h-fit">
-            <p className="font-[600] text-[26px] sm:text-[40px] lg:text-[80px] leading-none tracking-tight">
+            <p className="font-[600] text-[28px] sm:text-[44px] lg:text-[76px] leading-none tracking-tight">
               Votá que película
             </p>
-            <p className="font-[300] text-[26px] sm:text-[40px] lg:text-[80px] leading-none tracking-tight">
+            <p className="font-[300] text-[28px] sm:text-[44px] lg:text-[76px] leading-none tracking-tight">
               vamos a ver
             </p>
           </div>

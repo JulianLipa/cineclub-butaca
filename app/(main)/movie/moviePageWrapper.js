@@ -18,6 +18,7 @@ import PersonCard from "@/shared/ui/personCard/PersonCard";
 import ListasSection from "@/shared/sections/Listas/ListasSection";
 import PopularSection from "@/shared/sections/Popular/PopularSection";
 
+import BackButton from "@/shared/components/backButton/BackButton";
 import { funciones } from "@/data.json";
 
 const MoviePageWrapper = ({ movie }) => {
@@ -36,6 +37,9 @@ const MoviePageWrapper = ({ movie }) => {
   return (
     <div>
       <MovieHero img={movie?.frame} />
+      <div className="sectionMain flex justify-start pb-0!">
+        <BackButton />
+      </div>
       <div className="sectionMain relative flex flex-col sm:flex-row gap-4! top-0">
         <MovieSidebar data={movie} date={date} />
 

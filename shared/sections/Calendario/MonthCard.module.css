@@ -31,11 +31,22 @@
   border: 1.5px solid var(--primary);
 }
 
+.event:hover {
+  background: color-mix(in srgb, var(--primary) 80%, transparent);
+  color: var(--white) !important;
+}
+
 .today {
   background: var(--primary);
 
   border-color: var(--primary);
 
+  color: var(--white);
+}
+
+.selected {
+  background: var(--primary);
+  border-color: var(--primary);
   color: var(--white);
 }
 

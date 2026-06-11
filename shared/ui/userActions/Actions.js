@@ -8,9 +8,10 @@ const ACTIONS = [
   { icon: "like", value: 28 },
   { icon: "comentarios", value: 28 },
   { icon: "star", value: 28 },
+  { icon: "watchlistAdd", value: 28 },
 ];
 
-const Actions = ({ icons, className, variant, divClassname }) => {
+const Actions = ({ icons, className, variant, divClassname, extra }) => {
   const [activeIcons, setActiveIcons] = useState(new Set());
   const timers = useRef({});
 
@@ -41,6 +42,7 @@ const Actions = ({ icons, className, variant, divClassname }) => {
           {item.value}
         </Button>
       ))}
+      {extra}
     </div>
   );
 };

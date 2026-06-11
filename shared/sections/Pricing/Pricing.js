@@ -23,7 +23,7 @@ const Pricing = () => {
   };
 
   return (
-    <div className="sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+    <div className="">
       <motion.section
         {...fadeIn}
         className="bg-(--secondary) py-8 sm:px-10 flex flex-col gap-6 border-2 border-(--secondary) rounded-4xl"

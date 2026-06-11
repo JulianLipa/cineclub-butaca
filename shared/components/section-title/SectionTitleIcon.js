@@ -22,7 +22,7 @@ const SectionTitleIcon = ({
         </div>
       )}
 
-      <h3 className={`text-[1.2em] sm:text-[1.5em] font-semibold ${className}`}>
+      <h3 className={`text-[18px] sm:text-[22px] font-semibold ${className}`}>
         {children}
       </h3>
     </div>

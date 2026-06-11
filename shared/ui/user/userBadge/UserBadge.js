@@ -8,7 +8,7 @@ const UserBadge = ({ variant }) => {
       className={`flex items-center gap-2 ${variant === "vertical" && "flex-col"} w-fit`}
     >
       <div className={`profileImg ${variant === "vertical" && "w-20!"}`}></div>
-      <Button variant="buttonText" className="font-[600]! text-[.9em]" href={"/perfil"}>
+      <Button variant="buttonText" className="font-[400]! bodyText" href={"/perfil"}>
         @username
       </Button>
     </div>

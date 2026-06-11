@@ -15,14 +15,14 @@ const CardText = ({ titulo, anio, director, loading, ...props }) => {
           <Button
             variant="buttonText"
             href={`/movie/${props.tmdbId}`}
-            className="text-left text-[20px] sm:text-[24px] font-[600]! whitespace-normal block"
+            className="text-left text-[16px]! sm:text-[22px] font-[600]! whitespace-normal block"
           >
             {titulo}, {anio}
           </Button>
         )}
 
         {director && (
-          <h5 className="text-[1.25em] bodyText font-[400]!">Dir. {director}</h5>
+          <h5 className="text-[14px]! sm:text-[15px]! bodyText font-[400]!">Dir. {director}</h5>
         )}
       </div>
 

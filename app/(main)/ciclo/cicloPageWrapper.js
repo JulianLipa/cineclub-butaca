@@ -4,8 +4,7 @@ import { useEffect } from "react";
 import { useLayout } from "@/contexts/LayoutContext";
 
 import MovieHero from "@/app/(main)/movie/sections/MovieHero";
-import Icon from "@/shared/components/icon/Icon";
-import Button from "@/shared/ui/button/Button";
+import BackButton from "@/shared/components/backButton/BackButton";
 
 const CicloPageWrapper = ({ ciclo }) => {
   const { setHasPaddingTop } = useLayout();
@@ -20,9 +19,7 @@ const CicloPageWrapper = ({ ciclo }) => {
       <MovieHero img={ciclo?.frame} className="block" />
 
       <div className="sectionMain flex justify-start pb-0! md:mt-10">
-        <Button onClick={() => history.back()} className="pl-0!">
-          <Icon name="flecha" color="var(--primary)" size={"h-4 w-4!"} />
-        </Button>
+        <BackButton />
       </div>
 
       <div className="sectionMain flex flex-col gap-10! md:mt-10">

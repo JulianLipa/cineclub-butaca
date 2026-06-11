@@ -135,7 +135,7 @@ const Page = () => {
     errors[field] ? { borderColor: `${ERROR_COLOR} !important` } : {};
 
   return (
-    <div className="videoPage relative flex min-h-svh sm:min-h-0 sm:pr-[0] pr-(--padding-body-mobile-w)">
+    <div className="videoPage relative flex h-svh overflow-hidden sm:pr-[0] pr-(--padding-body-mobile-w)">
       {/* Video de fondo — solo mobile */}
       <div className="sm:hidden absolute inset-0 overflow-hidden">
         <video
@@ -168,7 +168,8 @@ const Page = () => {
         />
       </div>
 
-      <div className="relative sectionMain sm:mt-10 w-full sm:w-1/2! flex flex-col gap-10! justify-center sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+      <div className="relative sectionMain w-full sm:w-1/2! sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w) overflow-y-auto h-full">
+        <div className="flex flex-col gap-10 sm:py-10 min-h-full justify-center">
         <Link href="/" className="w-fit">
           <Image
             src="/logo/logo-black.svg"
@@ -291,6 +292,7 @@ const Page = () => {
           >
             Ingresar
           </Button>
+        </div>
         </div>
       </div>
     </div>

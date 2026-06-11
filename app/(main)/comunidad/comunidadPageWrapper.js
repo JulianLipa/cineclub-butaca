@@ -10,6 +10,7 @@ import PopularSection from "@/shared/sections/Popular/PopularSection";
 import VoteBanner from "@/shared/sections/VoteBanner/VoteBanner";
 import ReviewsSection from "@/shared/sections/Reviews/ReviewsSection";
 import ListasSection from "@/shared/sections/Listas/ListasSection";
+import AhoraViendo from "@/shared/sections/AhoraViendo/AhoraViendo";
 
 const miembros = Array.from({ length: 12 });
 
@@ -40,6 +41,8 @@ const ComunidadPageWrapper = () => {
             1024: { slidesPerView: 10, spaceBetween: 8 },
           }}
         />
+
+        <AhoraViendo />
 
         <ReviewsSection variant="review" title={"Reseñas destacadas"} />
 

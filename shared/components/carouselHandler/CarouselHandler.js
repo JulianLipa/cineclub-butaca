@@ -11,9 +11,7 @@ const CarouselHandler = ({
   isPaginatorActive,
 }) => {
   return (
-    <div
-      className={`flex items-center gap-4 ${style.carouselDiv} pr-(--padding-body-desktop-w)`}
-    >
+    <div className={`flex items-center gap-4 ${style.carouselDiv} `}>
       <Button variant="secondary" onClick={onPrev}>
         &lt;
       </Button>

@@ -21,7 +21,7 @@ const ReviewCard = ({ data, singleMovie, variant }) => {
       )}
 
       <div className="gap-4 flex flex-col flex-1">
-        <UserBadge />
+        <UserBadge username={data?.username} />
 
         {variant !== "tema" && <StarSection />}
 

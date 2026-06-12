@@ -96,6 +96,7 @@ const VoteBanner = () => {
             </Button>
             <Button
               variant="secondary"
+              href="/comunidad"
               className="w-[-webkit-fill-available]! lg:w-fit!"
             >
               Comunidad

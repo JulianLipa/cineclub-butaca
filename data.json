@@ -415,5 +415,74 @@
         }
       ]
     }
+  ],
+  "funcionesPasadas": [
+    {
+      "id": "el-padrino-marzo-2026",
+      "titulo": "El Padrino",
+      "anio": 1972,
+      "director": "Francis Ford Coppola",
+      "fecha": "15 de marzo, 2026",
+      "asistentes": 42,
+      "tmdbId": 238,
+      "descripcion": "Una noche memorable con la obra maestra de Coppola. Debatimos sobre el poder familiar, la violencia implícita y la fotografía de Gordon Willis. La sala estuvo llena y el debate se extendió casi una hora después de los créditos.",
+      "fotos": [
+        "/imgs/frame-godfather-HQ.webp",
+        "/imgs/frame-godfather.webp",
+        "/imgs/frame.jpg"
+      ]
+    },
+    {
+      "id": "carrie-marzo-2026",
+      "titulo": "Carrie",
+      "anio": 1976,
+      "director": "Brian De Palma",
+      "fecha": "1 de marzo, 2026",
+      "asistentes": 38,
+      "tmdbId": 8077,
+      "descripcion": "De Palma en estado puro. Repasamos el uso del split-screen, la música de Pino Donaggio y la actuación de Sissy Spacek. Una función que generó mucho debate sobre el cine de terror como crítica social.",
+      "fotos": [
+        "/imgs/carrie-img.jpg",
+        "/imgs/frame.jpg",
+        "/imgs/frame-godfather.webp"
+      ]
+    },
+    {
+      "id": "el-padrino-ii-febrero-2026",
+      "titulo": "El Padrino II",
+      "anio": 1974,
+      "director": "Francis Ford Coppola",
+      "fecha": "15 de febrero, 2026",
+      "asistentes": 51,
+      "tmdbId": 240,
+      "descripcion": "La segunda parte, que para muchos supera a la primera. Analizamos la estructura narrativa en dos líneas de tiempo y el trabajo de Robert De Niro. La función más concurrida del año hasta ahora.",
+      "fotos": [
+        "/imgs/frame-godfather.webp",
+        "/imgs/frame-godfather-HQ.webp",
+        "/imgs/frame.jpg"
+      ]
+    },
+    {
+      "id": "funcion-verano-enero-2026",
+      "titulo": "Función especial de verano",
+      "anio": 1976,
+      "director": "Brian De Palma",
+      "fecha": "30 de enero, 2026",
+      "asistentes": 29,
+      "tmdbId": 8077,
+      "descripcion": "Sesión especial de verano con una selección de cortometrajes y la proyección central de Carrie. Un formato más relajado que dio lugar a conversaciones más informales y espontáneas.",
+      "fotos": ["/imgs/frame.jpg", "/imgs/carrie-img.jpg"]
+    },
+    {
+      "id": "ciclo-noir-enero-2026",
+      "titulo": "Ciclo noir: clásicos del crimen",
+      "anio": 1972,
+      "director": "Francis Ford Coppola",
+      "fecha": "10 de enero, 2026",
+      "asistentes": 35,
+      "tmdbId": 238,
+      "descripcion": "Arrancamos el año con un ciclo noir. Revisamos los códigos del género, la iluminación de clave baja y el antihéroe americano. Una introducción perfecta al año cinematográfico.",
+      "fotos": ["/imgs/frame-godfather-HQ.webp", "/imgs/frame-godfather.webp"]
+    }
   ]
 }

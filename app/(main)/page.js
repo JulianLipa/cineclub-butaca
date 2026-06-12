@@ -3,6 +3,8 @@ import CalendarioSection from "@/shared/sections/Calendario/CalendarioSection";
 import PopularSection from "@/shared/sections/Popular/PopularSection";
 import ReviewsSection from "@/shared/sections/Reviews/ReviewsSection";
 import VoteBanner from "@/shared/sections/VoteBanner/VoteBanner";
+import NoticiasSection from "@/shared/sections/Noticias/NoticiasSection";
+import ArchivoSection from "@/shared/sections/Archivo/ArchivoSection";
 import ListasSection from "@/shared/sections/Listas/ListasSection";
 import Pricing from "@/shared/sections/Pricing/Pricing";
 import Button from "@/shared/ui/button/Button";
@@ -25,18 +27,20 @@ export default function Home() {
         <FuncionesSection items={funciones} />
         <CalendarioSection />
         <VoteBanner />
+        <NoticiasSection title={"Noticias"} />
         <ReviewsSection variant="review" title={"Reseñas destacadas"} />
         <ReviewsSection variant="tema" title={"Temas recientes"} />
         <ListasSection title={"Listas de la comunidad"} />
         <PopularSection title={"Popular entre miembros"} />
 
-        <div className="flex justify-center w-full sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+        <div className="flex justify-center w-full">
           <Button variant="primary" className="w-full! sm:w-fit!">
             Ver Comunidad
           </Button>
         </div>
 
         <Pricing />
+        <ArchivoSection />
       </div>
     </>
   );

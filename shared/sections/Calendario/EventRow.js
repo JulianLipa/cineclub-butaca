@@ -14,7 +14,7 @@ const getHref = (event) => {
 
 const EventRow = ({ date, event, isPastMonth, className: extraClass = "" }) => {
   const isCalendarEvent = typeof event === "object" && event !== null;
-  const href = isPastMonth ? null : (isCalendarEvent ? getHref(event) : null);
+  const href = isPastMonth ? null : isCalendarEvent ? getHref(event) : null;
 
   const maskStyle = (icon) => ({
     WebkitMaskImage: `url(/icons/${icon})`,
@@ -41,7 +41,9 @@ const EventRow = ({ date, event, isPastMonth, className: extraClass = "" }) => {
       </span>
     );
     return (
-      <div className={`flex min-w-0 gap-2 text-xs items-center w-fit ${extraClass}`}>
+      <div
+        className={`flex min-w-0 gap-2 text-xs items-center w-fit ${extraClass}`}
+      >
         <button className={className} disabled={isPastMonth}>
           {inner}
         </button>
@@ -51,13 +53,18 @@ const EventRow = ({ date, event, isPastMonth, className: extraClass = "" }) => {
 
   // Uso calendario: event es un objeto con type, title, horario, etc.
   const meta = (
-    <span className="flex items-center gap-2 opacity-60">
+    <span className="flex items-center gap-2">
       <span className={style.dayBox}>
         {formatISODayMonth(date)}
         {event.horario && (
           <span className="flex items-center gap-1 ml-1">
-            <span className="w-3 h-3 block shrink-0" style={maskStyle("i-reloj-default.svg")} />
-            <span className="text-[11px] font-[500] tabular-nums">{event.horario}</span>
+            <span
+              className="w-3 h-3 block shrink-0"
+              style={maskStyle("i-reloj-default.svg")}
+            />
+            <span className="text-[11px] font-[500] tabular-nums">
+              {event.horario}
+            </span>
           </span>
         )}
       </span>
@@ -66,7 +73,10 @@ const EventRow = ({ date, event, isPastMonth, className: extraClass = "" }) => {
 
   const inner = (
     <span className="flex items-center gap-2 w-full">
-      <span className="shrink-0 w-3 h-3 block" style={maskStyle(`i-${eventIcon(event.type)}-default.svg`)} />
+      <span
+        className="shrink-0 w-4 h-4 block"
+        style={maskStyle(`i-${eventIcon(event.type)}-default.svg`)}
+      />
       <span className="flex-1 min-w-0 break-words bodyText whitespace-normal text-left">
         {event.title}
       </span>

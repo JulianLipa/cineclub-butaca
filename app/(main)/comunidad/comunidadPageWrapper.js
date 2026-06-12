@@ -11,8 +11,22 @@ import VoteBanner from "@/shared/sections/VoteBanner/VoteBanner";
 import ReviewsSection from "@/shared/sections/Reviews/ReviewsSection";
 import ListasSection from "@/shared/sections/Listas/ListasSection";
 import AhoraViendo from "@/shared/sections/AhoraViendo/AhoraViendo";
+import FramesSection from "@/shared/sections/Frames/FramesSection";
 
-const miembros = Array.from({ length: 12 });
+const miembros = [
+  { username: "ana_cine" },
+  { username: "pepe_films" },
+  { username: "luci_k" },
+  { username: "martin_b" },
+  { username: "sofi_vhs" },
+  { username: "tomas_r" },
+  { username: "vale_m" },
+  { username: "nico_d" },
+  { username: "juli_c" },
+  { username: "ro_v" },
+  { username: "fede_z" },
+  { username: "clau_p" },
+];
 
 const ComunidadPageWrapper = () => {
   const { setHasPaddingTop } = useLayout();
@@ -34,7 +48,7 @@ const ComunidadPageWrapper = () => {
         <CarouselSection
           title="Miembros destacados"
           items={miembros}
-          renderItem={() => <UserBadge variant="vertical" />}
+          renderItem={(miembro) => <UserBadge variant="vertical" username={miembro.username} />}
           breakpoints={{
             0: { slidesPerView: 3.3, spaceBetween: 8 },
             640: { slidesPerView: 5.5, spaceBetween: 8 },
@@ -43,6 +57,8 @@ const ComunidadPageWrapper = () => {
         />
 
         <AhoraViendo />
+
+        <FramesSection />
 
         <ReviewsSection variant="review" title={"Reseñas destacadas"} />
 

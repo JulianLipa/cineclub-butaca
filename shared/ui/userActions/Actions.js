@@ -34,7 +34,7 @@ const Actions = ({ icons, className, variant, divClassname, extra }) => {
       {filtered.map((item) => (
         <Button
           key={item.icon}
-          variant={activeIcons.has(item.icon) ? "success" : variant}
+          variant={activeIcons.has(item.icon) && variant !== "buttonText" ? "success" : variant}
           className={`bodyText ${className}`}
           icon={item.icon}
           onClick={() => handleClick(item.icon)}

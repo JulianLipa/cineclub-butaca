@@ -11,14 +11,14 @@ import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 
 const ACTIVIDAD = [
-  { username: "julianMotorizado", tmdbId: "7340",   hace: "hace 2 min" },
-  { username: "anitsugga",        tmdbId: "58429",  hace: "hace 8 min" },
-  { username: "cine_malena",      tmdbId: "499",    hace: "hace 15 min" },
-  { username: "rodrigo_film",     tmdbId: "655",    hace: "hace 23 min" },
-  { username: "pau_cinefila",     tmdbId: "18079",  hace: "hace 41 min" },
-  { username: "mati_35mm",        tmdbId: "36785",  hace: "hace 1 h" },
-  { username: "sofi_nuevo_cine",  tmdbId: "97020",  hace: "hace 1 h" },
-  { username: "el_proyeccionista",tmdbId: "11778",  hace: "hace 2 h" },
+  { username: "julianMotorizado", tmdbId: "7340", hace: "hace 2 min" },
+  { username: "anitsugga", tmdbId: "58429", hace: "hace 8 min" },
+  { username: "cine_malena", tmdbId: "499", hace: "hace 15 min" },
+  { username: "rodrigo_film", tmdbId: "655", hace: "hace 23 min" },
+  { username: "pau_cinefila", tmdbId: "18079", hace: "hace 41 min" },
+  { username: "mati_35mm", tmdbId: "36785", hace: "hace 1 h" },
+  { username: "sofi_nuevo_cine", tmdbId: "97020", hace: "hace 1 h" },
+  { username: "el_proyeccionista", tmdbId: "11778", hace: "hace 2 h" },
 ];
 
 const ActivityCard = ({ username, tmdbId, hace }) => {
@@ -28,17 +28,20 @@ const ActivityCard = ({ username, tmdbId, hace }) => {
   useEffect(() => {
     fetch(`/api/movies?id=${tmdbId}&preview=true`)
       .then((r) => r.json())
-      .then((d) => { setPoster(d.poster); setTitle(d.titulo); })
+      .then((d) => {
+        setPoster(d.poster);
+        setTitle(d.titulo);
+      })
       .catch(() => {});
   }, [tmdbId]);
 
   return (
-    <Link
-      href={`/movie/${tmdbId}`}
-      className="flex flex-col gap-2 w-full group"
-    >
-      {/* Poster + avatar overlay */}
-      <div className="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-(--secondary)">
+    <div className="relative flex flex-col gap-2 w-full group rounded-xl p-1.5 transition-colors duration-200 hover:bg-(--primary-opacidad) border border-transparent hover:border-(--primary)">
+      {/* Link que cubre toda la tarjeta para navegar a la película */}
+      <Link href={`/movie/${tmdbId}`} className="absolute inset-0 z-0 rounded-xl" aria-label={title || "Ver película"} />
+
+      {/* Poster */}
+      <div className="relative w-full aspect-[2/3] rounded-lg overflow-hidden bg-(--secondary)">
         {poster && (
           <Image
             src={poster}
@@ -47,21 +50,26 @@ const ActivityCard = ({ username, tmdbId, hace }) => {
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         )}
-        {/* Avatar badge */}
-        <div className="absolute bottom-2 left-2 flex items-center gap-1.5 bg-(--white)/80 backdrop-blur-sm rounded-full px-2 py-1">
+        {/* Avatar badge — z-10 para quedar sobre el link de la tarjeta */}
+        <Link
+          href={`/perfil/${username}`}
+          className="absolute bottom-2 left-2 flex items-center gap-1.5 bg-(--white)/80 backdrop-blur-sm rounded-full px-2 py-1 transition-all duration-200 hover:bg-(--touchable) hover:-translate-y-1 hover:text-(--white) z-10"
+        >
           <div className="w-4 h-4 rounded-full bg-(--secondary) shrink-0" />
-          <span className="text-[10px] font-medium text-(--primary) leading-none truncate max-w-[60px]">
+          <span className="text-[10px] font-medium leading-none truncate max-w-[60px]">
             @{username}
           </span>
-        </div>
+        </Link>
       </div>
 
       {/* Info */}
-      <div className="flex flex-col gap-0.5 px-0.5">
-        <span className="bodyText text-xs font-medium truncate">{title || "—"}</span>
+      <div className="relative z-0 flex flex-col gap-0.5 px-0.5">
+        <span className="bodyText text-xs font-medium truncate">
+          {title || "—"}
+        </span>
         <span className="text-[10px] opacity-50">{hace}</span>
       </div>
-    </Link>
+    </div>
   );
 };
 
@@ -89,8 +97,8 @@ const AhoraViendo = () => {
         onSlideChange={(s) => setActiveIndex(s.realIndex)}
         spaceBetween={8}
         breakpoints={{
-          0:    { slidesPerView: 2.2 },
-          640:  { slidesPerView: 4.2 },
+          0: { slidesPerView: 2.2 },
+          640: { slidesPerView: 4.2 },
           1024: { slidesPerView: 7.2 },
         }}
         className="w-full"

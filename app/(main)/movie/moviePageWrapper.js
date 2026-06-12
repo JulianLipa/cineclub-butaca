@@ -37,13 +37,19 @@ const MoviePageWrapper = ({ movie }) => {
   return (
     <div>
       <MovieHero img={movie?.frame} />
-      <div className="sectionMain flex justify-start pb-0!">
+      {/* Mobile: flecha antes del poster */}
+      <div className="sectionMain sm:hidden pb-0!">
         <BackButton />
       </div>
-      <div className="sectionMain relative flex flex-col sm:flex-row gap-4! top-0">
+
+      <div className="sectionMain pt-0! relative flex flex-col sm:flex-row gap-4! top-0">
         <MovieSidebar data={movie} date={date} />
 
         <div className="w-full sm:w-[70%] flex flex-col gap-10 sm:py-(--padding-body-desktop)">
+          {/* Desktop: flecha al tope de la columna scrolleable */}
+          <div className="hidden sm:block">
+            <BackButton />
+          </div>
           <MovieActions date={date} />
 
           <div className="colSection gap-10!">

@@ -13,33 +13,70 @@ const getHref = (event) => {
 };
 
 const EventRow = ({ date, event, isPastMonth, className: extraClass = "" }) => {
-  const href = isPastMonth ? null : getHref(event);
+  const isCalendarEvent = typeof event === "object" && event !== null;
+  const href = isPastMonth ? null : (isCalendarEvent ? getHref(event) : null);
 
-  const inner = (
-    <span className="flex min-w-0 items-center gap-2 w-full">
-      <span className={style.dayBox}>{formatISODayMonth(date)}</span>
-      <span className="shrink-0 w-3 h-3 block" style={{
-        WebkitMaskImage: `url(/icons/i-${eventIcon(event.type)}-default.svg)`,
-        WebkitMaskSize: "contain",
-        WebkitMaskRepeat: "no-repeat",
-        WebkitMaskPosition: "center",
-        maskImage: `url(/icons/i-${eventIcon(event.type)}-default.svg)`,
-        maskSize: "contain",
-        maskRepeat: "no-repeat",
-        maskPosition: "center",
-        backgroundColor: "var(--primary)",
-      }} />
-      <span className="flex-1 min-w-0 break-words bodyText whitespace-normal text-left">
-        {event.title || event}
+  const maskStyle = (icon) => ({
+    WebkitMaskImage: `url(/icons/${icon})`,
+    WebkitMaskSize: "contain",
+    WebkitMaskRepeat: "no-repeat",
+    WebkitMaskPosition: "center",
+    maskImage: `url(/icons/${icon})`,
+    maskSize: "contain",
+    maskRepeat: "no-repeat",
+    maskPosition: "center",
+    backgroundColor: "var(--primary)",
+  });
+
+  const className = `${buttonStyle.button} ${buttonStyle.secondary} gap-2 w-full`;
+
+  // Uso simple (MovieSidebar): event es un string como "En cartelera"
+  if (!isCalendarEvent) {
+    const inner = (
+      <span className="flex min-w-0 items-center gap-2 w-full">
+        <span className={style.dayBox}>{formatISODayMonth(date)}</span>
+        <span className="flex-1 min-w-0 break-words bodyText whitespace-normal text-left">
+          {event}
+        </span>
+      </span>
+    );
+    return (
+      <div className={`flex min-w-0 gap-2 text-xs items-center w-fit ${extraClass}`}>
+        <button className={className} disabled={isPastMonth}>
+          {inner}
+        </button>
+      </div>
+    );
+  }
+
+  // Uso calendario: event es un objeto con type, title, horario, etc.
+  const meta = (
+    <span className="flex items-center gap-2 opacity-60">
+      <span className={style.dayBox}>
+        {formatISODayMonth(date)}
+        {event.horario && (
+          <span className="flex items-center gap-1 ml-1">
+            <span className="w-3 h-3 block shrink-0" style={maskStyle("i-reloj-default.svg")} />
+            <span className="text-[11px] font-[500] tabular-nums">{event.horario}</span>
+          </span>
+        )}
       </span>
     </span>
   );
 
-  const className = `${buttonStyle.button} ${buttonStyle.secondary} gap-2 w-full`;
+  const inner = (
+    <span className="flex items-center gap-2 w-full">
+      <span className="shrink-0 w-3 h-3 block" style={maskStyle(`i-${eventIcon(event.type)}-default.svg`)} />
+      <span className="flex-1 min-w-0 break-words bodyText whitespace-normal text-left">
+        {event.title}
+      </span>
+    </span>
+  );
 
   if (href) {
     return (
-      <div className={`flex min-w-0 gap-2 text-xs items-center ${extraClass}`}>
+      <div className={`flex min-w-0 flex-col gap-4 text-xs ${extraClass}`}>
+        {meta}
         <Link href={href} className={className}>
           {inner}
         </Link>
@@ -48,7 +85,8 @@ const EventRow = ({ date, event, isPastMonth, className: extraClass = "" }) => {
   }
 
   return (
-    <div className={`flex min-w-0 gap-2 text-xs items-center w-fit ${extraClass}`}>
+    <div className={`flex min-w-0 flex-col gap-4 text-xs ${extraClass}`}>
+      {meta}
       <button className={className} disabled={isPastMonth}>
         {inner}
       </button>

@@ -130,189 +130,222 @@
       "description": "Corrientes internacionales que desafiaron las convenciones estéticas y políticas del siglo XX para inventar un nuevo lenguaje visual.",
       "tmdbId": "36785",
       "tituloPelicula": "El acorazado Potemkin",
-      "id": "cine-vanguardia-y-ruptura-formal"
+      "id": "cine-vanguardia-y-ruptura-formal",
+      "movies": [36785, 499, 89681, 47576, 11104]
     },
     {
       "title": "El Trabajador en el Cine y la Crisis Social",
       "description": "Un recorrido por las transformaciones laborales y la precarización, conectando las periferias globales con el realismo crudo del cine argentino.",
       "tmdbId": "101338",
       "tituloPelicula": "Mundo grúa",
-      "id": "el-trabajador-en-el-cine-y-la-crisis-social"
+      "id": "el-trabajador-en-el-cine-y-la-crisis-social",
+      "movies": [36785, 226216, 47576, 18079, 58429]
     },
     {
       "title": "Estéticas Feministas y Deseo Subversivo",
       "description": "Películas que redefinen la representación del cuerpo, la identidad de género y el espacio doméstico en el plano internacional.",
       "tmdbId": "44012",
       "tituloPelicula": "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles",
-      "id": "esteticas-feministas-y-deseo-subversivo"
+      "id": "esteticas-feministas-y-deseo-subversivo",
+      "movies": [499, 58429, 44012, 47576, 7340]
     },
     {
       "title": "Indie Global: Márgenes del Mainstream",
       "description": "Obras capitales del circuito independiente internacional que rescataron la narrativa cotidiana del olvido comercial.",
       "tmdbId": "410051",
       "tituloPelicula": "Stranger Than Paradise",
-      "id": "indie-global-margenes-del-mainstream"
+      "id": "indie-global-margenes-del-mainstream",
+      "movies": [11104, 655, 18079, 410051, 499]
     },
     {
       "title": "América Latina en Llamas",
       "description": "El cine como contra-informativo y arma de denuncia ante los procesos revolucionarios y los golpes de Estado en la región.",
       "tmdbId": "132144",
       "tituloPelicula": "La batalla de Chile",
-      "id": "america-latina-en-llamas"
+      "id": "america-latina-en-llamas",
+      "movies": [89681, 47576, 226216, 36785, 132144]
     },
     {
       "title": "Maestros del Terror Europeo",
       "description": "Un viaje por el giallo, el gótico y el splatter de los años 60 y 70, donde realizadores europeos redefinieron el miedo y la puesta en escena estética.",
       "tmdbId": "11906",
       "tituloPelicula": "Suspiria",
-      "id": "maestros-del-terror-europeo"
+      "id": "maestros-del-terror-europeo",
+      "movies": [11906, 7340, 226216, 47576]
     },
     {
       "title": "Conflictos de Clase y Memoria Histórica",
       "description": "Producciones comprometidas con las luchas populares y la resistencia obrera frente a los autoritarismos y la represión institucional.",
       "tmdbId": "64978",
       "tituloPelicula": "La Patagonia rebelde",
-      "id": "conflictos-de-clase-y-memoria-historica"
+      "id": "conflictos-de-clase-y-memoria-historica",
+      "movies": [89681, 64978, 47576, 226216, 58429]
     },
     {
       "title": "Obsesiones y Universos de Autor",
       "description": "Directores con una impronta visual inconfundible que construyeron comunidades globales de seguidores apasionados, explorando la melancolía y el tiempo.",
       "tmdbId": "843",
       "tituloPelicula": "In the Mood for Love",
-      "id": "obsesiones-y-universos-de-autor"
+      "id": "obsesiones-y-universos-de-autor",
+      "movies": [11104, 843, 655, 499, 36785]
     },
     {
       "title": "Tercer Cine y Descolonización Cultural",
       "description": "El manifiesto político y estético que pensó al cineasta como un militante y a la pantalla como un espacio de liberación frente al neocolonialismo.",
       "tmdbId": "89681",
       "tituloPelicula": "La hora de los hornos",
-      "id": "tercer-cine-y-descolonizacion-cultural"
+      "id": "tercer-cine-y-descolonizacion-cultural",
+      "movies": [89681, 47576, 132144, 226216, 58429]
     },
     {
       "title": "La Argentina del Desengaño y el Fin de Siglo",
       "description": "Films nacionales que marcaron un antes y un después al retratar la viveza criolla, la decadencia institucional y la antesala de la crisis del 2001.",
       "tmdbId": "18079",
       "tituloPelicula": "Nueve reinas",
-      "id": "la-argentina-del-desengano-y-el-fin-de-siglo"
+      "id": "la-argentina-del-desengano-y-el-fin-de-siglo",
+      "movies": [18079, 36785, 58429, 226216, 47576]
     },
     {
       "title": "Soledades Urbanas y Mitos de Culto",
       "description": "Historias melancólicas sobre la errancia, la identidad y los lazos rotos que trascendieron su época para convertirse en tótems de la devoción cinéfila mundial.",
       "tmdbId": "7340",
       "tituloPelicula": "Paris, Texas",
-      "id": "soledades-urbanas-y-mitos-de-culto"
+      "id": "soledades-urbanas-y-mitos-de-culto",
+      "movies": [655, 11104, 843, 7340, 499]
     }
   ],
   "eventos": {
     "2026-06-11": {
       "title": "Carrie",
       "type": "funcion",
-      "tmdbId": "7340"
+      "tmdbId": "7340",
+      "horario": "19:45"
     },
     "2026-06-13": {
       "title": "Cine, Vanguardia y Ruptura Formal",
       "type": "ciclo",
-      "id": "cine-vanguardia-y-ruptura-formal"
+      "id": "cine-vanguardia-y-ruptura-formal",
+      "horario": "19:00"
     },
     "2026-06-18": {
       "title": "La Ciénaga",
       "type": "funcion",
-      "tmdbId": "58429"
+      "tmdbId": "58429",
+      "horario": "20:00"
     },
     "2026-06-20": {
       "title": "Soledades Urbanas y Mitos de Culto",
       "type": "ciclo",
-      "id": "soledades-urbanas-y-mitos-de-culto"
+      "id": "soledades-urbanas-y-mitos-de-culto",
+      "horario": "19:00"
     },
     "2026-06-25": {
       "title": "Cléo de 5 à 7",
       "type": "funcion",
-      "tmdbId": "499"
+      "tmdbId": "499",
+      "horario": "20:15"
     },
     "2026-06-27": {
       "title": "La Argentina del Desengaño y el Fin de Siglo",
       "type": "ciclo",
-      "id": "la-argentina-del-desengano-y-el-fin-de-siglo"
+      "id": "la-argentina-del-desengano-y-el-fin-de-siglo",
+      "horario": "19:30"
     },
     "2026-07-04": {
       "title": "El Dependiente",
       "type": "funcion",
-      "tmdbId": "36785"
+      "tmdbId": "36785",
+      "horario": "19:45"
     },
     "2026-07-09": {
       "title": "París, Texas",
       "type": "funcion",
-      "tmdbId": "655"
+      "tmdbId": "655",
+      "horario": "22:10"
     },
     "2026-07-11": {
       "title": "Estéticas Feministas y Deseo Subversivo",
       "type": "ciclo",
-      "id": "esteticas-feministas-y-deseo-subversivo"
+      "id": "esteticas-feministas-y-deseo-subversivo",
+      "horario": "19:00"
     },
     "2026-07-18": {
       "title": "Indie Global: Márgenes del Mainstream",
       "type": "ciclo",
-      "id": "indie-global-margenes-del-mainstream"
+      "id": "indie-global-margenes-del-mainstream",
+      "horario": "19:30"
     },
     "2026-07-23": {
       "title": "Nueve Reinas",
       "type": "funcion",
-      "tmdbId": "18079"
+      "tmdbId": "18079",
+      "horario": "21:30"
     },
     "2026-07-25": {
       "title": "América Latina en Llamas",
       "type": "ciclo",
-      "id": "america-latina-en-llamas"
+      "id": "america-latina-en-llamas",
+      "horario": "19:00"
     },
     "2026-08-01": {
       "title": "Obsesiones y Universos de Autor",
       "type": "ciclo",
-      "id": "obsesiones-y-universos-de-autor"
+      "id": "obsesiones-y-universos-de-autor",
+      "horario": "19:30"
     },
     "2026-08-06": {
       "title": "Memorias del subdesarrollo",
       "type": "funcion",
-      "tmdbId": "47576"
+      "tmdbId": "47576",
+      "horario": "20:15"
     },
     "2026-08-15": {
       "title": "Maestros del Terror Europeo",
       "type": "ciclo",
-      "id": "maestros-del-terror-europeo"
+      "id": "maestros-del-terror-europeo",
+      "horario": "20:00"
     },
     "2026-08-20": {
       "title": "Suspiria",
       "type": "funcion",
-      "tmdbId": "11906"
+      "tmdbId": "11906",
+      "horario": "20:00"
     },
     "2026-08-29": {
       "title": "El Trabajador en el Cine y la Crisis Social",
       "type": "ciclo",
-      "id": "el-trabajador-en-el-cine-y-la-crisis-social"
+      "id": "el-trabajador-en-el-cine-y-la-crisis-social",
+      "horario": "19:00"
     },
     "2026-09-03": {
       "title": "Los traidores",
       "type": "funcion",
-      "tmdbId": "226216"
+      "tmdbId": "226216",
+      "horario": "23:00"
     },
     "2026-09-12": {
       "title": "Conflictos de Clase y Memoria Histórica",
       "type": "ciclo",
-      "id": "conflictos-de-clase-y-memoria-historica"
+      "id": "conflictos-de-clase-y-memoria-historica",
+      "horario": "19:30"
     },
     "2026-09-17": {
       "title": "Chungking Express",
       "type": "funcion",
-      "tmdbId": "11104"
+      "tmdbId": "11104",
+      "horario": "21:00"
     },
     "2026-09-19": {
       "title": "Tercer Cine y Descolonización Cultural",
       "type": "ciclo",
-      "id": "tercer-cine-y-descolonizacion-cultural"
+      "id": "tercer-cine-y-descolonizacion-cultural",
+      "horario": "19:00"
     },
     "2026-09-24": {
       "title": "La hora de los hornos",
       "type": "funcion",
-      "tmdbId": "89681"
+      "tmdbId": "89681",
+      "horario": "19:30"
     }
   },
   "diasSemana": ["L", "M", "X", "J", "V", "S", "D"],

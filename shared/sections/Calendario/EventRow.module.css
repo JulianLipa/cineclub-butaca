@@ -4,12 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.4em;
 
   flex-shrink: 0;
 
   width: fit-content;
   padding: .9em .5em;
-  aspect-ratio: 1 / 1;
 
   overflow: hidden;
 

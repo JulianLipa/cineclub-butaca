@@ -95,7 +95,7 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth, filter }) => 
         })}
       </div>
 
-      <div className={`flex flex-col gap-2 ${isPastMonth ? "opacity-20" : "opacity-100"} h-[200px] overflow-auto scrollbar-thumb-transparent border-t-1 pt-4`}>
+      <div className={`flex flex-col gap-6 ${isPastMonth ? "opacity-20" : "opacity-100"} h-[200px] overflow-auto scrollbar-thumb-transparent border-t-1 pt-4`}>
         {selectedDate && (
           <button
             onClick={() => setSelectedDate(null)}

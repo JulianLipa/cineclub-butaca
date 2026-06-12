@@ -115,7 +115,7 @@ const WatchlistButton = ({ initialAdded = false, value = 28, className }) => {
 const MovieActions = ({ date }) => {
   const d = date ? dateToISO(parseScreeningDate(date)) : null;
   return (
-    <div className="w-full flex flex-col sm:gap-4 sm:flex-row items-center sm:items-start">
+    <div className="w-full flex flex-col sm:gap-4 sm:flex-row items-center sm:items-center">
       {d && (
         <div className={`${style.eventActionDiv} hidden sm:block sm:w-auto`}>
           <EventRow
@@ -123,6 +123,7 @@ const MovieActions = ({ date }) => {
             event={"En cartelera"}
             isPastMonth={false}
             isMovieAction={true}
+            className="text-[.9em]!"
           />
         </div>
       )}

@@ -11,7 +11,7 @@ import style from "../movie.module.css";
 const MovieSidebar = ({ data, loading, date }) => {
   const d = date ? dateToISO(parseScreeningDate(date)) : null;
   return (
-    <div className="w-full sm:w-[30%] sm:min-w-[200px] sm:sticky top-(--header-height) sm:max-h-svh rounded-3xl sm:-mt-40 flex flex-col gap-4 sm:px-4 sm:overflow-y-auto sm:pr-(--padding-body-desktop-w)">
+    <div className="w-full sm:w-[30%] sm:min-w-[200px] sm:sticky top-(--header-height) sm:max-h-svh rounded-3xl sm:-mt-40 flex flex-col gap-4 sm:px-4 sm:overflow-y-auto">
       {/* Mobile: row (poster + info) | Desktop: col */}
       <div className="flex flex-row sm:flex-col gap-4">
         {/* Poster */}

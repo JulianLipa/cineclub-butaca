@@ -1,22 +1,14 @@
 import UserBadge from "@/shared/ui/user/userBadge/UserBadge";
 import Actions from "@/shared/ui/userActions/Actions.js";
-import Image from "next/image";
 import StarSection from "@/shared/components/starSection/StarSection";
+import MovieCard from "@/shared/ui/movieCard/MovieCard";
 
 const ReviewCard = ({ data, singleMovie, variant }) => {
   return (
     <div className="flex w-full rounded-2xl p-4 sm:p-8 gap-4 borderButton">
       {variant !== "tema" && !singleMovie && (
         <div className="h-full w-[30%]">
-          <Image
-            src="/imgs/carrie-img.jpg"
-            alt="Carrie"
-            width={200}
-            height={300}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="h-auto w-full rounded-[.5em] sm:rounded-[1em] object-cover"
-            priority={false}
-          />
+          <MovieCard tmdbId={data?.tmdbId} interactive={false} />
         </div>
       )}
 

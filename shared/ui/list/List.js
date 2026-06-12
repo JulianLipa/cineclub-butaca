@@ -6,7 +6,7 @@ import Button from "@/shared/ui/button/Button";
 import UserBadge from "@/shared/ui/user/userBadge/UserBadge";
 import Actions from "@/shared/ui/userActions/Actions.js";
 
-const List = () => {
+const List = ({ tmdbId }) => {
   const router = useRouter();
 
   return (
@@ -15,7 +15,7 @@ const List = () => {
       onClick={() => router.push("/lista")}
     >
       <div className="w-[30%] hidden sm:block">
-        <MovieCard tmdbId={7340} interactive={false} />
+        <MovieCard tmdbId={tmdbId} interactive={false} />
       </div>
 
       <div className="sm:w-2/3 flex gap-4 flex-col">

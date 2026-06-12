@@ -3,7 +3,14 @@
 import CarouselSection from "@/shared/components/carouselSection/CarouselSection";
 import List from "@/shared/ui/list/List";
 
-const LISTS = [{}, {}, {}, {}, {}, {}];
+const LISTS = [
+  { tmdbId: 36785 },
+  { tmdbId: 7340 },
+  { tmdbId: 58429 },
+  { tmdbId: 499 },
+  { tmdbId: 655 },
+  { tmdbId: 18079 },
+];
 
 const ListasSection = ({ title, moreButton = false }) => (
   <CarouselSection

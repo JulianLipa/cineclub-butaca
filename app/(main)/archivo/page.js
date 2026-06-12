@@ -4,16 +4,16 @@ import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon
 import { funcionesPasadas } from "@/data.json";
 
 const FOTOS = [
-  { img: "/imgs/frame-godfather-HQ.webp", alt: "Proyección El Padrino",  span: "col-span-2 row-span-2" },
-  { img: "/imgs/frame.jpg",               alt: "Función Carrie",         span: "col-span-1 row-span-1" },
-  { img: "/imgs/frame-godfather.webp",    alt: "Debate cinéfilo",        span: "col-span-1 row-span-2" },
-  { img: "/imgs/carrie-img.jpg",          alt: "Sala llena",             span: "col-span-1 row-span-1" },
-  { img: "/imgs/frame.jpg",               alt: "Presentación",           span: "col-span-2 row-span-1" },
-  { img: "/imgs/frame-godfather-HQ.webp", alt: "Detalle sala",           span: "col-span-1 row-span-1" },
-  { img: "/imgs/carrie-img.jpg",          alt: "Sesión de cierre",       span: "col-span-1 row-span-2" },
-  { img: "/imgs/frame-godfather.webp",    alt: "Pantalla grande",        span: "col-span-2 row-span-1" },
-  { img: "/imgs/frame.jpg",               alt: "Charla post-función",    span: "col-span-1 row-span-1" },
-  { img: "/imgs/frame-godfather-HQ.webp", alt: "Entrada al cine",        span: "col-span-1 row-span-1" },
+  { img: "/imgs/image18.png",  alt: "Proyección El Padrino",  span: "col-span-2 row-span-2" },
+  { img: "/imgs/image20.png",  alt: "Función Carrie",         span: "col-span-1 row-span-1" },
+  { img: "/imgs/image22.png",  alt: "Debate cinéfilo",        span: "col-span-1 row-span-2" },
+  { img: "/imgs/image242.png", alt: "Sala llena",             span: "col-span-1 row-span-1" },
+  { img: "/imgs/image55.png",  alt: "Presentación",           span: "col-span-2 row-span-1" },
+  { img: "/imgs/image56.png",  alt: "Detalle sala",           span: "col-span-1 row-span-1" },
+  { img: "/imgs/image57.png",  alt: "Sesión de cierre",       span: "col-span-1 row-span-2" },
+  { img: "/imgs/image58.png",  alt: "Pantalla grande",        span: "col-span-2 row-span-1" },
+  { img: "/imgs/image59.png",  alt: "Charla post-función",    span: "col-span-1 row-span-1" },
+  { img: "/imgs/image60.png",  alt: "Entrada al cine",        span: "col-span-1 row-span-1" },
 ];
 
 

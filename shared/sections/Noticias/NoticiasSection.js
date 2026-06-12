@@ -14,7 +14,7 @@ import { fadeIn } from "@/shared/ui/animations/motionPresets";
 const NOTICIAS = [
   {
     id: "1",
-    img: "/imgs/frame-godfather-HQ.webp",
+    img: "/imgs/noticia-festival.jpg",
     titulo: "El cine argentino arrasa en los festivales internacionales de 2026",
     copete: "Tres películas nacionales compiten en Cannes, Berlín y San Sebastián.",
     tematicas: ["Cine argentino", "Festivales", "Internacional"],
@@ -22,7 +22,7 @@ const NOTICIAS = [
   },
   {
     id: "2",
-    img: "/imgs/frame-godfather-HQ.webp",
+    img: "/imgs/cineteca-nacional.jpg",
     titulo: "Restauran en 4K los clásicos del cine latinoamericano de los 60 y 70",
     copete: "La Cinemateca Nacional lidera un ambicioso proyecto de preservación.",
     tematicas: ["Restauración", "Patrimonio", "Clásicos"],
@@ -30,7 +30,7 @@ const NOTICIAS = [
   },
   {
     id: "3",
-    img: "/imgs/frame.jpg",
+    img: "/imgs/cineclub.jpg",
     titulo: "Los cine-clubes independientes resisten y crecen en las grandes ciudades",
     copete: "Nuevos espacios de proyección y debate cinéfilo emergen en todo el país.",
     tematicas: ["Cine-clubes", "Cultura", "Comunidad"],
@@ -38,7 +38,7 @@ const NOTICIAS = [
   },
   {
     id: "4",
-    img: "/imgs/frame-godfather.webp",
+    img: "/imgs/dir-fotografia.jpg",
     titulo: "Entrevista exclusiva: el director de fotografía detrás de las imágenes del año",
     copete: "Hablamos con quien redefine el lenguaje visual del cine contemporáneo.",
     tematicas: ["Entrevista", "Fotografía", "Técnica"],
@@ -46,7 +46,7 @@ const NOTICIAS = [
   },
   {
     id: "5",
-    img: "/imgs/frame.jpg",
+    img: "/imgs/ia.webp",
     titulo: "El debate sobre la IA en el cine: ¿herramienta o amenaza?",
     copete: "Directores, guionistas y técnicos se dividen frente a la inteligencia artificial.",
     tematicas: ["IA", "Industria", "Debate"],

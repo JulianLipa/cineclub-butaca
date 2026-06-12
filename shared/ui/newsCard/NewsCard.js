@@ -48,7 +48,6 @@ const NewsCard = ({ data }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-(--white) to-transparent z-10" />
         </div>
 
         <p className="bodyText text-[.8em] opacity-60 line-clamp-3 flex-1">

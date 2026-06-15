@@ -38,7 +38,7 @@ const CarouselSection = ({
       className={`flex w-full flex-col gap-4 ${sectionClassName}`}
     >
       <div className="flex w-full items-center justify-between">
-        <div className="flex sm:gap-4 sm:w-fit w-full justify-between sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+        <div className="flex sm:gap-4 sm:w-fit w-full justify-between">
           <SectionTitleIcon icon={icon} iconVariant={iconVariant}>
             {title}
           </SectionTitleIcon>

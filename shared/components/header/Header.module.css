@@ -127,3 +127,12 @@
   overflow: hidden;
   background-color: var(--white);
 }
+
+/* Botón "Cerrar sesión": hover en rojo */
+@media (hover: hover) {
+  .logoutBtn:hover {
+    background-color: var(--redFill) !important;
+    border-color: var(--redBorder) !important;
+    color: var(--white) !important;
+  }
+}

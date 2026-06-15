@@ -61,16 +61,16 @@
 }
 
 .terciary {
-  background-color: var(--white-opacidad);
-  border: 1px solid var(--white);
-  color: var(--white);
+  background-color: var(--hero-white-opacidad);
+  border: 1px solid var(--hero-white);
+  color: var(--hero-white);
   backdrop-filter: blur(10px);
 }
 
 @media (hover: hover) {
   .terciary:hover {
-    background-color: var(--white);
-    color: var(--primary);
+    background-color: var(--hero-white);
+    color: var(--hero-primary);
   }
 }
 

@@ -59,7 +59,7 @@ const page = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <div className="w-full flex flex-col items-center justify-center gap-4 sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+      <div className="w-full flex flex-col items-center justify-center gap-4">
         <div className={`profileImg w-30! md:w-45`}></div>
 
         <div className="flex gap-4">
@@ -117,7 +117,7 @@ const page = () => {
         />
       </div>
 
-      <div className="flex w-full justify-center sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+      <div className="flex w-full justify-center">
         <CarouselSection
           title={"Favoritos"}
           icon="like"

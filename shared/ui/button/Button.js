@@ -48,7 +48,7 @@ const Button = ({
         onMouseLeave={() => setIsHovered(false)}
       >
         {iconComponent}
-        <span>{children}</span>
+        {children && <span>{children}</span>}
       </Link>
     );
   }

@@ -11,7 +11,9 @@ import Icon from "@/shared/components/icon/Icon";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTheme } from "@/contexts/ThemeContext";
 import LogoutModal from "@/shared/components/logoutModal/LogoutModal";
+import ThemeToggle from "@/shared/components/themeToggle/ThemeToggle";
 
 const TIPO_LABEL = { movie: "Película", tv: "Serie", person: "Persona" };
 const TIPO_HREF = { movie: "movie", tv: "serie", person: "persona" };
@@ -49,14 +51,15 @@ const UserCTA = ({ onAction }) => {
   if (user)
     return (
       <>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <Button
-            variant="buttonText"
+            variant="primary"
             onClick={onAction}
             href={"/perfil"}
             icon="user"
-            className="bodyText flex-row-reverse"
-          ></Button>
+          >
+            @{user.username}
+          </Button>
 
           <Button
             variant="buttonText"
@@ -81,7 +84,64 @@ const UserCTA = ({ onAction }) => {
   );
 };
 
+// Botón de perfil para la barra superior en mobile
+const MobileProfileButton = () => {
+  const { user } = useAuth();
+
+  if (!user)
+    return (
+      <Button variant="primary" href="/login">
+        Ingresar
+      </Button>
+    );
+
+  return (
+    <Button
+      variant="primary"
+      href="/perfil"
+      icon="user"
+      aria-label={`Perfil de @${user.username}`}
+    ></Button>
+  );
+};
+
+// Botón de cerrar sesión para el menú hamburguesa en mobile
+const MobileLogoutButton = ({ onAction }) => {
+  const { user, logout } = useAuth();
+  const router = useRouter();
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  if (!user) return null;
+
+  const handleLogout = () => {
+    logout();
+    onAction?.();
+    setShowLogoutModal(false);
+    router.push("/");
+  };
+
+  return (
+    <>
+      <Button
+        variant="secondary"
+        icon="logout"
+        onClick={() => setShowLogoutModal(true)}
+        className={`justify-start ${style.logoutBtn}`}
+      >
+        Cerrar sesión
+      </Button>
+
+      <LogoutModal
+        isOpen={showLogoutModal}
+        onConfirm={handleLogout}
+        onCancel={() => setShowLogoutModal(false)}
+      />
+    </>
+  );
+};
+
 const Header = () => {
+  const { theme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -266,7 +326,11 @@ const Header = () => {
             <div className="w-[50px] flex justify-center">
               <Link href="/">
                 <Image
-                  src="/logo/logo-black.svg"
+                  src={
+                    theme === "dark"
+                      ? "/logo/logo-white.svg"
+                      : "/logo/logo-black.svg"
+                  }
                   alt=""
                   width={100}
                   height={100}
@@ -336,7 +400,15 @@ const Header = () => {
             </AnimatePresence>
           </div>
 
-          {/* CTA */}
+          {/* Theme toggle: solo desktop (en mobile va dentro del menú) */}
+          <div className="hidden md:flex">
+            <ThemeToggle />
+          </div>
+
+          {/* CTA usuario: botón de perfil en mobile, CTA completo en desktop */}
+          <div className="flex md:hidden">
+            <MobileProfileButton />
+          </div>
           <div className="hidden md:flex">
             <UserCTA />
           </div>
@@ -355,7 +427,8 @@ const Header = () => {
           >
             <div className={`${style.mobileMenu} flex flex-col gap-6`}>
               <NavLinks mobile />
-              <UserCTA onAction={() => setIsMenuOpen(false)} />
+              <MobileLogoutButton onAction={() => setIsMenuOpen(false)} />
+              <ThemeToggle />
             </div>
           </motion.div>
         )}

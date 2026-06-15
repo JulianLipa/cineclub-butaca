@@ -1,0 +1,223 @@
+.footer {
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: 2.5em 2.5em 0 0;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  padding: 4em var(--padding-body-desktop-w) 2em;
+}
+
+/* ---- Top: marca + links ---- */
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 3em;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  max-width: 22em;
+}
+
+.logo {
+  display: inline-flex;
+  width: 64px;
+}
+
+.logo img {
+  width: 64px;
+  height: auto;
+  object-fit: contain;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.socials {
+  display: flex;
+  gap: 0.75em;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 100%;
+  border: 1px solid color-mix(in srgb, var(--white) 35%, transparent);
+  color: var(--white);
+}
+
+.social svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+@media (hover: hover) {
+  .social:hover {
+    background-color: var(--white);
+    color: var(--primary);
+    transform: translateY(-2px);
+  }
+}
+
+.links {
+  display: flex;
+  gap: 3em;
+  flex-wrap: wrap;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+  min-width: 9em;
+}
+
+.groupTitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.55;
+}
+
+.link {
+  width: fit-content;
+  font-size: 0.95rem;
+  color: var(--white);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    opacity: 1;
+    text-decoration: underline;
+    transform: translateX(3px);
+  }
+}
+
+.cta {
+  max-width: 16em;
+}
+
+.ctaText {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.ctaBtn {
+  width: fit-content;
+  margin-top: 0.4em;
+  padding: 0.7em 1.1em;
+  border-radius: 1em;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .ctaBtn:hover {
+    background-color: var(--white);
+    color: var(--primary);
+    transform: translateY(-2px);
+  }
+}
+
+/* ---- Wordmark gigante (flourish) ---- */
+.wordmarkWrap {
+  width: 100%;
+  padding-top: 0.3em;
+  overflow: hidden;
+  border-top: 1px solid color-mix(in srgb, var(--white) 15%, transparent);
+}
+
+.wordmark {
+  display: block;
+  font-size: clamp(4rem, 22vw, 18rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--white) 32%, transparent);
+}
+
+@supports not ((-webkit-text-stroke: 1px red)) {
+  .wordmark {
+    color: color-mix(in srgb, var(--white) 12%, transparent);
+  }
+}
+
+/* ---- Bottom bar ---- */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.legal {
+  display: flex;
+  gap: 1.5em;
+}
+
+.legalLink {
+  color: var(--white);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .legalLink:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .footer {
+    border-radius: 1.5em 1.5em 0 0;
+  }
+
+  .inner {
+    gap: 2.5em;
+    padding: 3em var(--padding-body-mobile-w) 1.5em;
+  }
+
+  .top {
+    flex-direction: column;
+    gap: 2.5em;
+  }
+
+  .links {
+    gap: 2em;
+  }
+
+  .group {
+    min-width: 7em;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8em;
+  }
+}

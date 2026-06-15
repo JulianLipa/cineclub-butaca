@@ -8,9 +8,15 @@
   --primary: #48250b;
   --secondary: #cad7e8;
   --white: #fff8f2;
+  /* Colores fijos del hero: no cambian con el modo oscuro */
+  --hero-white: #fff8f2;
+  --hero-primary: #48250b;
+  --hero-white-opacidad: rgba(255, 248, 242, 0.2);
   --touchable: #0445af;
   --greenBorder: #7da269;
   --greenFill: #e1edcf;
+  --redBorder: #560001;
+  --redFill: #AD3436;
 
   --primary-opacidad: rgba(72, 37, 11, 0.2);
   --white-opacidad: rgba(255, 248, 242, 0.2);
@@ -25,6 +31,17 @@
 
   /* Definida en JS por Header.js según altura real del header */
   --header-height: 80px;
+}
+
+[data-theme="dark"] {
+  --primary: #e8c9a8;
+  --secondary: #1e2d3e;
+  --white: #120906;
+  --touchable: #5a9ef8;
+  --greenBorder: #7da269;
+  --greenFill: #1a2b17;
+  --primary-opacidad: rgba(232, 201, 168, 0.15);
+  --white-opacidad: rgba(18, 9, 6, 0.2);
 }
 
 * {

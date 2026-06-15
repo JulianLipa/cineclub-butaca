@@ -19,7 +19,7 @@ const FOTOS = [
 
 export default function ArchivoPage() {
   return (
-    <div className="flex flex-col gap-12 pt-8">
+    <div className="flex flex-col gap-12">
 
       {/* Galería de fotos */}
       <section className="flex flex-col gap-4">

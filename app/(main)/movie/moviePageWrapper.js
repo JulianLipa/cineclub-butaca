@@ -83,7 +83,7 @@ const MoviePageWrapper = ({ movie }) => {
               </div>
             )}
 
-            <div className="w-full min-[1000px]:w-[50%] colSection pr-(--padding-body-mobile-w) min-[1000px]:pr-(--padding-body-desktop-w)">
+            <div className="w-full min-[1000px]:w-[50%] colSection">
               <div className="flex w-full items-center justify-between">
                 <SectionTitleIcon icon="comentarios">Reseñas</SectionTitleIcon>
                 <Button variant="primary" icon="arrow" />

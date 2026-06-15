@@ -24,8 +24,12 @@ const HeroContent = () => {
   }, []);
 
   const fontSize = small
-    ? isMobile ? "1.5rem" : "40px"
-    : isMobile ? "40px" : "clamp(40px, 8vw, 100px)";
+    ? isMobile
+      ? "1.5rem"
+      : "40px"
+    : isMobile
+      ? "40px"
+      : "clamp(40px, 8vw, 100px)";
 
   return (
     <div className="relative z-10 flex flex-col gap-6 px-(--padding-body-mobile-w) sm:px-(--padding-body-desktop-w) py-(--padding-body-mobile) sm:py-(--padding-body-desktop)">
@@ -34,11 +38,10 @@ const HeroContent = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         style={{ fontSize, transition: "font-size .5s ease", lineHeight: 1.15 }}
-        className="tracking-tight text-(--white)"
+        className="tracking-tight text-(--hero-white)"
       >
-        <span className="block font-[300]">El cine</span>
-        <span className="block font-[600]">como experiencia</span>
-        <span className="block font-[300]">compartida.</span>
+        <span className="block font-[300]">El cine que te marca,</span>
+        <span className="block font-[600]">analizado entre amigos</span>
       </motion.div>
 
       <motion.div

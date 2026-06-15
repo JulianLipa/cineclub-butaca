@@ -148,7 +148,7 @@ const HeroSection = () => {
 
       <div
         ref={bottomDivRef}
-        className="bg-(--white) heroBottomDiv flex sm:flex-row flex-col z-100 gap-4 sm:pl-(--padding-body-desktop-w) p-(--padding-body-mobile-w)"
+        className="bg-(--hero-white) text-(--hero-primary) heroBottomDiv flex sm:flex-row flex-col z-100 gap-4 sm:pl-(--padding-body-desktop-w) p-(--padding-body-mobile-w)"
         style={{
           opacity: !bottomVisible || contentHidden ? 0 : 1 - scrollProgress,
           transform: `translateY(${scrollProgress * 24}px)`,

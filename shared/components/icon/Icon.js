@@ -1,11 +1,11 @@
 const Icon = ({
   name,
   variant,
-  alt,
-  className,
+  alt = "",
+  className = "",
   size = "h-4",
   color = "var(--primary)",
-  header,
+  header = false,
 }) => {
   const iconName = variant ? `i-${name}-${variant}` : `i-${name}`;
   const iconPath = header

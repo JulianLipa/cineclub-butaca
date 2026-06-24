@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import Image from "next/image";
 import { useLayout } from "@/contexts/LayoutContext";
 import MovieHero from "@/app/(main)/movie/sections/MovieHero";
 import BackButton from "@/shared/components/backButton/BackButton";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
 import MovieCard from "@/shared/ui/movieCard/MovieCard";
+import ArchivoPhoto from "@/shared/ui/archivoPhoto/ArchivoPhoto";
 
 const FuncionPageWrapper = ({ funcion, frame }) => {
   const { setHasPaddingTop } = useLayout();
@@ -47,18 +47,18 @@ const FuncionPageWrapper = ({ funcion, frame }) => {
           <SectionTitleIcon icon="triangle">Fotos de la función</SectionTitleIcon>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {fotos.map((src, i) => (
-              <div
+              <ArchivoPhoto
                 key={i}
-                className={`relative overflow-hidden rounded-xl ${i === 0 ? "col-span-2 sm:col-span-2 aspect-video" : "aspect-square"}`}
-              >
-                <Image
-                  src={src}
-                  alt={`${funcion?.titulo} — foto ${i + 1}`}
-                  fill
-                  sizes="(max-width: 600px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
+                img={src}
+                alt={`${funcion?.titulo} — foto ${i + 1}`}
+                funcion={funcion}
+                span={
+                  i === 0
+                    ? "col-span-2 sm:col-span-2 aspect-video"
+                    : "aspect-square"
+                }
+                sizes="(max-width: 600px) 100vw, 50vw"
+              />
             ))}
           </div>
         </div>

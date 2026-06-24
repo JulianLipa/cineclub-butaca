@@ -39,9 +39,9 @@ const FuncionesPageWrapper = () => {
           icon="circle"
         />
 
-        <CalendarioSection />
-
         <FuncionesSection items={funciones} />
+
+        <CalendarioSection />
       </div>
     </div>
   );

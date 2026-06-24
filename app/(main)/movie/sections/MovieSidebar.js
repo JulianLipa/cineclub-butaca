@@ -43,9 +43,20 @@ const MovieSidebar = ({ data, loading, date }) => {
             ready={!!data}
             skeleton={<Skeleton className="h-5 w-1/2" />}
           >
-            {data && (
-              <h2 className="font-[300] text-[14px] sm:text-[16px]">
-                Dir. {data.director?.nombre}
+            {data && data.director?.nombre && (
+              <h2 className="font-[300] text-[14px] sm:text-[16px] flex flex-wrap items-center gap-1">
+                <span>Dir.</span>
+                {data.director?.id ? (
+                  <Button
+                    variant="buttonText"
+                    href={`/persona/${data.director.id}`}
+                    className="font-[300]! text-[14px]! sm:text-[16px]!"
+                  >
+                    {data.director.nombre}
+                  </Button>
+                ) : (
+                  <span>{data.director.nombre}</span>
+                )}
               </h2>
             )}
           </FadeIn>

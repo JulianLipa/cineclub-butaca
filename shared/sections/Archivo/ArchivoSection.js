@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
 import Button from "@/shared/ui/button/Button";
+import ArchivoPhoto from "@/shared/ui/archivoPhoto/ArchivoPhoto";
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 import { funcionesPasadas } from "@/data.json";
 
@@ -60,28 +59,12 @@ const ArchivoSection = () => {
 
       <div className="grid grid-cols-4 max-[600px]:grid-cols-2 auto-rows-[120px] sm:auto-rows-[160px] gap-4">
         {items.map((item, i) => (
-          <Link
+          <ArchivoPhoto
             key={i}
-            href={`/archivo/${item.funcionId}`}
-            className={`group relative overflow-hidden rounded-xl ${item.span}`}
-          >
-            <Image
-              src={item.img}
-              alt={item.funcion?.titulo ?? "Función"}
-              fill
-              sizes="(max-width: 600px) 50vw, 25vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            {/* Overlay en hover */}
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 gap-0.5">
-              <p className="text-white text-[.82em] font-[600] leading-snug line-clamp-2">
-                {item.funcion?.titulo}
-              </p>
-              <p className="text-white/70 text-[.72em]">
-                {item.funcion?.fecha}
-              </p>
-            </div>
-          </Link>
+            img={item.img}
+            funcion={item.funcion}
+            span={item.span}
+          />
         ))}
       </div>
 

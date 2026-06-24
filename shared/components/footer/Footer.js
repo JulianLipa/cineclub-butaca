@@ -58,14 +58,20 @@ const Footer = () => {
             <Link href="/" className={style.logo} aria-label="Cineclub Butaca">
               <Image
                 // Footer invertido: logo claro sobre fondo oscuro y viceversa
-                src={theme === "dark" ? "/logo/logo-black.svg" : "/logo/logo-white.svg"}
+                src={
+                  theme === "dark"
+                    ? "/logo/logo-black.svg"
+                    : "/logo/logo-white.svg"
+                }
                 alt=""
                 width={100}
                 height={100}
               />
             </Link>
 
-            <p className={style.tagline}>
+            <p className={`${style.tagline} font-[500]!`}>Cineclub Butaca</p>
+
+            <p className={`${style.tagline} font-[200]!`}>
               El cine como experiencia compartida.
             </p>
 
@@ -98,7 +104,11 @@ const Footer = () => {
             <div className={style.group}>
               <h4 className={style.groupTitle}>Comunidad</h4>
               {COMUNIDAD.map(({ label, href }) => (
-                <Link key={`${label}-${href}`} href={href} className={style.link}>
+                <Link
+                  key={`${label}-${href}`}
+                  href={href}
+                  className={style.link}
+                >
                   {label}
                 </Link>
               ))}

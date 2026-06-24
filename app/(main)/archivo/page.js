@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
+import ArchivoPhoto from "@/shared/ui/archivoPhoto/ArchivoPhoto";
 import { funcionesPasadas } from "@/data.json";
 
 const FOTOS = [
@@ -17,6 +18,10 @@ const FOTOS = [
 ];
 
 
+// Asocia una foto del grid con la función pasada a la que pertenece (por path).
+const findFuncion = (img) =>
+  funcionesPasadas.find((f) => f.fotos?.includes(img));
+
 export default function ArchivoPage() {
   return (
     <div className="flex flex-col gap-12">
@@ -26,15 +31,13 @@ export default function ArchivoPage() {
         <SectionTitleIcon icon="triangle">Fotos del proyecto</SectionTitleIcon>
         <div className="grid grid-cols-4 max-[600px]:grid-cols-2 auto-rows-[120px] sm:auto-rows-[160px] gap-2">
           {FOTOS.map((foto, i) => (
-            <div key={i} className={`relative overflow-hidden rounded-xl ${foto.span}`}>
-              <Image
-                src={foto.img}
-                alt={foto.alt}
-                fill
-                sizes="(max-width: 600px) 50vw, 25vw"
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+            <ArchivoPhoto
+              key={i}
+              img={foto.img}
+              alt={foto.alt}
+              funcion={findFuncion(foto.img)}
+              span={foto.span}
+            />
           ))}
         </div>
       </section>

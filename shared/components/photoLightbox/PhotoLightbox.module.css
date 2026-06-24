@@ -1,0 +1,9 @@
+/* Handlers del carrusel solo dentro del visor: borde y texto en --white */
+.handlers button {
+  color: var(--white) !important;
+  border-color: var(--white) !important;
+}
+
+.handlers button span {
+  color: var(--white) !important;
+}

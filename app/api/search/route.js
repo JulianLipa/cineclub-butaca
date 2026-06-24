@@ -1,16 +1,20 @@
 import { NextResponse } from "next/server";
 import { searchMovies } from "@/lib/tmdb";
+import { sanitizeText, LIMITS } from "@/lib/validation";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
-  const q = searchParams.get("q");
+  const q = sanitizeText(searchParams.get("q") || "", LIMITS.search.max);
 
-  if (!q || q.trim().length < 2) return NextResponse.json([]);
+  if (q.length < 2) return NextResponse.json([]);
 
   try {
     const results = await searchMovies(q);
     return NextResponse.json(results);
-  } catch (err) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch {
+    return NextResponse.json(
+      { error: "Error al buscar películas" },
+      { status: 500 },
+    );
   }
 }

@@ -11,7 +11,7 @@ const ACTIONS = [
   { icon: "watchlistAdd", value: 28 },
 ];
 
-const Actions = ({ icons, className, variant, divClassname, extra }) => {
+const Actions = ({ icons, className, variant, divClassname, extra, values }) => {
   const [activeIcons, setActiveIcons] = useState(new Set());
   const timers = useRef({});
 
@@ -39,7 +39,7 @@ const Actions = ({ icons, className, variant, divClassname, extra }) => {
           icon={item.icon}
           onClick={() => handleClick(item.icon)}
         >
-          {item.value}
+          {values?.[item.icon] ?? item.value}
         </Button>
       ))}
       {extra}

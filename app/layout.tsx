@@ -7,6 +7,7 @@ import { LayoutProvider } from "@/contexts/LayoutContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import NextTopLoader from "nextjs-toploader";
+import Script from "next/script";
 import NavigationOverlay from "@/shared/components/NavigationOverlay";
 
 const inter = Inter({
@@ -37,10 +38,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={inter.variable} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body>
+        <Script id="theme-script" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
         <NextTopLoader color="#0445af" shadow={false} showSpinner={false} />
         <NavigationOverlay />
         <ThemeProvider>

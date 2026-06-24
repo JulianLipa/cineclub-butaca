@@ -10,6 +10,7 @@ import CarouselSection from "@/shared/components/carouselSection/CarouselSection
 import MovieHero from "./sections/MovieHero";
 import MovieSidebar from "./sections/MovieSidebar";
 import MovieActions from "./sections/MovieActions";
+import MoviePresentation from "./sections/MoviePresentation";
 import MovieReviews from "./sections/MovieReviews";
 import MovieTrailer from "./sections/MovieTrailer";
 import MovieSinopsis from "./sections/MovieSinopsis";
@@ -51,6 +52,9 @@ const MoviePageWrapper = ({ movie }) => {
             <BackButton />
           </div>
           <MovieActions date={date} />
+
+          {/* Solo admins: abre la pantalla de pre-función con QR */}
+          <MoviePresentation movie={movie} />
 
           <div className="colSection gap-10!">
             {movie?.trailer && (

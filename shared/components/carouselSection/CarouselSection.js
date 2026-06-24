@@ -22,6 +22,7 @@ const CarouselSection = ({
   loop = true,
   setHandlers = true,
   moreButton = false,
+  moreHref,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [swiperInstance, setSwiperInstance] = useState(null);
@@ -43,7 +44,7 @@ const CarouselSection = ({
             {title}
           </SectionTitleIcon>
 
-          {moreButton && <Button variant="primary" icon="arrow" />}
+          {moreButton && <Button variant="primary" icon="arrow" href={moreHref} />}
         </div>
 
         {setHandlers && (

@@ -6,9 +6,10 @@
       "apellido": "Lipari",
       "username": "julianMotorizado",
       "mail": "lipajulianp@gmail.com",
-      "password": "Boca campeon2018",
+      "password": "$2b$12$f8tl4hC/XIMUip7KOoOJtu1XmG70V3mtf0EnC6I/MOzDggKSKUGoi",
       "peliculasVistas": [],
-      "bio": "holaaaa"
+      "bio": "holaaaa",
+      "role": "user"
     },
     {
       "id": 2,
@@ -16,8 +17,20 @@
       "apellido": "Pacciarelli",
       "username": "anitsugga",
       "mail": "aguspacha@pacha.com",
-      "password": "123jaja",
+      "password": "$2b$12$EUCsx8JlLWHv3cOUPkv3z.sufni0Z/Mb2/H4.yKuQhO4J3NQ020nO",
       "bio": "te amo juli <3",
+      "peliculasVistas": [],
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "nombre": "Admin",
+      "apellido": "Butaca",
+      "username": "admin",
+      "mail": "admin@butaca.club",
+      "password": "$2b$12$MuKbs.d8MVPZk9kIwBni1.SVvz56K1wamUG/x/7qUUO7NpPFqIlau",
+      "role": "admin",
+      "bio": "",
       "peliculasVistas": []
     }
   ],
@@ -131,7 +144,13 @@
       "tmdbId": "36785",
       "tituloPelicula": "El acorazado Potemkin",
       "id": "cine-vanguardia-y-ruptura-formal",
-      "movies": [36785, 499, 89681, 47576, 11104]
+      "movies": [
+        36785,
+        499,
+        89681,
+        47576,
+        11104
+      ]
     },
     {
       "title": "El Trabajador en el Cine y la Crisis Social",
@@ -139,7 +158,13 @@
       "tmdbId": "101338",
       "tituloPelicula": "Mundo grúa",
       "id": "el-trabajador-en-el-cine-y-la-crisis-social",
-      "movies": [36785, 226216, 47576, 18079, 58429]
+      "movies": [
+        36785,
+        226216,
+        47576,
+        18079,
+        58429
+      ]
     },
     {
       "title": "Estéticas Feministas y Deseo Subversivo",
@@ -147,7 +172,13 @@
       "tmdbId": "44012",
       "tituloPelicula": "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles",
       "id": "esteticas-feministas-y-deseo-subversivo",
-      "movies": [499, 58429, 44012, 47576, 7340]
+      "movies": [
+        499,
+        58429,
+        44012,
+        47576,
+        7340
+      ]
     },
     {
       "title": "Indie Global: Márgenes del Mainstream",
@@ -155,7 +186,13 @@
       "tmdbId": "410051",
       "tituloPelicula": "Stranger Than Paradise",
       "id": "indie-global-margenes-del-mainstream",
-      "movies": [11104, 655, 18079, 410051, 499]
+      "movies": [
+        11104,
+        655,
+        18079,
+        410051,
+        499
+      ]
     },
     {
       "title": "América Latina en Llamas",
@@ -163,7 +200,13 @@
       "tmdbId": "132144",
       "tituloPelicula": "La batalla de Chile",
       "id": "america-latina-en-llamas",
-      "movies": [89681, 47576, 226216, 36785, 132144]
+      "movies": [
+        89681,
+        47576,
+        226216,
+        36785,
+        132144
+      ]
     },
     {
       "title": "Maestros del Terror Europeo",
@@ -171,7 +214,12 @@
       "tmdbId": "11906",
       "tituloPelicula": "Suspiria",
       "id": "maestros-del-terror-europeo",
-      "movies": [11906, 7340, 226216, 47576]
+      "movies": [
+        11906,
+        7340,
+        226216,
+        47576
+      ]
     },
     {
       "title": "Conflictos de Clase y Memoria Histórica",
@@ -179,7 +227,13 @@
       "tmdbId": "64978",
       "tituloPelicula": "La Patagonia rebelde",
       "id": "conflictos-de-clase-y-memoria-historica",
-      "movies": [89681, 64978, 47576, 226216, 58429]
+      "movies": [
+        89681,
+        64978,
+        47576,
+        226216,
+        58429
+      ]
     },
     {
       "title": "Obsesiones y Universos de Autor",
@@ -187,7 +241,13 @@
       "tmdbId": "843",
       "tituloPelicula": "In the Mood for Love",
       "id": "obsesiones-y-universos-de-autor",
-      "movies": [11104, 843, 655, 499, 36785]
+      "movies": [
+        11104,
+        843,
+        655,
+        499,
+        36785
+      ]
     },
     {
       "title": "Tercer Cine y Descolonización Cultural",
@@ -195,7 +255,13 @@
       "tmdbId": "89681",
       "tituloPelicula": "La hora de los hornos",
       "id": "tercer-cine-y-descolonizacion-cultural",
-      "movies": [89681, 47576, 132144, 226216, 58429]
+      "movies": [
+        89681,
+        47576,
+        132144,
+        226216,
+        58429
+      ]
     },
     {
       "title": "La Argentina del Desengaño y el Fin de Siglo",
@@ -203,7 +269,13 @@
       "tmdbId": "18079",
       "tituloPelicula": "Nueve reinas",
       "id": "la-argentina-del-desengano-y-el-fin-de-siglo",
-      "movies": [18079, 36785, 58429, 226216, 47576]
+      "movies": [
+        18079,
+        36785,
+        58429,
+        226216,
+        47576
+      ]
     },
     {
       "title": "Soledades Urbanas y Mitos de Culto",
@@ -211,7 +283,13 @@
       "tmdbId": "7340",
       "tituloPelicula": "Paris, Texas",
       "id": "soledades-urbanas-y-mitos-de-culto",
-      "movies": [655, 11104, 843, 7340, 499]
+      "movies": [
+        655,
+        11104,
+        843,
+        7340,
+        499
+      ]
     }
   ],
   "eventos": {
@@ -348,7 +426,15 @@
       "horario": "19:30"
     }
   },
-  "diasSemana": ["L", "M", "X", "J", "V", "S", "D"],
+  "diasSemana": [
+    "L",
+    "M",
+    "X",
+    "J",
+    "V",
+    "S",
+    "D"
+  ],
   "pricing": [
     {
       "title": "Invitado",
@@ -471,7 +557,10 @@
       "asistentes": 29,
       "tmdbId": 8077,
       "descripcion": "Sesión especial de verano con una selección de cortometrajes y la proyección central de Carrie. Un formato más relajado que dio lugar a conversaciones más informales y espontáneas.",
-      "fotos": ["/imgs/image60.png", "/imgs/image61.png"]
+      "fotos": [
+        "/imgs/image60.png",
+        "/imgs/image61.png"
+      ]
     },
     {
       "id": "ciclo-noir-enero-2026",
@@ -482,7 +571,10 @@
       "asistentes": 35,
       "tmdbId": 238,
       "descripcion": "Arrancamos el año con un ciclo noir. Revisamos los códigos del género, la iluminación de clave baja y el antihéroe americano. Una introducción perfecta al año cinematográfico.",
-      "fotos": ["/imgs/image62.png", "/imgs/image63.png"]
+      "fotos": [
+        "/imgs/image62.png",
+        "/imgs/image63.png"
+      ]
     }
   ]
 }

@@ -1,0 +1,48 @@
+"use client";
+
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Button from "@/shared/ui/button/Button";
+import style from "@/shared/components/logoutModal/LogoutModal.module.css";
+
+const LoginModal = ({ isOpen, onCancel }) => {
+  return createPortal(
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className={style.backdrop}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          onClick={onCancel}
+        >
+          <motion.div
+            className={style.modal}
+            initial={{ opacity: 0, y: 16, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 8, scale: 0.97 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className={style.title}>Iniciá sesión para comentar</h2>
+            <p className={style.body}>
+              Necesitás una cuenta de Butaca para sumarte a la conversación.
+            </p>
+            <div className={style.actions}>
+              <Button variant="primary" href="/login">
+                Iniciar sesión
+              </Button>
+              <Button variant="buttonText" onClick={onCancel}>
+                Cancelar
+              </Button>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>,
+    document.body,
+  );
+};
+
+export default LoginModal;

@@ -9,9 +9,10 @@ const CarouselHandler = ({
   onPrev,
   onNext,
   isPaginatorActive,
+  className = "",
 }) => {
   return (
-    <div className={`flex items-center gap-4 ${style.carouselDiv} `}>
+    <div className={`flex items-center gap-4 ${style.carouselDiv} ${className}`}>
       <Button variant="secondary" onClick={onPrev}>
         &lt;
       </Button>

@@ -1,10 +1,13 @@
 import { NextResponse } from "next/server";
 import { getMoviePreview, searchMovie, getMovieById, formatMovie } from "@/lib/tmdb";
+import { sanitizeText, LIMITS } from "@/lib/validation";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
-  const query = searchParams.get("query");
-  const id = searchParams.get("id");
+  const query = sanitizeText(searchParams.get("query") || "", LIMITS.search.max);
+  const rawId = searchParams.get("id");
+  // El id de TMDB es numérico: descartamos cualquier otra cosa.
+  const id = rawId && /^\d+$/.test(rawId) ? rawId : null;
   const preview = searchParams.get("preview");
 
   if (!query && !id) {
@@ -35,7 +38,10 @@ export async function GET(request) {
 
     const { details, credits, videos } = await getMovieById(movieId);
     return NextResponse.json(formatMovie(details, credits, videos));
-  } catch (err) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch {
+    return NextResponse.json(
+      { error: "Error al obtener la película" },
+      { status: 500 },
+    );
   }
 }

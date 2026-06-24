@@ -8,6 +8,7 @@ export interface AuthUser {
   apellido: string;
   username: string;
   mail: string;
+  role: "user" | "admin";
   bio: string;
   peliculasVistas: { tmdbId: string; watchedDate: string }[];
 }

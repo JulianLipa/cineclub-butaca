@@ -70,6 +70,13 @@ textarea {
   border: 1px solid var(--primary) !important;
 }
 
+/* Estado de error: tiñe de rojo el border real del input (el que tiene el
+   border-radius). En desktop el border lo tiene el <input>. */
+.glassInput.inputError input,
+.glassInput.inputError textarea {
+  border-color: #c0392b !important;
+}
+
 textarea {
   resize: none;
   font-family: var(--font-body);
@@ -230,6 +237,11 @@ h5 {
     overflow: hidden;
     display: flex;
     width: 100% !important;
+  }
+
+  /* En mobile el border lo tiene el wrapper .glassInput (el input no). */
+  .videoPage .glassInput.inputError {
+    border-color: #c0392b;
   }
 
   .videoPage .glassInput input,

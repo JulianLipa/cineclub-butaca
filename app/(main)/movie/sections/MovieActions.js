@@ -26,8 +26,13 @@ const Spinner = ({ color = "var(--touchable)" }) => (
   />
 );
 
-const WatchlistAuthModal = ({ isOpen, onCancel }) =>
-  createPortal(
+const WatchlistAuthModal = ({ isOpen, onCancel }) => {
+  // El portal usa document.body, que no existe en SSR: esperamos al mount.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -64,6 +69,7 @@ const WatchlistAuthModal = ({ isOpen, onCancel }) =>
     </AnimatePresence>,
     document.body,
   );
+};
 
 const WatchlistButton = ({ initialAdded = false, value = 28, className }) => {
   const { user } = useAuth();

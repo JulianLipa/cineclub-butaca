@@ -41,6 +41,9 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   poweredByHeader: false,
   allowedDevOrigins: ["*.ngrok-free.app"],
+  // mongodb es un paquete nativo de Node: no debe empaquetarse, se carga como
+  // módulo externo en el servidor.
+  serverExternalPackages: ["mongodb"],
   turbopack: {
     resolveAlias: {},
   },

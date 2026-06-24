@@ -54,9 +54,15 @@ export async function POST(request) {
   if (!ok) return genericError;
 
   // Migración perezosa: si la contraseña estaba en texto plano, la hasheamos.
+  // El login no debe fallar si no se puede persistir (ej. FS de solo lectura en
+  // Vercel): la verificación ya fue exitosa, el rehash es best-effort.
   if (needsRehash) {
-    data.usuarios[index].password = await hashPassword(password);
-    writeFileSync(dataPath, JSON.stringify(data, null, 2));
+    try {
+      data.usuarios[index].password = await hashPassword(password);
+      writeFileSync(dataPath, JSON.stringify(data, null, 2));
+    } catch {
+      // Ignorar: se reintentará en el próximo login.
+    }
   }
 
   const { password: _, ...userWithoutPassword } = data.usuarios[index];

@@ -1,11 +1,17 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "@/shared/ui/button/Button";
 import style from "@/shared/components/logoutModal/LogoutModal.module.css";
 
 const LoginModal = ({ isOpen, onCancel }) => {
+  // El portal usa document.body, que no existe en SSR: esperamos al mount.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
   return createPortal(
     <AnimatePresence>
       {isOpen && (

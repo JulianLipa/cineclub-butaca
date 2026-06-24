@@ -6,7 +6,7 @@
       "apellido": "Lipari",
       "username": "julianMotorizado",
       "mail": "lipajulianp@gmail.com",
-      "password": "$2b$12$f8tl4hC/XIMUip7KOoOJtu1XmG70V3mtf0EnC6I/MOzDggKSKUGoi",
+      "password": "$2b$12$G3ugf0UkE9Rd4Yq8QYlbOOFWEfCPbZdyzNpMOUMATO.mmKpOZb7v2",
       "peliculasVistas": [],
       "bio": "holaaaa",
       "role": "user"
@@ -18,7 +18,7 @@
       "username": "anitsugga",
       "mail": "aguspacha@pacha.com",
       "password": "$2b$12$EUCsx8JlLWHv3cOUPkv3z.sufni0Z/Mb2/H4.yKuQhO4J3NQ020nO",
-      "bio": "te amo juli <3",
+      "bio": "",
       "peliculasVistas": [],
       "role": "user"
     },
@@ -28,7 +28,7 @@
       "apellido": "Butaca",
       "username": "admin",
       "mail": "admin@butaca.club",
-      "password": "$2b$12$MuKbs.d8MVPZk9kIwBni1.SVvz56K1wamUG/x/7qUUO7NpPFqIlau",
+      "password": "$2b$12$l/LxNM0LpPTyp2OXT/EWHeZ2RT0jzdveLWKlBzpg/n03DY2ns6YS.",
       "role": "admin",
       "bio": "",
       "peliculasVistas": []

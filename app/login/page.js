@@ -15,7 +15,8 @@ const ERROR_COLOR = "#c0392b";
 const FieldError = ({ msg }) =>
   msg ? (
     <span
-      style={{ color: ERROR_COLOR, fontSize: "0.75rem", marginTop: "-8px" }}
+      className="block text-left leading-snug"
+      style={{ color: ERROR_COLOR, fontSize: "0.75rem" }}
     >
       {msg}
     </span>
@@ -92,8 +93,8 @@ const Page = () => {
     }
   };
 
-  const inputStyle = (field) =>
-    errors[field] ? { borderColor: `${ERROR_COLOR} !important` } : {};
+  // Clase de error: tiñe de rojo el border real del input (ver globals.css).
+  const errClass = (field) => (errors[field] ? "inputError" : "");
 
   return (
     <div className="videoPage relative flex min-h-svh md:min-h-0 md:pr-[0] pr-(--padding-body-mobile-w)">
@@ -153,7 +154,7 @@ const Page = () => {
           className="flex flex-col gap-4"
         >
           <div className="flex flex-col gap-1">
-            <div className="glassInput" style={inputStyle("identifier")}>
+            <div className={`glassInput ${errClass("identifier")}`}>
               <input
                 type="text"
                 placeholder="Mail o Nombre de Usuario"
@@ -166,7 +167,7 @@ const Page = () => {
           </div>
 
           <div className="flex flex-col gap-1">
-            <div className="glassInput" style={inputStyle("password")}>
+            <div className={`glassInput ${errClass("password")}`}>
               <input
                 type="password"
                 placeholder="Contraseña"

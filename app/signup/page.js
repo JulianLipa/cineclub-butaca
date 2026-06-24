@@ -13,7 +13,8 @@ const ERROR_COLOR = "#c0392b";
 const FieldError = ({ msg }) =>
   msg ? (
     <span
-      style={{ color: ERROR_COLOR, fontSize: "0.75rem", marginTop: "-8px" }}
+      className="block text-left leading-snug"
+      style={{ color: ERROR_COLOR, fontSize: "0.75rem" }}
     >
       {msg}
     </span>
@@ -86,7 +87,14 @@ const Page = () => {
       next.mail = "Ingresá un mail válido";
 
     if (!values.password) next.password = "Este campo es obligatorio";
-    else if (values.password.length < 6) next.password = "Mínimo 6 caracteres";
+    else if (
+      values.password.length < 8 ||
+      !/[a-z]/.test(values.password) ||
+      !/[A-Z]/.test(values.password) ||
+      !/[0-9]/.test(values.password)
+    )
+      next.password =
+        "Mínimo 8 caracteres, con mayúscula, minúscula y número";
 
     if (!values.repeatPassword)
       next.repeatPassword = "Este campo es obligatorio";
@@ -131,8 +139,8 @@ const Page = () => {
     }
   };
 
-  const inputStyle = (field) =>
-    errors[field] ? { borderColor: `${ERROR_COLOR} !important` } : {};
+  // Clase de error: tiñe de rojo el border real del input (ver globals.css).
+  const errClass = (field) => (errors[field] ? "inputError" : "");
 
   return (
     <div className="videoPage relative flex h-svh overflow-hidden sm:pr-[0] pr-(--padding-body-mobile-w)">
@@ -192,7 +200,7 @@ const Page = () => {
         >
           <div className="flex gap-2">
             <div className="flex flex-col gap-2 flex-1">
-              <div className="glassInput" style={inputStyle("nombre")}>
+              <div className={`glassInput ${errClass("nombre")}`}>
                 <input
                   type="text"
                   placeholder="Nombre"
@@ -205,7 +213,7 @@ const Page = () => {
             </div>
 
             <div className="flex flex-col gap-2 flex-1">
-              <div className="glassInput" style={inputStyle("apellido")}>
+              <div className={`glassInput ${errClass("apellido")}`}>
                 <input
                   type="text"
                   placeholder="Apellido"
@@ -219,7 +227,7 @@ const Page = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <div className="glassInput" style={inputStyle("username")}>
+            <div className={`glassInput ${errClass("username")}`}>
               <input
                 type="text"
                 placeholder="Nombre de usuario"
@@ -232,7 +240,7 @@ const Page = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <div className="glassInput" style={inputStyle("mail")}>
+            <div className={`glassInput ${errClass("mail")}`}>
               <input
                 type="email"
                 placeholder="Mail"
@@ -245,7 +253,7 @@ const Page = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <div className="glassInput" style={inputStyle("password")}>
+            <div className={`glassInput ${errClass("password")}`}>
               <input
                 type="password"
                 placeholder="Contraseña"
@@ -259,7 +267,7 @@ const Page = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            <div style={inputStyle("repeatPassword")} className="glassInput">
+            <div className={`glassInput ${errClass("repeatPassword")}`}>
               <input
                 type="password"
                 placeholder="Repetir Contraseña"

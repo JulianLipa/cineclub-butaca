@@ -6,7 +6,7 @@ const MovieTrailer = ({ trailer }) => {
   const videoId = trailer?.split("v=")[1];
 
   return (
-    <div className="colSection sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w)">
+    <div className="colSection">
       <FadeIn
         loading={false}
         ready={!!trailer}

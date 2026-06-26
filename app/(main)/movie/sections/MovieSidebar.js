@@ -7,25 +7,31 @@ import EventRow from "@/shared/sections/Calendario/EventRow.js";
 import { parseScreeningDate, dateToISO } from "@/lib/dates";
 import Image from "next/image";
 import style from "../movie.module.css";
+import BackButton from "@/shared/components/backButton/BackButton";
 
 const MovieSidebar = ({ data, loading, date }) => {
   const d = date ? dateToISO(parseScreeningDate(date)) : null;
   return (
     <div className="w-full sm:w-[30%] sm:min-w-[200px] sm:sticky top-(--header-height) sm:max-h-svh rounded-3xl sm:-mt-40 flex flex-col gap-4 sm:px-4 sm:overflow-y-auto">
       {/* Mobile: row (poster + info) | Desktop: col */}
-      <div className="flex flex-row sm:flex-col gap-4">
+      <div className="flex flex-row items-start sm:flex-col gap-4">
         {/* Poster */}
+
+        <div className="block sm:hidden">
+          <BackButton />
+        </div>
+
         <div className="w-[30%] sm:w-[180px] sm:shrink-0 bg-(--white) rounded-3xl sm:p-4 sm:-ml-4">
           <FadeIn
             loading={loading}
-            skeleton={<Skeleton className="w-full aspect-[2/3] rounded-3xl" />}
+            skeleton={<Skeleton className="w-full aspect-2/3 rounded-3xl" />}
           >
             <MovieCard tmdbId={data?.tmdbId} interactive={false} />
           </FadeIn>
         </div>
 
         {/* Título + Director + Detalles */}
-        <div className="flex-1 sm:w-full flex flex-col gap-4 justify-center">
+        <div className="flex-1 sm:pt-0 pt-2 sm:w-full flex flex-col gap-4 justify-center">
           <FadeIn
             loading={loading}
             ready={!!data}
@@ -80,6 +86,7 @@ const MovieSidebar = ({ data, loading, date }) => {
                       date={d}
                       event={"En cartelera"}
                       isPastMonth={false}
+                      tmdbId={data?.tmdbId ? String(data.tmdbId) : undefined}
                       className="text-[.9em]!"
                     />
                   </div>

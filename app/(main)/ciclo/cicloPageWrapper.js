@@ -1,63 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useLayout } from "@/contexts/LayoutContext";
-
+import { useState } from "react";
 import MovieHero from "@/app/(main)/movie/sections/MovieHero";
 import BackButton from "@/shared/components/backButton/BackButton";
 import Button from "@/shared/ui/button/Button";
 import MovieCard from "@/shared/ui/movieCard/MovieCard";
-
-const MovieRow = ({ tmdbId, index }) => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    if (!tmdbId) return;
-    fetch(`/api/movies?id=${tmdbId}`)
-      .then((r) => r.json())
-      .then(setData)
-      .catch(() => {});
-  }, [tmdbId]);
-
-  return (
-    <Link
-      href={`/movie/${tmdbId}`}
-      className="flex items-center gap-4 py-3 border-b border-(--primary)/20 hover:opacity-70"
-    >
-      <span className="bodyText font-[500]! w-6 shrink-0 opacity-50 text-right">{index + 1}</span>
-      <div className="w-10 shrink-0 rounded-md overflow-hidden aspect-[2/3] bg-(--secondary)">
-        {data?.poster && (
-          <Image
-            src={data.poster}
-            alt={data.titulo ?? ""}
-            width={40}
-            height={60}
-            className="w-full h-full object-cover"
-          />
-        )}
-      </div>
-      <div className="flex flex-col gap-0.5 flex-1 min-w-0">
-        <p className="bodyText font-[600]! truncate">{data?.titulo ?? "—"}</p>
-        <p className="bodyText opacity-60 truncate">
-          {data?.director?.nombre ?? "—"}{data?.anio ? ` · ${data.anio}` : ""}
-        </p>
-      </div>
-    </Link>
-  );
-};
+import MovieRow from "@/shared/ui/movieCard/MovieRow";
+import { useHeroLayout } from "@/shared/hooks/useHeroLayout";
 
 const CicloPageWrapper = ({ ciclo }) => {
-  const { setHasPaddingTop } = useLayout();
+  useHeroLayout();
   const [view, setView] = useState("grid");
-
   const movies = ciclo?.movies ?? [];
-
-  useEffect(() => {
-    setHasPaddingTop(false);
-    return () => setHasPaddingTop(true);
-  }, [setHasPaddingTop]);
 
   return (
     <div>

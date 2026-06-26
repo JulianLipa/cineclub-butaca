@@ -28,6 +28,12 @@
     transform 0.2s ease;
 }
 
+.dayBoxHovered {
+  background-color: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+
 .eventIndicator {
   position: absolute;
 

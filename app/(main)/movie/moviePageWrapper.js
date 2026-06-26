@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
-import { useLayout } from "@/contexts/LayoutContext";
+import { useHeroLayout } from "@/shared/hooks/useHeroLayout";
 
 import SectionTitle from "@/shared/components/section-title/SectionTitle";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
@@ -18,32 +17,23 @@ import CardMovieResumen from "./sections/MovieResumen/CardMovieResumen";
 import PersonCard from "@/shared/ui/personCard/PersonCard";
 import ListasSection from "@/shared/sections/Listas/ListasSection";
 import PopularSection from "@/shared/sections/Popular/PopularSection";
-
 import BackButton from "@/shared/components/backButton/BackButton";
+
 import { funciones } from "@/data.json";
 
 const MoviePageWrapper = ({ movie }) => {
-  const { setHasPaddingTop } = useLayout();
+  useHeroLayout();
   const funcion = funciones.find(
     (f) => String(f.tmdbId) === String(movie?.tmdbId),
   );
   const resumenButaca = funcion?.resumenButaca;
   const date = funcion?.date;
 
-  useEffect(() => {
-    setHasPaddingTop(false);
-    return () => setHasPaddingTop(true);
-  }, [setHasPaddingTop]);
-
   return (
     <div>
       <MovieHero img={movie?.frame} />
-      {/* Mobile: flecha antes del poster */}
-      <div className="sectionMain sm:hidden pb-0!">
-        <BackButton />
-      </div>
 
-      <div className="sectionMain pt-0! relative flex flex-col sm:flex-row gap-4! top-0">
+      <div className="sectionMain relative flex flex-col sm:flex-row gap-4! top-0">
         <MovieSidebar data={movie} date={date} />
 
         <div className="w-full sm:w-[70%] flex flex-col gap-10 sm:py-(--padding-body-desktop)">
@@ -52,7 +42,7 @@ const MoviePageWrapper = ({ movie }) => {
             <BackButton />
           </div>
           <div className="w-full flex flex-col gap-4 sm:flex-row sm:items-center">
-            <MovieActions date={date} />
+            <MovieActions date={date} tmdbId={movie?.tmdbId} />
 
             {/* Solo admins: abre la pantalla de pre-función con QR */}
             <MoviePresentation movie={movie} />

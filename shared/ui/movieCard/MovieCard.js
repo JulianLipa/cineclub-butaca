@@ -1,24 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import MovieText from "@/shared/ui/movieCard/MovieText";
 import Link from "next/link";
 import style from "@/shared/ui/movieCard/movieCard.module.css";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 import FadeIn from "@/shared/components/skeleton/FadeIn";
+import { useMovieData } from "@/shared/hooks/useMovieData";
 
-const MovieCard = ({ tmdbId, text, interactive = true, actionsIcons, className }) => {
-  const [data, setData] = useState(null);
+const MovieCard = ({
+  tmdbId,
+  text,
+  interactive = true,
+  actionsIcons,
+  className,
+}) => {
+  const data = useMovieData(tmdbId, true);
   const [imgReady, setImgReady] = useState(false);
-
-  useEffect(() => {
-    if (!tmdbId) return;
-    fetch(`/api/movies?id=${tmdbId}&preview=true`)
-      .then((r) => r.json())
-      .then(setData)
-      .catch(() => {});
-  }, [tmdbId]);
 
   const showSkeleton = !data || (!!data.poster && !imgReady);
 

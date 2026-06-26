@@ -11,6 +11,7 @@ import MonthSlide from "./MonthSlide";
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
 import { eventos as events } from "@/data.json";
 import { useState } from "react";
+import { maskStyle } from "./calendarioUtils";
 
 const MONTHS = Array.from({ length: 12 }, (_, i) => i);
 
@@ -23,17 +24,7 @@ const FILTERS = [
 const ChipIcon = ({ name, active }) => (
   <span
     className="shrink-0 w-3 h-3 inline-block"
-    style={{
-      WebkitMaskImage: `url(/icons/i-${name}-default.svg)`,
-      WebkitMaskSize: "contain",
-      WebkitMaskRepeat: "no-repeat",
-      WebkitMaskPosition: "center",
-      maskImage: `url(/icons/i-${name}-default.svg)`,
-      maskSize: "contain",
-      maskRepeat: "no-repeat",
-      maskPosition: "center",
-      backgroundColor: active ? "var(--white)" : "var(--primary)",
-    }}
+    style={maskStyle(`i-${name}-default.svg`, active ? "var(--white)" : "var(--primary)")}
   />
 );
 

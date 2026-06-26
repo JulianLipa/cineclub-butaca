@@ -6,8 +6,7 @@ import { diasSemana as WEEK_DAYS } from "@/data.json";
 import { parseISODate } from "@/lib/dates";
 import EventRow from "./EventRow";
 import Icon from "@/shared/components/icon/Icon";
-
-const eventIcon = (type) => (type === "ciclo" ? "rectangle" : "funcion");
+import { eventIcon, maskStyle } from "./calendarioUtils";
 
 const getMonthDays = (year, month) => {
   const startOffset = (new Date(year, month, 1).getDay() + 6) % 7;
@@ -101,21 +100,7 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth, filter }) => 
             onClick={() => setSelectedDate(null)}
             className="flex items-center gap-1 bodyText text-xs opacity-60 hover:opacity-100 transition-opacity w-fit"
           >
-            <span style={{
-              display: "inline-block",
-              width: "0.75rem",
-              height: "0.75rem",
-              WebkitMaskImage: "url(/icons/i-arrow-default.svg)",
-              WebkitMaskSize: "contain",
-              WebkitMaskRepeat: "no-repeat",
-              WebkitMaskPosition: "center",
-              maskImage: "url(/icons/i-arrow-default.svg)",
-              maskSize: "contain",
-              maskRepeat: "no-repeat",
-              maskPosition: "center",
-              backgroundColor: "var(--primary)",
-              transform: "scaleX(-1)",
-            }} />
+            <span style={{ display: "inline-block", width: "0.75rem", height: "0.75rem", transform: "scaleX(-1)", ...maskStyle("i-arrow-default.svg") }} />
             Todos los eventos
           </button>
         )}

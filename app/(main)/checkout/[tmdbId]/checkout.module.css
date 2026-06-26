@@ -1,0 +1,134 @@
+.cyclePill {
+  display: inline-block;
+  padding: 0.35em 0.8em;
+  border-radius: 2em;
+  border: 1px solid var(--primary);
+  font-size: 0.8em;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.cardLabel {
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+}
+
+.cardLabelLight {
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  opacity: 0.5;
+}
+
+.optionCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--primary);
+}
+
+.confirmedCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--greenBorder);
+  background-color: var(--greenFill);
+}
+
+.featuredCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.badge {
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.3em 0.75em;
+  border-radius: 2em;
+  border: 1px solid rgba(255, 248, 242, 0.35);
+  font-size: 0.72em;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--white);
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875em;
+  opacity: 0.6;
+}
+
+.featureList li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.featureListLight {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875em;
+  color: var(--white);
+  opacity: 0.75;
+}
+
+.featureListLight li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  min-width: 5px;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+
+.dotLight {
+  width: 5px;
+  height: 5px;
+  min-width: 5px;
+  border-radius: 50%;
+  background-color: var(--white);
+  opacity: 0.5;
+}
+
+/* CTA del card destacado: blanco sobre fondo --primary */
+.memberBtn {
+  background-color: var(--white) !important;
+  color: var(--primary) !important;
+  border-color: var(--white) !important;
+}
+
+@media (hover: hover) {
+  .memberBtn:hover {
+    background-color: transparent !important;
+    color: var(--white) !important;
+    border-color: var(--white) !important;
+  }
+}

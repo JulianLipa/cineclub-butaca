@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { useLayout } from "@/contexts/LayoutContext";
-
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
+import { useHeroLayout } from "@/shared/hooks/useHeroLayout";
 import UserBadge from "@/shared/ui/user/userBadge/UserBadge";
 import CarouselSection from "@/shared/components/carouselSection/CarouselSection";
 import PopularSection from "@/shared/sections/Popular/PopularSection";
@@ -29,12 +27,7 @@ const miembros = [
 ];
 
 const ComunidadPageWrapper = () => {
-  const { setHasPaddingTop } = useLayout();
-
-  useEffect(() => {
-    setHasPaddingTop(false);
-    return () => setHasPaddingTop(true);
-  }, [setHasPaddingTop]);
+  useHeroLayout();
 
   return (
     <div>

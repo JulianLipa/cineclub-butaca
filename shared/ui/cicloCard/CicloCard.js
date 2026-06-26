@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -8,6 +7,7 @@ import CardImage from "@/shared/ui/card/CardImage";
 import Button from "@/shared/ui/button/Button";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 import style from "@/shared/ui/card/card.module.css";
+import { useMovieData } from "@/shared/hooks/useMovieData";
 
 const CicloCard = ({
   id,
@@ -19,18 +19,9 @@ const CicloCard = ({
   onClick,
 }) => {
   const router = useRouter();
-  const [tmdbData, setTmdbData] = useState(null);
-  const loading = !portada && !tmdbData;
-
-  useEffect(() => {
-    if (!tmdbId || portada) return;
-    fetch(`/api/movies?id=${tmdbId}&preview=true`)
-      .then((r) => r.json())
-      .then(setTmdbData)
-      .catch(() => {});
-  }, [tmdbId, portada]);
-
-  const imgSrc = portada || tmdbData?.frame;
+  const fetched = useMovieData(portada ? null : tmdbId, true);
+  const imgSrc = portada || fetched?.frame;
+  const loading = !imgSrc;
 
   return (
     <section className="flex flex-col">

@@ -1,20 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
-import { useLayout } from "@/contexts/LayoutContext";
 import MovieHero from "@/app/(main)/movie/sections/MovieHero";
+import { useHeroLayout } from "@/shared/hooks/useHeroLayout";
 import BackButton from "@/shared/components/backButton/BackButton";
 import SectionTitleIcon from "@/shared/components/section-title/SectionTitleIcon";
 import MovieCard from "@/shared/ui/movieCard/MovieCard";
 import ArchivoPhoto from "@/shared/ui/archivoPhoto/ArchivoPhoto";
 
 const FuncionPageWrapper = ({ funcion, frame }) => {
-  const { setHasPaddingTop } = useLayout();
-
-  useEffect(() => {
-    setHasPaddingTop(false);
-    return () => setHasPaddingTop(true);
-  }, [setHasPaddingTop]);
+  useHeroLayout();
 
   const fotos = funcion?.fotos ?? [];
 

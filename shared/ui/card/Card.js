@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-
+import Link from "next/link";
+import { useMovieData } from "@/shared/hooks/useMovieData";
 import CardImage from "@/shared/ui/card/CardImage";
 import CardText from "@/shared/ui/card/CardText";
 import style from "@/shared/ui/card/card.module.css";
@@ -13,18 +13,9 @@ import { formatScreeningDisplay } from "@/lib/dates";
 
 const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
   const router = useRouter();
-  const [tmdbData, setTmdbData] = useState(null);
+  const tmdbData = useMovieData(tmdbId, true);
   const loading = !tmdbData;
-
   const displayDate = formatScreeningDisplay(props.date);
-
-  useEffect(() => {
-    if (!tmdbId) return;
-    fetch(`/api/movies?id=${tmdbId}&preview=true`)
-      .then((r) => r.json())
-      .then(setTmdbData)
-      .catch(() => {});
-  }, [tmdbId]);
 
   return (
     <section className={`flex flex-col ${!isActive ? "gap-4" : ""}`}>
@@ -32,16 +23,16 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
         className={`${!isActive ? "min-h-[3em]" : ""} flex items-center ${style.dateDetailSection}`}
       >
         {!isActive && !hideDate ? (
-          <div className="flex items-center">
+          <Link href={`/checkout/${tmdbId}`} className="hover:opacity-70 transition-opacity w-fit">
             <DetailIcon icon="calendario">{displayDate}</DetailIcon>
-          </div>
+          </Link>
         ) : (
           ""
         )}
       </div>
       <div
         className={`${style.cardBox} ${isActive ? style.card : ""} rounded-xl`}
-        onClick={isActive ? () => { window.dispatchEvent(new CustomEvent("navigation-start")); router.push(`/movie/${tmdbId}`); } : undefined}
+        onClick={isActive ? (e) => { if (e.target.closest("a, button")) return; window.dispatchEvent(new CustomEvent("navigation-start")); router.push(`/movie/${tmdbId}`); } : undefined}
       >
         <div
           className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}
@@ -55,8 +46,8 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
             anio={tmdbData?.anio}
             loading={loading}
             tmdbId={tmdbId}
-            hrefMain=""
-            hrefSecondary=""
+            hrefMain={`/checkout/${tmdbId}`}
+            hrefSecondary={`/movie/${tmdbId}`}
             textButtonMain="Comprar entradas"
             textButtonSecondary="Ver más"
           />

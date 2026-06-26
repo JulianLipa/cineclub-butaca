@@ -1,9 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
-import { useLayout } from "@/contexts/LayoutContext";
-
 import SectionTitle from "@/shared/components/section-title/SectionTitle";
+import { useHeroLayout } from "@/shared/hooks/useHeroLayout";
 import CarouselSection from "@/shared/components/carouselSection/CarouselSection";
 import MovieCard from "@/shared/ui/movieCard/MovieCard";
 import BackButton from "@/shared/components/backButton/BackButton";
@@ -11,12 +9,7 @@ import PersonaSidebar from "./sections/PersonaSidebar";
 import PersonaBiografia from "./sections/PersonaBiografia";
 
 const PersonaPageWrapper = ({ persona }) => {
-  const { setHasPaddingTop } = useLayout();
-
-  useEffect(() => {
-    setHasPaddingTop(false);
-    return () => setHasPaddingTop(true);
-  }, [setHasPaddingTop]);
+  useHeroLayout();
 
   return (
     <div>

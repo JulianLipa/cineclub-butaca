@@ -19,16 +19,6 @@ const SITE_URL =
 
 const POLL_MS = 2000;
 
-// ⚠️ SOLO PARA PRUEBAS: oradores hardcodeados para ver el muro sin tener que
-// escanear con varios celulares. Poner SHOW_MOCK_USERS en false (o borrar este
-// bloque) antes de producción.
-const SHOW_MOCK_USERS = true;
-const MOCK_USERS = [
-  { username: "ana", name: "Ana Gómez" },
-  { username: "bruno", name: "Bruno Díaz" },
-  { username: "caro", name: "Caro Pérez" },
-  { username: "diego", name: "Diego Ruiz" },
-];
 
 const QrScreens = ({ movie, roomId }) => {
   const router = useRouter();
@@ -72,7 +62,7 @@ const QrScreens = ({ movie, roomId }) => {
   }, [room, router]);
 
   // ── Muro de asistentes (solo en pantalla 2) ───────────────────────────────
-  const [users, setUsers] = useState(SHOW_MOCK_USERS ? MOCK_USERS : []);
+  const [users, setUsers] = useState([]);
   // Índice del usuario "activo": siempre se muestra primero y resaltado.
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -87,10 +77,7 @@ const QrScreens = ({ movie, roomId }) => {
         if (!res.ok) return;
         const data = await res.json();
         if (alive && Array.isArray(data.users)) {
-          // En modo prueba, si la sala está vacía mantenemos los oradores mock.
-          setUsers(
-            data.users.length || !SHOW_MOCK_USERS ? data.users : MOCK_USERS,
-          );
+          setUsers(data.users);
         }
       } catch {}
     };

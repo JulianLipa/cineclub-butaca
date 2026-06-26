@@ -18,8 +18,7 @@ const MoviePresentation = ({ movie }) => {
 
   if (!mounted || !isAdmin(user)) return null;
 
-  const href =
-    movie?.tmdbId != null ? `/qr?movie=${movie.tmdbId}` : "/qr";
+  const href = movie?.tmdbId != null ? `/qr?movie=${movie.tmdbId}` : "/qr";
 
   return (
     <Button

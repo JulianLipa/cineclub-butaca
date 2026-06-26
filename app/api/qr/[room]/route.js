@@ -109,7 +109,6 @@ export async function POST(request, { params }) {
   }
 }
 
-// Vacía la sala: se llama al entrar a la pantalla del muro para empezar limpio.
 export async function DELETE(_request, { params }) {
   const { room } = await params;
   if (!room) {

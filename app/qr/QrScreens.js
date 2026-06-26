@@ -3,6 +3,13 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { QRCodeSVG } from "qrcode.react";
+import { motion } from "framer-motion";
+
+// Filas de alto fijo: así el desplazamiento del listado es un cálculo exacto
+// (sin medir el DOM) y el orador activo queda siempre pegado al top.
+const ROW_HEIGHT = 64; // h-16
+const ROW_GAP = 16; // gap-4
+const ROW_STEP = ROW_HEIGHT + ROW_GAP;
 
 // El QR debe apuntar a un dominio que el celular pueda alcanzar. Por defecto el
 // de producción; para probar en local se puede sobreescribir con
@@ -11,6 +18,17 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://cineclub-butaca.vercel.app";
 
 const POLL_MS = 2000;
+
+// ⚠️ SOLO PARA PRUEBAS: oradores hardcodeados para ver el muro sin tener que
+// escanear con varios celulares. Poner SHOW_MOCK_USERS en false (o borrar este
+// bloque) antes de producción.
+const SHOW_MOCK_USERS = true;
+const MOCK_USERS = [
+  { username: "ana", name: "Ana Gómez" },
+  { username: "bruno", name: "Bruno Díaz" },
+  { username: "caro", name: "Caro Pérez" },
+  { username: "diego", name: "Diego Ruiz" },
+];
 
 const QrScreens = ({ movie, roomId }) => {
   const router = useRouter();
@@ -54,7 +72,7 @@ const QrScreens = ({ movie, roomId }) => {
   }, [room, router]);
 
   // ── Muro de asistentes (solo en pantalla 2) ───────────────────────────────
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(SHOW_MOCK_USERS ? MOCK_USERS : []);
   // Índice del usuario "activo": siempre se muestra primero y resaltado.
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -68,7 +86,12 @@ const QrScreens = ({ movie, roomId }) => {
         const res = await fetch(`/api/qr/${room}`, { cache: "no-store" });
         if (!res.ok) return;
         const data = await res.json();
-        if (alive && Array.isArray(data.users)) setUsers(data.users);
+        if (alive && Array.isArray(data.users)) {
+          // En modo prueba, si la sala está vacía mantenemos los oradores mock.
+          setUsers(
+            data.users.length || !SHOW_MOCK_USERS ? data.users : MOCK_USERS,
+          );
+        }
       } catch {}
     };
 
@@ -99,10 +122,10 @@ const QrScreens = ({ movie, roomId }) => {
     return () => document.removeEventListener("keydown", onKey);
   }, [screen, users.length]);
 
-  // Lista reordenada para que el activo quede primero (con wraparound).
-  const orderedUsers = users.length
-    ? users.map((_, k) => users[(activeIndex + k) % users.length])
-    : [];
+  // En lugar de reordenar el array, dejamos los oradores en su orden natural y
+  // desplazamos toda la lista hacia arriba para que el activo quede arriba de
+  // todo. Como cada fila mide lo mismo, el offset es un cálculo exacto.
+  const offsetY = activeIndex * ROW_STEP;
 
   return (
     <div className="fixed inset-0 z-[3000] flex flex-col bg-(--primary) text-(--white) md:flex-row">
@@ -152,12 +175,9 @@ const QrScreens = ({ movie, roomId }) => {
               <h1 className="text-[2rem] font-[700] leading-tight sm:text-[2.6rem]">
                 {movie?.titulo}
               </h1>
-              {movie?.anio && (
-                <p className="text-[1.1em] opacity-70">{movie.anio}</p>
-              )}
-              {movie?.director?.nombre && (
-                <p className="text-[1em] opacity-80">
-                  Dir. {movie.director.nombre}
+              {movie?.anio && movie?.director?.nombre && (
+                <p className="text-[1.1em] opacity-70">
+                  {movie.anio} · Dir. {movie.director.nombre}
                 </p>
               )}
             </div>
@@ -171,25 +191,35 @@ const QrScreens = ({ movie, roomId }) => {
               alt="Cineclub Butaca"
               className="h-25 w-auto shrink-0"
             />
-            <div className="flex w-full flex-1 flex-col gap-4 overflow-y-auto">
-              <h1 className="text-[1.2em] font-medium">Listado de oradores</h1>
+            <div className="flex w-full flex-1 flex-col gap-4 overflow-hidden">
+              <h1 className="shrink-0 text-[1.2em] font-medium">
+                Listado de oradores
+              </h1>
               {users.length === 0 ? (
                 <p className="text-left opacity-60">
                   Escaneá el QR para sumarte…
                 </p>
               ) : (
-                orderedUsers.map((u, idx) => (
-                  <div
-                    key={u.username}
-                    className={
-                      idx === 0
-                        ? "w-full rounded-2xl border border-(--white) bg-(--white-opacidad) px-5 py-3 text-left text-[1.4em] font-[700] backdrop-blur-sm"
-                        : "w-full rounded-2xl px-5 py-3 bg-(--white-opacidad) text-left text-[1.2em] font-[600] opacity-40"
-                    }
+                <div className="relative w-full flex-1 overflow-hidden">
+                  <motion.div
+                    className="flex w-full flex-col gap-4"
+                    animate={{ y: -offsetY }}
+                    transition={{ type: "spring", stiffness: 300, damping: 32 }}
                   >
-                    {u.name || u.username}
-                  </div>
-                ))
+                    {users.map((u, idx) => (
+                      <div
+                        key={u.username}
+                        className={
+                          idx === activeIndex
+                            ? "flex h-16 w-full shrink-0 items-center rounded-2xl border border-(--white) bg-(--white-opacidad) px-5 text-left text-[1.4em] font-[700] backdrop-blur-sm"
+                            : "flex h-16 w-full shrink-0 items-center rounded-2xl bg-(--white-opacidad) px-5 text-left text-[1.2em] font-[600] opacity-40"
+                        }
+                      >
+                        {u.name || u.username}
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
               )}
             </div>
           </div>

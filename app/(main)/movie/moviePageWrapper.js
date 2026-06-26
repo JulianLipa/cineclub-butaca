@@ -51,10 +51,12 @@ const MoviePageWrapper = ({ movie }) => {
           <div className="hidden sm:block">
             <BackButton />
           </div>
-          <MovieActions date={date} />
+          <div className="w-full flex flex-col gap-4 sm:flex-row sm:items-center">
+            <MovieActions date={date} />
 
-          {/* Solo admins: abre la pantalla de pre-función con QR */}
-          <MoviePresentation movie={movie} />
+            {/* Solo admins: abre la pantalla de pre-función con QR */}
+            <MoviePresentation movie={movie} />
+          </div>
 
           <div className="colSection gap-10!">
             {movie?.trailer && (

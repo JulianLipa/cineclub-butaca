@@ -2,17 +2,17 @@
 
 import CarouselSection from "@/shared/components/carouselSection/CarouselSection";
 import MovieCard from "@/shared/ui/movieCard/MovieCard";
-import { funciones as movies } from "@/data.json";
+import { popular } from "@/data.json";
 
 const Popular = ({ title }) => (
   <CarouselSection
     title={title}
     icon="like"
-    items={movies}
-    renderItem={(movie) => (
+    items={popular}
+    renderItem={(tmdbId) => (
       <MovieCard
         text={true}
-        tmdbId={movie.tmdbId}
+        tmdbId={tmdbId}
         actionsIcons={["like", "comentarios"]}
       />
     )}

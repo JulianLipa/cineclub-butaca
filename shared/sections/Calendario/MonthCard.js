@@ -21,16 +21,19 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth, filter }) => 
   const [selectedDate, setSelectedDate] = useState(null);
   const days = getMonthDays(year, monthIndex);
 
-  const monthEvents = Object.entries(events).filter(([date, event]) => {
+  const monthEvents = Object.entries(events).filter(([date]) => {
     try {
       const d = parseISODate(date);
-      const inMonth = d.getMonth() === monthIndex && d.getFullYear() === year;
-      return inMonth && (filter === null || event.type === filter);
+      return d.getMonth() === monthIndex && d.getFullYear() === year;
     } catch {
       console.warn(`Fecha inválida: ${date}`);
       return false;
     }
   });
+
+  // Con un filtro activo, los eventos del otro tipo no se ocultan:
+  // quedan visibles en el calendario con opacidad reducida.
+  const isDimmed = (event) => filter !== null && event?.type !== filter;
 
   const visibleEvents = selectedDate
     ? monthEvents.filter(([date]) => date === selectedDate)
@@ -75,6 +78,8 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth, filter }) => 
                 ${event ? style.event : ""}
                 ${isToday ? style.today : ""}
                 ${isSelected ? style.selected : ""}
+                ${event && isDimmed(event) ? "opacity-50" : ""}
+                transition-opacity
                 bodyText!
               `}
             >
@@ -106,7 +111,13 @@ const MonthCard = ({ year, monthIndex, today, events, isPastMonth, filter }) => 
         )}
         {visibleEvents.length > 0 ? (
           visibleEvents.map(([date, event]) => (
-            <EventRow key={date} date={date} event={event} isPastMonth={isPastMonth} />
+            <EventRow
+              key={date}
+              date={date}
+              event={event}
+              isPastMonth={isPastMonth}
+              className={`transition-opacity ${isDimmed(event) ? "opacity-50" : ""}`}
+            />
           ))
         ) : (
           <p className="bodyText text-gray-400 text-sm p-2">Sin eventos</p>

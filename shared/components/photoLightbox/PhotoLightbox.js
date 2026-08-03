@@ -56,7 +56,7 @@ const PhotoLightbox = ({
         aria-label="Cerrar"
         className="absolute right-4 top-4 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
       >
-        <div className="h-5 w-5">
+        <div className="h-5 w-5 flex justify-center items-center">
           <Icon name="close" variant="negative" color="var(--hero-white)" />
         </div>
       </button>
@@ -64,7 +64,7 @@ const PhotoLightbox = ({
       {photo && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="flex max-h-full w-full max-w-6xl flex-col gap-6 lg:flex-row lg:items-center"
+          className="flex h-full max-h-full w-full max-w-6xl flex-col gap-6 lg:flex-row lg:items-stretch"
         >
           {/* Columna imagen */}
           <div className="flex min-h-0 flex-1 items-center justify-center">
@@ -75,13 +75,13 @@ const PhotoLightbox = ({
               width={1600}
               height={1000}
               sizes="(max-width: 1024px) 92vw, 60vw"
-              className="h-auto max-h-[55vh] w-auto max-w-full rounded-xl object-contain lg:max-h-[82vh]"
+              className="h-full max-h-full w-auto max-w-full rounded-xl object-contain"
             />
           </div>
 
           {/* Columna detalles */}
           {funcion && (
-            <div className="flex h-fit w-full shrink-0 flex-col gap-6 rounded-2xl bg-white/10 p-5 backdrop-blur-md sm:p-6 lg:w-80">
+            <div className="flex h-fit w-full shrink-0 flex-col gap-6 rounded-2xl bg-white/10 p-5 backdrop-blur-md sm:p-6 lg:w-80 lg:self-center">
               <div className="flex flex-col gap-1.5">
                 <p className="text-[1.15em] font-[700] leading-tight text-(--hero-white)">
                   {funcion.titulo}

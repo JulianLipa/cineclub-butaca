@@ -40,7 +40,7 @@ export const resenas = [
     username: "tomas_r",
     rating: 4,
     fecha: "10 de junio, 2026",
-    text: "Un guion relojero. Cada pieza encaja en el lugar exacto y el final te obliga a repensar toda la película. Bielinsky era un maestro de la estafa narrativa.",
+    text: "Un guion relojero. Cada pieza encaja en el lugar exacto y el final te obliga a repensar toda la película. Un maestro de la estafa narrativa.",
     likes: 31,
     comentarios: [
       {

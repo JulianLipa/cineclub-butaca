@@ -43,6 +43,7 @@ const Button = ({
     return (
       <Link
         href={href}
+        onClick={onClick}
         className={`${style.button} ${style[variant]} gap-2 ${className}`}
         onMouseEnter={() => canHover() && setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

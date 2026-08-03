@@ -2,7 +2,7 @@
 
 # Cineclub Butaca — Web
 
-Sitio web para el cine-club Butaca. Muestra próximas funciones en carrusel y un calendario anual navegable. Las páginas de login, perfil, comunidad y funciones están vacías (trabajo futuro).
+Sitio web para el cine-club Butaca. Muestra próximas funciones en carrusel y un calendario anual navegable.
 
 ## Stack
 

@@ -11,7 +11,7 @@ import MovieRow from "@/shared/ui/movieCard/MovieRow";
 import { useHeroLayout } from "@/shared/hooks/useHeroLayout";
 import { useMovieData } from "@/shared/hooks/useMovieData";
 
-const MOCK_MOVIES = [7340, 550, 238, 27205, 155];
+const MOCK_MOVIES = [7340, 539, 238, 19460, 155];
 
 const ListaPageWrapper = ({ lista }) => {
   useHeroLayout();
@@ -19,12 +19,13 @@ const ListaPageWrapper = ({ lista }) => {
 
   const title = lista?.title ?? "Lista";
   const description =
-    lista?.description ??
-    "Es un clásico del terror psicológico con un final muy fuerte. No es solo miedo, es tristeza y rabia acumulada.";
-  const movieCount = lista?.movieCount ?? 11;
+    lista?.description ?? "Lista de películas para ver en MUBI.";
+  const username = lista?.username;
   const movies = lista?.movies ?? MOCK_MOVIES;
+  const movieCount = movies.length;
 
-  const firstMovieData = useMovieData(movies[0], true);
+  const heroId = lista?.cover ?? movies[0];
+  const firstMovieData = useMovieData(heroId, true);
   const heroFrame = firstMovieData?.frame ?? null;
 
   return (
@@ -38,7 +39,7 @@ const ListaPageWrapper = ({ lista }) => {
       <div className="sectionMain flex flex-col gap-6! md:mt-4">
         <h1 className="text-[1.5rem]! sm:text-[2rem]! font-[700]!">{title}</h1>
 
-        <UserBadge />
+        <UserBadge username={username} />
 
         <p className="bodyText font-[500]!">{movieCount} Películas</p>
 

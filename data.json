@@ -35,6 +35,68 @@
     }
   ],
   "usuario": {},
+  "listas": [
+    {
+      "id": "vistas-2026",
+      "title": "Vistas 2026",
+      "description": "Las que vi hasta ahoraaa",
+      "username": "ana_cine",
+      "cover": "11906",
+      "movies": [11906, 7340, 539, 155, 419430]
+    },
+    {
+      "id": "nuevo-cine-argentino",
+      "title": "Cine Argentino en Netflix",
+      "description": "Las películas que renovaron el lenguaje del cine nacional a partir de fines de los 90, entre lo íntimo y lo social.",
+      "username": "juli_c",
+      "cover": "49913",
+      "movies": [49913, 58429, 18079, 226216, 101338]
+    },
+    {
+      "id": "miradas-feministas",
+      "title": "Miradas feministas",
+      "description": "<3",
+      "username": "luci_k",
+      "cover": "499",
+      "movies": [499, 58429, 44012, 7340]
+    },
+    {
+      "id": "joyas-independientes",
+      "title": "Joyas del cine independiente",
+      "description": "Llegaron los indies",
+      "username": "fede_z",
+      "cover": "655",
+      "movies": [655, 11104, 410051, 18079]
+    },
+    {
+      "id": "clasicos-que-me-encantan",
+      "title": "Clásicos que me encantan",
+      "description": "",
+      "username": "tomas_r",
+      "cover": "238",
+      "movies": [238, 155, 19460, 539, 7340]
+    },
+    {
+      "id": "cine-y-militancia",
+      "title": "Cine y militancia latinoamericana",
+      "description": "Vamos a marchar loco",
+      "username": "martin_b",
+      "cover": "89681",
+      "movies": [89681, 47576, 226216, 36785]
+    },
+    {
+      "id": "autores-de-culto",
+      "title": "Autores de culto",
+      "description": "Para arrancar con un cine mas personal",
+      "username": "sofi_vhs",
+      "cover": "11104",
+      "movies": [11104, 655, 11906, 499]
+    }
+  ],
+  "popular": [
+    1339713, 808224, 986280, 496243, 426426, 1325734, 58429, 18079, 655, 7340,
+    499, 36785, 226216, 11104
+  ],
   "funciones": [
     {
       "title": "El Dependiente",
@@ -144,13 +206,7 @@
       "tmdbId": "36785",
       "tituloPelicula": "El acorazado Potemkin",
       "id": "cine-vanguardia-y-ruptura-formal",
-      "movies": [
-        36785,
-        499,
-        89681,
-        47576,
-        11104
-      ]
+      "movies": [36785, 499, 89681, 47576, 11104]
     },
     {
       "title": "El Trabajador en el Cine y la Crisis Social",
@@ -158,13 +214,7 @@
       "tmdbId": "101338",
       "tituloPelicula": "Mundo grúa",
       "id": "el-trabajador-en-el-cine-y-la-crisis-social",
-      "movies": [
-        36785,
-        226216,
-        47576,
-        18079,
-        58429
-      ]
+      "movies": [36785, 226216, 47576, 18079, 58429]
     },
     {
       "title": "Estéticas Feministas y Deseo Subversivo",
@@ -172,13 +222,7 @@
       "tmdbId": "44012",
       "tituloPelicula": "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles",
       "id": "esteticas-feministas-y-deseo-subversivo",
-      "movies": [
-        499,
-        58429,
-        44012,
-        47576,
-        7340
-      ]
+      "movies": [499, 58429, 44012, 47576, 7340]
     },
     {
       "title": "Indie Global: Márgenes del Mainstream",
@@ -186,13 +230,7 @@
       "tmdbId": "410051",
       "tituloPelicula": "Stranger Than Paradise",
       "id": "indie-global-margenes-del-mainstream",
-      "movies": [
-        11104,
-        655,
-        18079,
-        410051,
-        499
-      ]
+      "movies": [11104, 655, 18079, 410051, 499]
     },
     {
       "title": "América Latina en Llamas",
@@ -200,13 +238,7 @@
       "tmdbId": "132144",
       "tituloPelicula": "La batalla de Chile",
       "id": "america-latina-en-llamas",
-      "movies": [
-        89681,
-        47576,
-        226216,
-        36785,
-        132144
-      ]
+      "movies": [89681, 47576, 226216, 36785, 132144]
     },
     {
       "title": "Maestros del Terror Europeo",
@@ -214,12 +246,7 @@
       "tmdbId": "11906",
       "tituloPelicula": "Suspiria",
       "id": "maestros-del-terror-europeo",
-      "movies": [
-        11906,
-        7340,
-        226216,
-        47576
-      ]
+      "movies": [11906, 7340, 226216, 47576]
     },
     {
       "title": "Conflictos de Clase y Memoria Histórica",
@@ -227,13 +254,7 @@
       "tmdbId": "64978",
       "tituloPelicula": "La Patagonia rebelde",
       "id": "conflictos-de-clase-y-memoria-historica",
-      "movies": [
-        89681,
-        64978,
-        47576,
-        226216,
-        58429
-      ]
+      "movies": [89681, 64978, 47576, 226216, 58429]
     },
     {
       "title": "Obsesiones y Universos de Autor",
@@ -241,13 +262,7 @@
       "tmdbId": "843",
       "tituloPelicula": "In the Mood for Love",
       "id": "obsesiones-y-universos-de-autor",
-      "movies": [
-        11104,
-        843,
-        655,
-        499,
-        36785
-      ]
+      "movies": [11104, 843, 655, 499, 36785]
     },
     {
       "title": "Tercer Cine y Descolonización Cultural",
@@ -255,13 +270,7 @@
       "tmdbId": "89681",
       "tituloPelicula": "La hora de los hornos",
       "id": "tercer-cine-y-descolonizacion-cultural",
-      "movies": [
-        89681,
-        47576,
-        132144,
-        226216,
-        58429
-      ]
+      "movies": [89681, 47576, 132144, 226216, 58429]
     },
     {
       "title": "La Argentina del Desengaño y el Fin de Siglo",
@@ -269,13 +278,7 @@
       "tmdbId": "18079",
       "tituloPelicula": "Nueve reinas",
       "id": "la-argentina-del-desengano-y-el-fin-de-siglo",
-      "movies": [
-        18079,
-        36785,
-        58429,
-        226216,
-        47576
-      ]
+      "movies": [18079, 36785, 58429, 226216, 47576]
     },
     {
       "title": "Soledades Urbanas y Mitos de Culto",
@@ -283,13 +286,7 @@
       "tmdbId": "7340",
       "tituloPelicula": "Paris, Texas",
       "id": "soledades-urbanas-y-mitos-de-culto",
-      "movies": [
-        655,
-        11104,
-        843,
-        7340,
-        499
-      ]
+      "movies": [655, 11104, 843, 7340, 499]
     }
   ],
   "eventos": {
@@ -426,15 +423,7 @@
       "horario": "19:30"
     }
   },
-  "diasSemana": [
-    "L",
-    "M",
-    "X",
-    "J",
-    "V",
-    "S",
-    "D"
-  ],
+  "diasSemana": ["L", "M", "X", "J", "V", "S", "D"],
   "pricing": [
     {
       "title": "Invitado",
@@ -512,11 +501,7 @@
       "asistentes": 42,
       "tmdbId": 238,
       "descripcion": "Una noche memorable con la obra maestra de Coppola. Debatimos sobre el poder familiar, la violencia implícita y la fotografía de Gordon Willis. La sala estuvo llena y el debate se extendió casi una hora después de los créditos.",
-      "fotos": [
-        "/imgs/image18.png",
-        "/imgs/image20.png",
-        "/imgs/image22.png"
-      ]
+      "fotos": ["/imgs/image18.png", "/imgs/image20.png", "/imgs/image22.png"]
     },
     {
       "id": "carrie-marzo-2026",
@@ -527,11 +512,7 @@
       "asistentes": 38,
       "tmdbId": 8077,
       "descripcion": "De Palma en estado puro. Repasamos el uso del split-screen, la música de Pino Donaggio y la actuación de Sissy Spacek. Una función que generó mucho debate sobre el cine de terror como crítica social.",
-      "fotos": [
-        "/imgs/image242.png",
-        "/imgs/image55.png",
-        "/imgs/image56.png"
-      ]
+      "fotos": ["/imgs/image242.png", "/imgs/image55.png", "/imgs/image56.png"]
     },
     {
       "id": "el-padrino-ii-febrero-2026",
@@ -542,11 +523,7 @@
       "asistentes": 51,
       "tmdbId": 240,
       "descripcion": "La segunda parte, que para muchos supera a la primera. Analizamos la estructura narrativa en dos líneas de tiempo y el trabajo de Robert De Niro. La función más concurrida del año hasta ahora.",
-      "fotos": [
-        "/imgs/image57.png",
-        "/imgs/image58.png",
-        "/imgs/image59.png"
-      ]
+      "fotos": ["/imgs/image57.png", "/imgs/image58.png", "/imgs/image59.png"]
     },
     {
       "id": "funcion-verano-enero-2026",
@@ -557,10 +534,7 @@
       "asistentes": 29,
       "tmdbId": 8077,
       "descripcion": "Sesión especial de verano con una selección de cortometrajes y la proyección central de Carrie. Un formato más relajado que dio lugar a conversaciones más informales y espontáneas.",
-      "fotos": [
-        "/imgs/image60.png",
-        "/imgs/image61.png"
-      ]
+      "fotos": ["/imgs/image60.png", "/imgs/image61.png"]
     },
     {
       "id": "ciclo-noir-enero-2026",
@@ -569,12 +543,9 @@
       "director": "Francis Ford Coppola",
       "fecha": "10 de enero, 2026",
       "asistentes": 35,
-      "tmdbId": 238,
+      "tmdbId": 539,
       "descripcion": "Arrancamos el año con un ciclo noir. Revisamos los códigos del género, la iluminación de clave baja y el antihéroe americano. Una introducción perfecta al año cinematográfico.",
-      "fotos": [
-        "/imgs/image62.png",
-        "/imgs/image63.png"
-      ]
+      "fotos": ["/imgs/image62.png", "/imgs/image63.png"]
     }
   ]
 }

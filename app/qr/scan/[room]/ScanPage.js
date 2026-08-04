@@ -66,14 +66,18 @@ export default function ScanPage({ room, movie }) {
             <p className="opacity-80">Ya apareciste en la pantalla.</p>
           </div>
           <div className="flex flex-col items-center gap-3 w-full">
-            <Button variant="primary" href="/" className="w-full! justify-center">
+            <Button
+              variant="primary"
+              href="/"
+              className="w-full! justify-center"
+            >
               Menú principal
             </Button>
             {movieLabel && room && (
               <Button
                 variant="secondary"
                 href={`/movie/${room}`}
-                className="w-full! justify-center !text-(--white) !border-(--white)"
+                className="w-full! justify-center !text-(--primary) !border-(--white)"
               >
                 {movieLabel}
               </Button>

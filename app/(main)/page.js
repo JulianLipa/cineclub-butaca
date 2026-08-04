@@ -12,6 +12,7 @@ import HeroSection from "@/shared/sections/Hero/HeroSection";
 import StickyHeaderBar from "@/shared/components/header/StickyHeaderBar";
 
 import styles from "./home.module.css";
+
 import { funciones } from "@/data.json";
 
 export default function Home() {

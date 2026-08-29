@@ -9,7 +9,14 @@ const NewsCard = ({ data }) => {
   const { id, img, titulo, copete, descripcion, tematicas } = data;
 
   return (
-    <div className="flex flex-col max-[600px]:flex-col sm:flex-row w-full rounded-2xl overflow-hidden [box-shadow:inset_0_0_0_1px_var(--primary)] hover:scale-[0.98] hover:cursor-pointer transition-transform duration-200">
+    <div className="relative flex flex-col max-[600px]:flex-col sm:flex-row w-full rounded-2xl overflow-hidden [box-shadow:inset_0_0_0_1px_var(--primary)] hover:scale-[0.98] hover:cursor-pointer transition-transform duration-200">
+      {/* Link que cubre toda la card (abre la nota al clickear en cualquier parte) */}
+      <Link
+        href={`/noticia/${id}`}
+        aria-label={`Leer nota: ${titulo}`}
+        className="absolute inset-0 z-[1]"
+      />
+
       {/* Imagen */}
       <div className="relative max-[600px]:w-full max-[600px]:h-[200px] sm:w-[38%] sm:shrink-0 sm:min-h-[200px]">
         <Image
@@ -32,7 +39,7 @@ const NewsCard = ({ data }) => {
         </p>
 
         {/* Chips de temáticas */}
-        <div className="relative">
+        <div className="relative z-[2]">
           <Swiper
             modules={[FreeMode]}
             freeMode
@@ -54,7 +61,11 @@ const NewsCard = ({ data }) => {
           {descripcion}
         </p>
 
-        <Button variant="secondary" href={`/noticia/${id}`} className="w-fit! text-[.85em]!">
+        <Button
+          variant="secondary"
+          href={`/noticia/${id}`}
+          className="w-fit! text-[.85em]! relative z-[2]"
+        >
           Leer nota
         </Button>
       </div>

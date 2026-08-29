@@ -8,14 +8,9 @@ import Button from "@/shared/ui/button/Button";
 import Link from "next/link";
 import HeroControls from "@/shared/sections/Hero/HeroControls";
 
-const ERROR_COLOR = "#c0392b";
-
 const FieldError = ({ msg }) =>
   msg ? (
-    <span
-      className="block text-left leading-snug"
-      style={{ color: ERROR_COLOR, fontSize: "0.75rem" }}
-    >
+    <span className="block text-left leading-snug text-(--redFill)! text-[0.75rem]">
       {msg}
     </span>
   ) : null;
@@ -93,8 +88,7 @@ const Page = () => {
       !/[A-Z]/.test(values.password) ||
       !/[0-9]/.test(values.password)
     )
-      next.password =
-        "Mínimo 8 caracteres, con mayúscula, minúscula y número";
+      next.password = "Mínimo 8 caracteres, con mayúscula, minúscula y número";
 
     if (!values.repeatPassword)
       next.repeatPassword = "Este campo es obligatorio";
@@ -143,7 +137,7 @@ const Page = () => {
   const errClass = (field) => (errors[field] ? "inputError" : "");
 
   return (
-    <div className="videoPage relative flex h-svh overflow-hidden sm:pr-[0] pr-(--padding-body-mobile-w)">
+    <div className="videoPage relative flex h-svh overflow-hidden">
       {/* Video de fondo — solo mobile */}
       <div className="sm:hidden absolute inset-0 overflow-hidden">
         <video
@@ -158,14 +152,6 @@ const Page = () => {
       </div>
       <div className="sm:hidden absolute inset-0 bg-black/40" />
 
-      <HeroControls
-        playing={playing}
-        muted={muted}
-        onTogglePlay={togglePlay}
-        onToggleMute={toggleMute}
-        className="sm:hidden absolute top-0 left-0 z-20 p-(--padding-body-mobile-w)"
-      />
-
       <div className="relative w-1/2 h-svh overflow-hidden hidden sm:block">
         <Image
           src={"/imgs/frame-godfather-HQ.webp"}
@@ -176,131 +162,135 @@ const Page = () => {
         />
       </div>
 
-      <div className="relative sectionMain w-full sm:w-1/2! sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w) overflow-y-auto h-full">
+      <div className="relative sectionMain w-full sm:w-1/2! noScrollbar sm:pr-(--padding-body-desktop-w) pr-(--padding-body-mobile-w) overflow-y-auto h-full">
         <div className="flex flex-col gap-10 sm:py-10 min-h-full justify-center">
-        <Link href="/" className="w-fit">
-          <Image
-            src="/logo/logo-black.svg"
-            alt=""
-            width={100}
-            height={100}
-            className="logoImg h-auto w-[70px] object-contain"
-          />
-        </Link>
+          <div className="flex w-full justify-between items-center">
+            <Link href="/" className="w-fit">
+              <Image
+                src="/logo/logo-black.svg"
+                alt=""
+                width={100}
+                height={100}
+                className="logoImg h-auto w-[70px] object-contain"
+              />
+            </Link>
 
-        <div className="flex flex-col gap-4">
-          <SectionTitle>Creá tu cuenta</SectionTitle>
-          <p className="bodyText">Unite al club y seguí cada función</p>
-        </div>
+            <HeroControls
+              playing={playing}
+              muted={muted}
+              onTogglePlay={togglePlay}
+              onToggleMute={toggleMute}
+              className="sm:hidden h-fit"
+            />
+          </div>
 
-        <form
-          onSubmit={handleSubmit}
-          noValidate
-          className="flex flex-col gap-4"
-        >
-          <div className="flex gap-2">
-            <div className="flex flex-col gap-2 flex-1">
-              <div className={`glassInput ${errClass("nombre")}`}>
+          <div className="flex flex-col gap-4">
+            <SectionTitle>Creá tu cuenta</SectionTitle>
+            <p className="bodyText">Unite al club y seguí cada función</p>
+          </div>
+
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="flex flex-col gap-4"
+          >
+            <div className="flex gap-2">
+              <div className="flex flex-col gap-2 flex-1">
                 <input
                   type="text"
                   placeholder="Nombre"
                   value={values.nombre}
                   onChange={handleChange("nombre")}
                   autoComplete="given-name"
+                  className={`glassInput ${errClass("nombre")}`}
                 />
+                <FieldError msg={errors.nombre} />
               </div>
-              <FieldError msg={errors.nombre} />
-            </div>
 
-            <div className="flex flex-col gap-2 flex-1">
-              <div className={`glassInput ${errClass("apellido")}`}>
+              <div className="flex flex-col gap-2 flex-1">
                 <input
                   type="text"
                   placeholder="Apellido"
                   value={values.apellido}
                   onChange={handleChange("apellido")}
                   autoComplete="family-name"
+                  className={`glassInput ${errClass("apellido")}`}
                 />
+                <FieldError msg={errors.apellido} />
               </div>
-              <FieldError msg={errors.apellido} />
             </div>
-          </div>
 
-          <div className="flex flex-col gap-2">
-            <div className={`glassInput ${errClass("username")}`}>
+            <div className="flex flex-col gap-2">
               <input
                 type="text"
                 placeholder="Nombre de usuario"
                 value={values.username}
                 onChange={handleChange("username")}
                 autoComplete="username"
+                className={`glassInput ${errClass("username")}`}
               />
+              <FieldError msg={errors.username} />
             </div>
-            <FieldError msg={errors.username} />
-          </div>
 
-          <div className="flex flex-col gap-2">
-            <div className={`glassInput ${errClass("mail")}`}>
+            <div className="flex flex-col gap-2">
               <input
                 type="email"
                 placeholder="Mail"
                 value={values.mail}
                 onChange={handleChange("mail")}
                 autoComplete="email"
+                className={`glassInput ${errClass("mail")}`}
               />
+              <FieldError msg={errors.mail} />
             </div>
-            <FieldError msg={errors.mail} />
-          </div>
 
-          <div className="flex flex-col gap-2">
-            <div className={`glassInput ${errClass("password")}`}>
+            <div className="flex flex-col gap-2">
               <input
                 type="password"
                 placeholder="Contraseña"
                 value={values.password}
                 onChange={handleChange("password")}
                 autoComplete="new-password"
-                className=""
+                className={`glassInput ${errClass("password")}`}
               />
+              <FieldError msg={errors.password} />
             </div>
-            <FieldError msg={errors.password} />
-          </div>
 
-          <div className="flex flex-col gap-2">
-            <div className={`glassInput ${errClass("repeatPassword")}`}>
+            <div className="flex flex-col gap-2">
               <input
                 type="password"
                 placeholder="Repetir Contraseña"
                 value={values.repeatPassword}
                 onChange={handleChange("repeatPassword")}
                 autoComplete="new-password"
-                className=""
+                className={`glassInput ${errClass("repeatPassword")}`}
               />
+              <FieldError msg={errors.repeatPassword} />
             </div>
-            <FieldError msg={errors.repeatPassword} />
+
+            {serverError && (
+              <p className="text-(--redFill) text-[0.8rem]">{serverError}</p>
+            )}
+
+            <Button
+              variant="primary"
+              type="submit"
+              className="w-full! sm:w-fit!"
+            >
+              {loading ? "Registrando…" : "Registrarme gratis"}
+            </Button>
+          </form>
+
+          <div className="flex flex-col items-center md:items-baseline gap-2">
+            <p>¿Ya tenés cuenta?</p>
+            <Button
+              variant="secondary"
+              href="/login"
+              className="w-full! sm:w-fit! btn-mobile-login"
+            >
+              Ingresar
+            </Button>
           </div>
-
-          {serverError && (
-            <p style={{ color: ERROR_COLOR, fontSize: "0.8rem" }}>
-              {serverError}
-            </p>
-          )}
-
-          <Button variant="primary" type="submit" className="w-full! sm:w-fit!">
-            {loading ? "Registrando…" : "Registrarme gratis"}
-          </Button>
-        </form>
-
-        <div className="flex flex-col gap-2">
-          <p>¿Ya tenés cuenta?</p>
-          <Button
-            variant="secondary"
-            href="/login"
-            className="w-full! sm:w-fit!"
-          >
-            Ingresar
-          </Button>
-        </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useTheme } from "@/contexts/ThemeContext";
 import style from "./Footer.module.css";
 
 const EXPLORAR = [
@@ -54,7 +53,6 @@ const SOCIALS = [
 ];
 
 const Footer = () => {
-  const { theme } = useTheme();
   const year = new Date().getFullYear();
 
   return (
@@ -64,12 +62,7 @@ const Footer = () => {
           <div className={style.brand}>
             <Link href="/" className={style.logo} aria-label="Cineclub Butaca">
               <Image
-                // Footer invertido: logo claro sobre fondo oscuro y viceversa
-                src={
-                  theme === "dark"
-                    ? "/logo/logo-black.svg"
-                    : "/logo/logo-white.svg"
-                }
+                src="/logo/logo-white.svg"
                 alt=""
                 width={100}
                 height={100}

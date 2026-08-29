@@ -11,9 +11,7 @@ import Icon from "@/shared/components/icon/Icon";
 import Skeleton from "@/shared/components/skeleton/Skeleton";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
-import { useTheme } from "@/contexts/ThemeContext";
 import LogoutModal from "@/shared/components/logoutModal/LogoutModal";
-import ThemeToggle from "@/shared/components/themeToggle/ThemeToggle";
 
 const TIPO_LABEL = { movie: "Película", tv: "Serie", person: "Persona" };
 const TIPO_HREF = { movie: "movie", tv: "serie", person: "persona" };
@@ -141,7 +139,6 @@ const MobileLogoutButton = ({ onAction }) => {
 };
 
 const Header = () => {
-  const { theme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -326,11 +323,7 @@ const Header = () => {
             <div className="w-[50px] flex justify-center">
               <Link href="/">
                 <Image
-                  src={
-                    theme === "dark"
-                      ? "/logo/logo-white.svg"
-                      : "/logo/logo-black.svg"
-                  }
+                  src="/logo/logo-black.svg"
                   alt=""
                   width={100}
                   height={100}
@@ -400,11 +393,6 @@ const Header = () => {
             </AnimatePresence>
           </div>
 
-          {/* Theme toggle: solo desktop (en mobile va dentro del menú) */}
-          <div className="hidden md:flex">
-            <ThemeToggle />
-          </div>
-
           {/* CTA usuario: botón de perfil en mobile, CTA completo en desktop */}
           <div className="flex md:hidden">
             <MobileProfileButton />
@@ -428,7 +416,6 @@ const Header = () => {
             <div className={`${style.mobileMenu} flex flex-col gap-6`}>
               <NavLinks mobile />
               <MobileLogoutButton onAction={() => setIsMenuOpen(false)} />
-              <ThemeToggle />
             </div>
           </motion.div>
         )}

@@ -5,7 +5,6 @@ import "./globals.css";
 
 import { LayoutProvider } from "@/contexts/LayoutContext";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { ThemeProvider } from "@/contexts/ThemeContext";
 import NextTopLoader from "nextjs-toploader";
 import NavigationOverlay from "@/shared/components/NavigationOverlay";
 
@@ -25,23 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Tema por defecto: claro (data-theme estático). ThemeProvider aplica "dark"
-    // al montar solo si el usuario lo guardó explícitamente con el toggle.
-    // suppressHydrationWarning porque ese atributo lo muta el cliente.
-    <html
-      lang="es"
-      className={inter.variable}
-      data-theme="light"
-      suppressHydrationWarning
-    >
+    <html lang="es" className={inter.variable}>
       <body>
         <NextTopLoader color="#0445af" shadow={false} showSpinner={false} />
         <NavigationOverlay />
-        <ThemeProvider>
-          <AuthProvider>
-            <LayoutProvider>{children}</LayoutProvider>
-          </AuthProvider>
-        </ThemeProvider>
+        <AuthProvider>
+          <LayoutProvider>{children}</LayoutProvider>
+        </AuthProvider>
       </body>
     </html>
   );

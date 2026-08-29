@@ -22,7 +22,9 @@ const CardText = ({ titulo, anio, director, loading, ...props }) => {
         )}
 
         {director && (
-          <h5 className="text-[14px]! sm:text-[15px]! bodyText font-[400]!">Dir. {director}</h5>
+          <h5 className="text-[14px]! sm:text-[15px]! bodyText font-[400]!">
+            Dir. {director}
+          </h5>
         )}
       </div>
 
@@ -30,11 +32,19 @@ const CardText = ({ titulo, anio, director, loading, ...props }) => {
 
       {/* ACTIONS */}
       <div className={`flex w-full gap-2 ${style.buttonDiv}`}>
-        <Button variant="primary" href={props.hrefMain}>
+        <Button
+          variant="primary"
+          href={props.hrefMain}
+          className="w-full! md:w-fit!"
+        >
           {props.textButtonMain}
         </Button>
 
-        <Button variant="secondary" href={props.hrefSecondary}>
+        <Button
+          variant="secondary"
+          href={props.hrefSecondary}
+          className="w-full! md:w-fit!"
+        >
           {props.textButtonSecondary}
         </Button>
       </div>

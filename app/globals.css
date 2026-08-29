@@ -4,28 +4,38 @@
   --breakpoint-md: 1000px;
 }
 
+/* =========================================================================
+   VARIABLES
+   ========================================================================= */
+
 :root {
+  /* Colores base */
   --primary: #48250b;
   --secondary: #cad7e8;
   --white: #fff8f2;
-  /* Colores fijos del hero: no cambian con el modo oscuro */
-  --hero-white: #fff8f2;
-  --hero-primary: #48250b;
-  --hero-white-opacidad: rgba(255, 248, 242, 0.2);
   --touchable: #0445af;
+
+  /* Estados (verde / rojo) */
   --greenBorder: #7da269;
   --greenFill: #e1edcf;
   --redBorder: #560001;
-  --redFill: #AD3436;
+  --redFill: #ad3436;
 
+  /* Colores fijos del hero */
+  --hero-white: #fff8f2;
+  --hero-primary: #48250b;
+  --hero-white-opacidad: rgba(255, 248, 242, 0.2);
+
+  /* Opacidades */
   --primary-opacidad: rgba(72, 37, 11, 0.2);
   --white-opacidad: rgba(255, 248, 242, 0.2);
 
+  /* Tipografía */
   --font-body: var(--font-inter);
 
+  /* Espaciado del body */
   --padding-body-mobile: 40px;
   --padding-body-desktop: 40px;
-
   --padding-body-desktop-w: 80px;
   --padding-body-mobile-w: 24px;
 
@@ -33,22 +43,15 @@
   --header-height: 80px;
 }
 
-[data-theme="dark"] {
-  --primary: #e8c9a8;
-  --secondary: #1e2d3e;
-  --white: #120906;
-  --touchable: #5a9ef8;
-  --greenBorder: #7da269;
-  --greenFill: #1a2b17;
-  --primary-opacidad: rgba(232, 201, 168, 0.15);
-  --white-opacidad: rgba(18, 9, 6, 0.2);
-}
+/* =========================================================================
+   RESET & TRANSICIONES
+   ========================================================================= */
 
 * {
   transition: all 0.4s ease;
 }
 
-/* Solo transiciones en elementos interactivos */
+/* Transiciones acotadas en elementos interactivos */
 a,
 button,
 input,
@@ -63,26 +66,19 @@ textarea,
     transform 0.2s ease;
 }
 
-input,
-textarea {
-  padding: 1em !important;
-  border-radius: 1em !important;
-  border: 1px solid var(--primary) !important;
+html,
+body {
+  width: 100%;
+  min-height: 100%;
 }
 
-/* Estado de error: tiñe de rojo el border real del input (el que tiene el
-   border-radius). En desktop el border lo tiene el <input>. */
-.glassInput.inputError input,
-.glassInput.inputError textarea {
-  border-color: #c0392b !important;
+html {
+  background-color: var(--white);
 }
 
-textarea {
-  resize: none;
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
+/* =========================================================================
+   TIPOGRAFÍA
+   ========================================================================= */
 
 h1,
 h2,
@@ -95,32 +91,7 @@ h5 {
   line-height: 1;
 }
 
-html,
-body {
-  width: 100%;
-  min-height: 100%;
-}
-
-html {
-  background-color: var(--white);
-}
-
-.sectionMain {
-  font-family: var(--font-body);
-  font-weight: 400;
-  color: var(--primary);
-
-  gap: 10em;
-
-  padding-bottom: var(--padding-body-desktop);
-  padding-left: var(--padding-body-desktop-w);
-  padding-right: var(--padding-body-desktop-w);
-}
-
-h3 {
-  font-weight: 600;
-}
-
+h3,
 h4 {
   font-weight: 600;
 }
@@ -135,13 +106,28 @@ h5 {
   font-size: 0.875rem; /* 14px */
   line-height: 1.5;
 
+  widows: 4;
+  orphans: 4;
+
+  text-wrap: pretty;
   white-space: normal;
   text-align: left;
 }
 
-.carousel {
-  overflow-x: hidden;
-  overflow-y: hidden;
+/* =========================================================================
+   LAYOUT
+   ========================================================================= */
+
+.sectionMain {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--primary);
+
+  gap: 10em;
+
+  padding-bottom: var(--padding-body-desktop);
+  padding-left: var(--padding-body-desktop-w);
+  padding-right: var(--padding-body-desktop-w);
 }
 
 .colSection {
@@ -150,46 +136,48 @@ h5 {
   gap: 1rem;
 }
 
-/* Avatar de usuario — placeholder hasta integrar auth */
-.profileImg {
-  width: 1.5em;
-  aspect-ratio: 1/1;
-  background-color: var(--secondary);
-  border-radius: 100%;
+.carousel {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-@media screen and (max-width: 640px) {
-  .sectionMain {
-    padding: var(--padding-body-mobile) var(--padding-body-mobile-w);
-  }
+/* =========================================================================
+   FORMULARIOS
+   ========================================================================= */
 
-  .carousel {
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
+input,
+textarea {
+  padding: 1em !important;
+  border-radius: 1em !important;
+  border: 1px solid var(--primary) !important;
+}
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    .colSection {
-      gap: 4em;
-    }
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+textarea {
+  resize: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .glassInput {
-  display: flex;
-  width: 100%;
-}
-
-.glassInput input,
-.glassInput textarea {
   width: 100% !important;
 }
+
+/* Foco: sin outline del navegador, border en color interactivo */
+.glassInput:focus,
+.glassInput:focus-visible {
+  outline: none !important;
+  border-color: var(--touchable) !important;
+}
+
+/* Estado de error: tiñe de rojo el border del input */
+.glassInput.inputError {
+  border-color: #c0392b !important;
+}
+
+/* =========================================================================
+   BOTONES
+   ========================================================================= */
 
 .borderButton {
   box-shadow: inset 0 0 0 1px var(--primary);
@@ -209,8 +197,63 @@ h5 {
   }
 }
 
-/* Páginas con video de fondo — colores adaptados a mobile */
+/* =========================================================================
+   UTILIDADES
+   ========================================================================= */
+
+/* Avatar de usuario — placeholder hasta integrar auth */
+.profileImg {
+  width: 1.5em;
+  aspect-ratio: 1/1;
+  background-color: var(--secondary);
+  border-radius: 100%;
+}
+
+.noScrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.noScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================================
+   RESPONSIVE — MOBILE (≤ 640px)
+   ========================================================================= */
+
 @media screen and (max-width: 640px) {
+  .sectionMain {
+    padding: var(--padding-body-mobile) var(--padding-body-mobile-w);
+  }
+
+  .carousel {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .colSection {
+      gap: 4em;
+    }
+  }
+}
+
+/* =========================================================================
+   PÁGINAS CON VIDEO DE FONDO (≤ 1000px)
+   ========================================================================= */
+
+@media screen and (max-width: 1000px) {
+  *:focus {
+    outline: none;
+  }
+
   .videoPage {
     --primary: var(--white);
     color: var(--white);
@@ -222,48 +265,43 @@ h5 {
   .videoPage h3,
   .videoPage h4,
   .videoPage h5,
-  .videoPage p,
   .videoPage span,
+  .videoPage p,
   .videoPage .sectionMain {
-    color: var(--white) !important;
+    color: var(--white);
+  }
+
+  .btn-mobile-login span {
+    color: var(--touchable) !important;
   }
 
   .videoPage .glassInput {
-    border-radius: 1em;
-    border: 1px solid rgba(255, 248, 242, 0.4);
-    background-color: var(--white-opacidad);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    overflow: hidden;
-    display: flex;
+    border-radius: 1em !important;
+    border: 1px solid rgba(255, 248, 242, 0.4) !important;
+    background-color: var(--white-opacidad) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    color: var(--white);
     width: 100% !important;
   }
 
-  /* En mobile el border lo tiene el wrapper .glassInput (el input no). */
+  .videoPage .glassInput:focus,
+  .videoPage .glassInput:focus-visible {
+    border-color: var(--touchable) !important;
+  }
+
   .videoPage .glassInput.inputError {
-    border-color: #c0392b;
+    border-color: #c0392b !important;
   }
 
-  .videoPage .glassInput input,
-  .videoPage .glassInput textarea {
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    color: var(--white) !important;
-    backdrop-filter: blur(10px) !important;
-    width: 100%;
-    display: flex;
-  }
-
-  .videoPage .glassInput input::placeholder,
-  .videoPage .glassInput textarea::placeholder {
+  .videoPage .glassInput::placeholder {
     color: rgba(255, 248, 242, 0.55) !important;
   }
 
   .videoPage .glassBtn {
     background-color: var(--white-opacidad) !important;
     border-color: rgba(255, 248, 242, 0.4) !important;
-    color: var(--white) !important;
+    color: var(--white);
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
   }

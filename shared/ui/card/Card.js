@@ -23,7 +23,10 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
         className={`${!isActive ? "min-h-[3em]" : ""} flex items-center ${style.dateDetailSection}`}
       >
         {!isActive && !hideDate ? (
-          <Link href={`/checkout/${tmdbId}`} className="hover:opacity-70 transition-opacity w-fit">
+          <Link
+            href={`/checkout/${tmdbId}`}
+            className="hover:opacity-70 transition-opacity w-fit"
+          >
             <DetailIcon icon="calendario">{displayDate}</DetailIcon>
           </Link>
         ) : (
@@ -32,7 +35,15 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
       </div>
       <div
         className={`${style.cardBox} ${isActive ? style.card : ""} rounded-xl`}
-        onClick={isActive ? (e) => { if (e.target.closest("a, button")) return; window.dispatchEvent(new CustomEvent("navigation-start")); router.push(`/movie/${tmdbId}`); } : undefined}
+        onClick={
+          isActive
+            ? (e) => {
+                if (e.target.closest("a, button")) return;
+                window.dispatchEvent(new CustomEvent("navigation-start"));
+                router.push(`/movie/${tmdbId}`);
+              }
+            : undefined
+        }
       >
         <div
           className={`${style.cardContent} ${isActive ? style.visible : style.hidden}`}
@@ -76,9 +87,7 @@ const Card = ({ tmdbId, isActive, hideDate, onClick, ...props }) => {
             {loading ? (
               <Skeleton className="h-5 w-3/4" />
             ) : (
-              <p
-                className="text-left bodyText text-[1em]! font-[600]!"
-              >
+              <p className="text-left bodyText text-[1em]! font-[600]!">
                 {tmdbData?.titulo}, {tmdbData?.anio}
               </p>
             )}

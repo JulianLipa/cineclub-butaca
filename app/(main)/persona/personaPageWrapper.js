@@ -13,13 +13,17 @@ const PersonaPageWrapper = ({ persona }) => {
 
   return (
     <div>
-      <div className="sectionMain flex justify-start pb-0!">
+      <div className="sectionMain flex justify-start pb-0! sm:hidden">
         <BackButton />
       </div>
-      <div className="sectionMain relative flex flex-col sm:flex-row gap-10! top-0">
+      <div className="sectionMain relative flex flex-col sm:flex-row gap-10! sm:py-(--padding-body-desktop)">
         <PersonaSidebar data={persona} />
 
         <div className="w-full sm:w-[70%] flex flex-col gap-10 sm:py-(--padding-body-desktop)">
+          <div className="hidden sm:block">
+            <BackButton />
+          </div>
+
           {persona?.biografia && (
             <div className="colSection">
               <SectionTitle>Biografía</SectionTitle>

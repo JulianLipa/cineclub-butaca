@@ -8,7 +8,7 @@ import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler
 
 import { useCarousel } from "@/shared/hooks/useCarousel";
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
-import { isSameScreeningDay, sortByDateDesc } from "@/lib/dates";
+import { isSameScreeningDay, sortByScreeningDate } from "@/lib/dates";
 import CicloCard from "@/shared/ui/cicloCard/CicloCard";
 
 const FuncionesSection = ({
@@ -18,7 +18,7 @@ const FuncionesSection = ({
   iconVariant,
   type = "funciones",
 }) => {
-  const cards = type === "funciones" ? sortByDateDesc(items) : items;
+  const cards = type === "funciones" ? sortByScreeningDate(items) : items;
 
   const {
     activeIndex,

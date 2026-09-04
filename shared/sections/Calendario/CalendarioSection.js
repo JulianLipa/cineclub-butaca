@@ -9,11 +9,33 @@ import CarouselHandler from "@/shared/components/carouselHandler/CarouselHandler
 import MonthSlide from "./MonthSlide";
 
 import { fadeIn } from "@/shared/ui/animations/motionPresets";
-import { eventos as events } from "@/data.json";
+import { eventos, funciones } from "@/data.json";
+import { parseScreeningDate, dateToISO } from "@/lib/dates";
 import { useState } from "react";
 import { maskStyle } from "./calendarioUtils";
 
 const MONTHS = Array.from({ length: 12 }, (_, i) => i);
+
+// Fuente única: las funciones salen del array `funciones` (mismo dato que
+// "Próximas funciones"); en `eventos` solo viven los ciclos. Acá se derivan
+// las funciones a la forma que consume el calendario (objeto por fecha ISO).
+const funcionEvents = Object.fromEntries(
+  funciones.map((funcion) => [
+    dateToISO(parseScreeningDate(funcion.date)),
+    {
+      type: "funcion",
+      title: funcion.title,
+      tmdbId: funcion.tmdbId,
+      horario: funcion.hour?.replace(/hs$/, ""),
+    },
+  ]),
+);
+
+const events = Object.fromEntries(
+  Object.entries({ ...eventos, ...funcionEvents }).sort(([a], [b]) =>
+    a < b ? -1 : a > b ? 1 : 0,
+  ),
+);
 
 const FILTERS = [
   { label: "Todos", value: null, icon: null },

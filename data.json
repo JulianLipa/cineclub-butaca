@@ -100,7 +100,7 @@
   "funciones": [
     {
       "title": "El Dependiente",
-      "date": "04/07/26",
+      "date": "18/09/26",
       "hour": "19:45hs",
       "place": "Sala Malba",
       "cycle": "Vanguardias y Resistencia",
@@ -115,7 +115,7 @@
     {
       "title": "Carrie",
       "tmdbId": "7340",
-      "date": "11/06/26",
+      "date": "11/09/26",
       "hour": "19:45hs",
       "place": "Sala Malba",
       "cycle": "Culto",
@@ -129,7 +129,7 @@
     {
       "title": "La Ciénaga",
       "tmdbId": "58429",
-      "date": "18/06/26",
+      "date": "25/09/26",
       "hour": "20:00hs",
       "place": "Sala Lugones",
       "cycle": "Nuevo Cine Argentino"
@@ -137,7 +137,7 @@
     {
       "title": "Cléo de 5 à 7",
       "tmdbId": "499",
-      "date": "25/06/26",
+      "date": "04/10/26",
       "hour": "20:15hs",
       "place": "Sala Lugones",
       "cycle": "Miradas Feministas"
@@ -145,7 +145,7 @@
     {
       "title": "París, Texas",
       "tmdbId": "655",
-      "date": "09/07/26",
+      "date": "09/10/26",
       "hour": "22:10hs",
       "place": "MALBA",
       "cycle": "Joyas del Cine Independiente"
@@ -153,7 +153,7 @@
     {
       "title": "Nueve Reinas",
       "tmdbId": "18079",
-      "date": "23/07/26",
+      "date": "23/10/26",
       "hour": "21:30hs",
       "place": "Sala Cosmos",
       "cycle": "Clásicos Modernos"
@@ -161,7 +161,7 @@
     {
       "title": "Memorias del subdesarrollo",
       "tmdbId": "47576",
-      "date": "06/08/26",
+      "date": "06/11/26",
       "hour": "20:15hs",
       "place": "Sala Lugones",
       "cycle": "Cine Revolucionario Latinoamericano"
@@ -169,7 +169,7 @@
     {
       "title": "Suspiria",
       "tmdbId": "11906",
-      "date": "20/08/26",
+      "date": "20/11/26",
       "hour": "20:00hs",
       "place": "Sala Lugones",
       "cycle": "Terror Italiano"
@@ -177,7 +177,7 @@
     {
       "title": "Los traidores",
       "tmdbId": "226216",
-      "date": "03/09/26",
+      "date": "03/12/26",
       "hour": "23:00hs",
       "place": "Sala Malba",
       "cycle": "Cine y Militancia"
@@ -185,7 +185,7 @@
     {
       "title": "Chungking Express",
       "tmdbId": "11104",
-      "date": "17/09/26",
+      "date": "17/12/26",
       "hour": "21:00hs",
       "place": "Sala Cosmos",
       "cycle": "Autores de Culto"
@@ -193,7 +193,7 @@
     {
       "title": "La hora de los hornos",
       "tmdbId": "89681",
-      "date": "24/09/26",
+      "date": "24/12/26",
       "hour": "19:30hs",
       "place": "Sala Lugones",
       "cycle": "Cine Liberación"
@@ -290,137 +290,71 @@
     }
   ],
   "eventos": {
-    "2026-06-11": {
-      "title": "Carrie",
-      "type": "funcion",
-      "tmdbId": "7340",
-      "horario": "19:45"
-    },
-    "2026-06-13": {
+    "2026-09-13": {
       "title": "Cine, Vanguardia y Ruptura Formal",
       "type": "ciclo",
       "id": "cine-vanguardia-y-ruptura-formal",
       "horario": "19:00"
     },
-    "2026-06-18": {
-      "title": "La Ciénaga",
-      "type": "funcion",
-      "tmdbId": "58429",
-      "horario": "20:00"
-    },
-    "2026-06-20": {
+    "2026-09-20": {
       "title": "Soledades Urbanas y Mitos de Culto",
       "type": "ciclo",
       "id": "soledades-urbanas-y-mitos-de-culto",
       "horario": "19:00"
     },
-    "2026-06-25": {
-      "title": "Cléo de 5 à 7",
-      "type": "funcion",
-      "tmdbId": "499",
-      "horario": "20:15"
-    },
-    "2026-06-27": {
+    "2026-09-27": {
       "title": "La Argentina del Desengaño y el Fin de Siglo",
       "type": "ciclo",
       "id": "la-argentina-del-desengano-y-el-fin-de-siglo",
       "horario": "19:30"
     },
-    "2026-07-04": {
-      "title": "El Dependiente",
-      "type": "funcion",
-      "tmdbId": "36785",
-      "horario": "19:45"
-    },
-    "2026-07-09": {
-      "title": "París, Texas",
-      "type": "funcion",
-      "tmdbId": "655",
-      "horario": "22:10"
-    },
-    "2026-07-11": {
+    "2026-10-11": {
       "title": "Estéticas Feministas y Deseo Subversivo",
       "type": "ciclo",
       "id": "esteticas-feministas-y-deseo-subversivo",
       "horario": "19:00"
     },
-    "2026-07-18": {
+    "2026-10-18": {
       "title": "Indie Global: Márgenes del Mainstream",
       "type": "ciclo",
       "id": "indie-global-margenes-del-mainstream",
       "horario": "19:30"
     },
-    "2026-07-23": {
-      "title": "Nueve Reinas",
-      "type": "funcion",
-      "tmdbId": "18079",
-      "horario": "21:30"
-    },
-    "2026-07-25": {
+    "2026-10-25": {
       "title": "América Latina en Llamas",
       "type": "ciclo",
       "id": "america-latina-en-llamas",
       "horario": "19:00"
     },
-    "2026-08-01": {
+    "2026-11-01": {
       "title": "Obsesiones y Universos de Autor",
       "type": "ciclo",
       "id": "obsesiones-y-universos-de-autor",
       "horario": "19:30"
     },
-    "2026-08-06": {
-      "title": "Memorias del subdesarrollo",
-      "type": "funcion",
-      "tmdbId": "47576",
-      "horario": "20:15"
-    },
-    "2026-08-15": {
+    "2026-11-15": {
       "title": "Maestros del Terror Europeo",
       "type": "ciclo",
       "id": "maestros-del-terror-europeo",
       "horario": "20:00"
     },
-    "2026-08-20": {
-      "title": "Suspiria",
-      "type": "funcion",
-      "tmdbId": "11906",
-      "horario": "20:00"
-    },
-    "2026-08-29": {
+    "2026-11-29": {
       "title": "El Trabajador en el Cine y la Crisis Social",
       "type": "ciclo",
       "id": "el-trabajador-en-el-cine-y-la-crisis-social",
       "horario": "19:00"
     },
-    "2026-09-03": {
-      "title": "Los traidores",
-      "type": "funcion",
-      "tmdbId": "226216",
-      "horario": "23:00"
-    },
-    "2026-09-12": {
+    "2026-12-12": {
       "title": "Conflictos de Clase y Memoria Histórica",
       "type": "ciclo",
       "id": "conflictos-de-clase-y-memoria-historica",
       "horario": "19:30"
     },
-    "2026-09-17": {
-      "title": "Chungking Express",
-      "type": "funcion",
-      "tmdbId": "11104",
-      "horario": "21:00"
-    },
-    "2026-09-19": {
+    "2026-12-19": {
       "title": "Tercer Cine y Descolonización Cultural",
       "type": "ciclo",
       "id": "tercer-cine-y-descolonizacion-cultural",
       "horario": "19:00"
-    },
-    "2026-09-24": {
-      "title": "La hora de los hornos",
-      "type": "funcion",
-      "tmdbId": "89681",
-      "horario": "19:30"
     }
   },
   "diasSemana": ["L", "M", "X", "J", "V", "S", "D"],

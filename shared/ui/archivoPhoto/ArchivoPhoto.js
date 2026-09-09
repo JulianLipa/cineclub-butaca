@@ -27,7 +27,11 @@ const ArchivoPhoto = ({ img, alt, funcion, span = "", sizes }) => {
       {/* Ícono de pantalla completa — solo desktop, al hover */}
       <div className="pointer-events-none absolute right-2 top-2 hidden h-9 w-9 items-center justify-center rounded-full bg-black/50 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 sm:flex z-50">
         <div className="h-4 w-4">
-          <Icon name="fullscreen" variant="negative" color="var(--hero-white)" />
+          <Icon
+            name="fullscreen"
+            variant="negative"
+            color="var(--hero-white)"
+          />
         </div>
       </div>
 

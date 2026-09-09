@@ -1,29 +1,12 @@
-import Image from "next/image";
 import Skeleton from "@/shared/components/skeleton/Skeleton.js";
 import FadeIn from "@/shared/components/skeleton/FadeIn.js";
+import PersonaFoto from "./PersonaFoto.js";
 
 const PersonaSidebar = ({ data }) => (
   <div className="w-full sm:w-[30%] sm:sticky top-(--header-height) sm:max-h-svh rounded-3xl flex sm:flex-col gap-4 sm:px-4 sm:overflow-y-auto">
     {/* Foto */}
     <div className="w-50 sm:w-[80%] bg-(--white) rounded-3xl sm:p-4 sm:-ml-4">
-      <FadeIn
-        loading={!data}
-        skeleton={<Skeleton className="w-full aspect-[2/3] rounded-3xl" />}
-      >
-        {data &&
-          (data.foto ? (
-            <Image
-              src={data.foto}
-              alt={data.nombre || ""}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="h-auto w-full rounded-3xl object-cover object-top"
-            />
-          ) : (
-            <div className="w-full aspect-[2/3] rounded-3xl bg-(--secondary)" />
-          ))}
-      </FadeIn>
+      <PersonaFoto data={data} />
     </div>
 
     <div className="w-full flex flex-col gap-4">

@@ -54,7 +54,10 @@ export async function PATCH(request) {
 
   const index = data.usuarios.findIndex((u) => u.id === id);
   if (index === -1) {
-    return NextResponse.json({ error: "Usuario no encontrado" }, { status: 404 });
+    return NextResponse.json(
+      { error: "Usuario no encontrado" },
+      { status: 404 },
+    );
   }
 
   const safeUpdates = buildSafeUpdates(updates);
@@ -67,7 +70,10 @@ export async function PATCH(request) {
     );
     if (!ok) {
       return NextResponse.json(
-        { field: "currentPassword", error: "La contraseña actual es incorrecta" },
+        {
+          field: "currentPassword",
+          error: "La contraseña actual es incorrecta",
+        },
         { status: 401 },
       );
     }

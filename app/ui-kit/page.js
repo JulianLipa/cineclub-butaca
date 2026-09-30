@@ -136,7 +136,7 @@ function CodeBlock({ code, id, copy, copied }) {
       >
         {copied === id ? "¡Copiado!" : "Copiar"}
       </button>
-      <pre className="overflow-x-auto bg-(--primary) p-4 text-[12px] leading-relaxed text-(--white)">
+      <pre className="overflow-x-auto whitespace-pre-wrap break-words bg-(--primary) p-4 pr-20 text-[12px] leading-relaxed text-(--white)">
         <code>{code}</code>
       </pre>
     </div>
@@ -461,20 +461,29 @@ export default function UiKitPage() {
           title="Cards"
           desc="Componentes de contenido. Los que reciben tmdbId traen datos reales de TMDB; el resto usan datos mock."
         >
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="flex flex-col gap-6">
             <Demo title="Card · función (activa)" path="shared/ui/card/Card.js" id="c-1" copy={copy} copied={copied}
               code={'<Card tmdbId={27205} isActive date="15/10/26" hour="20:30" place="Sala Lugones" />'}>
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-md">
                 <Card tmdbId={TMDB.inception} isActive date="15/10/26" hour="20:30" place="Sala Lugones" />
               </div>
             </Demo>
 
-            <Demo title="MovieCard" path="shared/ui/movieCard/MovieCard.js" id="c-2" copy={copy} copied={copied}
-              code={'<MovieCard tmdbId={238} text actionsIcons={["eye", "like"]} />'}>
-              <div className="w-40">
-                <MovieCard tmdbId={TMDB.godfather} text actionsIcons={["eye", "like"]} />
-              </div>
-            </Demo>
+            <div className="grid gap-6 md:grid-cols-2">
+              <Demo title="MovieCard" path="shared/ui/movieCard/MovieCard.js" id="c-2" copy={copy} copied={copied}
+                code={'<MovieCard tmdbId={238} text actionsIcons={["eye", "like"]} />'}>
+                <div className="w-44">
+                  <MovieCard tmdbId={TMDB.godfather} text actionsIcons={["eye", "like"]} />
+                </div>
+              </Demo>
+
+              <Demo title="PersonCard" path="shared/ui/personCard/PersonCard.js" id="c-5" copy={copy} copied={copied}
+                code={'<PersonCard data={{ foto, nombre, personaje }} />'}>
+                <div className="w-44">
+                  <PersonCard data={MOCK.persona} />
+                </div>
+              </Demo>
+            </div>
 
             <Demo title="MovieRow" path="shared/ui/movieCard/MovieRow.js" id="c-3" copy={copy} copied={copied}
               code={'<MovieRow tmdbId={550} index={0} />'}>
@@ -486,39 +495,32 @@ export default function UiKitPage() {
 
             <Demo title="CicloCard" path="shared/ui/cicloCard/CicloCard.js" id="c-4" copy={copy} copied={copied}
               code={'<CicloCard id={1} title="Ciclo de Terror" description="…" portada="/imgs/cineclub.jpg" isActive />'}>
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-md">
                 <CicloCard id={1} title="Ciclo de Terror Psicológico" description="Cuatro clásicos restaurados en 35mm." portada="/imgs/cineclub.jpg" isActive onClick={() => {}} />
-              </div>
-            </Demo>
-
-            <Demo title="PersonCard" path="shared/ui/personCard/PersonCard.js" id="c-5" copy={copy} copied={copied}
-              code={'<PersonCard data={{ foto, nombre, personaje }} />'}>
-              <div className="w-40">
-                <PersonCard data={MOCK.persona} />
               </div>
             </Demo>
 
             <Demo title="FrameCard" path="shared/ui/frameCard/FrameCard.js" id="c-6" copy={copy} copied={copied}
               code={'<FrameCard data={{ img, movieTitle, anio, username, tmdbId, caption }} />'}>
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-md">
                 <FrameCard data={MOCK.frame} />
               </div>
             </Demo>
+
+            <Demo title="ReviewCard" path="shared/ui/reviewCard/ReviewCard.js" id="c-7" copy={copy} copied={copied}
+              code={'<ReviewCard data={{ username, tmdbId, rating, text, likes, comentarios }} />'}>
+              <div className="w-full">
+                <ReviewCard data={MOCK.resena} />
+              </div>
+            </Demo>
+
+            <Demo title="NewsCard" path="shared/ui/newsCard/NewsCard.js" id="c-8" copy={copy} copied={copied}
+              code={'<NewsCard data={{ id, img, titulo, copete, descripcion, tematicas }} />'}>
+              <div className="w-full">
+                <NewsCard data={MOCK.noticia} />
+              </div>
+            </Demo>
           </div>
-
-          <Demo title="ReviewCard" path="shared/ui/reviewCard/ReviewCard.js" id="c-7" copy={copy} copied={copied}
-            code={'<ReviewCard data={{ username, tmdbId, rating, text, likes, comentarios }} />'}>
-            <div className="w-full">
-              <ReviewCard data={MOCK.resena} />
-            </div>
-          </Demo>
-
-          <Demo title="NewsCard" path="shared/ui/newsCard/NewsCard.js" id="c-8" copy={copy} copied={copied}
-            code={'<NewsCard data={{ id, img, titulo, copete, descripcion, tematicas }} />'}>
-            <div className="w-full">
-              <NewsCard data={MOCK.noticia} />
-            </div>
-          </Demo>
         </Section>
 
         {/* ═════════════ LISTAS ═════════════ */}

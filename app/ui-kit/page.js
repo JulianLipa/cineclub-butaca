@@ -22,6 +22,10 @@ import ReviewCard from "@/shared/ui/reviewCard/ReviewCard";
 import NewsCard from "@/shared/ui/newsCard/NewsCard";
 import FrameCard from "@/shared/ui/frameCard/FrameCard";
 import List from "@/shared/ui/list/List";
+import Header from "@/shared/components/header/Header";
+import Footer from "@/shared/components/footer/Footer";
+import HeroControls from "@/shared/sections/Hero/HeroControls";
+import VoteBanner from "@/shared/sections/VoteBanner/VoteBanner";
 
 /* ═══════════════════════════════════════════════════════════════════════
    DATOS DE MUESTRA
@@ -107,6 +111,45 @@ const NAV = [
   ["detalles", "Detalles y badges"],
   ["cards", "Cards"],
   ["listas", "Listas"],
+  ["header", "Header"],
+  ["secciones", "Secciones"],
+  ["pages", "Pages"],
+];
+
+// Catálogo de rutas de la app (app/ router). Las estáticas son navegables;
+// las dinámicas ([param]) se muestran como referencia.
+const PAGES = [
+  { group: "Núcleo", items: [
+    { path: "/", desc: "Home · próximas funciones + calendario", dynamic: false },
+    { path: "/funciones", desc: "Cartelera completa", dynamic: false },
+    { path: "/comunidad", desc: "Muro de la comunidad", dynamic: false },
+    { path: "/archivo", desc: "Archivo histórico de funciones", dynamic: false },
+  ]},
+  { group: "Contenido", items: [
+    { path: "/movie/[id]", desc: "Detalle de película", dynamic: true },
+    { path: "/ciclo/[id]", desc: "Detalle de ciclo", dynamic: true },
+    { path: "/persona/[id]", desc: "Perfil de persona (TMDB)", dynamic: true },
+    { path: "/noticia/[id]", desc: "Nota / noticia", dynamic: true },
+    { path: "/lista", desc: "Índice de listas", dynamic: false },
+    { path: "/lista/[id]", desc: "Detalle de lista", dynamic: true },
+    { path: "/tema/[id]", desc: "Hilo temático", dynamic: true },
+  ]},
+  { group: "Usuario", items: [
+    { path: "/perfil", desc: "Perfil propio", dynamic: false },
+    { path: "/perfil/[username]", desc: "Perfil público", dynamic: true },
+    { path: "/resena/[id]", desc: "Detalle de reseña", dynamic: true },
+    { path: "/admin", desc: "Panel de administración", dynamic: false },
+  ]},
+  { group: "Flujo", items: [
+    { path: "/login", desc: "Ingreso", dynamic: false },
+    { path: "/signup", desc: "Registro", dynamic: false },
+    { path: "/checkout/[tmdbId]", desc: "Compra de entradas", dynamic: true },
+    { path: "/qr", desc: "Pantalla de proyección + QR", dynamic: false },
+    { path: "/qr/scan/[room]", desc: "Registro por escaneo", dynamic: true },
+  ]},
+  { group: "Sistema", items: [
+    { path: "/ui-kit", desc: "Esta página", dynamic: false },
+  ]},
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -143,7 +186,7 @@ function CodeBlock({ code, id, copy, copied }) {
   );
 }
 
-function Demo({ title, path, code, dark, children, id, copy, copied }) {
+function Demo({ title, path, code, dark, flush, children, id, copy, copied }) {
   return (
     <div className="flex flex-col overflow-hidden rounded-2xl border border-(--primary)/15">
       <div className="flex items-center justify-between gap-3 border-b border-(--primary)/10 px-4 py-2">
@@ -153,13 +196,27 @@ function Demo({ title, path, code, dark, children, id, copy, copied }) {
         )}
       </div>
       <div
-        className="flex flex-wrap items-center gap-4 p-6"
+        className={flush ? "relative" : "flex flex-wrap items-center gap-4 p-6"}
         style={{ background: dark ? "var(--primary)" : "var(--white)" }}
       >
         {children}
       </div>
       {code && <CodeBlock code={code} id={id} copy={copy} copied={copied} />}
     </div>
+  );
+}
+
+// HeroControls necesita estado (play/mute); lo envolvemos para el demo.
+function HeroControlsDemo() {
+  const [playing, setPlaying] = useState(true);
+  const [muted, setMuted] = useState(true);
+  return (
+    <HeroControls
+      playing={playing}
+      muted={muted}
+      onTogglePlay={() => setPlaying((p) => !p)}
+      onToggleMute={() => setMuted((m) => !m)}
+    />
   );
 }
 
@@ -535,6 +592,82 @@ export default function UiKitPage() {
               <List {...MOCK.lista} />
             </div>
           </Demo>
+        </Section>
+
+        {/* ═════════════ HEADER ═════════════ */}
+        <Section
+          id="header"
+          title="Header"
+          desc="Barra de navegación global: logo, links, buscador con resultados en vivo (/api/search) y CTA de usuario. Se adapta a mobile con menú hamburguesa. Renderizado real abajo."
+        >
+          <Demo title="Header" path="shared/components/header/Header.js" id="h-1" flush copy={copy} copied={copied}
+            code={'// Se monta una sola vez en app/(main)/layout.tsx vía ConditionalHeader\n<Header />'}>
+            <div className="relative w-full overflow-hidden">
+              <Header />
+            </div>
+          </Demo>
+        </Section>
+
+        {/* ═════════════ SECCIONES ═════════════ */}
+        <Section
+          id="secciones"
+          title="Secciones"
+          desc="Bloques compuestos que arman las páginas: controles del hero, banner de votación y pie de página."
+        >
+          <Demo title="HeroControls" path="shared/sections/Hero/HeroControls.js" id="s-1" dark copy={copy} copied={copied}
+            code={'<HeroControls playing={playing} muted={muted} onTogglePlay={fn} onToggleMute={fn} />'}>
+            <HeroControlsDemo />
+          </Demo>
+
+          <Demo title="VoteBanner" path="shared/sections/VoteBanner/VoteBanner.js" id="s-2" copy={copy} copied={copied}
+            code={'<VoteBanner />'}>
+            <div className="w-full">
+              <VoteBanner />
+            </div>
+          </Demo>
+
+          <Demo title="Footer" path="shared/components/footer/Footer.js" id="s-3" flush copy={copy} copied={copied}
+            code={'// Se monta una sola vez en app/(main)/layout.tsx\n<Footer />'}>
+            <div className="w-full overflow-hidden">
+              <Footer />
+            </div>
+          </Demo>
+        </Section>
+
+        {/* ═════════════ PAGES ═════════════ */}
+        <Section
+          id="pages"
+          title="Pages"
+          desc="Mapa de rutas del App Router. Las estáticas son navegables; las dinámicas ([param]) se muestran como referencia."
+        >
+          <div className="grid gap-6 sm:grid-cols-2">
+            {PAGES.map((bloque) => (
+              <div key={bloque.group} className="flex flex-col gap-3 rounded-2xl border border-(--primary)/15 p-5">
+                <h3 className="bodyText font-[700]! opacity-70">{bloque.group}</h3>
+                <div className="flex flex-col divide-y divide-(--primary)/10">
+                  {bloque.items.map((p) => (
+                    <div key={p.path} className="flex items-baseline justify-between gap-3 py-2">
+                      <div className="flex flex-col gap-0.5">
+                        {p.dynamic ? (
+                          <code className="font-mono text-[13px] opacity-70">{p.path}</code>
+                        ) : (
+                          <a href={p.path} className="font-mono text-[13px] text-(--touchable) hover:underline">
+                            {p.path}
+                          </a>
+                        )}
+                        <span className="text-[12px] opacity-55">{p.desc}</span>
+                      </div>
+                      {p.dynamic && (
+                        <span className="shrink-0 rounded-full border border-(--primary)/25 px-2 py-0.5 text-[10px] opacity-50">
+                          dinámica
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </Section>
 
         <footer className="border-t border-(--primary)/15 pt-8 text-center">
